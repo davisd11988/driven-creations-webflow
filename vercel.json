@@ -35,6 +35,41 @@
       "source": "/dc-landing-complete",
       "destination": "/",
       "statusCode": 301
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact-us",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact-us",
+      "statusCode": 301
+    },
+    {
+      "source": "/blogs/:slug*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/:slug*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/projects/:slug*",
+      "destination": "/work",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolio/:slug*",
+      "destination": "/work",
+      "statusCode": 301
+    },
+    {
+      "source": "/case-studies/:slug*",
+      "destination": "/work",
+      "statusCode": 301
     }
   ]
 }
