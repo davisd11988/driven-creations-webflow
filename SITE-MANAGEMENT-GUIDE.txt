@@ -1,0 +1,444 @@
+================================================================================
+  DRIVEN CREATIONS - SITE MANAGEMENT GUIDE
+  Last Updated: February 23, 2026
+================================================================================
+
+
+TABLE OF CONTENTS
+-----------------
+1. Where Everything Lives (Accounts & Logins)
+2. Project File Structure
+3. How to Edit Content
+4. How to Edit Styles (CSS)
+5. How to Edit Animations & Interactions (JavaScript)
+6. How to Add a New Project Case Study
+7. How to Deploy Changes (Push Live)
+8. Domain & DNS Management
+9. Using Claude Code to Edit
+10. Common Tasks (Quick Reference)
+11. Troubleshooting
+
+
+================================================================================
+1. WHERE EVERYTHING LIVES (ACCOUNTS & LOGINS)
+================================================================================
+
+LIVE SITE
+  URL:            https://drivencreations.com
+  Also:           https://www.drivencreations.com
+  Hosted on:      Vercel (static deployment)
+
+VERCEL (Hosting)
+  Dashboard:      https://vercel.com
+  Account:        drivencreations-3141
+  Team/Scope:     derricks-projects-85a0451e
+  Project Name:   driven-creations-webflow
+  Direct Link:    https://vercel.com/derricks-projects-85a0451e/driven-creations-webflow
+
+GITHUB (Code Repository)
+  Repo URL:       https://github.com/davisd11988/driven-creations-webflow
+  Branch:         main
+  Visibility:     Private
+
+GODADDY (Domain Registrar / DNS)
+  Domain:         drivencreations.com
+  DNS Managed At: https://dcc.godaddy.com/control/drivencreations.com/dns
+
+LOCAL PROJECT FOLDER
+  Path:           /Users/drivencreations/Desktop/driven-creations-webflow/
+
+NOTE: Vercel is NOT auto-connected to GitHub (the GitHub app was never
+installed). This means pushing to GitHub does NOT auto-deploy. You must
+manually deploy via the Vercel CLI after pushing. See Section 7.
+
+
+================================================================================
+2. PROJECT FILE STRUCTURE
+================================================================================
+
+driven-creations-webflow/
+|
+|-- index.html                    <-- HOMEPAGE
+|-- about.html                    <-- ABOUT PAGE
+|-- services.html                 <-- SERVICES PAGE
+|-- work.html                     <-- WORK/PORTFOLIO PAGE
+|-- contact.html                  <-- CONTACT PAGE
+|
+|-- work/                         <-- PROJECT CASE STUDY SUBPAGES
+|   |-- 1choice.html
+|   |-- acelar.html
+|   |-- akkuun.html
+|   |-- civic-link.html
+|   |-- digiart-nft.html
+|   |-- dj-fresh.html
+|   |-- forgent-power.html
+|   |-- iron-guardian.html
+|   |-- olunike.html
+|   |-- paramount-development.html
+|   |-- prepaid-app.html
+|   |-- pwrq.html
+|   |-- safety-security-consultants.html
+|   |-- style-by-chanel.html
+|   |-- v-tech-solutions.html
+|
+|-- css/
+|   |-- shared.css                <-- ALL STYLES (one file for entire site)
+|
+|-- js/
+|   |-- shared.js                 <-- MAIN JS (navbar, modals, animations)
+|   |-- loader.js                 <-- HOMEPAGE LOADER (video intro animation)
+|   |-- chroma-key.js             <-- CHROMA KEY EFFECT (Drive vs Deadline)
+|
+|-- images/                       <-- ALL IMAGE ASSETS
+|   |-- dc-logo-full-white.svg    <-- Main logo
+|   |-- favicon.ico               <-- Browser tab icon
+|   |-- favicon.svg               <-- SVG favicon
+|   |-- derrick-headshot.jpg      <-- Founder photo
+|   |-- logos/                    <-- Client logo images
+|   |-- work/                     <-- Project thumbnail/hero images
+|
+|-- videos/                       <-- ALL VIDEO ASSETS
+|   |-- bg-topaz-hero.mp4         <-- Homepage hero background
+|   |-- loader-drive.webm         <-- Loader animation
+|   |-- drive_deadline_clash_purple.mp4
+|   |-- (+ project B-roll videos)
+|
+|-- fonts/                        <-- CUSTOM FONTS
+|   |-- integralcf-bold.otf
+|   |-- integralcf-extrabold.otf
+|   |-- integralcf-medium.otf
+|
+|-- vercel.json                   <-- VERCEL CONFIG (clean URLs, headers, redirects)
+|-- .gitignore                    <-- Files excluded from Git
+|-- dc-landing-complete.html      <-- OLD landing page (redirects to / via vercel.json)
+|-- webflow-export/               <-- HTMLtoFlow conversion files (reference only)
+
+
+================================================================================
+3. HOW TO EDIT CONTENT
+================================================================================
+
+All content is in plain HTML files. To change text, images, or links:
+
+CHANGING TEXT
+  1. Open the relevant HTML file (e.g., index.html for homepage)
+  2. Find the text you want to change
+  3. Edit the text between the HTML tags
+  4. Save the file
+  5. Deploy (see Section 7)
+
+  Example - Change the homepage hero subtitle:
+    Find:    <div class="hero-subtitle">We build brands that break through</div>
+    Change:  <div class="hero-subtitle">Your new tagline here</div>
+
+CHANGING IMAGES
+  1. Add your new image to the /images/ folder (or /images/work/ for projects)
+  2. Open the HTML file
+  3. Find the <img> tag and update the src="" path
+  4. Save and deploy
+
+  Example:
+    Find:    <img src="images/work/forgent-thumbnail.jpg" alt="Forgent Power">
+    Change:  <img src="images/work/new-image.jpg" alt="New Project">
+
+CHANGING LINKS
+  Find the <a> tag and update the href="" value.
+
+  Example - Update a "View Live Site" link on a project page:
+    Find:    <a href="https://old-url.com" target="_blank">
+    Change:  <a href="https://new-url.com" target="_blank">
+
+CHANGING THE VIDEO MODAL (Watch Episode 1 button)
+  File:     js/shared.js
+  Line:     ~24
+  Current:  iframe.setAttribute('src', 'https://www.youtube.com/embed/im-qtaIxbYk?autoplay=1&rel=0');
+
+  To change the video, replace "im-qtaIxbYk" with a new YouTube video ID.
+  The video ID is the part after "youtu.be/" or "v=" in a YouTube URL.
+
+
+================================================================================
+4. HOW TO EDIT STYLES (CSS)
+================================================================================
+
+ALL styles live in one file: css/shared.css
+
+This is a large file. Key sections (search for these comments/class names):
+
+  GLOBAL STYLES         body, *, box-sizing, font defaults
+  FONTS                 @font-face declarations for Integral CF
+  NAVBAR                .navbar, .nav-link, .hamburger
+  HERO                  .hero-section, .hero-title, .hero-subtitle
+  MARQUEE               .work-samples-marquee
+  SERVICES              .services-section, .service-card
+  PORTFOLIO             .portfolio-section, .portfolio-card
+  PROCESS               .process-section, .process-step
+  STORY (Characters)    .story-section, .character-card
+  TESTIMONIALS          .testimonials-section, .testimonial-card
+  CTA                   .cta-section
+  FOOTER                .footer
+  ABOUT PAGE            .about-hero, .superpower-card, .founder-section
+  SERVICES PAGE         .service-detail-card
+  WORK PAGE             .work-grid
+  CONTACT PAGE          .contact-form, .contact-info
+  PROJECT PAGES         .project-hero, .project-overview, .project-showcase
+  RESPONSIVE            @media queries at the bottom
+
+COLORS (commonly used throughout the site):
+  Background:       #0a0a0a (near-black)
+  Primary Purple:   #7c3aed
+  Accent Gold:      #facc15
+  Text White:       #ffffff
+  Text Gray:        #a0a0a0, #666666
+  Card Background:  #111111, #1a1a1a
+
+TO CHANGE A COLOR SITE-WIDE:
+  Use Find & Replace in your editor to replace the hex code globally.
+
+
+================================================================================
+5. HOW TO EDIT ANIMATIONS & INTERACTIONS (JavaScript)
+================================================================================
+
+js/shared.js - Main interactions file
+  - Mobile hamburger menu toggle
+  - Navbar scroll behavior (shrink on scroll)
+  - Video modal (Watch Episode 1 popup)
+  - Scroll-triggered animations (fade in, slide up)
+  - Portfolio card hover effects
+  - Character card interactions (Story section)
+  - Testimonial carousel behavior
+
+js/loader.js - Homepage loader
+  - The intro video animation that plays when the homepage first loads
+  - Controls the "DRIVE" text reveal and transition to main content
+
+js/chroma-key.js - Chroma key effect
+  - Used for the Drive vs Deadline video clash section
+  - Canvas-based video compositing
+
+
+================================================================================
+6. HOW TO ADD A NEW PROJECT CASE STUDY
+================================================================================
+
+All project pages follow the same structure. Easiest method:
+
+STEP 1: DUPLICATE AN EXISTING PROJECT FILE
+  Copy:   work/forgent-power.html
+  Paste:  work/your-new-project.html
+
+STEP 2: EDIT THE NEW FILE
+  Update these sections (search for them in the HTML):
+
+  a) <title> tag - Page title for browser tab
+  b) Project Hero - Title, tagline, category tag, gradient colors
+  c) Project Overview - Challenge text, Client, Services, Industry, Year
+  d) View Live Site link - Update the href URL
+  e) Showcase - Replace video/image source
+  f) The Approach - Two blocks with title, description, image
+  g) Results - Three stat cards (number + label)
+  h) More Projects - Three related project cards at the bottom
+
+STEP 3: ADD IMAGES/VIDEOS
+  Add project images to:  images/work/
+  Add project videos to:  videos/
+
+STEP 4: ADD TO PORTFOLIO GRIDS
+  Add a card linking to the new project in:
+  - index.html (homepage portfolio section, ~6 cards shown)
+  - work.html (full portfolio grid, all projects shown)
+
+STEP 5: DEPLOY
+  See Section 7.
+
+
+================================================================================
+7. HOW TO DEPLOY CHANGES (PUSH LIVE)
+================================================================================
+
+After editing files locally, you need to do TWO things:
+
+--- STEP 1: SAVE TO GITHUB ---
+
+Open Terminal. Run these commands:
+
+  cd ~/Desktop/driven-creations-webflow
+  git add -A
+  git commit -m "Describe what you changed"
+  git push
+
+This saves your changes to the GitHub backup. But it does NOT update
+the live site (Vercel is not auto-connected to GitHub).
+
+--- STEP 2: DEPLOY TO VERCEL ---
+
+In the same Terminal, run:
+
+  npx vercel --prod --yes --scope derricks-projects-85a0451e
+
+Wait for it to finish (usually 10-20 seconds). It will show:
+  "Production: https://driven-creations-webflow-xxxxx.vercel.app"
+
+Your changes are now live at https://drivencreations.com
+
+--- QUICK ONE-LINER (do both at once) ---
+
+  cd ~/Desktop/driven-creations-webflow && git add -A && git commit -m "Update site" && git push && npx vercel --prod --yes --scope derricks-projects-85a0451e
+
+--- OPTIONAL: CONNECT GITHUB FOR AUTO-DEPLOY ---
+
+If you want pushes to GitHub to automatically deploy:
+  1. Go to: https://github.com/apps/vercel/installations/new
+  2. Install the Vercel GitHub App on your account
+  3. Grant access to the driven-creations-webflow repo
+  4. Go to Vercel Dashboard > Project Settings > Git
+  5. Connect the repository
+
+After this, every "git push" will auto-deploy. No manual Vercel step needed.
+
+
+================================================================================
+8. DOMAIN & DNS MANAGEMENT
+================================================================================
+
+DOMAIN: drivencreations.com
+REGISTRAR: GoDaddy
+DNS SETTINGS: https://dcc.godaddy.com/control/drivencreations.com/dns
+
+CURRENT DNS RECORDS (as of Feb 23, 2026):
+
+  Type    Name    Value                           Purpose
+  ----    ----    -----                           -------
+  A       @       76.76.21.21                     Points root domain to Vercel
+  CNAME   www     cname.vercel-dns.com            Points www to Vercel
+  CNAME   autodiscover  autodiscover.emailsrvr.com   Email (keep!)
+  CNAME   _domainconnect  (GoDaddy internal)          GoDaddy (keep!)
+  MX      @       (mail servers)                  Email routing (keep!)
+  TXT     @       v=spf1 ...                      Email SPF (keep!)
+  TXT     @       google-site-verification=...     Google verification (keep!)
+  TXT     default._domainkey  (DKIM key)          Email DKIM (keep!)
+  TXT     _dmarc  v=DMARC1 ...                    Email DMARC (keep!)
+
+DO NOT DELETE the email-related records (MX, SPF, DKIM, DMARC, autodiscover).
+These are needed for your email to work.
+
+IF YOU EVER NEED TO MOVE HOSTING AGAIN:
+  - Change the A record (@) to the new host's IP
+  - Change the CNAME (www) to the new host's CNAME target
+  - Keep all email records as-is
+
+VERCEL DOMAIN MANAGEMENT:
+  Dashboard: Vercel Project > Settings > Domains
+  CLI:       npx vercel domains ls --scope derricks-projects-85a0451e
+
+
+================================================================================
+9. USING CLAUDE CODE TO EDIT
+================================================================================
+
+You can use Claude Code to make any changes to the site. Here's how:
+
+STARTING A SESSION
+  1. Open Terminal
+  2. Run: claude
+  3. You're now in Claude Code
+
+COMMON REQUESTS YOU CAN MAKE:
+
+  "Change the hero title on the homepage to [new text]"
+  "Update the YouTube video in the Watch Episode 1 modal to [URL]"
+  "Add a new project page for [project name]"
+  "Change the purple accent color to [new color]"
+  "Update the testimonial from [client] to say [new quote]"
+  "Add a new image to the about page"
+  "Change the contact email address to [new email]"
+  "Deploy the site to Vercel"
+  "Push changes to GitHub"
+
+Claude Code has access to all your project files and can:
+  - Edit HTML, CSS, and JavaScript files
+  - Add new pages
+  - Run git commands (commit, push)
+  - Deploy to Vercel via CLI
+  - Check if the site is working
+
+TIPS:
+  - Be specific about what page and section you want to edit
+  - You can paste URLs or text and ask Claude to update content
+  - After Claude makes changes, ask it to deploy
+  - Claude can also make multiple changes in one session
+
+
+================================================================================
+10. COMMON TASKS (QUICK REFERENCE)
+================================================================================
+
+TASK                              FILE TO EDIT
+----                              ------------
+Change homepage hero text         index.html (search "hero-title")
+Change a service description      index.html or services.html
+Update a testimonial              index.html (search "testimonial-card")
+Change founder bio/photo          about.html (search "founder")
+Update contact info               contact.html
+Change the logo                   Replace images/dc-logo-full-white.svg
+Change favicon                    Replace images/favicon.ico + favicon.svg
+Add/remove a project from grid    index.html + work.html
+Edit a project case study         work/[project-name].html
+Change site colors                css/shared.css (find/replace hex codes)
+Change fonts                      css/shared.css (@font-face section)
+Edit navbar links                 Every page has its own <nav> block
+Edit footer content               Every page has its own <footer> block
+Change video modal video          js/shared.js (~line 24)
+Edit loader animation             js/loader.js
+
+NOTE ON NAVBAR/FOOTER: The navbar and footer HTML is duplicated in every
+page (not a shared component). If you change the navbar or footer, you
+must update it in ALL 20 HTML files (5 main + 15 project pages). This is
+a good task to hand to Claude Code -- just say "Update the navbar across
+all pages to [change]."
+
+
+================================================================================
+11. TROUBLESHOOTING
+================================================================================
+
+SITE NOT UPDATING AFTER DEPLOY
+  - Make sure you ran the Vercel deploy command (Section 7, Step 2)
+  - Clear your browser cache (Cmd+Shift+R on Mac)
+  - Vercel caches images/videos for 30 days; use a new filename if needed
+
+VERCEL CLI NOT WORKING
+  - Make sure you're in the project folder: cd ~/Desktop/driven-creations-webflow
+  - If "npx vercel" hangs, try: npx vercel login (re-authenticate)
+  - If scope error appears, add: --scope derricks-projects-85a0451e
+
+GIT PUSH FAILING
+  - Check if you're logged into GitHub: gh auth status
+  - If not: gh auth login
+  - If merge conflicts: ask Claude Code to help resolve them
+
+SSL CERTIFICATE ISSUES
+  - Certificates auto-renew on Vercel
+  - If issues arise: npx vercel certs issue drivencreations.com --scope derricks-projects-85a0451e
+
+DNS NOT WORKING
+  - Changes can take up to 48 hours to propagate (usually minutes)
+  - Check current DNS: dig drivencreations.com A +short
+  - Should return: 76.76.21.21
+
+BROKEN IMAGES/VIDEOS
+  - Check the file path in the HTML matches the actual file location
+  - File names are case-sensitive
+  - Make sure new files were committed (git add -A) and deployed
+
+PAGE RETURNING 404
+  - Vercel uses clean URLs (no .html extension needed)
+  - /about works, /about.html also works
+  - Check the file exists in the project folder
+  - Check vercel.json for any redirect rules
+
+
+================================================================================
+  END OF GUIDE
+================================================================================
