@@ -2818,6 +2818,11 @@ a { text-decoration: none; color: inherit; }
   text-transform: uppercase;
   margin-bottom: 16px;
 }
+.dc-dash {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin: 0 1px;
+}
 @media (min-width: 768px) {
   .dc-approach-block { grid-template-columns: 1fr 1fr; gap: 60px; }
   .dc-approach-block-reverse .dc-approach-visual { order: 2; }
