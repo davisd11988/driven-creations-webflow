@@ -22,3 +22,4 @@ dist/
 
 # Claude
 .claude/
+.vercel
