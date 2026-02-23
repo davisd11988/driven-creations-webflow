@@ -8,8 +8,9 @@
   'use strict';
 
   /* ------------------------------------------
-     YOUTUBE VIDEO MODAL (Watch Episode 1)
-     Uses event delegation — always works
+     YOUTUBE VIDEO MODAL
+     Uses event delegation — works for clash
+     section AND portfolio AI video cards
      ------------------------------------------ */
   document.addEventListener('click', function(e) {
     var trigger = e.target.closest('[data-video-modal]');
@@ -19,9 +20,10 @@
     var modal = document.querySelector('.dc-video-modal');
     if (!modal) return;
 
+    var videoId = trigger.getAttribute('data-video-id') || 'im-qtaIxbYk';
     var iframe = modal.querySelector('.dc-video-modal-embed iframe');
     if (iframe) {
-      iframe.setAttribute('src', 'https://www.youtube.com/embed/im-qtaIxbYk?autoplay=1&rel=0');
+      iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0');
     }
     modal.classList.add('is-active');
     document.body.style.overflow = 'hidden';
