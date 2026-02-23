@@ -1,0 +1,9 @@
+# Robots.txt for drivencreations.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.drivencreations.com/sitemap.xml
+
+# Disallow admin/utility pages
+Disallow: /dc-landing-complete.html
