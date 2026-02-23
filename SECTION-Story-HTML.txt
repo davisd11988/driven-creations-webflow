@@ -1,0 +1,57 @@
+<section id="story" class="dc-story">
+  <div class="dc-section-container">
+    <div class="dc-section-header">
+      <div class="dc-section-tag dc-section-tag-purple">The Animated Series</div>
+      <div class="dc-story-title">Pixels of Power: The Chronicles of Drive</div>
+      <div class="dc-story-subtitle">The battle between quality and chaos isn't just a metaphor -- it's a war. Watch how Drive defeats Deadline one pixel at a time.</div>
+    </div>
+
+    <!-- Video Embed -->
+    <div class="dc-story-video-wrap">
+      <div class="dc-story-video-container">
+        <div class="dc-story-video-bg"></div>
+        <img src="/images/drive_deadline_gradient_poster.jpg" alt="Pixels of Power poster" class="dc-story-poster" />
+        <div class="dc-play-button-wrap">
+          <div class="dc-play-pulse"></div>
+          <div class="dc-play-button">&#9654;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Character Cards -->
+    <div class="dc-characters-grid">
+      <div class="dc-character-card dc-character-drive">
+        <div class="dc-character-icon-wrap dc-icon-drive">
+          <div class="dc-character-icon">&#129302;</div>
+        </div>
+        <div class="dc-character-name">DRIVE</div>
+        <div class="dc-character-role dc-role-drive">The Hero</div>
+        <div class="dc-character-desc">Born from the first pixel of Creativity City. Drive exists for one purpose -- to destroy Deadline and prove that great design never has to be rushed.</div>
+      </div>
+
+      <div class="dc-character-card dc-character-deadline">
+        <div class="dc-character-icon-wrap dc-icon-deadline">
+          <div class="dc-character-icon">&#128293;</div>
+        </div>
+        <div class="dc-character-name">DEADLINE</div>
+        <div class="dc-character-role dc-role-deadline">The Villain</div>
+        <div class="dc-character-desc">The force behind every rushed launch and every "just ship it" decision. Deadline turns vision into compromise -- unless someone stops him.</div>
+      </div>
+
+      <div class="dc-character-card dc-character-creator">
+        <div class="dc-character-icon-wrap dc-icon-gold">
+          <div class="dc-character-icon">&#128081;</div>
+        </div>
+        <div class="dc-character-name">DR. DERRICK</div>
+        <div class="dc-character-role dc-role-gold">The Creator</div>
+        <div class="dc-character-desc">The architect of the resistance. Dr. Derrick built Drive and Driven Creations to prove that quality always wins the long game.</div>
+      </div>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="dc-story-cta">
+      <a href="#" class="dc-btn dc-btn-primary">Watch Episode 1</a>
+      <a href="#" class="dc-btn dc-btn-outline">Behind the Scenes</a>
+    </div>
+  </div>
+</section>

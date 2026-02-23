@@ -1,0 +1,49 @@
+<footer class="dc-footer">
+  <div class="dc-section-container">
+    <div class="dc-footer-grid">
+      <!-- Brand -->
+      <div class="dc-footer-col">
+        <img src="/images/dc-logo-full-white.svg" alt="Driven Creations" width="133" height="36" class="dc-footer-logo" />
+        <div class="dc-footer-tagline">Stay Driven.</div>
+        <div class="dc-footer-brand-desc">Building brands that fight for attention — and win.</div>
+      </div>
+
+      <!-- Navigate -->
+      <div class="dc-footer-col">
+        <div class="dc-footer-heading">Navigate</div>
+        <nav class="dc-footer-nav">
+          <a href="#services" class="dc-footer-link">Services</a>
+          <a href="#story" class="dc-footer-link">Story</a>
+          <a href="#portfolio" class="dc-footer-link">Portfolio</a>
+          <a href="#process" class="dc-footer-link">Process</a>
+          <a href="#contact" class="dc-footer-link">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Social -->
+      <div class="dc-footer-col">
+        <div class="dc-footer-heading">Follow Us</div>
+        <nav class="dc-footer-nav">
+          <a href="#" class="dc-footer-social-link">&#128247; Instagram</a>
+          <a href="#" class="dc-footer-social-link">&#128188; LinkedIn</a>
+          <a href="#" class="dc-footer-social-link">&#127916; YouTube</a>
+          <a href="#" class="dc-footer-social-link">&#120143; X / Twitter</a>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div class="dc-footer-col">
+        <div class="dc-footer-heading">Get In Touch</div>
+        <div class="dc-footer-contact-text">Maryland, USA</div>
+        <a href="mailto:hello@drivencreations.com" class="dc-footer-contact-link">hello@drivencreations.com</a>
+        <div class="dc-footer-contact-cta">Let's build something great.</div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="dc-footer-bottom">
+      <div class="dc-footer-copyright">&#169; 2026 Driven Creations. All rights reserved.</div>
+      <div class="dc-footer-credit">Powered by pixels and passion.</div>
+    </div>
+  </div>
+</footer>

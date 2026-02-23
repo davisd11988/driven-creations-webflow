@@ -1,0 +1,287 @@
+/* =============================================
+   STORY SECTION
+   Driven Creations - Webflow HTMLtoFlow Import
+   ============================================= */
+
+.dc-story {
+  background: linear-gradient(to bottom, #1a0a2e, #0a0a0a);
+  width: 100%;
+}
+
+.dc-story-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.dc-story-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #a1a1aa;
+  margin-top: 16px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* ---- Video Container ---- */
+
+.dc-story-video-wrap {
+  max-width: 896px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 48px;
+}
+
+.dc-story-video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 40px rgba(124, 58, 237, 0.25);
+}
+
+.dc-story-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1a0a2e;
+}
+
+.dc-story-poster {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+/* ---- Play Button ---- */
+
+.dc-play-button-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dc-play-pulse {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 9999px;
+  background-color: rgba(124, 58, 237, 0.3);
+  animation: dc-pulse 2s ease-in-out infinite;
+}
+
+.dc-play-button {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 9999px;
+  background-color: rgba(124, 58, 237, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 32px;
+  padding-left: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.dc-play-button:hover {
+  background-color: #7c3aed;
+}
+
+@keyframes dc-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* ---- Character Cards ---- */
+
+.dc-characters-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.dc-character-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.dc-character-drive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.dc-character-deadline:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(239, 68, 68, 0.25);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.dc-character-creator:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(251, 191, 36, 0.25);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+/* ---- Character Icon Wraps ---- */
+
+.dc-character-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+
+.dc-icon-drive {
+  background: linear-gradient(to bottom, rgba(139, 92, 246, 0.2), transparent);
+}
+
+.dc-icon-deadline {
+  background: linear-gradient(to bottom, rgba(239, 68, 68, 0.2), transparent);
+}
+
+.dc-icon-gold {
+  background: linear-gradient(to bottom, rgba(251, 191, 36, 0.2), transparent);
+}
+
+.dc-character-icon {
+  font-size: 40px;
+  line-height: 1;
+}
+
+/* ---- Character Text ---- */
+
+.dc-character-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.dc-character-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.dc-role-drive {
+  color: #8b5cf6;
+}
+
+.dc-role-deadline {
+  color: #ef4444;
+}
+
+.dc-role-gold {
+  color: #fbbf24;
+}
+
+.dc-character-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #a1a1aa;
+  line-height: 1.7;
+}
+
+/* ---- CTA Buttons ---- */
+
+.dc-story-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.dc-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dc-btn-primary {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+.dc-btn-primary:hover {
+  background-color: #5b21b6;
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.4);
+}
+
+.dc-btn-outline {
+  background-color: transparent;
+  color: #a78bfa;
+  border: 1px solid rgba(124, 58, 237, 0.5);
+}
+
+.dc-btn-outline:hover {
+  border-color: #7c3aed;
+  background-color: rgba(124, 58, 237, 0.1);
+}
+
+/* ---- Responsive: Medium screens and up ---- */
+
+@media (min-width: 768px) {
+  .dc-story-title {
+    font-size: 3rem;
+  }
+
+  .dc-characters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dc-character-card {
+    padding: 32px;
+  }
+}

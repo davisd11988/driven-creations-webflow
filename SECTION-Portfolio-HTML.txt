@@ -1,0 +1,80 @@
+<section id="portfolio" class="dc-portfolio">
+  <div class="dc-section-container dc-portfolio-tight-top">
+    <div class="dc-section-header">
+      <div class="dc-section-tag dc-section-tag-purple">Our Work</div>
+      <div class="dc-portfolio-title">Designs That Deliver</div>
+      <div class="dc-portfolio-subtitle">Selected projects that showcase our commitment to excellence.</div>
+    </div>
+
+    <!-- Filter tabs - use Webflow CMS filter or tabs component -->
+    <div class="dc-filter-tabs">
+      <div class="dc-filter-tab dc-filter-active">All</div>
+      <div class="dc-filter-tab">Web</div>
+      <div class="dc-filter-tab">Branding</div>
+      <div class="dc-filter-tab">Marketing</div>
+    </div>
+
+    <!-- Project Grid -->
+    <div class="dc-projects-grid">
+      <div class="dc-project-card">
+        <div class="dc-project-bg dc-project-purple"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Web</div>
+          <div class="dc-project-name">Apex Law Group</div>
+          <div class="dc-project-desc">Complete website redesign</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+
+      <div class="dc-project-card">
+        <div class="dc-project-bg dc-project-amber"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Branding</div>
+          <div class="dc-project-name">Savora Kitchen</div>
+          <div class="dc-project-desc">Restaurant brand identity</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+
+      <div class="dc-project-card">
+        <div class="dc-project-bg dc-project-cyan"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Web</div>
+          <div class="dc-project-name">TechVault Store</div>
+          <div class="dc-project-desc">E-commerce optimization</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+
+      <div class="dc-project-card">
+        <div class="dc-project-bg dc-project-emerald"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Marketing</div>
+          <div class="dc-project-name">GreenPulse</div>
+          <div class="dc-project-desc">Startup launch campaign</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+
+      <div class="dc-project-card">
+        <div class="dc-project-bg dc-project-rose"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Branding</div>
+          <div class="dc-project-name">Luminary Studios</div>
+          <div class="dc-project-desc">Creative agency rebrand</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+
+      <div class="dc-project-card">
+        <div class="dc-project-bg dc-project-violet"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Marketing</div>
+          <div class="dc-project-name">CloudNine SaaS</div>
+          <div class="dc-project-desc">Social media strategy</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

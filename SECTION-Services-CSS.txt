@@ -1,0 +1,132 @@
+/* =============================================
+   SERVICES SECTION
+   Driven Creations - Webflow HTMLtoFlow Import
+   ============================================= */
+
+.dc-services {
+  background-color: #0a0a0a;
+  width: 100%;
+}
+
+.dc-section-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4rem 1.5rem;
+}
+
+.dc-section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.dc-section-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
+}
+
+.dc-section-tag-purple {
+  color: #a78bfa;
+  background-color: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.dc-services-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.dc-services-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #a1a1aa;
+  margin-top: 16px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.dc-services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.dc-service-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.dc-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.dc-service-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: rgba(124, 58, 237, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.dc-service-icon {
+  font-size: 28px;
+  color: #a78bfa;
+  line-height: 1;
+}
+
+.dc-service-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.dc-service-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #a1a1aa;
+  line-height: 1.7;
+}
+
+/* ---- Responsive: Medium screens and up ---- */
+
+@media (min-width: 768px) {
+  .dc-section-container {
+    padding: 5rem 2rem;
+  }
+
+  .dc-services-title {
+    font-size: 3rem;
+  }
+
+  .dc-services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dc-service-card {
+    padding: 32px;
+  }
+}

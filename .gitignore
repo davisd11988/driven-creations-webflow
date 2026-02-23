@@ -1,0 +1,24 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Build
+.cache/
+dist/
+
+# Environment
+.env
+.env.*
+
+# Claude
+.claude/

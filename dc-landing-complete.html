@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Driven Creations - We Defeat Your Deadline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ==========================================
+       CUSTOM FONTS
+       ========================================== */
+    @font-face {
+      font-family: 'Integral CF';
+      src: url('/fonts/integralcf-extrabold.otf') format('opentype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Integral CF';
+      src: url('/fonts/integralcf-bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Integral CF';
+      src: url('/fonts/integralcf-medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ==========================================
+       GLOBAL RESET & BASE STYLES
+       ========================================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #090316;
+      color: #ffffff;
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: rgba(124, 58, 237, 0.4); color: #ffffff; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #090316; }
+    ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #a78bfa; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ==========================================
+       SHARED: Section Container
+       ========================================== */
+    .dc-section-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .dc-section-container { padding: 5rem 2rem; }
+    }
+
+    /* ==========================================
+       SHARED: Section Tag
+       ========================================== */
+    .dc-section-tag {
+      display: inline-block;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+    .dc-section-tag-purple {
+      color: #a78bfa;
+      background-color: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+    }
+    .dc-section-tag-red {
+      color: #ef4444;
+    }
+
+    /* ==========================================
+       SHARED: Section Header
+       ========================================== */
+    .dc-section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    /* ==========================================
+       SHARED: Button Styles
+       ========================================== */
+    .dc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', system-ui, sans-serif;
+      text-decoration: none;
+      white-space: nowrap;
+      height: 48px;
+      padding: 0 28px;
+      font-size: 16px;
+      line-height: 1;
+    }
+    .dc-btn-primary {
+      background-color: #7c3aed;
+      color: #ffffff;
+    }
+    .dc-btn-primary:hover {
+      background-color: #5b21b6;
+      box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
+    }
+    .dc-btn-secondary {
+      background-color: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      color: #ffffff;
+      height: 44px;
+      padding: 0 32px;
+      font-size: 18px;
+    }
+    .dc-btn-secondary:hover {
+      background-color: #ffffff;
+      color: #090316;
+      border-color: #ffffff;
+    }
+    .dc-btn-outline {
+      background-color: transparent;
+      border: 1px solid rgba(124, 58, 237, 0.5);
+      color: #a78bfa;
+      height: 44px;
+      padding: 0 24px;
+      font-size: 1rem;
+    }
+    .dc-btn-outline:hover {
+      border-color: #7c3aed;
+      background-color: rgba(124, 58, 237, 0.1);
+    }
+    .dc-btn-sm {
+      height: 36px;
+      padding: 0 16px;
+      font-size: 14px;
+    }
+    .dc-btn-lg {
+      height: 52px;
+      padding: 0 32px;
+      font-size: 18px;
+    }
+    .dc-btn-full { width: 100%; }
+
+    /* ==========================================
+       SHARED: Glass Morphism
+       ========================================== */
+    .dc-glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* ==========================================
+       NAVBAR
+       ========================================== */
+    .dc-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      background-color: transparent;
+      transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    }
+    .dc-navbar.is-scrolled {
+      background-color: rgba(9, 3, 22, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .dc-navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 64px;
+    }
+    .dc-navbar-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .dc-navbar-logo img {
+      height: 44px;
+      width: 162px;
+      object-fit: contain;
+    }
+    .dc-nav-links {
+      display: none;
+      align-items: center;
+      gap: 32px;
+    }
+    .dc-nav-link {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+    .dc-nav-link:hover { color: #ffffff; }
+    .dc-nav-cta {
+      display: none;
+      align-items: center;
+    }
+    .dc-mobile-menu-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+    .dc-hamburger-line {
+      width: 24px;
+      height: 2px;
+      background-color: #ffffff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .dc-hamburger-short { width: 16px; }
+
+    @media (min-width: 768px) {
+      .dc-navbar-inner {
+        height: 80px;
+        padding: 0 2rem;
+      }
+    }
+    /* Mobile menu panel */
+    .dc-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 45;
+      background-color: rgba(9, 3, 22, 0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 80px 24px 40px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .dc-mobile-menu.is-open {
+      display: flex;
+      opacity: 1;
+    }
+    .dc-mobile-menu-link {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      padding: 12px 0;
+      transition: color 0.2s ease;
+      text-align: center;
+    }
+    .dc-mobile-menu-link:hover { color: #ffffff; }
+    .dc-mobile-menu-cta {
+      margin-top: 24px;
+    }
+    .dc-mobile-menu-btn {
+      z-index: 55;
+    }
+    /* Hamburger X animation when open */
+    .dc-mobile-menu-btn.is-open .dc-hamburger-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .dc-mobile-menu-btn.is-open .dc-hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    .dc-mobile-menu-btn.is-open .dc-hamburger-line:nth-child(3) {
+      transform: rotate(-45deg) translate(3px, -3px);
+      width: 24px;
+    }
+
+    @media (min-width: 1024px) {
+      .dc-nav-links { display: flex; }
+      .dc-nav-cta { display: flex; }
+      .dc-mobile-menu-btn { display: none; }
+      .dc-mobile-menu { display: none !important; }
+    }
+
+    /* ==========================================
+       HERO SECTION
+       ========================================== */
+    .dc-hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #090316;
+    }
+    .dc-hero-video-wrap {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+    }
+    .dc-hero-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .dc-hero-video-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(26, 10, 46, 0.6) 0%,
+        transparent 40%,
+        transparent 60%,
+        rgba(9, 3, 22, 0.9) 100%
+      );
+      z-index: 2;
+    }
+    .dc-hero-dark-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: 5;
+    }
+    .dc-hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+    .dc-hero-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      line-height: 1.05;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .dc-hero-subtitle {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #a1a1aa;
+      max-width: 640px;
+      margin: 24px auto 0 auto;
+      line-height: 1.6;
+    }
+    .dc-hero-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .dc-scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      animation: dc-bounce 2s ease-in-out infinite;
+    }
+    .dc-scroll-arrow {
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1;
+    }
+    @keyframes dc-bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+    @media (max-width: 479px) {
+      .dc-hero-title { font-size: 2.25rem; }
+      .dc-hero-subtitle { font-size: 16px; }
+      .dc-hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .dc-hero-buttons .dc-btn {
+        width: 100%;
+      }
+    }
+    @media (min-width: 768px) {
+      .dc-hero-title { font-size: 4.5rem; }
+      .dc-hero-subtitle { font-size: 20px; }
+      .dc-hero-content { padding: 0 2rem; }
+    }
+    @media (min-width: 1024px) {
+      .dc-hero-title { font-size: 6rem; }
+    }
+
+    /* ==========================================
+       PROBLEM SECTION
+       ========================================== */
+    .dc-problem {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(to bottom, #090316, #1a0a2e);
+      overflow: hidden;
+    }
+    .dc-problem-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .dc-problem-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.25rem;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .dc-problem-desc {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #a1a1aa;
+      margin-bottom: 40px;
+    }
+    .dc-stat-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .dc-stat-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #ef4444;
+      border-radius: 12px;
+      padding: 20px;
+      transition: background-color 0.2s ease;
+    }
+    .dc-stat-card:hover { background: rgba(255, 255, 255, 0.08); }
+    .dc-stat-value {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.875rem;
+      color: #ef4444;
+      line-height: 1.2;
+    }
+    .dc-stat-desc {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #a1a1aa;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+    .dc-problem-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dc-villain-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+      animation: dc-villain-pulse 3s ease-in-out infinite;
+    }
+    .dc-villain-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(239, 68, 68, 0.2) 0%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+    .dc-villain-inner { position: relative; z-index: 2; }
+    .dc-villain-icon {
+      font-size: 80px;
+      line-height: 1;
+      display: block;
+      margin: 0 auto;
+    }
+    .dc-villain-name {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: rgba(239, 68, 68, 0.8);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 24px;
+    }
+    @keyframes dc-villain-pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.03); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+    @media (min-width: 768px) {
+      .dc-problem-title { font-size: 3rem; }
+    }
+    @media (min-width: 1024px) {
+      .dc-problem-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ==========================================
+       SERVICES SECTION
+       ========================================== */
+    .dc-services {
+      background-color: #090316;
+      width: 100%;
+    }
+    .dc-services-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.25rem;
+      color: #ffffff;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .dc-services-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      color: #a1a1aa;
+      margin-top: 16px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .dc-services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .dc-service-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+    .dc-service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(124, 58, 237, 0.2);
+      border-color: rgba(124, 58, 237, 0.3);
+    }
+    .dc-service-icon-wrap {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      background-color: rgba(124, 58, 237, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .dc-service-icon {
+      font-size: 28px;
+      color: #a78bfa;
+      line-height: 1;
+    }
+    .dc-service-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .dc-service-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #a1a1aa;
+      line-height: 1.7;
+    }
+    @media (min-width: 768px) {
+      .dc-services-title { font-size: 3rem; }
+      .dc-services-grid { grid-template-columns: repeat(3, 1fr); }
+      .dc-service-card { padding: 32px; }
+    }
+
+    /* ==========================================
+       STORY SECTION
+       ========================================== */
+    .dc-story {
+      background: linear-gradient(to bottom, #1a0a2e, #090316);
+      width: 100%;
+    }
+    .dc-story-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.25rem;
+      color: #ffffff;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .dc-story-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      color: #a1a1aa;
+      margin-top: 16px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .dc-story-video-wrap {
+      max-width: 896px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 48px;
+    }
+    .dc-story-video-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 40px rgba(124, 58, 237, 0.25);
+    }
+    .dc-story-video-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #1a0a2e;
+    }
+    .dc-story-poster {
+      position: relative;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+    }
+    .dc-play-button-wrap {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dc-play-pulse {
+      position: absolute;
+      width: 80px; height: 80px;
+      border-radius: 9999px;
+      background-color: rgba(124, 58, 237, 0.3);
+      animation: dc-pulse 2s ease-in-out infinite;
+    }
+    .dc-play-button {
+      position: relative;
+      width: 80px; height: 80px;
+      border-radius: 9999px;
+      background-color: rgba(124, 58, 237, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 32px;
+      padding-left: 2px;
+      transition: background-color 0.3s ease;
+    }
+    .dc-play-button:hover { background-color: #7c3aed; }
+    @keyframes dc-pulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 0; }
+      100% { transform: scale(1); opacity: 0.6; }
+    }
+    .dc-characters-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .dc-character-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .dc-character-drive:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(139, 92, 246, 0.25);
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+    .dc-character-deadline:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(239, 68, 68, 0.25);
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+    .dc-character-creator:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(251, 191, 36, 0.25);
+      border-color: rgba(251, 191, 36, 0.3);
+    }
+    .dc-character-icon-wrap {
+      width: 64px; height: 64px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 16px;
+    }
+    .dc-icon-drive { background: linear-gradient(to bottom, rgba(139, 92, 246, 0.2), transparent); }
+    .dc-icon-deadline { background: linear-gradient(to bottom, rgba(239, 68, 68, 0.2), transparent); }
+    .dc-icon-gold { background: linear-gradient(to bottom, rgba(251, 191, 36, 0.2), transparent); }
+    .dc-character-icon { font-size: 40px; line-height: 1; }
+    .dc-character-name {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #ffffff;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .dc-character-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .dc-role-drive { color: #8b5cf6; }
+    .dc-role-deadline { color: #ef4444; }
+    .dc-role-gold { color: #fbbf24; }
+    .dc-character-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #a1a1aa;
+      line-height: 1.7;
+    }
+    .dc-story-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    @media (max-width: 479px) {
+      .dc-story-title { font-size: 1.875rem; }
+      .dc-story-subtitle { font-size: 16px; }
+      .dc-story-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .dc-story-cta .dc-btn { width: 100%; }
+    }
+    @media (min-width: 768px) {
+      .dc-story-title { font-size: 3rem; }
+      .dc-characters-grid { grid-template-columns: repeat(2, 1fr); }
+      .dc-character-card { padding: 32px; }
+    }
+
+    /* ==========================================
+       SCROLL COLLISION SECTION
+       ========================================== */
+    .dc-collision {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    .dc-collision-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .dc-collision-overlay-dark {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: 5;
+    }
+    .dc-collision-overlay-gradient {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent, rgba(0, 0, 0, 0.3));
+      z-index: 10;
+    }
+    .dc-collision-content {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      padding: 16px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .dc-collision-content.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .dc-collision-video {
+      opacity: 0;
+      transition: opacity 0.6s ease-out;
+    }
+    .dc-collision-video.is-playing {
+      opacity: 1;
+    }
+    .dc-collision-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #a78bfa;
+      margin-bottom: 16px;
+    }
+    .dc-collision-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      color: #ffffff;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .dc-collision-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      color: #a1a1aa;
+      margin-top: 16px;
+      max-width: 576px;
+      line-height: 1.6;
+    }
+    @media (min-width: 768px) {
+      .dc-collision-title { font-size: 4.5rem; }
+    }
+
+    /* ==========================================
+       PORTFOLIO SECTION
+       ========================================== */
+    .dc-portfolio {
+      background-color: #090316;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .dc-portfolio-tight-top { padding-top: 16px; }
+    .dc-portfolio-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.25rem;
+      color: #ffffff;
+      margin-bottom: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .dc-portfolio-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      color: #a1a1aa;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .dc-filter-tabs {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .dc-filter-tab {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #a1a1aa;
+    }
+    .dc-filter-tab:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .dc-filter-active {
+      background-color: #7c3aed;
+      color: #ffffff;
+    }
+    .dc-filter-active:hover {
+      background-color: #7c3aed;
+      color: #ffffff;
+    }
+    .dc-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .dc-project-card {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      cursor: pointer;
+      position: relative;
+    }
+    .dc-project-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+    .dc-project-purple { background: linear-gradient(135deg, #581c87, #312e81); }
+    .dc-project-amber { background: linear-gradient(135deg, #78350f, #9a3412); }
+    .dc-project-cyan { background: linear-gradient(135deg, #164e63, #1e3a5f); }
+    .dc-project-emerald { background: linear-gradient(135deg, #064e3b, #134e4a); }
+    .dc-project-rose { background: linear-gradient(135deg, #881337, #9d174d); }
+    .dc-project-violet { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+    .dc-project-hover-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+    }
+    .dc-project-card:hover .dc-project-hover-overlay { opacity: 1; }
+    .dc-project-category {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #a78bfa;
+      margin-bottom: 8px;
+    }
+    .dc-project-name {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #ffffff;
+    }
+    .dc-project-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #a1a1aa;
+      margin-top: 8px;
+    }
+    .dc-project-arrow {
+      font-size: 24px;
+      color: #ffffff;
+      margin-top: 16px;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+    .dc-project-card:hover .dc-project-arrow { opacity: 1; }
+    @media (max-width: 991px) {
+      .dc-projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 768px) {
+      .dc-portfolio-tight-top { padding-top: 24px; }
+      .dc-portfolio-title { font-size: 3rem; }
+    }
+    @media (max-width: 479px) {
+      .dc-projects-grid { grid-template-columns: 1fr; }
+      .dc-portfolio-title { font-size: 1.875rem; }
+    }
+
+    /* ==========================================
+       PROCESS SECTION
+       ========================================== */
+    .dc-process {
+      background: linear-gradient(180deg, #090316 0%, #1a0a2e 100%);
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .dc-process-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.25rem;
+      color: #ffffff;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .dc-process-steps {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 16px;
+      position: relative;
+      margin-top: 48px;
+    }
+    .dc-process-line-bg {
+      position: absolute;
+      top: 32px;
+      left: 10%; right: 10%;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.1);
+      z-index: 1;
+    }
+    .dc-process-line-progress {
+      position: absolute;
+      top: 32px;
+      left: 10%; right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, #7c3aed, #22d3ee);
+      z-index: 2;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.1s linear;
+    }
+    .dc-step-circle {
+      transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    .dc-process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 20%;
+      z-index: 10;
+    }
+    .dc-step-circle {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .dc-step-active {
+      background-color: #7c3aed;
+      border-color: transparent;
+      box-shadow: 0 0 24px rgba(124, 58, 237, 0.4), 0 0 48px rgba(124, 58, 237, 0.2);
+    }
+    .dc-step-number {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-top: 12px;
+    }
+    .dc-step-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: #ffffff;
+      margin-top: 4px;
+    }
+    .dc-step-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: #a1a1aa;
+      margin-top: 4px;
+      max-width: 140px;
+    }
+    @media (min-width: 768px) {
+      .dc-process-title { font-size: 3rem; }
+    }
+    @media (max-width: 767px) {
+      .dc-process-steps {
+        flex-direction: column;
+        gap: 32px;
+        padding-left: 40px;
+      }
+      .dc-process-step {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+        gap: 16px;
+      }
+      .dc-step-circle { width: 48px; height: 48px; font-size: 20px; }
+      .dc-step-number { margin-top: 0; }
+      .dc-step-desc { max-width: none; }
+      .dc-process-line-bg {
+        top: 0; bottom: 0;
+        left: 24px; right: auto;
+        width: 2px; height: auto;
+      }
+      .dc-process-line-progress {
+        top: 0; bottom: 0;
+        left: 24px; right: auto;
+        width: 2px; height: auto;
+        transform: scaleY(0);
+        transform-origin: top center;
+        transition: transform 0.1s linear;
+      }
+      .dc-process-title { font-size: 1.875rem; }
+    }
+
+    /* ==========================================
+       TESTIMONIALS SECTION
+       ========================================== */
+    .dc-testimonials {
+      background-color: #090316;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .dc-testimonials-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.25rem;
+      color: #ffffff;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .dc-testimonial-carousel {
+      max-width: 768px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .dc-testimonial-slide { padding: 0 16px; }
+    .dc-testimonial-quote {
+      color: #7c3aed;
+      font-size: 3.75rem;
+      margin-bottom: 16px;
+      line-height: 1;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+    .dc-testimonial-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.25rem;
+      color: #ffffff;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.75;
+    }
+    .dc-testimonial-author-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      justify-content: center;
+    }
+    .dc-testimonial-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #22d3ee);
+      flex-shrink: 0;
+    }
+    .dc-testimonial-author-info { text-align: left; }
+    .dc-testimonial-name {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ffffff;
+    }
+    .dc-testimonial-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #a1a1aa;
+    }
+    .dc-testimonial-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .dc-dot {
+      width: 8px; height: 8px;
+      border-radius: 9999px;
+      background-color: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .dc-dot:hover { background-color: rgba(255, 255, 255, 0.4); }
+    .dc-dot-active {
+      width: 32px; height: 8px;
+      background-color: #7c3aed;
+    }
+    .dc-dot-active:hover { background-color: #7c3aed; }
+    .dc-logo-marquee-section { margin-top: 64px; }
+    .dc-trusted-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .dc-marquee-container {
+      overflow: hidden;
+      position: relative;
+    }
+    .dc-marquee-fade-left {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 80px;
+      background: linear-gradient(to right, #090316, transparent);
+      z-index: 10;
+      pointer-events: none;
+    }
+    .dc-marquee-fade-right {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 80px;
+      background: linear-gradient(to left, #090316, transparent);
+      z-index: 10;
+      pointer-events: none;
+    }
+    .dc-marquee-track {
+      display: flex;
+      gap: 48px;
+      animation: marquee-scroll 30s linear infinite;
+    }
+    .dc-marquee-logo {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: rgba(113, 113, 122, 0.4);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (min-width: 768px) {
+      .dc-testimonials-title { font-size: 3rem; }
+      .dc-testimonial-text { font-size: 1.5rem; }
+    }
+    @media (max-width: 479px) {
+      .dc-testimonials-title { font-size: 1.875rem; }
+      .dc-testimonial-text { font-size: 1.125rem; }
+    }
+
+    /* ==========================================
+       CTA / CONTACT SECTION
+       ========================================== */
+    .dc-cta {
+      position: relative;
+      background: linear-gradient(180deg, #1a0a2e 0%, #090316 100%);
+      padding-top: 80px;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+    .dc-cta-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .dc-cta-inner { position: relative; z-index: 10; }
+    .dc-cta-content {
+      max-width: 672px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .dc-cta-title {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.25rem;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .dc-cta-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      color: #a1a1aa;
+      margin-bottom: 40px;
+    }
+    .dc-contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .dc-form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .dc-input {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.05);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .dc-input::placeholder { color: #71717a; }
+    .dc-input:focus {
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+    }
+    .dc-input-full { width: 100%; }
+    .dc-textarea { resize: none; min-height: 100px; }
+    .dc-form-submit { margin-top: 8px; }
+    .dc-cta-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 32px;
+      margin-bottom: 24px;
+    }
+    .dc-divider-line {
+      flex: 1;
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .dc-divider-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #71717a;
+    }
+    .dc-cta-alt-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    @media (min-width: 768px) {
+      .dc-cta-title { font-size: 3rem; }
+    }
+    @media (max-width: 479px) {
+      .dc-form-row { grid-template-columns: 1fr; }
+      .dc-cta-title { font-size: 1.875rem; }
+      .dc-cta-subtitle { font-size: 16px; }
+      .dc-cta-alt-buttons { flex-direction: column; }
+      .dc-cta-alt-buttons .dc-btn { width: 100%; }
+    }
+
+    /* ==========================================
+       FOOTER
+       ========================================== */
+    .dc-footer {
+      background-color: #090316;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 64px;
+      padding-bottom: 48px;
+    }
+    .dc-footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+    }
+    .dc-footer-logo { height: 36px; width: auto; }
+    .dc-footer-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-style: italic;
+      color: #a1a1aa;
+      margin-top: 16px;
+    }
+    .dc-footer-brand-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #71717a;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .dc-footer-heading {
+      font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+    .dc-footer-nav {
+      display: flex;
+      flex-direction: column;
+    }
+    .dc-footer-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #a1a1aa;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.2s ease;
+    }
+    .dc-footer-link:hover { color: #a78bfa; }
+    .dc-footer-social-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #a1a1aa;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      transition: color 0.2s ease;
+    }
+    .dc-footer-social-link:hover { color: #a78bfa; }
+    .dc-footer-contact-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #a1a1aa;
+      margin-bottom: 8px;
+    }
+    .dc-footer-contact-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #a1a1aa;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.2s ease;
+    }
+    .dc-footer-contact-link:hover { color: #a78bfa; }
+    .dc-footer-contact-cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-style: italic;
+      color: #71717a;
+      margin-top: 4px;
+    }
+    .dc-footer-bottom {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .dc-footer-copyright {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: #71717a;
+    }
+    .dc-footer-credit {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: #71717a;
+    }
+    @media (max-width: 991px) {
+      .dc-footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 479px) {
+      .dc-footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .dc-footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    /* ==========================================
+       SCROLL REVEAL ANIMATIONS
+       ========================================== */
+
+    /* Base: elements start hidden */
+    .dc-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dc-reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fade from left */
+    .dc-reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dc-reveal-left.is-revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Fade from right */
+    .dc-reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dc-reveal-right.is-revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Scale up reveal */
+    .dc-reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dc-reveal-scale.is-revealed {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Stagger delay classes */
+    .dc-delay-1 { transition-delay: 0.1s; }
+    .dc-delay-2 { transition-delay: 0.2s; }
+    .dc-delay-3 { transition-delay: 0.3s; }
+    .dc-delay-4 { transition-delay: 0.4s; }
+    .dc-delay-5 { transition-delay: 0.5s; }
+    .dc-delay-6 { transition-delay: 0.6s; }
+
+    /* ==========================================
+       HERO ENTRANCE ANIMATION
+       ========================================== */
+    .dc-hero-tag-anim {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: dc-hero-entrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    }
+    .dc-hero-title-anim {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: dc-hero-entrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+    }
+    .dc-hero-subtitle-anim {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: dc-hero-entrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+    }
+    .dc-hero-buttons-anim {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: dc-hero-entrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+    }
+    .dc-hero-scroll-anim {
+      opacity: 0;
+      animation: dc-hero-entrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards;
+    }
+    @keyframes dc-hero-entrance {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================
+       CARD HOVER ENHANCEMENTS
+       ========================================== */
+    .dc-service-card {
+      transform: translateY(0);
+    }
+    .dc-stat-card {
+      transform: translateY(0);
+      transition: all 0.3s ease;
+    }
+    .dc-stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(239, 68, 68, 0.1);
+    }
+
+    /* Subtle glow pulse on villain card */
+    .dc-villain-card {
+      transition: box-shadow 0.4s ease;
+    }
+    .dc-villain-card:hover {
+      box-shadow: 0 0 40px rgba(239, 68, 68, 0.2);
+    }
+
+    /* Filter tab active transition */
+    .dc-filter-tab {
+      transition: all 0.25s ease;
+    }
+
+    /* Testimonial text subtle fade */
+    .dc-testimonial-text {
+      transition: opacity 0.4s ease;
+    }
+
+    /* Footer links underline animation */
+    .dc-footer-link,
+    .dc-footer-social-link,
+    .dc-footer-contact-link {
+      position: relative;
+    }
+    .dc-footer-link::after,
+    .dc-footer-contact-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #a78bfa;
+      transition: width 0.3s ease;
+    }
+    .dc-footer-link:hover::after,
+    .dc-footer-contact-link:hover::after {
+      width: 100%;
+    }
+
+    /* Marquee pause on hover */
+    .dc-marquee-container:hover .dc-marquee-track {
+      animation-play-state: paused;
+    }
+
+    /* ==========================================
+       BRAND: Purple Gradient Text
+       ========================================== */
+    .dc-gradient-text {
+      background: linear-gradient(164.25deg, rgb(203, 181, 250) 21.2%, rgb(121, 62, 241) 100.1%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ==========================================
+       CHARACTER VIDEO CARDS
+       ========================================== */
+    .dc-character-video-card {
+      padding: 0 !important;
+      overflow: hidden;
+    }
+    .dc-character-video-wrap {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background: #090316;
+      overflow: hidden;
+    }
+    .dc-character-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dc-character-video-card:hover .dc-character-video {
+      transform: scale(1.03);
+    }
+    .dc-character-video-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      transition: opacity 0.4s ease;
+    }
+    .dc-character-video-card.is-playing .dc-character-video-overlay {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .dc-character-play-hint {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(124, 58, 237, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 20px;
+      padding-left: 3px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .dc-character-video-card:hover .dc-character-play-hint {
+      transform: scale(1.1);
+      background: rgba(124, 58, 237, 0.8);
+    }
+    .dc-character-video-gradient {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .dc-character-info {
+      padding: 20px 24px 24px;
+    }
+    .dc-character-video-card .dc-character-name {
+      text-align: left;
+    }
+    .dc-character-video-card .dc-character-role {
+      text-align: left;
+    }
+    .dc-character-video-card .dc-character-desc {
+      text-align: left;
+    }
+
+    /* Video card hover glows */
+    .dc-character-video-card.dc-character-drive:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(139, 92, 246, 0.35);
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+    .dc-character-video-card.dc-character-deadline:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(239, 68, 68, 0.35);
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    /* Dr. Derrick static card  - centered below */
+    .dc-character-static-card {
+      grid-column: 1 / -1;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 767px) {
+      .dc-character-video-wrap {
+        aspect-ratio: 16 / 12;
+      }
+      .dc-character-static-card {
+        max-width: 100%;
+      }
+      .dc-character-video-card .dc-character-name,
+      .dc-character-video-card .dc-character-role,
+      .dc-character-video-card .dc-character-desc {
+        text-align: center;
+      }
+      .dc-character-info {
+        text-align: center;
+      }
+    }
+
+    /* Reduce motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .dc-reveal,
+      .dc-reveal-left,
+      .dc-reveal-right,
+      .dc-reveal-scale {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .dc-hero-tag-anim,
+      .dc-hero-title-anim,
+      .dc-hero-subtitle-anim,
+      .dc-hero-buttons-anim,
+      .dc-hero-scroll-anim {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+      .dc-character-video {
+        transition: none;
+      }
+      .dc-character-video-card:hover .dc-character-video {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==========================================
+     NAVBAR
+     ========================================== -->
+<nav class="dc-navbar">
+  <div class="dc-navbar-inner">
+    <a href="#home" class="dc-navbar-logo">
+      <img src="/images/dc-logo-full-white.svg" alt="Driven Creations" width="190" height="52" />
+    </a>
+    <div class="dc-nav-links">
+      <a href="#home" class="dc-nav-link">Home</a>
+      <a href="#services" class="dc-nav-link">Services</a>
+      <a href="#story" class="dc-nav-link">Story</a>
+      <a href="#portfolio" class="dc-nav-link">Portfolio</a>
+      <a href="#process" class="dc-nav-link">Process</a>
+      <a href="#contact" class="dc-nav-link">Contact</a>
+    </div>
+    <div class="dc-nav-cta">
+      <a href="#contact" class="dc-btn dc-btn-primary dc-btn-sm">Get Started</a>
+    </div>
+    <div class="dc-mobile-menu-btn">
+      <div class="dc-hamburger-line"></div>
+      <div class="dc-hamburger-line"></div>
+      <div class="dc-hamburger-line dc-hamburger-short"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="dc-mobile-menu" id="mobileMenu">
+  <a href="#home" class="dc-mobile-menu-link">Home</a>
+  <a href="#services" class="dc-mobile-menu-link">Services</a>
+  <a href="#story" class="dc-mobile-menu-link">Story</a>
+  <a href="#portfolio" class="dc-mobile-menu-link">Portfolio</a>
+  <a href="#process" class="dc-mobile-menu-link">Process</a>
+  <a href="#contact" class="dc-mobile-menu-link">Contact</a>
+  <div class="dc-mobile-menu-cta">
+    <a href="#contact" class="dc-btn dc-btn-primary">Get Started</a>
+  </div>
+</div>
+
+<!-- ==========================================
+     HERO SECTION
+     ========================================== -->
+<section id="home" class="dc-hero">
+  <div class="dc-hero-video-wrap">
+    <video class="dc-hero-video" autoplay muted loop playsinline>
+      <source src="/videos/bg-topaz-hero.mp4" type="video/mp4" />
+    </video>
+    <div class="dc-hero-video-overlay"></div>
+  </div>
+  <div class="dc-hero-dark-overlay"></div>
+  <div class="dc-hero-content">
+    <div class="dc-section-tag dc-section-tag-purple dc-hero-tag-anim">Design Agency</div>
+    <div class="dc-hero-title dc-hero-title-anim">We Defeat Your <span class="dc-gradient-text">Deadline</span></div>
+    <div class="dc-hero-subtitle dc-hero-subtitle-anim">We build websites and create AI-powered video ads that make your brand impossible to ignore.</div>
+    <div class="dc-hero-buttons dc-hero-buttons-anim">
+      <a href="#services" class="dc-btn dc-btn-secondary">What We Do</a>
+      <a href="#contact" class="dc-btn dc-btn-primary dc-btn-lg">Start Your Project</a>
+    </div>
+  </div>
+  <div class="dc-scroll-indicator dc-hero-scroll-anim">
+    <div class="dc-scroll-arrow">&#8595;</div>
+  </div>
+</section>
+
+<!-- ==========================================
+     PROBLEM SECTION
+     ========================================== -->
+<section id="problem" class="dc-problem">
+  <div class="dc-section-container">
+    <div class="dc-problem-grid">
+      <div class="dc-problem-content dc-reveal-left">
+        <div class="dc-section-tag dc-section-tag-red">The Villain You Already Know</div>
+        <div class="dc-problem-title">Deadline Is Winning.</div>
+        <div class="dc-problem-desc">Every corner you cut, every template you settle for, every "good enough" design that ships, that's Deadline winning. And your brand pays the price.</div>
+        <div class="dc-stat-cards">
+          <div class="dc-stat-card dc-reveal dc-delay-1">
+            <div class="dc-stat-value">72%</div>
+            <div class="dc-stat-desc">of brands blend in because Deadline forced a shortcut</div>
+          </div>
+          <div class="dc-stat-card dc-reveal dc-delay-2">
+            <div class="dc-stat-value">3 sec</div>
+            <div class="dc-stat-desc">That's all Deadline gives you before visitors bounce</div>
+          </div>
+          <div class="dc-stat-card dc-reveal dc-delay-3">
+            <div class="dc-stat-value">2x</div>
+            <div class="dc-stat-desc">the cost to undo what Deadline convinced you to ship</div>
+          </div>
+        </div>
+      </div>
+      <div class="dc-problem-visual dc-reveal-right dc-delay-2">
+        <div class="dc-villain-card">
+          <div class="dc-villain-glow"></div>
+          <div class="dc-villain-inner">
+            <div class="dc-villain-icon">&#9889;</div>
+            <div class="dc-villain-name">DEADLINE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SERVICES SECTION
+     ========================================== -->
+<section id="services" class="dc-services">
+  <div class="dc-section-container">
+    <div class="dc-section-header dc-reveal">
+      <div class="dc-section-tag dc-section-tag-purple">What We Do</div>
+      <div class="dc-services-title">What We Build</div>
+      <div class="dc-services-subtitle">Websites that convert, videos that stop the scroll, and brands that stick.</div>
+    </div>
+    <div class="dc-services-grid">
+      <div class="dc-service-card dc-reveal dc-delay-1">
+        <div class="dc-service-icon-wrap">
+          <div class="dc-service-icon">&lt;/&gt;</div>
+        </div>
+        <div class="dc-service-title">Web Design &amp; Development</div>
+        <div class="dc-service-desc">Your website is your first impression. We build custom sites that make visitors stop scrolling and start converting.</div>
+      </div>
+      <div class="dc-service-card dc-reveal dc-delay-2">
+        <div class="dc-service-icon-wrap">
+          <div class="dc-service-icon">&#127916;</div>
+        </div>
+        <div class="dc-service-title">AI Video Advertising</div>
+        <div class="dc-service-desc">Scroll-stopping commercials and product ads that look like a full production  - without the full production budget.</div>
+      </div>
+      <div class="dc-service-card dc-reveal dc-delay-3">
+        <div class="dc-service-icon-wrap">
+          <div class="dc-service-icon">&#127912;</div>
+        </div>
+        <div class="dc-service-title">Branding &amp; Identity</div>
+        <div class="dc-service-desc">Need a cohesive visual identity to match your new site? We build brand systems that tie everything together.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     STORY SECTION
+     ========================================== -->
+<section id="story" class="dc-story">
+  <div class="dc-section-container">
+    <div class="dc-section-header dc-reveal">
+      <div class="dc-section-tag dc-section-tag-purple">The Animated Series</div>
+      <div class="dc-story-title">Pixels of Power: The Chronicles of Drive</div>
+      <div class="dc-story-subtitle">The battle between quality and chaos isn't just a metaphor. It's a war. Watch how Drive defeats Deadline one pixel at a time.</div>
+    </div>
+    <div class="dc-story-video-wrap dc-reveal-scale dc-delay-2">
+      <div class="dc-story-video-container">
+        <div class="dc-story-video-bg"></div>
+        <img src="/images/drive_deadline_gradient_poster.jpg" alt="Pixels of Power poster" class="dc-story-poster" />
+        <div class="dc-play-button-wrap">
+          <div class="dc-play-pulse"></div>
+          <div class="dc-play-button">&#9654;</div>
+        </div>
+      </div>
+    </div>
+    <div class="dc-characters-grid">
+      <!-- DRIVE  - Video Card -->
+      <div class="dc-character-card dc-character-video-card dc-character-drive dc-reveal dc-delay-1">
+        <div class="dc-character-video-wrap">
+          <video class="dc-character-video" muted playsinline preload="metadata" poster="/images/drive-poster.jpg">
+            <source src="/videos/on-hover-drive.mp4" type="video/mp4" />
+          </video>
+          <div class="dc-character-video-overlay">
+            <div class="dc-character-play-hint">&#9654;</div>
+          </div>
+          <div class="dc-character-video-gradient"></div>
+        </div>
+        <div class="dc-character-info">
+          <div class="dc-character-name">DRIVE</div>
+          <div class="dc-character-role dc-role-drive">The Hero</div>
+          <div class="dc-character-desc">Born from the first pixel of Creativity City. Drive exists for one purpose: to destroy Deadline and prove that great design never has to be rushed.</div>
+        </div>
+      </div>
+      <!-- DEADLINE  - Video Card -->
+      <div class="dc-character-card dc-character-video-card dc-character-deadline dc-reveal dc-delay-2">
+        <div class="dc-character-video-wrap">
+          <video class="dc-character-video" muted playsinline preload="metadata" poster="/images/deadline-poster.jpg">
+            <source src="/videos/on-hover-deadline.mp4" type="video/mp4" />
+          </video>
+          <div class="dc-character-video-overlay">
+            <div class="dc-character-play-hint">&#9654;</div>
+          </div>
+          <div class="dc-character-video-gradient"></div>
+        </div>
+        <div class="dc-character-info">
+          <div class="dc-character-name">DEADLINE</div>
+          <div class="dc-character-role dc-role-deadline">The Villain</div>
+          <div class="dc-character-desc">The force behind every rushed launch and every "just ship it" decision. Deadline turns vision into compromise unless someone stops him.</div>
+        </div>
+      </div>
+      <!-- DR. DERRICK  - Static Card (centered below) -->
+      <div class="dc-character-card dc-character-static-card dc-character-creator dc-reveal dc-delay-3">
+        <div class="dc-character-icon-wrap dc-icon-gold">
+          <div class="dc-character-icon">&#128081;</div>
+        </div>
+        <div class="dc-character-name">DR<span class="dc-symbol">.</span> DERRICK</div>
+        <div class="dc-character-role dc-role-gold">The Creator</div>
+        <div class="dc-character-desc">The architect of the resistance. Dr. Derrick built Drive and Driven Creations to prove that quality always wins the long game.</div>
+      </div>
+    </div>
+    <div class="dc-story-cta dc-reveal dc-delay-4">
+      <a href="#" class="dc-btn dc-btn-primary dc-btn-lg">Watch Episode 1</a>
+      <a href="#" class="dc-btn dc-btn-outline dc-btn-lg">Behind the Scenes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SCROLL COLLISION SECTION
+     ========================================== -->
+<section id="collision" class="dc-collision">
+  <video class="dc-collision-video" muted playsinline preload="auto">
+    <source src="/videos/drive_deadline_clash_purple.mp4" type="video/mp4" />
+  </video>
+  <div class="dc-collision-overlay-dark"></div>
+  <div class="dc-collision-overlay-gradient"></div>
+  <div class="dc-collision-content">
+    <div class="dc-collision-tag">The Clash</div>
+    <div class="dc-collision-title">Drive vs Deadline</div>
+    <div class="dc-collision-desc">One fights for craft. The other feeds on compromise. Only your brand decides who wins.</div>
+  </div>
+</section>
+
+<!-- ==========================================
+     PORTFOLIO SECTION
+     ========================================== -->
+<section id="portfolio" class="dc-portfolio">
+  <div class="dc-section-container dc-portfolio-tight-top">
+    <div class="dc-section-header dc-reveal">
+      <div class="dc-section-tag dc-section-tag-purple">Our Work</div>
+      <div class="dc-portfolio-title">Designs That <span class="dc-gradient-text">Deliver</span></div>
+      <div class="dc-portfolio-subtitle">Selected projects that showcase our commitment to excellence.</div>
+    </div>
+    <div class="dc-filter-tabs dc-reveal dc-delay-1">
+      <div class="dc-filter-tab dc-filter-active">All</div>
+      <div class="dc-filter-tab">Web</div>
+      <div class="dc-filter-tab">Branding</div>
+      <div class="dc-filter-tab">Video</div>
+    </div>
+    <div class="dc-projects-grid">
+      <div class="dc-project-card dc-reveal-scale dc-delay-1">
+        <div class="dc-project-bg dc-project-purple"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Web</div>
+          <div class="dc-project-name">Apex Law Group</div>
+          <div class="dc-project-desc">Complete website redesign</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+      <div class="dc-project-card dc-reveal-scale dc-delay-2">
+        <div class="dc-project-bg dc-project-amber"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Branding</div>
+          <div class="dc-project-name">Savora Kitchen</div>
+          <div class="dc-project-desc">Restaurant brand identity</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+      <div class="dc-project-card dc-reveal-scale dc-delay-3">
+        <div class="dc-project-bg dc-project-cyan"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Web</div>
+          <div class="dc-project-name">TechVault Store</div>
+          <div class="dc-project-desc">E-commerce optimization</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+      <div class="dc-project-card dc-reveal-scale dc-delay-4">
+        <div class="dc-project-bg dc-project-emerald"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Video</div>
+          <div class="dc-project-name">LuxeWear Campaign</div>
+          <div class="dc-project-desc">AI product commercial</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+      <div class="dc-project-card dc-reveal-scale dc-delay-5">
+        <div class="dc-project-bg dc-project-rose"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Branding</div>
+          <div class="dc-project-name">Luminary Studios</div>
+          <div class="dc-project-desc">Creative agency rebrand</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+      <div class="dc-project-card dc-reveal-scale dc-delay-6">
+        <div class="dc-project-bg dc-project-violet"></div>
+        <div class="dc-project-hover-overlay">
+          <div class="dc-project-category">Video</div>
+          <div class="dc-project-name">Pulse Fitness Ad</div>
+          <div class="dc-project-desc">AI brand video campaign</div>
+          <div class="dc-project-arrow">&#8599;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     PROCESS SECTION
+     ========================================== -->
+<section id="process" class="dc-process">
+  <div class="dc-section-container">
+    <div class="dc-section-header">
+      <div class="dc-section-tag dc-section-tag-purple dc-reveal">How We Work</div>
+      <div class="dc-process-title dc-reveal dc-delay-1">From Vision to <span class="dc-gradient-text">Victory</span></div>
+    </div>
+    <div class="dc-process-steps">
+      <div class="dc-process-line-bg"></div>
+      <div class="dc-process-line-progress"></div>
+      <div class="dc-process-step">
+        <div class="dc-step-circle">&#128269;</div>
+        <div class="dc-step-number">Step 01</div>
+        <div class="dc-step-title">DISCOVER</div>
+        <div class="dc-step-desc">We learn your goals, audience, and competition.</div>
+      </div>
+      <div class="dc-process-step">
+        <div class="dc-step-circle">&#128506;</div>
+        <div class="dc-step-number">Step 02</div>
+        <div class="dc-step-title">STRATEGIZE</div>
+        <div class="dc-step-desc">We map the path to your objectives.</div>
+      </div>
+      <div class="dc-process-step">
+        <div class="dc-step-circle">&#128396;</div>
+        <div class="dc-step-number">Step 03</div>
+        <div class="dc-step-title">CREATE</div>
+        <div class="dc-step-desc">We design and build with precision.</div>
+      </div>
+      <div class="dc-process-step">
+        <div class="dc-step-circle">&#10024;</div>
+        <div class="dc-step-number">Step 04</div>
+        <div class="dc-step-title">REFINE</div>
+        <div class="dc-step-desc">We polish until it's perfect.</div>
+      </div>
+      <div class="dc-process-step">
+        <div class="dc-step-circle">&#128640;</div>
+        <div class="dc-step-number">Step 05</div>
+        <div class="dc-step-title">LAUNCH</div>
+        <div class="dc-step-desc">We deploy and celebrate together.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     TESTIMONIALS SECTION
+     ========================================== -->
+<section id="testimonials" class="dc-testimonials">
+  <div class="dc-section-container">
+    <div class="dc-section-header dc-reveal">
+      <div class="dc-section-tag dc-section-tag-purple">What They Say</div>
+      <div class="dc-testimonials-title">Client Stories</div>
+    </div>
+    <div class="dc-testimonial-carousel dc-reveal dc-delay-2">
+      <div class="dc-testimonial-slide">
+        <div class="dc-testimonial-quote">"</div>
+        <div class="dc-testimonial-text">Driven Creations transformed our online presence. The attention to detail was unmatched.</div>
+        <div class="dc-testimonial-author-wrap">
+          <div class="dc-testimonial-avatar"></div>
+          <div class="dc-testimonial-author-info">
+            <div class="dc-testimonial-name">Sarah Chen</div>
+            <div class="dc-testimonial-role">CEO, TechFlow Inc.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dc-testimonial-dots">
+      <div class="dc-dot dc-dot-active"></div>
+      <div class="dc-dot"></div>
+      <div class="dc-dot"></div>
+    </div>
+    <div class="dc-logo-marquee-section dc-reveal dc-delay-3">
+      <div class="dc-trusted-label">Trusted By</div>
+      <div class="dc-marquee-container">
+        <div class="dc-marquee-fade-left"></div>
+        <div class="dc-marquee-fade-right"></div>
+        <div class="dc-marquee-track">
+          <div class="dc-marquee-logo">TechFlow</div>
+          <div class="dc-marquee-logo">Elevate</div>
+          <div class="dc-marquee-logo">GreenLeaf</div>
+          <div class="dc-marquee-logo">Nexus</div>
+          <div class="dc-marquee-logo">Prism</div>
+          <div class="dc-marquee-logo">Catalyst</div>
+          <div class="dc-marquee-logo">TechFlow</div>
+          <div class="dc-marquee-logo">Elevate</div>
+          <div class="dc-marquee-logo">GreenLeaf</div>
+          <div class="dc-marquee-logo">Nexus</div>
+          <div class="dc-marquee-logo">Prism</div>
+          <div class="dc-marquee-logo">Catalyst</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     CTA / CONTACT SECTION
+     ========================================== -->
+<section id="contact" class="dc-cta">
+  <div class="dc-cta-glow"></div>
+  <div class="dc-section-container dc-cta-inner">
+    <div class="dc-cta-content">
+      <div class="dc-section-tag dc-section-tag-purple dc-reveal">Let's Connect</div>
+      <div class="dc-cta-title dc-reveal dc-delay-1">Ready to Go Beyond?</div>
+      <div class="dc-cta-subtitle dc-reveal dc-delay-2">Let's create something that makes your competition nervous.</div>
+      <form class="dc-contact-form dc-reveal dc-delay-3">
+        <div class="dc-form-row">
+          <input type="text" placeholder="Your Name" class="dc-input" required />
+          <input type="email" placeholder="Your Email" class="dc-input" required />
+        </div>
+        <select class="dc-input dc-input-full" required>
+          <option value="" disabled selected>Select Project Type</option>
+          <option value="web-design">Web Design</option>
+          <option value="branding">Branding</option>
+          <option value="ai-video">AI Video Advertising</option>
+          <option value="full-package">Full Package</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea placeholder="Tell us about your project..." rows="4" class="dc-input dc-input-full dc-textarea" required></textarea>
+        <div class="dc-form-submit">
+          <button type="submit" class="dc-btn dc-btn-primary dc-btn-lg dc-btn-full">Send Message</button>
+        </div>
+      </form>
+      <div class="dc-cta-divider">
+        <div class="dc-divider-line"></div>
+        <div class="dc-divider-text">Or</div>
+        <div class="dc-divider-line"></div>
+      </div>
+      <div class="dc-cta-alt-buttons">
+        <a href="#contact" class="dc-btn dc-btn-outline">Schedule a Call</a>
+        <a href="#contact" class="dc-btn dc-btn-secondary">Get a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer class="dc-footer">
+  <div class="dc-section-container">
+    <div class="dc-footer-grid">
+      <div class="dc-footer-col">
+        <img src="/images/dc-logo-full-white.svg" alt="Driven Creations" width="133" height="36" class="dc-footer-logo" />
+        <div class="dc-footer-tagline">Stay Driven.</div>
+        <div class="dc-footer-brand-desc">Building brands that fight for attention  - and win.</div>
+      </div>
+      <div class="dc-footer-col">
+        <div class="dc-footer-heading">Navigate</div>
+        <nav class="dc-footer-nav">
+          <a href="#services" class="dc-footer-link">Services</a>
+          <a href="#story" class="dc-footer-link">Story</a>
+          <a href="#portfolio" class="dc-footer-link">Portfolio</a>
+          <a href="#process" class="dc-footer-link">Process</a>
+          <a href="#contact" class="dc-footer-link">Contact</a>
+        </nav>
+      </div>
+      <div class="dc-footer-col">
+        <div class="dc-footer-heading">Follow Us</div>
+        <nav class="dc-footer-nav">
+          <a href="https://www.linkedin.com/company/driven-creations-llc/" target="_blank" rel="noopener" class="dc-footer-social-link"><svg class="dc-footer-social-icon dc-footer-social-icon--linkedin" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+          <a href="https://www.instagram.com/drivencreationsllc/" target="_blank" rel="noopener" class="dc-footer-social-link"><svg class="dc-footer-social-icon dc-footer-social-icon--instagram" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> Instagram</a>
+          <a href="https://www.behance.net/designismydrive/" target="_blank" rel="noopener" class="dc-footer-social-link"><svg class="dc-footer-social-icon dc-footer-social-icon--behance" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V5.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11h3.584c2.508 0 2.906-3-.312-3H3v3zm3.391 3H3v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg> Behance</a>
+          <a href="https://www.facebook.com/drivencreationsllc/" target="_blank" rel="noopener" class="dc-footer-social-link"><svg class="dc-footer-social-icon dc-footer-social-icon--facebook" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
+        </nav>
+      </div>
+      <div class="dc-footer-col">
+        <div class="dc-footer-heading">Get In Touch</div>
+        <div class="dc-footer-contact-text">Maryland, USA</div>
+        <a href="mailto:hello@drivencreations.com" class="dc-footer-contact-link">hello@drivencreations.com</a>
+        <div class="dc-footer-contact-cta">Let's build something great.</div>
+      </div>
+    </div>
+    <div class="dc-footer-bottom">
+      <div class="dc-footer-copyright">&#169; 2026 Driven Creations. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Navbar scroll effect -->
+<script>
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.dc-navbar');
+    if (navbar) {
+      if (window.scrollY > 50) {
+        navbar.classList.add('is-scrolled');
+      } else {
+        navbar.classList.remove('is-scrolled');
+      }
+    }
+  });
+</script>
+
+<!-- Mobile menu toggle -->
+<script>
+  (function() {
+    var menuBtn = document.querySelector('.dc-mobile-menu-btn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (!menuBtn || !mobileMenu) return;
+
+    menuBtn.addEventListener('click', function() {
+      var isOpen = mobileMenu.classList.contains('is-open');
+      if (isOpen) {
+        mobileMenu.classList.remove('is-open');
+        menuBtn.classList.remove('is-open');
+        document.body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('is-open');
+        menuBtn.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when a link is clicked
+    var menuLinks = mobileMenu.querySelectorAll('.dc-mobile-menu-link, .dc-mobile-menu-cta a');
+    for (var i = 0; i < menuLinks.length; i++) {
+      menuLinks[i].addEventListener('click', function() {
+        mobileMenu.classList.remove('is-open');
+        menuBtn.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+    }
+  })();
+</script>
+
+<!-- Scroll Collision: play video + fade in content on scroll -->
+<script>
+  (function() {
+    var collisionSection = document.getElementById('collision');
+    if (!collisionSection) return;
+
+    var video = collisionSection.querySelector('.dc-collision-video');
+    var content = collisionSection.querySelector('.dc-collision-content');
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          // Play video from the start
+          if (video) {
+            video.currentTime = 0;
+            video.play();
+            video.classList.add('is-playing');
+          }
+          // Fade in the text content
+          if (content) {
+            content.classList.add('is-visible');
+          }
+        } else {
+          // Pause and reset video when out of view
+          if (video) {
+            video.pause();
+            video.currentTime = 0;
+            video.classList.remove('is-playing');
+          }
+          // Hide text content
+          if (content) {
+            content.classList.remove('is-visible');
+          }
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(collisionSection);
+  })();
+</script>
+
+<!-- Process section: scroll-driven progress line + step highlighting -->
+<script>
+  (function() {
+    var processSection = document.getElementById('process');
+    if (!processSection) return;
+
+    var progressLine = processSection.querySelector('.dc-process-line-progress');
+    var stepCircles = processSection.querySelectorAll('.dc-step-circle');
+    var isMobile = window.innerWidth < 768;
+
+    function updateProgress() {
+      var rect = processSection.getBoundingClientRect();
+      var windowH = window.innerHeight;
+
+      // Match Next.js offset: ['start end', 'end center']
+      // "start end" = section top reaches viewport bottom (scrollYProgress = 0)
+      // "end center" = section bottom reaches viewport center (scrollYProgress = 1)
+      var start = rect.top + window.scrollY - windowH;
+      var end = rect.top + window.scrollY + rect.height - windowH * 0.5;
+      var scrollY = window.scrollY;
+      var rawProgress = (scrollY - start) / (end - start);
+      var scrollProgress = Math.max(0, Math.min(1, rawProgress));
+
+      // Map scrollProgress 0.15–0.85 to line scale 0–1
+      var lineScale = (scrollProgress - 0.15) / 0.7;
+      lineScale = Math.max(0, Math.min(1, lineScale));
+
+      if (progressLine) {
+        if (isMobile) {
+          progressLine.style.transform = 'scaleY(' + lineScale + ')';
+        } else {
+          progressLine.style.transform = 'scaleX(' + lineScale + ')';
+        }
+      }
+
+      // Activate step circles as progress reaches them
+      for (var i = 0; i < stepCircles.length; i++) {
+        var threshold = i / (stepCircles.length - 1); // 0, 0.25, 0.5, 0.75, 1
+        var activationPoint = 0.15 + threshold * 0.7;
+        if (scrollProgress >= activationPoint - 0.05) {
+          stepCircles[i].classList.add('dc-step-active');
+        } else {
+          stepCircles[i].classList.remove('dc-step-active');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', function() {
+      isMobile = window.innerWidth < 768;
+      updateProgress();
+    });
+    updateProgress();
+  })();
+</script>
+
+<!-- Character video cards: hover play/pause -->
+<script>
+  (function() {
+    var videoCards = document.querySelectorAll('.dc-character-video-card');
+    if (!videoCards.length) return;
+
+    var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+    videoCards.forEach(function(card) {
+      var video = card.querySelector('.dc-character-video');
+      if (!video) return;
+
+      function playVideo() {
+        video.currentTime = 0;
+        video.play().catch(function() {});
+        card.classList.add('is-playing');
+      }
+
+      function pauseVideo() {
+        video.pause();
+        video.currentTime = 0;
+        card.classList.remove('is-playing');
+      }
+
+      if (isTouch) {
+        // Mobile: tap to toggle
+        card.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (card.classList.contains('is-playing')) {
+            pauseVideo();
+          } else {
+            // Pause all other video cards first
+            videoCards.forEach(function(otherCard) {
+              if (otherCard !== card) {
+                var otherVideo = otherCard.querySelector('.dc-character-video');
+                if (otherVideo) {
+                  otherVideo.pause();
+                  otherVideo.currentTime = 0;
+                  otherCard.classList.remove('is-playing');
+                }
+              }
+            });
+            playVideo();
+          }
+        });
+      } else {
+        // Desktop: hover to play
+        card.addEventListener('mouseenter', function() {
+          playVideo();
+        });
+        card.addEventListener('mouseleave', function() {
+          pauseVideo();
+        });
+      }
+
+      // When video ends, reset
+      video.addEventListener('ended', function() {
+        card.classList.remove('is-playing');
+        video.currentTime = 0;
+      });
+    });
+
+    // Pause videos when scrolled out of view
+    var videoObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) {
+          var card = entry.target;
+          var video = card.querySelector('.dc-character-video');
+          if (video) {
+            video.pause();
+            video.currentTime = 0;
+            card.classList.remove('is-playing');
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    videoCards.forEach(function(card) {
+      videoObserver.observe(card);
+    });
+  })();
+</script>
+
+<!-- Scroll reveal observer for all animated elements -->
+
+<!-- Cookie Consent Banner -->
+<div class="dc-cookie-banner" id="cookieBanner">
+  <div class="dc-cookie-inner">
+    <div class="dc-cookie-text">We use cookies to enhance your experience and analyze site traffic. By clicking "Accept," you consent to our use of cookies. <a href="/privacy.html">Privacy Policy</a></div>
+    <div class="dc-cookie-actions">
+      <button class="dc-cookie-accept" id="cookieAccept">Accept</button>
+      <button class="dc-cookie-decline" id="cookieDecline">Decline</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var revealElements = document.querySelectorAll(
+      '.dc-reveal, .dc-reveal-left, .dc-reveal-right, .dc-reveal-scale'
+    );
+    if (!revealElements.length) return;
+
+    // Check prefers-reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // Immediately show all elements
+      for (var i = 0; i < revealElements.length; i++) {
+        revealElements[i].classList.add('is-revealed');
+      }
+      return;
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target); // Only animate once
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    for (var i = 0; i < revealElements.length; i++) {
+      observer.observe(revealElements[i]);
+    }
+  })();
+</script>
+
+</body>
+</html>

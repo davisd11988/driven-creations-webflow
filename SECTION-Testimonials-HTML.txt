@@ -1,0 +1,53 @@
+<section id="testimonials" class="dc-testimonials">
+  <div class="dc-section-container">
+    <div class="dc-section-header">
+      <div class="dc-section-tag dc-section-tag-purple">What They Say</div>
+      <div class="dc-testimonials-title">Client Stories</div>
+    </div>
+
+    <!-- Use Webflow Slider component for carousel -->
+    <div class="dc-testimonial-carousel">
+      <div class="dc-testimonial-slide">
+        <div class="dc-testimonial-quote">"</div>
+        <div class="dc-testimonial-text">Driven Creations transformed our online presence. The attention to detail was unmatched.</div>
+        <div class="dc-testimonial-author-wrap">
+          <div class="dc-testimonial-avatar"></div>
+          <div class="dc-testimonial-author-info">
+            <div class="dc-testimonial-name">Sarah Chen</div>
+            <div class="dc-testimonial-role">CEO, TechFlow Inc.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation dots - use Webflow Slider nav -->
+    <div class="dc-testimonial-dots">
+      <div class="dc-dot dc-dot-active"></div>
+      <div class="dc-dot"></div>
+      <div class="dc-dot"></div>
+    </div>
+
+    <!-- Logo Marquee -->
+    <div class="dc-logo-marquee-section">
+      <div class="dc-trusted-label">Trusted By</div>
+      <div class="dc-marquee-container">
+        <div class="dc-marquee-fade-left"></div>
+        <div class="dc-marquee-fade-right"></div>
+        <div class="dc-marquee-track">
+          <div class="dc-marquee-logo">TechFlow</div>
+          <div class="dc-marquee-logo">Elevate</div>
+          <div class="dc-marquee-logo">GreenLeaf</div>
+          <div class="dc-marquee-logo">Nexus</div>
+          <div class="dc-marquee-logo">Prism</div>
+          <div class="dc-marquee-logo">Catalyst</div>
+          <div class="dc-marquee-logo">TechFlow</div>
+          <div class="dc-marquee-logo">Elevate</div>
+          <div class="dc-marquee-logo">GreenLeaf</div>
+          <div class="dc-marquee-logo">Nexus</div>
+          <div class="dc-marquee-logo">Prism</div>
+          <div class="dc-marquee-logo">Catalyst</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

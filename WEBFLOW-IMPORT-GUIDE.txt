@@ -1,0 +1,224 @@
+============================================================
+DRIVEN CREATIONS — WEBFLOW IMPORT GUIDE
+============================================================
+
+This folder contains all 11 sections of the Driven Creations
+landing page, converted for HTMLtoFlow import into Webflow.
+
+Each section has two files:
+  - SECTION-[Name]-HTML.txt  (the HTML structure)
+  - SECTION-[Name]-CSS.txt   (the matching CSS styles)
+
+
+============================================================
+SECTION ORDER (import in this order)
+============================================================
+
+1.  Navbar
+2.  Hero
+3.  Problem
+4.  Services
+5.  Story
+6.  ScrollCollision
+7.  Portfolio
+8.  Process
+9.  Testimonials
+10. CTA
+11. Footer
+
+
+============================================================
+STEP-BY-STEP IMPORT PROCESS
+============================================================
+
+OPTION A — HTMLtoFlow App (Recommended)
+---------------------------------------
+1. Go to: https://webflow.com/apps/detail/htmltoflow
+2. Click "Add to site" and select your Webflow project
+3. Open your project in the Webflow Designer
+4. Go to the Apps panel (left sidebar) > click HTMLtoFlow
+5. For EACH section:
+   a. Paste the HTML from SECTION-[Name]-HTML.txt
+   b. Paste the CSS from SECTION-[Name]-CSS.txt
+   c. Click "Convert" — elements appear on your canvas
+6. Arrange sections in order on your page
+
+OPTION B — HTFlow AI Chrome Extension
+--------------------------------------
+1. Install: https://chromewebstore.google.com/detail/htflow-ai-for-webflow-wor/nnkbaccknjdofhmijbddaohboaenbpci
+2. Open your Webflow project in the Designer
+3. Use the extension to paste and convert HTML/CSS
+
+OPTION C — Manual + Custom Code
+-------------------------------
+1. Build the div structure manually in Webflow Designer
+2. Paste ALL CSS files combined into one <style> block in
+   Site Settings > Custom Code > Head section
+3. Apply matching class names to each element
+
+RECOMMENDED: Whichever method you use, paste ALL CSS files
+combined into one <style> block in Webflow's Site Settings >
+Custom Code > Head section for consistent styling.
+
+
+============================================================
+FONTS SETUP (do this first)
+============================================================
+
+In Webflow Project Settings > Fonts:
+
+1. Add Google Font: "Inter" (weights: 400, 500, 600, 700)
+2. Add Google Font: "Plus Jakarta Sans" (weights: 600, 700, 800)
+
+Font usage:
+- Body text / descriptions: Inter
+- Headings / display text: Plus Jakarta Sans
+
+
+============================================================
+GLOBAL STYLES
+============================================================
+
+Add this to Site Settings > Custom Code > Head:
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgba(124, 58, 237, 0.4);
+    color: #ffffff;
+  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0a0a0a; }
+  ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #a78bfa; }
+</style>
+
+
+============================================================
+ASSETS TO UPLOAD
+============================================================
+
+Upload these to Webflow's Asset Manager:
+
+Images:
+- /images/dc-logo-full-white.svg (navbar + footer logo)
+- /images/drive_deadline_gradient_poster.jpg (story video poster)
+
+Videos (upload to Webflow or host externally):
+- /videos/drive_deadline_clash_purple.mp4 (hero + collision)
+- /videos/hero-vill-2.mp4 (alt hero variant)
+- /videos/seedance-v2-hero.mp4 (alt2 hero variant)
+- /videos/bg-topaz-hero.mp4 (alt3 hero variant)
+
+Update the src paths in the HTML after uploading.
+
+
+============================================================
+COLOR REFERENCE
+============================================================
+
+Brand Purple:       #7c3aed
+Purple Dark:        #5b21b6
+Purple Light:       #a78bfa
+Brand Dark (bg):    #0a0a0a
+BG Purple:          #1a0a2e
+Brand Cyan:         #22d3ee
+Brand Gold:         #fbbf24
+Drive (purple):     #8b5cf6
+Deadline (red):     #ef4444
+Text Secondary:     #a1a1aa
+Text Muted:         #71717a
+
+
+============================================================
+WEBFLOW INTERACTIONS NEEDED
+============================================================
+
+These animations from the Next.js site need to be recreated
+using Webflow Interactions 2.0:
+
+1. NAVBAR SCROLL STATE
+   - Trigger: Page scroll > 50px
+   - Action: Add class "is-scrolled" to .dc-navbar
+   - Effect: Dark bg with backdrop-blur appears
+
+2. HERO ENTRANCE ANIMATIONS
+   - Trigger: Page load
+   - Action: Stagger fade-in-up on tag, title, subtitle, buttons
+   - Delays: 0.2s, 0.4s, 0.6s, 0.8s
+   - Duration: 0.6s each
+
+3. PROBLEM STAT CARDS
+   - Trigger: Scroll into view
+   - Action: Slide in from left, stagger 0.15s
+   - Duration: 0.5s
+
+4. SERVICE CARDS
+   - Trigger: Scroll into view
+   - Action: Fade up, stagger 0.15s
+   - Duration: 0.6s
+
+5. SCROLL COLLISION VIDEO
+   - Trigger: Section enters viewport (30% visible)
+   - Action: Play video from start, fade in text
+   - Note: May need custom embed code for video control
+
+6. PROCESS STEP PROGRESS LINE
+   - Trigger: Scroll through section
+   - Action: Scale line from 0% to 100% width (scaleX)
+   - Also: Highlight step circles as line reaches them
+   - Use "While scrolling in view" interaction type
+
+7. TESTIMONIAL CAROUSEL
+   - Use Webflow's built-in Slider component
+   - Auto-rotate: 5 seconds
+   - Pause on hover
+
+8. LOGO MARQUEE
+   - Already CSS-animated via @keyframes marquee-scroll
+   - No Webflow interaction needed
+
+9. VILLAIN CARD PULSE
+   - Already CSS-animated via @keyframes
+   - No Webflow interaction needed
+
+10. PORTFOLIO FILTER TABS
+    - Use Webflow CMS + Filter, or Webflow Tabs component
+    - Fade transition between filtered states
+
+
+============================================================
+MOBILE MENU
+============================================================
+
+Replace the hamburger HTML with Webflow's native Navbar
+component for mobile menu functionality. The Navbar component
+handles the slide-out drawer automatically.
+
+
+============================================================
+CONTACT FORM
+============================================================
+
+Replace the static HTML form with Webflow's native Form
+component. Connect it to Webflow's form submissions or
+integrate with a third-party service (Zapier, Make, etc.).
+
+
+============================================================
+TIPS
+============================================================
+
+- Import sections one at a time for best results
+- Test on Webflow's preview after each section import
+- The CSS uses "dc-" prefixed classes to avoid conflicts
+- Glass morphism effects (backdrop-filter) won't show in
+  Webflow's Designer — publish to preview to see them
+- Videos won't autoplay in Designer — publish to test
+- Combine all CSS into one <style> block for easier management

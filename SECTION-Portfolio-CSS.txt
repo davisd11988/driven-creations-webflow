@@ -1,0 +1,227 @@
+/* ============================================
+   PORTFOLIO SECTION
+   ============================================ */
+
+.dc-portfolio {
+  background-color: #0a0a0a;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.dc-portfolio-tight-top {
+  padding-top: 16px;
+}
+
+/* --- Section Header --- */
+
+.dc-section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.dc-section-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
+}
+
+.dc-section-tag-purple {
+  background-color: rgba(124, 58, 237, 0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.dc-portfolio-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.dc-portfolio-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  color: #a1a1aa;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Filter Tabs --- */
+
+.dc-filter-tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.dc-filter-tab {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #a1a1aa;
+}
+
+.dc-filter-tab:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dc-filter-active {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+.dc-filter-active:hover {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+/* --- Projects Grid --- */
+
+.dc-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.dc-project-card {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  position: relative;
+}
+
+/* --- Project Background Gradients --- */
+
+.dc-project-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.dc-project-purple {
+  background: linear-gradient(135deg, #581c87, #312e81);
+}
+
+.dc-project-amber {
+  background: linear-gradient(135deg, #78350f, #9a3412);
+}
+
+.dc-project-cyan {
+  background: linear-gradient(135deg, #164e63, #1e3a5f);
+}
+
+.dc-project-emerald {
+  background: linear-gradient(135deg, #064e3b, #134e4a);
+}
+
+.dc-project-rose {
+  background: linear-gradient(135deg, #881337, #9d174d);
+}
+
+.dc-project-violet {
+  background: linear-gradient(135deg, #5b21b6, #7c3aed);
+}
+
+/* --- Hover Overlay --- */
+
+.dc-project-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.dc-project-card:hover .dc-project-hover-overlay {
+  opacity: 1;
+}
+
+.dc-project-category {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a78bfa;
+  margin-bottom: 8px;
+}
+
+.dc-project-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.dc-project-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #a1a1aa;
+  margin-top: 8px;
+}
+
+.dc-project-arrow {
+  font-size: 24px;
+  color: #ffffff;
+  margin-top: 16px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.dc-project-card:hover .dc-project-arrow {
+  opacity: 1;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 991px) {
+  .dc-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .dc-portfolio-tight-top {
+    padding-top: 24px;
+  }
+
+  .dc-portfolio-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .dc-projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dc-portfolio-title {
+    font-size: 1.875rem;
+  }
+}

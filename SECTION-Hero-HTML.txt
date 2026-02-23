@@ -1,0 +1,28 @@
+<section id="home" class="dc-hero">
+  <!-- Video Background -->
+  <div class="dc-hero-video-wrap">
+    <video class="dc-hero-video" autoplay muted loop playsinline>
+      <source src="/videos/drive_deadline_clash_purple.mp4" type="video/mp4" />
+    </video>
+    <div class="dc-hero-video-overlay"></div>
+  </div>
+
+  <!-- Dark overlay -->
+  <div class="dc-hero-dark-overlay"></div>
+
+  <!-- Content -->
+  <div class="dc-hero-content">
+    <div class="dc-section-tag dc-section-tag-purple">Pixels of Power</div>
+    <div class="dc-hero-title">We Defeat Your Deadline</div>
+    <div class="dc-hero-subtitle">Design without compromise. Built to outlast the rush.</div>
+    <div class="dc-hero-buttons">
+      <a href="#story" class="dc-btn dc-btn-secondary">Meet the Heroes</a>
+      <a href="#contact" class="dc-btn dc-btn-primary dc-btn-lg">Defeat Your Deadline &#8594;</a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="dc-scroll-indicator">
+    <div class="dc-scroll-arrow">&#8595;</div>
+  </div>
+</section>

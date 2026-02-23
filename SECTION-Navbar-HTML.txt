@@ -1,0 +1,25 @@
+<nav class="dc-navbar">
+  <div class="dc-navbar-inner">
+    <a href="#home" class="dc-navbar-logo">
+      <img src="/images/dc-logo-full-white.svg" alt="Driven Creations" width="162" height="44" />
+    </a>
+    <div class="dc-nav-links">
+      <a href="#home" class="dc-nav-link">Home</a>
+      <a href="#services" class="dc-nav-link">Services</a>
+      <a href="#story" class="dc-nav-link">Story</a>
+      <a href="#portfolio" class="dc-nav-link">Portfolio</a>
+      <a href="#process" class="dc-nav-link">Process</a>
+      <a href="#contact" class="dc-nav-link">Contact</a>
+    </div>
+    <div class="dc-nav-cta">
+      <a href="#contact" class="dc-btn dc-btn-primary dc-btn-sm">Get Started</a>
+    </div>
+    <!-- Mobile hamburger - use Webflow Navbar component for mobile menu -->
+    <!-- Mobile drawer: recreate with Webflow Navbar component -->
+    <div class="dc-mobile-menu-btn">
+      <div class="dc-hamburger-line"></div>
+      <div class="dc-hamburger-line"></div>
+      <div class="dc-hamburger-line dc-hamburger-short"></div>
+    </div>
+  </div>
+</nav>

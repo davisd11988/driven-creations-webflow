@@ -1,0 +1,38 @@
+<section id="problem" class="dc-problem">
+  <div class="dc-section-container">
+    <div class="dc-problem-grid">
+      <!-- Left column -->
+      <div class="dc-problem-content">
+        <div class="dc-section-tag dc-section-tag-red">The Villain You Already Know</div>
+        <div class="dc-problem-title">Deadline Is Winning.</div>
+        <div class="dc-problem-desc">Every corner you cut, every template you settle for, every "good enough" design that ships — that's Deadline winning. And your brand pays the price.</div>
+
+        <div class="dc-stat-cards">
+          <div class="dc-stat-card">
+            <div class="dc-stat-value">72%</div>
+            <div class="dc-stat-desc">of brands blend in because Deadline forced a shortcut</div>
+          </div>
+          <div class="dc-stat-card">
+            <div class="dc-stat-value">3 sec</div>
+            <div class="dc-stat-desc">That's all Deadline gives you before visitors bounce</div>
+          </div>
+          <div class="dc-stat-card">
+            <div class="dc-stat-value">2x</div>
+            <div class="dc-stat-desc">the cost to undo what Deadline convinced you to ship</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column - Villain visual -->
+      <div class="dc-problem-visual">
+        <div class="dc-villain-card">
+          <div class="dc-villain-glow"></div>
+          <div class="dc-villain-inner">
+            <div class="dc-villain-icon">&#9889;</div>
+            <div class="dc-villain-name">DEADLINE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
