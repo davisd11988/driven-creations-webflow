@@ -21,7 +21,7 @@
 
     var iframe = modal.querySelector('.dc-video-modal-embed iframe');
     if (iframe) {
-      iframe.setAttribute('src', 'https://www.youtube.com/embed/aXSSXl8xbz4?autoplay=1&rel=0');
+      iframe.setAttribute('src', 'https://www.youtube.com/embed/im-qtaIxbYk?autoplay=1&rel=0');
     }
     modal.classList.add('is-active');
     document.body.style.overflow = 'hidden';
