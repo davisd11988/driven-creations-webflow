@@ -250,20 +250,22 @@ a { text-decoration: none; color: inherit; }
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  gap: 5px;
-  width: 32px;
-  height: 32px;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
   z-index: 55;
+  padding: 8px;
+  -webkit-tap-highlight-color: transparent;
 }
 .dc-hamburger-line {
-  width: 24px;
-  height: 2px;
+  width: 26px;
+  height: 2.5px;
   background-color: #ffffff;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
-.dc-hamburger-short { width: 16px; }
+.dc-hamburger-short { width: 18px; }
 @media (min-width: 768px) {
   .dc-navbar-inner {
     height: 80px;
