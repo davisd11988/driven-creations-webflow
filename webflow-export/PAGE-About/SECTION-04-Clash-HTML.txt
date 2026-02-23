@@ -1,0 +1,27 @@
+<!-- ==========================================
+     ABOUT PAGE — SECTION 04: The Clash (Drive vs Deadline)
+     Includes video modal for YouTube embed
+     ========================================== -->
+
+<section id="collision" class="dc-collision">
+  <video class="dc-collision-video" muted playsinline preload="auto">
+    <source src="/videos/drive_deadline_clash_purple.mp4" type="video/mp4" />
+  </video>
+  <div class="dc-collision-overlay-dark"></div>
+  <div class="dc-collision-overlay-gradient"></div>
+  <div class="dc-collision-content">
+    <div class="dc-collision-tag">The Clash</div>
+    <div class="dc-collision-title dc-reveal-text">Drive vs Deadline</div>
+    <a href="#" class="dc-btn dc-btn-primary dc-btn-lg" style="margin-top: 24px;" data-video-modal>Watch Episode 1</a>
+  </div>
+</section>
+
+<!-- YouTube Video Modal -->
+<div class="dc-video-modal">
+  <div class="dc-video-modal-inner">
+    <div class="dc-video-modal-close">&#10005;</div>
+    <div class="dc-video-modal-embed">
+      <iframe src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>

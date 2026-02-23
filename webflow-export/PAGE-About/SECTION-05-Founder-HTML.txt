@@ -1,0 +1,24 @@
+<!-- ==========================================
+     ABOUT PAGE — SECTION 05: Founder
+     ========================================== -->
+
+<section class="dc-services dc-subpage-tight" style="position: relative;">
+  <div class="dc-section-container">
+    <div class="dc-section-header dc-reveal">
+      <div class="dc-section-tag dc-section-tag-purple">The Founder</div>
+      <div class="dc-services-title dc-reveal-text">The Mind Behind the Mission</div>
+    </div>
+    <div class="dc-founder-grid dc-reveal dc-delay-1">
+      <div class="dc-founder-photo-wrap">
+        <div class="dc-founder-image dc-founder-image-glow">
+          <img src="/images/derrick-headshot.jpg" alt="Derrick Davis - Founder of Driven Creations" class="dc-founder-photo" />
+        </div>
+      </div>
+      <div class="dc-founder-text">
+        <div class="dc-founder-name">Derrick Davis</div>
+        <div class="dc-founder-role">Founder <span class="dc-amp">&amp;</span> Creative Director</div>
+        <div class="dc-founder-bio">15+ years in web design, branding, and digital strategy. Derrick founded Driven Creations to bridge the gap between creative vision and real business results. From government agencies to high-growth startups, his work has helped organizations build stronger brands, launch better websites, and create video content that converts.</div>
+      </div>
+    </div>
+  </div>
+</section>

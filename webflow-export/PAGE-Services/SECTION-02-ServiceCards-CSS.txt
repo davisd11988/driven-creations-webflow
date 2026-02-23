@@ -1,0 +1,185 @@
+/* ==========================================
+   SERVICES PAGE — SECTION 02: Service Cards
+   ========================================== */
+
+/* Accent Line */
+.dc-accent-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #7c3aed 30%, #22d3ee 70%, transparent);
+  opacity: 0.4;
+}
+
+/* Services Section */
+.dc-services {
+  background-color: #090316;
+  width: 100%;
+}
+
+/* Section Container */
+.dc-section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .dc-section-container { padding: 4rem 2rem; }
+}
+
+/* Subpage Tight */
+.dc-subpage-tight .dc-section-container {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+@media (min-width: 768px) {
+  .dc-subpage-tight .dc-section-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+/* Special character fallback */
+.dc-amp {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Dot Grid Pattern */
+.dc-bg-dots {
+  position: relative;
+}
+.dc-bg-dots::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+.dc-bg-dots > *:not(.dc-decor-orb) { position: relative; z-index: 1; }
+
+/* Decorative Orb */
+.dc-decor-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.dc-decor-orb-purple {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+}
+
+/* Services Grid */
+.dc-services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 768px) {
+  .dc-services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Service Card */
+.dc-service-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+@media (min-width: 768px) {
+  .dc-service-card { padding: 32px; }
+}
+.dc-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+.dc-service-icon-wrap {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  background-color: rgba(124, 58, 237, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.dc-service-icon {
+  font-size: 28px;
+  color: #a78bfa;
+  line-height: 1;
+}
+.dc-service-title {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+.dc-service-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #a1a1aa;
+  line-height: 1.7;
+}
+
+/* Service List */
+.dc-service-list {
+  list-style: none;
+  margin-top: 16px;
+  padding: 0;
+}
+.dc-service-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #a1a1aa;
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.dc-service-list li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: #7c3aed;
+  font-weight: 700;
+}
+
+/* Icon Glow */
+.dc-icon-glow {
+  position: relative;
+}
+.dc-icon-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Scroll Reveal */
+.dc-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dc-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.dc-delay-1 { transition-delay: 0.1s; }
+.dc-delay-2 { transition-delay: 0.2s; }
+.dc-delay-3 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-reveal { opacity: 1; transform: none; transition: none; }
+}

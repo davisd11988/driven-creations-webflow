@@ -1,0 +1,361 @@
+============================================================
+DRIVEN CREATIONS — WEBFLOW INTERACTIONS GUIDE
+============================================================
+
+This guide maps every JavaScript behavior in shared.js to its
+Webflow Interactions 2.0 equivalent. Use this to recreate all
+animations and interactions after importing via HTMLtoFlow.
+
+
+============================================================
+1. NAVBAR SCROLL STATE
+============================================================
+
+Source: shared.js lines 60-69
+Trigger: Page scroll > 50px
+Effect: Dark background with backdrop-blur appears
+
+WEBFLOW SETUP:
+- Element: .dc-navbar
+- Trigger: "While page is scrolling"
+- At 50px scroll offset:
+  - Set background-color to rgba(10, 10, 26, 0.85)
+  - Set backdrop-filter to blur(20px)
+  - Set border-bottom to 1px solid rgba(124, 58, 237, 0.15)
+  - Set box-shadow to 0 4px 30px rgba(0, 0, 0, 0.3)
+- Duration: 0.3s ease
+
+
+============================================================
+2. HERO ENTRANCE ANIMATIONS
+============================================================
+
+Source: CSS @keyframes dc-hero-entrance
+Trigger: Page load
+Effect: Staggered fade-in-up on hero elements
+
+WEBFLOW SETUP:
+- Trigger: "Page load" (after page finishes loading)
+- Element 1: .dc-hero-tag-anim (Digital Design Agency tag)
+  - Start: opacity 0, translateY 30px
+  - End: opacity 1, translateY 0
+  - Delay: 0.2s, Duration: 0.6s, Ease: cubic-bezier(0.16, 1, 0.3, 1)
+
+- Element 2: .dc-hero-title-anim (We Defeat Your Deadline)
+  - Same animation
+  - Delay: 0.5s
+
+- Element 3: .dc-hero-subtitle-anim (subtitle text)
+  - Same animation
+  - Delay: 0.75s
+
+- Element 4: .dc-hero-scroll-anim (scroll indicator)
+  - Same animation
+  - Delay: 1.0s
+
+
+============================================================
+3. MOBILE MENU TOGGLE
+============================================================
+
+Source: shared.js lines 74-98
+Trigger: Hamburger button click
+Effect: Slide-out mobile menu panel
+
+WEBFLOW SETUP:
+- RECOMMENDED: Use Webflow's native Navbar component
+  which handles mobile menu automatically
+- If custom: Use "Click" trigger on .dc-mobile-menu-btn
+  - Toggle class "is-open" on .dc-mobile-menu
+  - Animate: translateX from 100% to 0
+  - Toggle body overflow hidden
+
+
+============================================================
+4. SCROLL REVEAL ANIMATIONS
+============================================================
+
+Source: shared.js lines 267-324
+Trigger: Elements scroll into viewport (15% visible)
+Effect: Fade in with directional movement
+
+WEBFLOW SETUP:
+- Trigger: "Scroll into view" on each element
+- Offset: 15% from bottom
+
+Five reveal types:
+a) .dc-reveal — Fade up
+   - Start: opacity 0, translateY 40px
+   - End: opacity 1, translateY 0
+   - Duration: 0.7s
+
+b) .dc-reveal-left — Slide from left
+   - Start: opacity 0, translateX -60px
+   - End: opacity 1, translateX 0
+
+c) .dc-reveal-right — Slide from right
+   - Start: opacity 0, translateX 60px
+   - End: opacity 1, translateX 0
+
+d) .dc-reveal-scale — Scale up
+   - Start: opacity 0, scale 0.85
+   - End: opacity 1, scale 1
+
+e) .dc-reveal-text — Word-by-word reveal
+   - NOTE: This is complex — each word fades in with stagger
+   - Alternative: Use .dc-reveal instead for simpler implementation
+
+Delay classes (.dc-delay-1 through .dc-delay-6):
+- .dc-delay-1: 0.1s delay
+- .dc-delay-2: 0.2s delay
+- .dc-delay-3: 0.3s delay
+- .dc-delay-4: 0.4s delay
+- .dc-delay-5: 0.5s delay
+- .dc-delay-6: 0.6s delay
+
+Ease: cubic-bezier(0.16, 1, 0.3, 1)
+
+
+============================================================
+5. SCROLL COLLISION VIDEO
+============================================================
+
+Source: shared.js lines 103-133
+Trigger: #collision section 30% visible
+Effect: Video plays from start, content fades in
+
+WEBFLOW SETUP:
+Option A (Custom Code — Recommended):
+- Add this to the page's custom code (before </body>):
+
+<script>
+var collisionSection = document.getElementById('collision');
+if (collisionSection) {
+  var video = collisionSection.querySelector('video');
+  var content = collisionSection.querySelector('.dc-collision-content');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        if (video) { video.currentTime = 0; video.play(); }
+        if (content) content.style.opacity = '1';
+      } else {
+        if (video) { video.pause(); video.currentTime = 0; }
+        if (content) content.style.opacity = '0';
+      }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(collisionSection);
+}
+</script>
+
+Option B (Webflow Interactions):
+- Trigger: "Scroll into view" on #collision
+- At 30% visible: play video (requires custom embed)
+
+
+============================================================
+6. PROCESS STEP PROGRESS LINE
+============================================================
+
+Source: shared.js lines 137-181
+Trigger: Scrolling through #process section
+Effect: Progress line grows, step circles activate
+
+WEBFLOW SETUP:
+- Trigger: "While scrolling in view" on #process section
+- Element: .dc-process-line-progress
+  - At 0% scroll: scaleX(0) [desktop] / scaleY(0) [mobile]
+  - At 100% scroll: scaleX(1) / scaleY(1)
+  - Transform origin: left center [desktop] / center top [mobile]
+
+- Step circles (.dc-step-circle) activation:
+  - Step 1: Activate at 15% scroll
+  - Step 2: Activate at 38% scroll
+  - Step 3: Activate at 61% scroll
+  - Step 4: Activate at 85% scroll
+  - Activation = add purple background (#7c3aed), scale(1.1)
+
+
+============================================================
+7. CHARACTER VIDEO CARDS
+============================================================
+
+Source: shared.js lines 188-243
+Desktop: Hover to play video
+Mobile: Auto-play when scrolled into view
+
+WEBFLOW SETUP:
+Desktop hover:
+- Trigger: "Mouse hover" on .dc-character-video-card
+- Hover in: Play video, add class "is-playing"
+- Hover out: Pause video, remove "is-playing"
+- Note: Video play/pause requires custom code embed
+
+Mobile auto-play (Custom Code):
+<script>
+if ('ontouchstart' in window) {
+  var cards = document.querySelectorAll('.dc-character-video-card');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      var v = e.target.querySelector('video');
+      if (!v) return;
+      if (e.isIntersecting) { v.play(); }
+      else { v.pause(); v.currentTime = 0; }
+    });
+  }, { threshold: 0.3 });
+  cards.forEach(function(c) { observer.observe(c); });
+}
+</script>
+
+
+============================================================
+8. CHARACTER EXPAND MODAL
+============================================================
+
+Source: shared.js lines 382-454
+Trigger: "Learn More" button click on character cards
+Effect: Fullscreen overlay with character bio + video
+
+WEBFLOW SETUP:
+- This requires custom code due to dynamic content switching
+- Paste this in page custom code (before </body>):
+
+<script>
+var overlay = document.querySelector('.dc-character-expand-overlay');
+if (overlay) {
+  var data = {
+    drive: { name: 'DRIVE', role: 'The Hero', roleColor: '#8b5cf6',
+      lore: 'Born from the first pixel of Creativity City, Drive is the embodiment of creative excellence. He exists for one singular purpose: to destroy Deadline and prove that great design never has to be rushed. With every project he touches, Drive brings precision, passion, and an unwavering commitment to quality that transforms brands from forgettable to unforgettable.',
+      video: '/videos/drive-fullbody.webm' },
+    deadline: { name: 'DEADLINE', role: 'The Villain', roleColor: '#ef4444',
+      lore: 'The force behind every rushed launch and every "just ship it" decision. Deadline is the shadow that looms over every creative project, turning vision into compromise and excellence into "good enough." He feeds on shortcuts, thrives on panic, and grows stronger with every corner cut. Unless someone stands in his way.',
+      video: '/videos/deadline-fullbody.webm' },
+    derrick: { name: 'DR. DERRICK', role: 'The Creator', roleColor: '#fbbf24',
+      lore: 'The architect of the resistance. Dr. Derrick built Drive and Driven Creations to prove that quality always wins the long game. With over 15 years of experience in digital design and brand transformation, he has led the charge against mediocrity, empowering startups, B2B organizations, and government agencies to achieve design excellence.',
+      video: '/videos/derrick-fullbody.webm' }
+  };
+
+  document.querySelectorAll('.dc-character-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var d = data[btn.getAttribute('data-character')];
+      if (!d) return;
+      overlay.querySelector('.dc-character-expand-name').textContent = d.name;
+      var role = overlay.querySelector('.dc-character-expand-role');
+      role.textContent = d.role; role.style.color = d.roleColor;
+      overlay.querySelector('.dc-character-expand-lore').textContent = d.lore;
+      var src = overlay.querySelector('.dc-character-expand-video source');
+      var vid = overlay.querySelector('.dc-character-expand-video video');
+      if (src) { src.src = d.video; vid.load(); vid.play(); }
+      overlay.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  overlay.querySelector('.dc-character-expand-close').addEventListener('click', close);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+  function close() {
+    overlay.classList.remove('is-active');
+    document.body.style.overflow = '';
+    var v = overlay.querySelector('video'); if (v) v.pause();
+  }
+}
+</script>
+
+
+============================================================
+9. YOUTUBE VIDEO MODAL
+============================================================
+
+Source: shared.js lines 14-55
+Trigger: Click on "Watch Episode 1" button
+Effect: Modal with YouTube embed plays
+
+WEBFLOW SETUP:
+- Use Webflow's Lightbox component for simplest setup
+- OR use custom code similar to Character Expand pattern
+- YouTube video ID: aXSSXl8xbz4
+
+
+============================================================
+10. PORTFOLIO CARD VIDEOS
+============================================================
+
+Source: shared.js lines 329-351
+Trigger: Portfolio cards scroll into view
+Effect: Thumbnail videos auto-play
+
+WEBFLOW SETUP:
+- Custom code (before </body>):
+
+<script>
+var cards = document.querySelectorAll('.dc-project-card');
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    var v = e.target.querySelector('video');
+    if (!v) return;
+    if (e.isIntersecting) v.play().catch(function(){});
+    else v.pause();
+  });
+}, { threshold: 0.2 });
+cards.forEach(function(c) {
+  if (c.querySelector('video')) obs.observe(c);
+});
+</script>
+
+
+============================================================
+11. COOKIE CONSENT BANNER
+============================================================
+
+Source: shared.js lines 478-499
+Trigger: Page load (1.5s delay)
+Effect: Banner slides up, dismiss on accept/decline
+
+WEBFLOW SETUP:
+- Use Webflow's native cookie consent or a third-party tool
+  (Cookiebot, OneTrust, etc.)
+- OR recreate with Webflow interactions:
+  - Trigger: Page load + 1.5s delay
+  - Show #cookieBanner with slide up animation
+  - Click interactions on Accept/Decline buttons to hide
+
+
+============================================================
+12. LOGO MARQUEE (CSS-only — no interaction needed)
+============================================================
+
+Already handled by CSS @keyframes:
+- dc-marquee-left: translateX(0) → translateX(-50%)
+- Duration: 40s linear infinite
+- Pauses on hover via animation-play-state: paused
+
+No Webflow interaction needed — just import the CSS.
+
+
+============================================================
+13. LOADER ANIMATION (CSS-only)
+============================================================
+
+Source: js/loader.js
+The loader auto-hides after the video plays.
+
+WEBFLOW SETUP:
+- Trigger: "Page load"
+- After 2.5s delay: fade out .dc-loader (opacity 0)
+- After fade: set display none / visibility hidden
+- OR use Webflow's native page load animation
+
+
+============================================================
+CUSTOM CODE SUMMARY
+============================================================
+
+Paste ALL of these into Site Settings > Custom Code > Footer:
+
+1. Collision video play/pause (Section 5)
+2. Character video cards mobile auto-play (Section 7)
+3. Character expand modal (Section 8)
+4. Portfolio card videos (Section 10)
+
+Total: ~80 lines of vanilla JavaScript

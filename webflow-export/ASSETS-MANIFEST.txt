@@ -1,0 +1,171 @@
+============================================================
+DRIVEN CREATIONS — ASSETS MANIFEST
+============================================================
+
+Upload these assets to Webflow's Asset Manager before importing
+sections. After uploading, update the src/url paths in your
+HTML sections to match the Webflow CDN URLs.
+
+
+============================================================
+PRIORITY 1: CORE ASSETS (Required for all pages)
+============================================================
+
+/images/dc-logo-full-white.svg          7.4K   Logo (navbar + footer)
+/images/favicon.svg                     976B   Browser tab icon
+/images/apple-touch-icon.svg            847B   Mobile bookmark icon
+
+
+============================================================
+PRIORITY 2: HOMEPAGE ASSETS
+============================================================
+
+Videos (Hero + Collision):
+/videos/drive_deadline_clash_purple.mp4  2.2M   Hero bg + collision video
+/videos/bg-topaz-hero.mp4               9.8M   Alt hero variant (optional)
+
+Videos (Loader):
+/videos/loader-drive.webm               1.1M   Loader animation (primary)
+/videos/loader-drive-fallback.mp4       769K   Loader fallback (MP4)
+
+Videos (Character Cards — Pixels of Power):
+/videos/on-hover-drive.mp4             12.0M   Drive hover video
+/videos/on-hover-deadline.mp4           6.5M   Deadline hover video
+/videos/on-hover-derrick.mp4           11.0M   Derrick hover video
+
+Videos (Character Expand Modal):
+/videos/drive-fullbody.webm             1.9M   Drive full body
+/videos/deadline-fullbody.webm          1.9M   Deadline full body
+/videos/derrick-fullbody.webm          749K    Derrick full body
+
+Videos (Portfolio Card Thumbnails):
+/videos/akkuun-broll.mp4               24.0M   AKKUUN card video
+/videos/djfresh-broll.mp4             16.0M   DJ Fresh card video
+/videos/olunike-broll.mp4             23.0M   Olunike card video
+
+Images (Character Posters):
+/images/drive-poster.jpg              313K    Drive poster
+/images/deadline-poster.jpg           342K    Deadline poster
+/images/derrick-poster.jpg            406K    Derrick poster
+/images/drive-fullbody-poster.jpg      65K    Drive fullbody poster
+/images/deadline-fullbody-poster.jpg   82K    Deadline fullbody poster
+/images/derrick-fullbody-poster.jpg    62K    Derrick fullbody poster
+
+Images (Character Preview GIFs):
+/images/drive-preview.gif              2.3M   Drive preview
+/images/deadline-preview.gif           2.2M   Deadline preview
+/images/derrick-preview.gif            2.2M   Derrick preview
+
+Images (Collision):
+/images/drive_deadline_gradient_poster.jpg  77K  Video poster
+
+
+============================================================
+PRIORITY 3: CLIENT LOGOS (Marquee)
+============================================================
+
+Used on Homepage + About page marquee:
+/images/logos/forgent-power.svg         2.1K
+/images/logos/pwrq.svg                  6.0K
+/images/logos/vtech-solutions.svg       5.0K
+/images/logos/century-cl.svg           59.0K
+/images/logos/petworth-cigars.svg       1.3M   (large — consider optimizing)
+/images/logos/ssc.svg                  37.0K
+/images/logos/paramount-dev.svg        13.0K
+/images/logos/premium-title.svg        18.0K
+/images/logos/gundam-logo.svg          10.0K
+
+
+============================================================
+PRIORITY 4: PORTFOLIO THUMBNAILS
+============================================================
+
+Static thumbnails for project cards:
+/images/work/forgent-thumb.png         65K
+/images/work/pwrq-thumb.png          266K
+/images/work/vtech-thumb.png         456K
+/images/work/pd-thumb.png             1.5M   (large — consider optimizing)
+/images/work/ssc-thumb.avif           23K
+/images/work/iron-guardian-thumb.avif  24K
+/images/work/1choice-thumb.png        61K
+/images/work/style-by-chanel-thumb.png 260K
+/images/work/prepaid-thumb.avif       23K
+/images/work/digiart-thumb.png       148K
+/images/work/civic-link-thumb.avif    19K
+/images/work/acelar-thumb.png         85K
+/images/work/akkuun-thumb.jpg        118K
+/images/work/dj-fresh-thumb.jpg      167K
+/images/work/olunike-thumb.jpg        40K
+
+
+============================================================
+PRIORITY 5: PROJECT CASE STUDY ASSETS
+============================================================
+
+Forgent Power:
+/images/work/forgent-showcase.jpg    107K
+/images/work/forgent-approach-1.jpg  212K
+/images/work/forgent-approach-2.jpg  158K
+
+PWRQ:
+/images/work/pwrq-showcase.jpg       149K
+/images/work/pwrq-approach-1.jpg     112K
+/images/work/pwrq-approach-2.jpg      96K
+
+V-Tech Solutions:
+/images/work/vtech-showcase.jpg      114K
+/images/work/vtech-approach-1.jpg    101K
+/images/work/vtech-approach-2.jpg    122K
+
+Paramount Development:
+/videos/pd-broll.mp4                 21.0M   Showcase video
+/images/work/pd-cover.avif           39K
+/images/work/pd-featured.avif        26K
+/images/work/pd-showcase.avif        23K
+/images/work/pd-logo.svg             13K
+
+About Page:
+/images/derrick-headshot.jpg         828K    Founder photo
+
+
+============================================================
+PRIORITY 6: CUSTOM FONTS
+============================================================
+
+Upload to Webflow via Project Settings > Fonts > Upload Custom:
+/fonts/integralcf-bold.otf           13K    Integral CF Bold
+/fonts/integralcf-extrabold.otf      13K    Integral CF ExtraBold
+/fonts/integralcf-medium.otf         13K    Integral CF Medium
+
+Also add from Google Fonts (Webflow has built-in support):
+- Inter: weights 400, 500, 600, 700
+- Plus Jakarta Sans: weights 600, 700, 800
+
+
+============================================================
+TOTAL ASSET SIZE SUMMARY
+============================================================
+
+Images:    ~13 MB
+Videos:   ~135 MB
+Fonts:     ~39 KB
+-----------------
+Total:    ~148 MB
+
+NOTE: Webflow's free plan has a 1GB asset limit.
+Paid plans have 10GB+. Videos are the largest assets.
+Consider hosting videos on a CDN (Cloudflare R2, Bunny.net)
+and embedding via URL for better performance.
+
+
+============================================================
+OPTIMIZATION RECOMMENDATIONS
+============================================================
+
+1. petworth-cigars.svg (1.3M) — Optimize SVG, remove metadata
+2. pd-thumb.png (1.5M) — Convert to WebP or AVIF
+3. B-roll videos (16-24M each) — Compress with:
+   ffmpeg -i input.mp4 -c:v libx264 -crf 28 -preset slow output.mp4
+4. Character preview GIFs (2.2M each) — Convert to WebM:
+   ffmpeg -i input.gif -c:v libvpx-vp9 -crf 35 output.webm
+5. Large PNG thumbnails — Convert to AVIF for 50-80% savings

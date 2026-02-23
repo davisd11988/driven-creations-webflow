@@ -1,0 +1,12 @@
+<!-- ==========================================
+     CONTACT PAGE — SECTION 01: Hero
+     NOTE: Navbar is a Webflow Symbol (imported from homepage)
+     ========================================== -->
+
+<section class="dc-hero dc-bg-gradient-down" style="min-height: 60vh;">
+  <div class="dc-hero-content">
+    <div class="dc-section-tag dc-section-tag-purple dc-hero-tag-anim">Contact Us</div>
+    <div class="dc-hero-title dc-hero-title-sm dc-hero-title-anim dc-reveal-text">Schedule a <span class="dc-gradient-text">Consultation</span></div>
+    <div class="dc-hero-subtitle dc-hero-subtitle-anim">Pick a time that works for you. We'll discuss your project goals, timeline, and budget.</div>
+  </div>
+</section>

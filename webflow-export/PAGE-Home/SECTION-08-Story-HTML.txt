@@ -1,0 +1,71 @@
+<!-- SECTION 08: Story - Pixels of Power Characters -->
+<section id="story" class="dc-story">
+  <div class="dc-section-container">
+    <div class="dc-section-header dc-reveal">
+      <div class="dc-section-tag dc-section-tag-purple">The Animated Series</div>
+      <div class="dc-story-title dc-reveal-text">Pixels of Power</div>
+      <div class="dc-story-subtitle">The animated series where quality goes to war with shortcuts.</div>
+    </div>
+
+    <!-- Characters Grid - 3 in a row -->
+    <div class="dc-characters-grid">
+      <!-- DRIVE - Video Card -->
+      <div class="dc-character-card dc-character-video-card dc-character-drive dc-reveal dc-delay-1">
+        <div class="dc-character-video-wrap">
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="auto" poster="/images/drive-poster.jpg">
+            <source src="/videos/on-hover-drive.mp4" type="video/mp4" />
+          </video>
+          <div class="dc-character-video-overlay">
+            <div class="dc-character-play-hint">&#9654;</div>
+          </div>
+          <div class="dc-character-video-gradient"></div>
+        </div>
+        <div class="dc-character-info">
+          <div class="dc-character-name">DRIVE</div>
+          <div class="dc-character-role dc-role-drive">The Hero</div>
+          <div class="dc-character-desc">Born from the first pixel of Creativity City. Drive exists for one purpose: to destroy Deadline and prove that great design never has to be rushed.</div>
+          <div class="dc-character-btn" data-character="drive">Learn More</div>
+        </div>
+      </div>
+
+      <!-- DEADLINE - Video Card -->
+      <div class="dc-character-card dc-character-video-card dc-character-deadline dc-reveal dc-delay-2">
+        <div class="dc-character-video-wrap">
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="auto" poster="/images/deadline-poster.jpg">
+            <source src="/videos/on-hover-deadline.mp4" type="video/mp4" />
+          </video>
+          <div class="dc-character-video-overlay">
+            <div class="dc-character-play-hint">&#9654;</div>
+          </div>
+          <div class="dc-character-video-gradient"></div>
+        </div>
+        <div class="dc-character-info">
+          <div class="dc-character-name">DEADLINE</div>
+          <div class="dc-character-role dc-role-deadline">The Villain</div>
+          <div class="dc-character-desc">The force behind every rushed launch and every "just ship it" decision. Deadline turns vision into compromise unless someone stops him.</div>
+          <div class="dc-character-btn" data-character="deadline">Learn More</div>
+        </div>
+      </div>
+
+      <!-- DR. DERRICK - Video Card -->
+      <div class="dc-character-card dc-character-video-card dc-character-creator dc-reveal dc-delay-3">
+        <div class="dc-character-video-wrap">
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="auto" poster="/images/derrick-poster.jpg">
+            <source src="/videos/on-hover-derrick.mp4" type="video/mp4" />
+          </video>
+          <div class="dc-character-video-overlay">
+            <div class="dc-character-play-hint">&#9654;</div>
+          </div>
+          <div class="dc-character-video-gradient"></div>
+        </div>
+        <div class="dc-character-info">
+          <div class="dc-character-name">DR<span class="dc-symbol">.</span> DERRICK</div>
+          <div class="dc-character-role dc-role-gold">The Creator</div>
+          <div class="dc-character-desc">The architect of the resistance. Dr. Derrick built Drive and Driven Creations to prove that quality always wins the long game.</div>
+          <div class="dc-character-btn" data-character="derrick">Learn More</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

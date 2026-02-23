@@ -1,0 +1,10 @@
+<!-- SECTION 01: Loader -->
+<div id="dc-loader" class="dc-loader">
+  <div class="dc-loader-inner">
+    <video class="dc-loader-video" autoplay muted playsinline>
+      <source src="/videos/loader-drive.webm" type="video/webm" />
+      <source src="/videos/loader-drive-fallback.mp4" type="video/mp4" />
+    </video>
+    <div class="dc-loader-text">Loading</div>
+  </div>
+</div>

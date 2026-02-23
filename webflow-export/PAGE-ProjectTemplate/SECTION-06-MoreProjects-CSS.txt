@@ -1,0 +1,67 @@
+/* ==========================================
+   SECTION 06 — More Projects (Related Cards)
+   ========================================== */
+
+.dc-project-related {
+  position: relative;
+}
+
+.dc-related-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.dc-related-card {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dc-project-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+.dc-related-card:hover .dc-project-bg {
+  transform: scale(1.05);
+}
+
+.dc-related-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.dc-project-category {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a78bfa;
+  margin-bottom: 4px;
+}
+
+.dc-project-name {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .dc-related-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

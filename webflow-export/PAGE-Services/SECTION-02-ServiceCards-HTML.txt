@@ -1,0 +1,61 @@
+<!-- ==========================================
+     SERVICES PAGE — SECTION 02: Service Cards (Detailed Offerings)
+     ========================================== -->
+
+<div class="dc-accent-line"></div>
+<section class="dc-services dc-bg-dots dc-subpage-tight" style="position:relative;">
+  <div class="dc-decor-orb dc-decor-orb-purple" style="top: -100px; right: -200px;"></div>
+  <div class="dc-section-container">
+    <div class="dc-services-grid">
+
+      <!-- Service 1: Web Design & Development -->
+      <div class="dc-service-card dc-reveal dc-delay-1">
+        <div class="dc-service-icon-wrap dc-icon-glow">
+          <div class="dc-service-icon">&lt;/&gt;</div>
+        </div>
+        <div class="dc-service-title">Web Design <span class="dc-amp">&amp;</span> Development</div>
+        <div class="dc-service-desc">Responsive, high-performance websites built around your goals. Custom CMS, UX/UI design, and mobile optimization. Every page is built to convert.</div>
+        <ul class="dc-service-list">
+          <li>Responsive Website Design</li>
+          <li>Custom CMS Development</li>
+          <li>UX/UI Wireframing</li>
+          <li>Mobile Optimization</li>
+          <li>E-Commerce Solutions</li>
+        </ul>
+      </div>
+
+      <!-- Service 2: Branding & Identity -->
+      <div class="dc-service-card dc-reveal dc-delay-2">
+        <div class="dc-service-icon-wrap dc-icon-glow">
+          <div class="dc-service-icon">&#127912;</div>
+        </div>
+        <div class="dc-service-title">Branding <span class="dc-amp">&amp;</span> Identity</div>
+        <div class="dc-service-desc">More than a logo. We build complete brand systems: strategy, style guides, collateral, and packaging that make your business unforgettable.</div>
+        <ul class="dc-service-list">
+          <li>Brand Strategy &amp; Development</li>
+          <li>Logo Design &amp; Style Guides</li>
+          <li>Marketing Collateral</li>
+          <li>Packaging Design</li>
+          <li>Brand Positioning</li>
+        </ul>
+      </div>
+
+      <!-- Service 3: AI Video Advertising -->
+      <div class="dc-service-card dc-reveal dc-delay-3">
+        <div class="dc-service-icon-wrap dc-icon-glow">
+          <div class="dc-service-icon">&#127916;</div>
+        </div>
+        <div class="dc-service-title">AI Video Advertising</div>
+        <div class="dc-service-desc">AI-generated product commercials, social media ads, and brand videos. Cinematic quality from storyboard to final cut, without the cinematic budget.</div>
+        <ul class="dc-service-list">
+          <li>AI-Powered Product Commercials</li>
+          <li>Scroll-Stopping Social Ads</li>
+          <li>Animated Brand Content</li>
+          <li>Storyboard to Video Production</li>
+          <li>Multi-Platform Ad Campaigns</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

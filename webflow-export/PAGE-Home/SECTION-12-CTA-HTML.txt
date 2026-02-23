@@ -1,0 +1,15 @@
+<!-- SECTION 12: CTA / Contact --> Webflow Symbol
+<section id="contact" class="dc-cta">
+  <div class="dc-cta-glow"></div>
+  <div class="dc-section-container dc-cta-inner">
+    <div class="dc-cta-content">
+      <div class="dc-section-tag dc-section-tag-purple dc-reveal">Let's Connect</div>
+      <div class="dc-cta-title dc-reveal dc-delay-1 dc-reveal-text">Start Your Project</div>
+      <div class="dc-cta-subtitle dc-reveal dc-delay-2">Book a free consultation and let's discuss your website, video, or branding project.</div>
+      <div class="dc-reveal dc-delay-3" style="margin-top: 32px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="/contact.html" class="dc-btn dc-btn-primary dc-btn-lg">Schedule a Call</a>
+        <a href="/contact.html" class="dc-btn dc-btn-outline dc-btn-lg">Get a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>

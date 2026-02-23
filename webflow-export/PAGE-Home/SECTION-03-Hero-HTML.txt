@@ -1,0 +1,18 @@
+<!-- SECTION 03: Hero -->
+<section id="home" class="dc-hero">
+  <div class="dc-hero-video-wrap">
+    <video class="dc-hero-video" autoplay muted loop playsinline>
+      <source src="/videos/bg-topaz-hero.mp4" type="video/mp4" />
+    </video>
+    <div class="dc-hero-video-overlay"></div>
+  </div>
+  <div class="dc-hero-dark-overlay"></div>
+  <div class="dc-hero-content">
+    <div class="dc-section-tag dc-section-tag-purple dc-hero-tag-anim">Digital Design Agency</div>
+    <div class="dc-hero-title dc-hero-title-anim">We Defeat Your <span class="dc-gradient-text">Deadline</span></div>
+    <div class="dc-hero-subtitle dc-hero-subtitle-anim">We build custom websites and AI powered video ads that make your brand impossible to ignore.</div>
+  </div>
+  <div class="dc-scroll-indicator dc-hero-scroll-anim">
+    <div class="dc-scroll-arrow">&#8595;</div>
+  </div>
+</section>

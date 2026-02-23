@@ -1,0 +1,162 @@
+/* ==========================================
+   SECTION 11: Testimonials Grid + Client Logos Marquee
+   ========================================== */
+
+/* --- Testimonials --- */
+.dc-testimonials {
+  background-color: #090316;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.dc-testimonials-title {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 2.25rem;
+  color: #ffffff;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.dc-testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.dc-testimonial-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+.dc-testimonial-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.15);
+}
+.dc-testimonial-stars {
+  color: #fbbf24;
+  font-size: 16px;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+.dc-testimonial-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #d4d4d8;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.dc-testimonial-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+.dc-testimonial-author-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dc-testimonial-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #22d3ee);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+}
+.dc-testimonial-author-info { text-align: left; }
+.dc-testimonial-name {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+}
+.dc-testimonial-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #a1a1aa;
+}
+
+@media (min-width: 768px) {
+  .dc-testimonials-title { font-size: 3rem; }
+  .dc-testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .dc-testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 479px) {
+  .dc-testimonials-title { font-size: 1.875rem; }
+}
+
+/* --- Client Logos Marquee --- */
+.dc-logo-marquee-section { margin-top: 64px; }
+.dc-trusted-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #71717a;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.dc-marquee-container {
+  overflow: hidden;
+  position: relative;
+}
+.dc-marquee-fade-left {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 80px;
+  background: linear-gradient(to right, #090316, transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+.dc-marquee-fade-right {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 80px;
+  background: linear-gradient(to left, #090316, transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+.dc-marquee-track {
+  display: flex;
+  gap: 24px;
+  animation: marquee-scroll 60s linear infinite;
+}
+.dc-marquee-logo-img {
+  flex-shrink: 0;
+  height: 80px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+.dc-marquee-logo-img:hover {
+  opacity: 1;
+}
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.dc-marquee-container:hover .dc-marquee-track {
+  animation-play-state: paused;
+}
+
+/* --- Reduce Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .dc-marquee-track {
+    animation: none;
+  }
+}

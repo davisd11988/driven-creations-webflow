@@ -1,0 +1,117 @@
+<!-- SECTION 11: Testimonials Grid -->
+<section id="testimonials" class="dc-testimonials" style="position:relative;">
+  <div class="dc-section-container">
+    <div class="dc-section-header dc-reveal">
+      <div class="dc-section-tag dc-section-tag-purple">What They Say</div>
+      <div class="dc-testimonials-title dc-reveal-text">Client Stories</div>
+    </div>
+    <div class="dc-testimonials-grid">
+      <!-- Testimonial 1 -->
+      <div class="dc-testimonial-card dc-reveal dc-delay-1">
+        <div class="dc-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="dc-testimonial-text">"Very professional, delivered without micromanaging. The team understood our vision from day one."</div>
+        <div class="dc-testimonial-badge">Definitely Recommend!</div>
+        <div class="dc-testimonial-author-wrap">
+          <div class="dc-testimonial-avatar">KW</div>
+          <div class="dc-testimonial-author-info">
+            <div class="dc-testimonial-name">Keshia Waldron</div>
+            <div class="dc-testimonial-role">Business Owner</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 2 -->
+      <div class="dc-testimonial-card dc-reveal dc-delay-2">
+        <div class="dc-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="dc-testimonial-text">"Perfect match, passionate and a true visionary. They brought our ideas to life in ways we never imagined."</div>
+        <div class="dc-testimonial-badge">Highly Recommend!</div>
+        <div class="dc-testimonial-author-wrap">
+          <div class="dc-testimonial-avatar">YD</div>
+          <div class="dc-testimonial-author-info">
+            <div class="dc-testimonial-name">YourD.C. LLC</div>
+            <div class="dc-testimonial-role">Organization</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 3 -->
+      <div class="dc-testimonial-card dc-reveal dc-delay-3">
+        <div class="dc-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="dc-testimonial-text">"Wonderful team, trust their creativity completely. They exceeded our expectations on every deliverable."</div>
+        <div class="dc-testimonial-badge">Awesome Experience!</div>
+        <div class="dc-testimonial-author-wrap">
+          <div class="dc-testimonial-avatar">PC</div>
+          <div class="dc-testimonial-author-info">
+            <div class="dc-testimonial-name">Pixie Carlisle</div>
+            <div class="dc-testimonial-role">Client</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 4 -->
+      <div class="dc-testimonial-card dc-reveal dc-delay-4">
+        <div class="dc-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="dc-testimonial-text">"Professionally made with amazing turnaround time. The quality of work speaks for itself."</div>
+        <div class="dc-testimonial-badge">Definitely Recommend!</div>
+        <div class="dc-testimonial-author-wrap">
+          <div class="dc-testimonial-avatar">YS</div>
+          <div class="dc-testimonial-author-info">
+            <div class="dc-testimonial-name">Yasmine Saibou</div>
+            <div class="dc-testimonial-role">Client</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 5 -->
+      <div class="dc-testimonial-card dc-reveal dc-delay-5">
+        <div class="dc-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="dc-testimonial-text">"Timely, professional, everything delivered in excellence. A team that truly cares about results."</div>
+        <div class="dc-testimonial-badge">Great Work!</div>
+        <div class="dc-testimonial-author-wrap">
+          <div class="dc-testimonial-avatar">KF</div>
+          <div class="dc-testimonial-author-info">
+            <div class="dc-testimonial-name">Katerina Faulknor</div>
+            <div class="dc-testimonial-role">Client</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 6 -->
+      <div class="dc-testimonial-card dc-reveal dc-delay-6">
+        <div class="dc-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="dc-testimonial-text">"WOW factor, great communication and professionalism throughout the entire project."</div>
+        <div class="dc-testimonial-badge">Must Hire!</div>
+        <div class="dc-testimonial-author-wrap">
+          <div class="dc-testimonial-avatar">AA</div>
+          <div class="dc-testimonial-author-info">
+            <div class="dc-testimonial-name">Alex A.</div>
+            <div class="dc-testimonial-role">Client</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Client Logos Marquee -->
+    <div class="dc-logo-marquee-section dc-reveal dc-delay-3">
+      <div class="dc-trusted-label">Our Clients</div>
+      <div class="dc-marquee-container">
+        <div class="dc-marquee-fade-left"></div>
+        <div class="dc-marquee-fade-right"></div>
+        <div class="dc-marquee-track">
+          <img src="/images/logos/century-cl.svg" alt="Century Limited" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/petworth-cigars.svg" alt="Petworth Cigars" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/forgent-power.svg" alt="Forgent Power" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/pwrq.svg" alt="PwrQ" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/vtech-solutions.svg" alt="V-Tech Solutions" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/paramount-dev.svg" alt="Paramount Development" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/premium-title.svg" alt="Premium Title" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/gundam-logo.svg" alt="Gundam Strike" class="dc-marquee-logo-img" loading="lazy" />
+          <!-- Duplicate for seamless scroll -->
+          <img src="/images/logos/century-cl.svg" alt="Century Limited" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/petworth-cigars.svg" alt="Petworth Cigars" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/forgent-power.svg" alt="Forgent Power" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/pwrq.svg" alt="PwrQ" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/vtech-solutions.svg" alt="V-Tech Solutions" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/paramount-dev.svg" alt="Paramount Development" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/premium-title.svg" alt="Premium Title" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/gundam-logo.svg" alt="Gundam Strike" class="dc-marquee-logo-img" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

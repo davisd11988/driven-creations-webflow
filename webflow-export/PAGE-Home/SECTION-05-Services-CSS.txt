@@ -1,0 +1,163 @@
+/* ==========================================
+   SECTION 05: Services - What We Do
+   ========================================== */
+
+/* --- Shared: Section Container --- */
+.dc-section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .dc-section-container { padding: 4rem 2rem; }
+}
+
+/* --- Shared: Section Header --- */
+.dc-section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* --- Shared: Special character fallback --- */
+.dc-amp,
+.dc-symbol {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* --- Shared: Scroll Reveal Animations --- */
+.dc-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dc-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Shared: Stagger Delays --- */
+.dc-delay-1 { transition-delay: 0.1s; }
+.dc-delay-2 { transition-delay: 0.2s; }
+.dc-delay-3 { transition-delay: 0.3s; }
+.dc-delay-4 { transition-delay: 0.4s; }
+.dc-delay-5 { transition-delay: 0.5s; }
+.dc-delay-6 { transition-delay: 0.6s; }
+
+/* --- Shared: Word-by-Word Text Reveal --- */
+.dc-reveal-text {
+  overflow: hidden;
+}
+.dc-reveal-text .dc-word {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dc-reveal-text.is-revealed .dc-word {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* --- Shared: Button lg --- */
+.dc-btn-lg {
+  height: 52px;
+  padding: 0 32px;
+  font-size: 18px;
+}
+
+/* --- Services --- */
+.dc-services {
+  background-color: #090316;
+  width: 100%;
+}
+.dc-services-title {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 2.25rem;
+  color: #ffffff;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.dc-services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.dc-service-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+.dc-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+.dc-service-icon-wrap {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  background-color: rgba(124, 58, 237, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.dc-service-icon {
+  font-size: 28px;
+  color: #a78bfa;
+  line-height: 1;
+}
+.dc-service-title {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+.dc-service-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #a1a1aa;
+  line-height: 1.7;
+}
+.dc-service-link {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #a78bfa;
+  margin-top: 16px;
+  transition: color 0.2s ease;
+}
+.dc-service-link:hover { color: #ffffff; }
+.dc-services-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .dc-services-title { font-size: 3rem; }
+  .dc-services-grid { grid-template-columns: repeat(3, 1fr); }
+  .dc-service-card { padding: 32px; }
+}
+
+/* --- Reduce Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .dc-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .dc-reveal-text .dc-word {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}

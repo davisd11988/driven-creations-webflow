@@ -1,0 +1,97 @@
+/* ==========================================
+   SECTION 02 — Project Overview
+   ========================================== */
+
+.dc-project-overview {
+  position: relative;
+}
+
+.dc-project-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.dc-project-section-title {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.dc-project-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #a1a1aa;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.dc-project-text:last-child {
+  margin-bottom: 0;
+}
+
+.dc-project-meta {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.dc-project-meta-item {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.dc-project-meta-item:last-child {
+  border-bottom: none;
+}
+.dc-project-meta-item:first-child {
+  padding-top: 0;
+}
+
+.dc-project-meta-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a78bfa;
+  margin-bottom: 4px;
+}
+
+.dc-project-meta-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.dc-project-live-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+.dc-project-live-link:hover {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+}
+
+@media (min-width: 768px) {
+  .dc-project-overview-grid {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+  }
+}

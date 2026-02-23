@@ -1,0 +1,46 @@
+/* ==========================================
+   SECTION 05 — Results (Stat Cards)
+   ========================================== */
+
+.dc-project-results {
+  position: relative;
+}
+
+.dc-results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.dc-result-card {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 40px 24px;
+}
+
+.dc-result-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(164.25deg, rgb(203, 181, 250) 21.2%, rgb(121, 62, 241) 100.1%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.dc-result-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #a1a1aa;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .dc-results-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

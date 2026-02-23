@@ -1,0 +1,33 @@
+<!-- SECTION 04: Work Samples Marquee -->
+<section class="dc-work-marquee">
+  <div class="dc-work-marquee-row">
+    <div class="dc-work-marquee-track dc-work-marquee-track--left">
+      <div class="dc-work-marquee-item"><img src="/images/work/pd-thumb.png" alt="Paramount Development" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/ssc-thumb.avif" alt="Safety Security Consultants" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/iron-guardian-thumb.avif" alt="Iron Guardian" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/prepaid-thumb.avif" alt="Pre-Paid App" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/digiart-thumb.png" alt="Digiart NFT" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/pd-thumb.png" alt="Paramount Development" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/ssc-thumb.avif" alt="Safety Security Consultants" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/iron-guardian-thumb.avif" alt="Iron Guardian" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/prepaid-thumb.avif" alt="Pre-Paid App" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/digiart-thumb.png" alt="Digiart NFT" loading="lazy" /></div>
+    </div>
+  </div>
+  <div class="dc-work-marquee-row">
+    <div class="dc-work-marquee-track dc-work-marquee-track--right">
+      <div class="dc-work-marquee-item"><img src="/images/work/forgent-thumb.png" alt="Forgent Power" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/vtech-thumb.png" alt="V-Tech Solutions" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/pwrq-thumb.png" alt="PwrQ" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/style-by-chanel-thumb.png" alt="Style By Chanel" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/acelar-thumb.png" alt="Acelar" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/1choice-thumb.png" alt="1Choice" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/forgent-thumb.png" alt="Forgent Power" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/vtech-thumb.png" alt="V-Tech Solutions" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/pwrq-thumb.png" alt="PwrQ" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/style-by-chanel-thumb.png" alt="Style By Chanel" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/acelar-thumb.png" alt="Acelar" loading="lazy" /></div>
+      <div class="dc-work-marquee-item"><img src="/images/work/1choice-thumb.png" alt="1Choice" loading="lazy" /></div>
+    </div>
+  </div>
+</section>

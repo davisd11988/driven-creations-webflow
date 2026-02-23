@@ -1,0 +1,46 @@
+/* ==========================================
+   SECTION 04 — The Approach
+   ========================================== */
+
+.dc-project-approach {
+  position: relative;
+}
+
+.dc-approach-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.dc-approach-block:last-child {
+  margin-bottom: 0;
+}
+
+.dc-approach-visual-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+}
+
+.dc-approach-title {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .dc-approach-block {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+  .dc-approach-block-reverse .dc-approach-visual {
+    order: 2;
+  }
+  .dc-approach-block-reverse .dc-approach-text {
+    order: 1;
+  }
+}

@@ -1,0 +1,28 @@
+<!-- SECTION 04 — The Approach (Two Alternating Blocks) -->
+<section class="dc-project-approach">
+  <div class="dc-section-container">
+    <div class="dc-project-section-title dc-reveal" style="text-align: center; margin-bottom: 3rem;">The Approach</div>
+
+    <!-- Approach Block 1 -->
+    <div class="dc-approach-block dc-reveal">
+      <div class="dc-approach-visual">
+        <div class="dc-approach-visual-placeholder" style="background-image: url('{{APPROACH_1_IMAGE}}'); background-size: cover; background-position: center;"></div>
+      </div>
+      <div class="dc-approach-text">
+        <div class="dc-approach-title">{{APPROACH_1_TITLE}}</div>
+        <div class="dc-project-text">{{APPROACH_1_TEXT}}</div>
+      </div>
+    </div>
+
+    <!-- Approach Block 2 (reversed layout) -->
+    <div class="dc-approach-block dc-approach-block-reverse dc-reveal">
+      <div class="dc-approach-visual">
+        <div class="dc-approach-visual-placeholder" style="background-image: url('{{APPROACH_2_IMAGE}}'); background-size: cover; background-position: center;"></div>
+      </div>
+      <div class="dc-approach-text">
+        <div class="dc-approach-title">{{APPROACH_2_TITLE}}</div>
+        <div class="dc-project-text">{{APPROACH_2_TEXT}}</div>
+      </div>
+    </div>
+  </div>
+</section>

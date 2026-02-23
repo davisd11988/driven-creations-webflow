@@ -1,0 +1,47 @@
+/* ==========================================
+   SECTION 03 — Showcase (Video / Image)
+   ========================================== */
+
+.dc-project-showcase {
+  padding: 0 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.dc-project-showcase-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.dc-project-showcase-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0d0520;
+}
+
+.dc-project-showcase-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dc-project-showcase-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .dc-project-showcase {
+    padding: 0 2rem;
+  }
+}

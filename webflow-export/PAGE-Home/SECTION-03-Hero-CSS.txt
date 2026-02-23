@@ -1,0 +1,168 @@
+/* ==========================================
+   SECTION 03: Hero
+   ========================================== */
+
+/* --- Shared: Gradient Text --- */
+.dc-gradient-text {
+  background: linear-gradient(164.25deg, rgb(203, 181, 250) 21.2%, rgb(121, 62, 241) 100.1%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Shared: Section Tag --- */
+.dc-section-tag {
+  display: inline-block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
+}
+.dc-section-tag-purple {
+  color: #a78bfa;
+  background-color: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+/* --- Hero --- */
+.dc-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #090316;
+}
+.dc-hero-video-wrap {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+}
+.dc-hero-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.dc-hero-video-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 10, 46, 0.6) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(9, 3, 22, 0.9) 100%
+  );
+  z-index: 2;
+}
+.dc-hero-dark-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 5;
+}
+.dc-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  padding: 0 1.5rem;
+  padding-top: 40px;
+}
+.dc-hero-title {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 1.05;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.dc-hero-subtitle {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #a1a1aa;
+  max-width: 640px;
+  margin: 24px auto 0 auto;
+  line-height: 1.6;
+}
+.dc-scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: dc-bounce 2s ease-in-out infinite;
+}
+.dc-scroll-arrow {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1;
+}
+
+@keyframes dc-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* --- Hero Entrance Animations --- */
+.dc-hero-tag-anim {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: dc-hero-entrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+.dc-hero-title-anim {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: dc-hero-entrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+.dc-hero-subtitle-anim {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: dc-hero-entrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+}
+.dc-hero-scroll-anim {
+  opacity: 0;
+  animation: dc-hero-entrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
+}
+
+@keyframes dc-hero-entrance {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 479px) {
+  .dc-hero-title { font-size: 2.25rem; }
+  .dc-hero-subtitle { font-size: 16px; }
+}
+@media (min-width: 768px) {
+  .dc-hero-title { font-size: 4.5rem; }
+  .dc-hero-subtitle { font-size: 20px; }
+  .dc-hero-content { padding: 0 2rem; padding-top: 50px; }
+}
+@media (min-width: 1024px) {
+  .dc-hero-title { font-size: 6rem; }
+}
+
+/* --- Reduce Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .dc-hero-tag-anim,
+  .dc-hero-title-anim,
+  .dc-hero-subtitle-anim,
+  .dc-hero-scroll-anim {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

@@ -1,0 +1,28 @@
+<!-- ==========================================
+     ABOUT PAGE — SECTION 02: Superpowers / Our Mission
+     ========================================== -->
+
+<section class="dc-services dc-subpage-tight">
+  <div class="dc-section-container">
+    <div class="dc-section-header dc-reveal">
+      <div class="dc-section-tag dc-section-tag-purple">Our Mission</div>
+    </div>
+    <div class="dc-superpowers-grid">
+      <div class="dc-superpower-card dc-reveal dc-delay-1">
+        <div class="dc-superpower-icon">&#9889;</div>
+        <div class="dc-superpower-title">Innovation</div>
+        <div class="dc-superpower-desc">We push past templates and trends. Every project gets a custom strategy built on research, creativity, and the latest in AI-powered production.</div>
+      </div>
+      <div class="dc-superpower-card dc-reveal dc-delay-2">
+        <div class="dc-superpower-icon">&#129309;</div>
+        <div class="dc-superpower-title">Collaboration</div>
+        <div class="dc-superpower-desc">Your vision drives the work. We listen first, then build alongside you, ensuring every deliverable reflects your brand, your goals, and your audience.</div>
+      </div>
+      <div class="dc-superpower-card dc-reveal dc-delay-3">
+        <div class="dc-superpower-icon">&#127919;</div>
+        <div class="dc-superpower-title">Adaptability</div>
+        <div class="dc-superpower-desc">Markets shift. Audiences evolve. We design systems that flex with your business, from startups finding their voice to enterprises scaling fast.</div>
+      </div>
+    </div>
+  </div>
+</section>

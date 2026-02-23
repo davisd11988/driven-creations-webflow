@@ -1,0 +1,40 @@
+<!-- SECTION 06: Portfolio - Our Work -->
+<section id="portfolio" class="dc-portfolio">
+  <div class="dc-section-container dc-portfolio-tight-top">
+    <div class="dc-section-header dc-reveal">
+      <div class="dc-section-tag dc-section-tag-purple">Our Work</div>
+      <div class="dc-portfolio-title dc-reveal-text">Designs That <span class="dc-gradient-text">Deliver</span></div>
+      <div class="dc-portfolio-subtitle">Web design, branding, and AI video projects built to perform.</div>
+    </div>
+
+    <!-- First 6 projects (visible) -->
+    <div class="dc-projects-grid">
+      <a href="/work/forgent-power.html" class="dc-project-card dc-reveal-scale dc-delay-1">
+        <div class="dc-project-bg" style="background-image: url('/images/work/forgent-thumb.png');"></div>
+      </a>
+      <a href="/work/paramount-development.html" class="dc-project-card dc-reveal-scale dc-delay-2">
+        <div class="dc-project-bg" style="background-image: url('/images/work/pd-thumb.png');"></div>
+        <video class="dc-project-thumb-video" muted loop playsinline autoplay preload="auto"><source src="/videos/pd-broll.mp4" type="video/mp4" /></video>
+      </a>
+      <a href="/work/pwrq.html" class="dc-project-card dc-reveal-scale dc-delay-3">
+        <div class="dc-project-bg" style="background-image: url('/images/work/pwrq-thumb.png');"></div>
+      </a>
+      <a href="/work/olunike.html" class="dc-project-card dc-reveal-scale dc-delay-4">
+        <div class="dc-project-bg" style="background-image: url('/images/work/olunike-thumb.jpg');"></div>
+        <video class="dc-project-thumb-video" muted loop playsinline autoplay preload="auto"><source src="/videos/olunike-broll.mp4" type="video/mp4" /></video>
+      </a>
+      <a href="/work/v-tech-solutions.html" class="dc-project-card dc-reveal-scale dc-delay-5">
+        <div class="dc-project-bg" style="background-image: url('/images/work/vtech-thumb.png');"></div>
+      </a>
+      <a href="/work/akkuun.html" class="dc-project-card dc-reveal-scale dc-delay-6">
+        <div class="dc-project-bg" style="background-image: url('/images/work/akkuun-thumb.jpg');"></div>
+        <video class="dc-project-thumb-video" muted loop playsinline autoplay preload="auto"><source src="/videos/akkuun-broll.mp4" type="video/mp4" /></video>
+      </a>
+    </div>
+
+    <div class="dc-portfolio-view-all dc-reveal">
+      <a href="/work.html" class="dc-btn dc-btn-outline dc-btn-lg">View All Projects</a>
+    </div>
+    <div class="dc-portfolio-tagline dc-reveal dc-delay-1">500+ projects delivered with excellence</div>
+  </div>
+</section>

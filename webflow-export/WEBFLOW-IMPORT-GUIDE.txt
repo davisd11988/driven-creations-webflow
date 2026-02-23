@@ -1,0 +1,239 @@
+============================================================
+DRIVEN CREATIONS — WEBFLOW IMPORT GUIDE (Updated)
+============================================================
+
+This folder contains all pages of the Driven Creations site
+converted for HTMLtoFlow import into Webflow.
+
+Pages: 6 (Home, About, Services, Work, Contact, Project Template)
+Total sections: ~35 section pairs (HTML + CSS)
+Project CMS items: 15
+
+
+============================================================
+FOLDER STRUCTURE
+============================================================
+
+webflow-export/
+  WEBFLOW-IMPORT-GUIDE.txt       ← You are here
+  GLOBAL-CSS.txt                 ← Full shared.css
+  ASSETS-MANIFEST.txt            ← All images/videos to upload
+  INTERACTIONS-GUIDE.txt         ← JS → Webflow interactions mapping
+
+  PAGE-Home/                     ← Homepage (13 sections)
+  PAGE-About/                    ← About page (4 unique sections)
+  PAGE-Services/                 ← Services page (2 unique sections)
+  PAGE-Work/                     ← Work page (2 unique sections)
+  PAGE-Contact/                  ← Contact page (3 unique sections)
+  PAGE-ProjectTemplate/          ← CMS template (6 sections + data)
+
+
+============================================================
+BEFORE YOU START
+============================================================
+
+1. FONTS — In Webflow Project Settings > Fonts:
+   - Add Google Font: "Inter" (400, 500, 600, 700)
+   - Add Google Font: "Plus Jakarta Sans" (600, 700, 800)
+   - Upload Custom: integralcf-bold.otf, integralcf-extrabold.otf,
+     integralcf-medium.otf (from /fonts/ directory)
+
+2. GLOBAL STYLES — Add to Site Settings > Custom Code > Head:
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgba(124, 58, 237, 0.4);
+    color: #ffffff;
+  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0a0a0a; }
+  ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #a78bfa; }
+</style>
+
+3. UPLOAD ASSETS — See ASSETS-MANIFEST.txt for full list.
+   Upload to Webflow Asset Manager, then update src paths.
+
+4. FULL CSS — Paste GLOBAL-CSS.txt contents into:
+   Site Settings > Custom Code > Head (inside <style> tags)
+   This ensures all styles work immediately.
+
+
+============================================================
+IMPORT ORDER (Recommended)
+============================================================
+
+STEP 1: Homepage (13 sections)
+-----------------------------------
+Import PAGE-Home/ sections in this order:
+  01. Loader
+  02. Navbar          ★ Convert to Webflow Symbol
+  03. Hero
+  04. Marquee (Work Samples)
+  05. Services (What We Do)
+  06. Portfolio (Our Work)
+  07. Process (How We Work)
+  08. Story (Pixels of Power)
+  09. Character Expand Overlay
+  10. Collision (Drive vs Deadline)
+  11. Testimonials
+  12. CTA              ★ Convert to Webflow Symbol
+  13. Footer           ★ Convert to Webflow Symbol
+
+After importing: Create Webflow Symbols from Navbar, CTA,
+and Footer so they can be reused on all other pages.
+
+
+STEP 2: About Page (4 sections + 3 symbols)
+-----------------------------------
+Import PAGE-About/ sections:
+  [Symbol] Navbar
+  01. Hero
+  02. Superpowers
+  03. Founder
+  04. Marquee (Client Logos)
+  [Symbol] CTA
+  [Symbol] Footer
+
+
+STEP 3: Services Page (2 sections + 3 symbols)
+-----------------------------------
+Import PAGE-Services/ sections:
+  [Symbol] Navbar
+  01. Hero
+  02. Service Cards
+  [Symbol] CTA
+  [Symbol] Footer
+
+
+STEP 4: Work Page (2 sections + 3 symbols)
+-----------------------------------
+Import PAGE-Work/ sections:
+  [Symbol] Navbar
+  01. Hero
+  02. Portfolio Grid (all 15 projects)
+  [Symbol] CTA
+  [Symbol] Footer
+
+
+STEP 5: Contact Page (3 sections + 3 symbols)
+-----------------------------------
+Import PAGE-Contact/ sections:
+  [Symbol] Navbar
+  01. Hero
+  02. Form (rebuild with Webflow native form component)
+  03. Contact Info
+  [Symbol] CTA
+  [Symbol] Footer
+
+
+STEP 6: Project CMS Template
+-----------------------------------
+1. Create CMS Collection "Projects" with fields from
+   PAGE-ProjectTemplate/CMS-DATA.json
+
+2. Import the template sections:
+   [Symbol] Navbar
+   01. Project Hero
+   02. Overview
+   03. Showcase
+   04. Approach
+   05. Results
+   06. More Projects
+   [Symbol] CTA
+   [Symbol] Footer
+
+3. Bind CMS fields to template elements
+
+4. Add all 15 projects from CMS-DATA.json
+
+
+============================================================
+HTMLTOFLOW IMPORT METHODS
+============================================================
+
+OPTION A — HTMLtoFlow App (Recommended)
+---------------------------------------
+1. Install: https://webflow.com/apps/detail/htmltoflow
+2. Open Webflow Designer
+3. Go to Apps panel > HTMLtoFlow
+4. For each section:
+   a. Paste HTML from SECTION-XX-Name-HTML.txt
+   b. Paste CSS from SECTION-XX-Name-CSS.txt
+   c. Click "Convert"
+5. Arrange sections in order on your page
+
+OPTION B — HTFlow AI Chrome Extension
+--------------------------------------
+1. Install from Chrome Web Store
+2. Open Webflow Designer
+3. Use extension to paste and convert HTML/CSS
+
+OPTION C — Manual + Custom Code
+-------------------------------
+1. Build div structure manually in Webflow Designer
+2. Apply class names matching the CSS
+3. Paste ALL CSS into Custom Code > Head
+
+
+============================================================
+POST-IMPORT CHECKLIST
+============================================================
+
+□ Fonts loaded correctly (Inter, Plus Jakarta Sans, Integral CF)
+□ All asset paths updated to Webflow CDN URLs
+□ Navbar Symbol works on all pages
+□ Footer Symbol works on all pages
+□ CTA Symbol works on all pages
+□ Scroll reveal animations recreated (see INTERACTIONS-GUIDE.txt)
+□ Hero entrance animation working
+□ Video autoplay working (test on published site, not Designer)
+□ Mobile menu working
+□ Contact form connected to Webflow form submissions
+□ CMS Collection populated with all 15 projects
+□ Project template bindings working
+□ 404 page created
+□ SEO meta tags added per page
+□ Favicon uploaded in Project Settings
+□ Site published and tested at all breakpoints
+
+
+============================================================
+COLOR REFERENCE
+============================================================
+
+Brand Purple:       #7c3aed
+Purple Dark:        #5b21b6
+Purple Light:       #a78bfa
+Brand Dark (bg):    #0a0a0a
+BG Purple:          #1a0a2e
+Brand Cyan:         #22d3ee
+Brand Gold:         #fbbf24
+Drive (purple):     #8b5cf6
+Deadline (red):     #ef4444
+Text Primary:       #ffffff
+Text Secondary:     #a1a1aa
+Text Muted:         #71717a
+
+
+============================================================
+TIPS
+============================================================
+
+- Import sections one at a time for best control
+- Test on Webflow's preview after each section import
+- All CSS uses "dc-" prefixed classes to avoid conflicts
+- Glass morphism (backdrop-filter) won't show in Designer
+  → publish to see the effect
+- Videos won't autoplay in Designer → publish to test
+- Combine all section CSS into one <style> block for
+  easier management (or just use GLOBAL-CSS.txt)
+- The Character Expand modal and video interactions need
+  custom JavaScript — see INTERACTIONS-GUIDE.txt

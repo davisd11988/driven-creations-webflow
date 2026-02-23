@@ -1,0 +1,12 @@
+<!-- ==========================================
+     SERVICES PAGE — SECTION 01: Hero
+     NOTE: Navbar is a Webflow Symbol (imported from homepage)
+     ========================================== -->
+
+<section class="dc-hero dc-bg-gradient-down" style="min-height: 50vh;">
+  <div class="dc-hero-content">
+    <div class="dc-section-tag dc-section-tag-purple dc-hero-tag-anim">Our Services</div>
+    <div class="dc-hero-title dc-hero-title-sm dc-hero-title-anim dc-reveal-text">What We <span class="dc-gradient-text">Do</span></div>
+    <div class="dc-hero-subtitle dc-hero-subtitle-anim">Custom web design, AI video production, and brand identity built to grow your business.</div>
+  </div>
+</section>

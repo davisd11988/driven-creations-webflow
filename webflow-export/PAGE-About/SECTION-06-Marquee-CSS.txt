@@ -1,0 +1,92 @@
+/* ==========================================
+   ABOUT PAGE — SECTION 06: Client Logos Marquee
+   ========================================== */
+
+/* Testimonials (parent section) */
+.dc-testimonials {
+  background-color: #090316;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Section Container */
+.dc-section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .dc-section-container { padding: 4rem 2rem; }
+}
+
+/* Logo Marquee */
+.dc-logo-marquee-section { margin-top: 64px; }
+.dc-trusted-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #71717a;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.dc-marquee-container {
+  overflow: hidden;
+  position: relative;
+}
+.dc-marquee-fade-left {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 80px;
+  background: linear-gradient(to right, #090316, transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+.dc-marquee-fade-right {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 80px;
+  background: linear-gradient(to left, #090316, transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+.dc-marquee-track {
+  display: flex;
+  gap: 24px;
+  animation: marquee-scroll 60s linear infinite;
+}
+.dc-marquee-logo-img {
+  flex-shrink: 0;
+  height: 80px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+.dc-marquee-logo-img:hover {
+  opacity: 1;
+}
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.dc-marquee-container:hover .dc-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Scroll Reveal */
+.dc-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dc-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.dc-delay-1 { transition-delay: 0.1s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-reveal { opacity: 1; transform: none; transition: none; }
+  .dc-marquee-track { animation: none; }
+}

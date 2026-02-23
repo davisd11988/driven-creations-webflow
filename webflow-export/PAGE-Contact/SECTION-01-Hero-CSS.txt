@@ -1,0 +1,139 @@
+/* ==========================================
+   CONTACT PAGE — SECTION 01: Hero
+   ========================================== */
+
+/* Hero Section */
+.dc-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #090316;
+}
+.dc-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  padding: 0 1.5rem;
+  padding-top: 40px;
+}
+.dc-hero-title {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 1.05;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.dc-hero-title-sm {
+  font-size: 2rem;
+}
+.dc-hero-subtitle {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #a1a1aa;
+  max-width: 640px;
+  margin: 24px auto 0 auto;
+  line-height: 1.6;
+}
+
+/* Section Tag */
+.dc-section-tag {
+  display: inline-block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
+}
+.dc-section-tag-purple {
+  color: #a78bfa;
+  background-color: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+/* Gradient Text */
+.dc-gradient-text {
+  background: linear-gradient(164.25deg, rgb(203, 181, 250) 21.2%, rgb(121, 62, 241) 100.1%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Background Gradient */
+.dc-bg-gradient-down {
+  background: linear-gradient(180deg, #090316 0%, #1a0a2e 100%);
+}
+
+/* Hero Animations */
+.dc-hero-tag-anim {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: dc-hero-entrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+.dc-hero-title-anim {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: dc-hero-entrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+.dc-hero-subtitle-anim {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: dc-hero-entrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+}
+@keyframes dc-hero-entrance {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Text Reveal */
+.dc-reveal-text {
+  overflow: hidden;
+}
+.dc-reveal-text .dc-word {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dc-reveal-text.is-revealed .dc-word {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 479px) {
+  .dc-hero-title { font-size: 2.25rem; }
+  .dc-hero-subtitle { font-size: 16px; }
+}
+@media (min-width: 768px) {
+  .dc-hero-title { font-size: 4.5rem; }
+  .dc-hero-title-sm { font-size: 2.75rem; }
+  .dc-hero-subtitle { font-size: 20px; }
+  .dc-hero-content { padding: 0 2rem; padding-top: 50px; }
+}
+@media (min-width: 1024px) {
+  .dc-hero-title { font-size: 6rem; }
+  .dc-hero-title-sm { font-size: 3.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-hero-tag-anim,
+  .dc-hero-title-anim,
+  .dc-hero-subtitle-anim {
+    opacity: 1; transform: none; animation: none;
+  }
+  .dc-reveal-text .dc-word { transform: none; opacity: 1; transition: none; }
+}

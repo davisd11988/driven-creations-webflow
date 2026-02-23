@@ -1,0 +1,96 @@
+/* ==========================================
+   CONTACT PAGE — SECTION 03: Contact Info Cards
+   ========================================== */
+
+/* Services (parent section wrapper) */
+.dc-services {
+  background-color: #090316;
+  width: 100%;
+}
+
+/* Section Container */
+.dc-section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .dc-section-container { padding: 4rem 2rem; }
+}
+
+/* Subpage Tight */
+.dc-subpage-tight .dc-section-container {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+@media (min-width: 768px) {
+  .dc-subpage-tight .dc-section-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+/* Contact Info Cards */
+.dc-contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.dc-contact-info-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.dc-contact-info-card:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.15);
+}
+.dc-contact-info-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+.dc-contact-info-label {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.dc-contact-info-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #a1a1aa;
+}
+.dc-contact-info-value a {
+  color: #a78bfa;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.dc-contact-info-value a:hover { color: #ffffff; }
+@media (max-width: 767px) {
+  .dc-contact-cards { grid-template-columns: 1fr; }
+}
+
+/* Scroll Reveal */
+.dc-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dc-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.dc-delay-2 { transition-delay: 0.2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-reveal { opacity: 1; transform: none; transition: none; }
+}

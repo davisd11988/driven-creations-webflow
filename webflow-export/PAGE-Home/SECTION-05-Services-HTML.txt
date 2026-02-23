@@ -1,0 +1,38 @@
+<!-- SECTION 05: Services - What We Do -->
+<section id="services" class="dc-services">
+  <div class="dc-section-container">
+    <div class="dc-section-header dc-reveal">
+      <div class="dc-section-tag dc-section-tag-purple">What We Do</div>
+      <div class="dc-services-title dc-reveal-text">Web Design. AI Videos. Branding.</div>
+    </div>
+    <div class="dc-services-grid">
+      <div class="dc-service-card dc-reveal dc-delay-1">
+        <div class="dc-service-icon-wrap">
+          <div class="dc-service-icon">&lt;/&gt;</div>
+        </div>
+        <div class="dc-service-title">Web Design <span class="dc-amp">&amp;</span> Development</div>
+        <div class="dc-service-desc">Responsive, high-performance websites built from scratch. No templates. Designed to convert visitors into customers.</div>
+        <a href="/services.html" class="dc-service-link">Learn more</a>
+      </div>
+      <div class="dc-service-card dc-reveal dc-delay-2">
+        <div class="dc-service-icon-wrap">
+          <div class="dc-service-icon">&#127916;</div>
+        </div>
+        <div class="dc-service-title">AI Video Advertising</div>
+        <div class="dc-service-desc">AI-generated commercials, product demos, and social media ads that look like a full production at a fraction of the cost.</div>
+        <a href="/services.html" class="dc-service-link">Learn more</a>
+      </div>
+      <div class="dc-service-card dc-reveal dc-delay-3">
+        <div class="dc-service-icon-wrap">
+          <div class="dc-service-icon">&#127912;</div>
+        </div>
+        <div class="dc-service-title">Branding <span class="dc-amp">&amp;</span> Identity</div>
+        <div class="dc-service-desc">Logos, brand guidelines, and marketing collateral that make your business instantly recognizable.</div>
+        <a href="/services.html" class="dc-service-link">Learn more</a>
+      </div>
+    </div>
+    <div class="dc-services-cta dc-reveal dc-delay-4" style="text-align:center; margin-top:3rem;">
+      <a href="/contact.html" class="dc-btn dc-btn-primary dc-btn-lg">Get Started</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+<!-- ==========================================
+     ABOUT PAGE — SECTION 06: Client Logos Marquee
+     NOTE: CTA section is a Webflow Symbol (imported from homepage)
+     NOTE: Footer is a Webflow Symbol (imported from homepage)
+     ========================================== -->
+
+<section class="dc-testimonials" style="padding-top: 0; padding-bottom: 0;">
+  <div class="dc-section-container" style="padding-top: 0;">
+    <div class="dc-logo-marquee-section dc-reveal dc-delay-1">
+      <div class="dc-trusted-label">Our Clients</div>
+      <div class="dc-marquee-container">
+        <div class="dc-marquee-fade-left"></div>
+        <div class="dc-marquee-fade-right"></div>
+        <div class="dc-marquee-track">
+          <img src="/images/logos/century-cl.svg" alt="Century Limited" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/petworth-cigars.svg" alt="Petworth Cigars" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/forgent-power.svg" alt="Forgent Power" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/pwrq.svg" alt="PwrQ" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/vtech-solutions.svg" alt="V-Tech Solutions" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/paramount-dev.svg" alt="Paramount Development" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/premium-title.svg" alt="Premium Title" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/gundam-logo.svg" alt="Gundam Strike" class="dc-marquee-logo-img" loading="lazy" />
+          <!-- Duplicate for seamless scroll -->
+          <img src="/images/logos/century-cl.svg" alt="Century Limited" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/petworth-cigars.svg" alt="Petworth Cigars" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/forgent-power.svg" alt="Forgent Power" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/pwrq.svg" alt="PwrQ" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/vtech-solutions.svg" alt="V-Tech Solutions" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/paramount-dev.svg" alt="Paramount Development" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/premium-title.svg" alt="Premium Title" class="dc-marquee-logo-img" loading="lazy" />
+          <img src="/images/logos/gundam-logo.svg" alt="Gundam Strike" class="dc-marquee-logo-img" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEBFLOW SYMBOL: CTA Section goes here -->
+<!-- WEBFLOW SYMBOL: Footer goes here -->

@@ -1,0 +1,17 @@
+<!-- SECTION 03 — Showcase (Video or Image) -->
+
+<!-- === VIDEO VARIANT === -->
+<!-- Use this when {{SHOWCASE_TYPE}} == "video" -->
+<section class="dc-project-showcase dc-reveal-scale">
+  <div class="dc-project-showcase-video">
+    <video autoplay muted loop playsinline>
+      <source src="{{SHOWCASE_SRC}}" type="video/mp4" />
+    </video>
+  </div>
+</section>
+
+<!-- === IMAGE VARIANT === -->
+<!-- Use this when {{SHOWCASE_TYPE}} == "image" -->
+<section class="dc-project-showcase dc-reveal-scale">
+  <div class="dc-project-showcase-img" style="background-image: url('{{SHOWCASE_SRC}}'); background-size: cover; background-position: center;"></div>
+</section>

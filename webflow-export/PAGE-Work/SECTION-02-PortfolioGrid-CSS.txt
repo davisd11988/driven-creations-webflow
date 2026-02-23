@@ -1,0 +1,160 @@
+/* ==========================================
+   WORK PAGE — SECTION 02: Portfolio Grid
+   ========================================== */
+
+/* Services (parent section wrapper) */
+.dc-services {
+  background-color: #090316;
+  width: 100%;
+}
+
+/* Portfolio forced tight spacing */
+#portfolio {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Section Container */
+.dc-section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .dc-section-container { padding: 4rem 2rem; }
+}
+
+/* Subpage Tight */
+.dc-subpage-tight .dc-section-container {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+@media (min-width: 768px) {
+  .dc-subpage-tight .dc-section-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+/* Dot Grid Pattern */
+.dc-bg-dots {
+  position: relative;
+}
+.dc-bg-dots::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+.dc-bg-dots > *:not(.dc-decor-orb) { position: relative; z-index: 1; }
+
+/* Decorative Orb */
+.dc-decor-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.dc-decor-orb-purple {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+}
+
+/* Projects Grid */
+.dc-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 991px) {
+  .dc-projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 479px) {
+  .dc-projects-grid { grid-template-columns: 1fr; }
+}
+
+/* Project Card */
+.dc-project-card {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+.dc-project-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Project Thumb Video */
+.dc-project-thumb-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.dc-project-card:hover .dc-project-thumb-video,
+.dc-project-card.is-playing .dc-project-thumb-video,
+.dc-project-thumb-video[autoplay] {
+  opacity: 1;
+}
+
+/* Portfolio Tagline */
+.dc-portfolio-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #71717a;
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* Scale Reveal Animation */
+.dc-reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dc-reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Scroll Reveal */
+.dc-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dc-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delays */
+.dc-delay-1 { transition-delay: 0.1s; }
+.dc-delay-2 { transition-delay: 0.2s; }
+.dc-delay-3 { transition-delay: 0.3s; }
+.dc-delay-4 { transition-delay: 0.4s; }
+.dc-delay-5 { transition-delay: 0.5s; }
+.dc-delay-6 { transition-delay: 0.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-reveal,
+  .dc-reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

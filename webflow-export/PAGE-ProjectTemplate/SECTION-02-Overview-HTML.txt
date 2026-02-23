@@ -1,0 +1,35 @@
+<!-- SECTION 02 — Project Overview (Challenge + Metadata) -->
+<section class="dc-project-overview">
+  <div class="dc-section-container">
+    <div class="dc-project-overview-grid">
+
+      <!-- Challenge Description -->
+      <div class="dc-project-overview-content dc-reveal">
+        <div class="dc-project-section-title">The Challenge</div>
+        <div class="dc-project-text">{{CHALLENGE_TEXT}}</div>
+      </div>
+
+      <!-- Metadata Sidebar -->
+      <div class="dc-project-meta dc-reveal dc-delay-1">
+        <div class="dc-project-meta-item">
+          <div class="dc-project-meta-label">Client</div>
+          <div class="dc-project-meta-value">{{CLIENT_NAME}}</div>
+        </div>
+        <div class="dc-project-meta-item">
+          <div class="dc-project-meta-label">Services</div>
+          <div class="dc-project-meta-value">{{SERVICES}}</div>
+        </div>
+        <div class="dc-project-meta-item">
+          <div class="dc-project-meta-label">Industry</div>
+          <div class="dc-project-meta-value">{{INDUSTRY}}</div>
+        </div>
+        <div class="dc-project-meta-item">
+          <div class="dc-project-meta-label">Year</div>
+          <div class="dc-project-meta-value">{{YEAR}}</div>
+        </div>
+        <a href="{{LIVE_URL}}" target="_blank" rel="noopener noreferrer" class="dc-project-live-link">View Live Site &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<!-- SECTION 05 — Results (Three Stat Cards) -->
+<section class="dc-project-results">
+  <div class="dc-section-container">
+    <div class="dc-project-section-title dc-reveal" style="text-align: center; margin-bottom: 3rem;">The Results</div>
+    <div class="dc-results-grid">
+
+      <div class="dc-result-card dc-reveal dc-delay-1">
+        <div class="dc-result-number">{{RESULT_1_NUMBER}}</div>
+        <div class="dc-result-label">{{RESULT_1_LABEL}}</div>
+      </div>
+
+      <div class="dc-result-card dc-reveal dc-delay-2">
+        <div class="dc-result-number">{{RESULT_2_NUMBER}}</div>
+        <div class="dc-result-label">{{RESULT_2_LABEL}}</div>
+      </div>
+
+      <div class="dc-result-card dc-reveal dc-delay-3">
+        <div class="dc-result-number">{{RESULT_3_NUMBER}}</div>
+        <div class="dc-result-label">{{RESULT_3_LABEL}}</div>
+      </div>
+
+    </div>
+  </div>
+</section>

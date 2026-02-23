@@ -1,0 +1,213 @@
+/* ==========================================
+   ABOUT PAGE — SECTION 04: The Clash
+   ========================================== */
+
+/* Collision Section */
+.dc-collision {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000000;
+}
+.dc-collision-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+.dc-collision-video.is-playing {
+  opacity: 1;
+}
+.dc-collision-overlay-dark {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 5;
+}
+.dc-collision-overlay-gradient {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent, rgba(0, 0, 0, 0.3));
+  z-index: 10;
+}
+.dc-collision-content {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  padding: 16px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.dc-collision-content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.dc-collision-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #a78bfa;
+  margin-bottom: 16px;
+}
+.dc-collision-title {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  color: #ffffff;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .dc-collision-title { font-size: 4.5rem; }
+}
+
+/* Button */
+.dc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: 'Inter', system-ui, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  height: 48px;
+  padding: 0 28px;
+  font-size: 16px;
+  line-height: 1;
+}
+.dc-btn-primary {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+.dc-btn-primary:hover {
+  background-color: #5b21b6;
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
+}
+.dc-btn-lg {
+  height: 52px;
+  padding: 0 32px;
+  font-size: 18px;
+}
+
+/* Text Reveal */
+.dc-reveal-text {
+  overflow: hidden;
+}
+.dc-reveal-text .dc-word {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dc-reveal-text.is-revealed .dc-word {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Video Modal */
+.dc-video-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  padding: 24px;
+}
+.dc-video-modal.is-active {
+  visibility: visible;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+}
+.dc-video-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  background: #0d0520;
+  border-radius: 20px;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  overflow: hidden;
+  box-shadow:
+    0 0 60px rgba(124, 58, 237, 0.15),
+    0 25px 50px rgba(0, 0, 0, 0.5);
+  transform: scale(0.85) translateY(30px);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.dc-video-modal.is-active .dc-video-modal-inner {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+.dc-video-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+.dc-video-modal-close:hover {
+  background: rgba(124, 58, 237, 0.5);
+  border-color: rgba(124, 58, 237, 0.6);
+  transform: rotate(90deg);
+}
+.dc-video-modal-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+.dc-video-modal-embed iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+@media (max-width: 479px) {
+  .dc-video-modal { padding: 12px; }
+  .dc-video-modal-inner { border-radius: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-reveal-text .dc-word {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}

@@ -1,0 +1,16 @@
+<!-- SECTION 09: Character Expand Overlay (Modal) -->
+<div class="dc-character-expand-overlay">
+  <div class="dc-character-expand-inner">
+    <div class="dc-character-expand-close">&#10005;</div>
+    <div class="dc-character-expand-video">
+      <video autoplay muted loop playsinline>
+        <source src="/videos/drive-fullbody.webm" type="video/webm" />
+      </video>
+    </div>
+    <div class="dc-character-expand-info">
+      <div class="dc-character-expand-name">DRIVE</div>
+      <div class="dc-character-expand-role" style="color: #8b5cf6;">The Hero</div>
+      <div class="dc-character-expand-lore">Born from the first pixel of Creativity City...</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,177 @@
+/* ==========================================
+   SECTION 02: Navbar -> Webflow Symbol
+   ========================================== */
+
+/* --- Shared: Button Styles --- */
+.dc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: 'Inter', system-ui, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  height: 48px;
+  padding: 0 28px;
+  font-size: 16px;
+  line-height: 1;
+}
+.dc-btn-primary {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+.dc-btn-primary:hover {
+  background-color: #5b21b6;
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
+}
+.dc-btn-sm {
+  height: 36px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+/* --- Navbar --- */
+.dc-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: transparent;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+.dc-navbar.is-scrolled {
+  background-color: rgba(9, 3, 22, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.dc-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 64px;
+}
+.dc-navbar-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.dc-navbar-logo img {
+  height: 44px;
+  width: 162px;
+  object-fit: contain;
+}
+.dc-nav-links {
+  display: none;
+  align-items: center;
+  gap: 32px;
+}
+.dc-nav-link {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+.dc-nav-link:hover { color: #ffffff; }
+.dc-nav-link.is-active { color: #ffffff; }
+.dc-nav-cta {
+  display: none;
+  align-items: center;
+}
+.dc-mobile-menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 55;
+}
+.dc-hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.dc-hamburger-short { width: 16px; }
+
+@media (min-width: 768px) {
+  .dc-navbar-inner {
+    height: 80px;
+    padding: 0 2rem;
+  }
+}
+
+/* --- Mobile Menu Panel --- */
+.dc-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 45;
+  background-color: rgba(9, 3, 22, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 80px 24px 40px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.dc-mobile-menu.is-open {
+  display: flex;
+  opacity: 1;
+}
+.dc-mobile-menu-link {
+  font-family: 'Integral CF', 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 12px 0;
+  transition: color 0.2s ease;
+  text-align: center;
+}
+.dc-mobile-menu-link:hover { color: #ffffff; }
+.dc-mobile-menu-cta {
+  margin-top: 24px;
+}
+
+/* Hamburger X animation when open */
+.dc-mobile-menu-btn.is-open .dc-hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.dc-mobile-menu-btn.is-open .dc-hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.dc-mobile-menu-btn.is-open .dc-hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(3px, -3px);
+  width: 24px;
+}
+
+@media (min-width: 1024px) {
+  .dc-nav-links { display: flex; }
+  .dc-nav-cta { display: flex; }
+  .dc-mobile-menu-btn { display: none; }
+  .dc-mobile-menu { display: none !important; }
+}

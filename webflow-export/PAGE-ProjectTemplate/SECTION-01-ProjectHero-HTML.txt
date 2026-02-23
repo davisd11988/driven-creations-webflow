@@ -1,0 +1,9 @@
+<!-- SECTION 01 — Project Hero -->
+<section class="dc-project-hero {{HERO_GRADIENT_CLASS}}">
+  <div class="dc-project-hero-content">
+    <a href="/work" class="dc-project-back dc-reveal">&larr; All Projects</a>
+    <div class="dc-section-tag dc-section-tag-purple dc-reveal dc-delay-1">{{CATEGORY}}</div>
+    <div class="dc-project-hero-title dc-reveal dc-delay-2">{{NAME}}</div>
+    <div class="dc-project-hero-tagline dc-reveal dc-delay-3">{{TAGLINE}}</div>
+  </div>
+</section>
