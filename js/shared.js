@@ -498,4 +498,38 @@
     }
   }
 
+  /* ------------------------------------------
+     PORTFOLIO FILTER TABS
+     ------------------------------------------ */
+  var filterBtns = document.querySelectorAll('.dc-filter-btn');
+  if (filterBtns.length) {
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var filter = this.getAttribute('data-filter');
+        var grid = this.closest('section').querySelector('.dc-projects-grid');
+        if (!grid) return;
+
+        // Update active button
+        this.closest('.dc-filter-bar').querySelectorAll('.dc-filter-btn').forEach(function(b) {
+          b.classList.remove('is-active');
+        });
+        this.classList.add('is-active');
+
+        // Filter cards
+        var cards = grid.querySelectorAll('[data-category]');
+        cards.forEach(function(card, i) {
+          var cat = card.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            card.classList.remove('dc-filter-hidden');
+            card.classList.add('dc-filter-reveal');
+            card.style.animationDelay = (i * 0.04) + 's';
+          } else {
+            card.classList.add('dc-filter-hidden');
+            card.classList.remove('dc-filter-reveal');
+          }
+        });
+      });
+    });
+  }
+
 })();

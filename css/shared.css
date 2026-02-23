@@ -1417,6 +1417,203 @@ a { text-decoration: none; color: inherit; }
   .dc-portfolio-title { font-size: 1.875rem; }
 }
 
+/* --- Portfolio Filter Tabs --- */
+.dc-filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.dc-filter-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 10px 24px;
+  border-radius: 100px;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  background: transparent;
+  color: #a1a1aa;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.dc-filter-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  border-radius: inherit;
+  z-index: 0;
+}
+.dc-filter-btn span {
+  position: relative;
+  z-index: 1;
+}
+.dc-filter-btn:hover {
+  border-color: rgba(124, 58, 237, 0.6);
+  color: #e4e4e7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+}
+.dc-filter-btn.is-active {
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.35);
+}
+.dc-filter-btn.is-active::before {
+  opacity: 1;
+}
+.dc-filter-count {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.dc-filter-btn.is-active .dc-filter-count {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* --- Video Card Styles --- */
+.dc-video-card {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  background: #111111;
+}
+.dc-video-card .dc-project-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dc-video-card:hover .dc-project-bg {
+  transform: scale(1.05);
+}
+.dc-video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+}
+.dc-video-play-btn::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #ffffff;
+  margin-left: 3px;
+}
+.dc-video-card:hover .dc-video-play-btn {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: rgba(124, 58, 237, 0.95);
+  box-shadow: 0 0 0 12px rgba(124, 58, 237, 0.15), 0 0 30px rgba(124, 58, 237, 0.3);
+}
+.dc-video-info {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 40px 20px 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+  z-index: 2;
+}
+.dc-video-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  padding: 3px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.dc-video-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- Filter Animation --- */
+.dc-project-card[data-category],
+.dc-video-card[data-category] {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.dc-project-card.dc-filter-hidden,
+.dc-video-card.dc-filter-hidden {
+  display: none !important;
+}
+.dc-project-card.dc-filter-reveal,
+.dc-video-card.dc-filter-reveal {
+  animation: dcFilterIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes dcFilterIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* --- Video Card Responsive --- */
+@media (max-width: 479px) {
+  .dc-video-play-btn {
+    width: 48px;
+    height: 48px;
+  }
+  .dc-video-play-btn::after {
+    border-width: 7px 0 7px 13px;
+    margin-left: 2px;
+  }
+  .dc-video-title {
+    font-size: 0.85rem;
+  }
+  .dc-filter-btn {
+    font-size: 13px;
+    padding: 8px 18px;
+  }
+}
+
+
+
 /* ==========================================
    PROCESS SECTION
    ========================================== */

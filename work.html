@@ -82,58 +82,125 @@
 <div class="dc-accent-line"></div>
 
 <!-- ==========================================
-     PORTFOLIO SECTION - Full 12-Project Grid
+     PORTFOLIO SECTION - Full Grid + AI Videos
      ========================================== -->
 <section id="portfolio" class="dc-services dc-bg-dots dc-subpage-tight" style="position: relative;">
   <div class="dc-decor-orb dc-decor-orb-purple" style="top: -80px; right: -200px;"></div>
   <div class="dc-section-container">
-    <!-- All 15 Projects -->
-    <div class="dc-projects-grid">
-      <a href="/work/forgent-power.html" class="dc-project-card dc-reveal-scale dc-delay-1">
+
+    <!-- Filter Tabs -->
+    <div class="dc-filter-bar dc-reveal">
+      <button class="dc-filter-btn is-active" data-filter="all"><span>All</span></button>
+      <button class="dc-filter-btn" data-filter="web"><span>Web Design</span></button>
+      <button class="dc-filter-btn" data-filter="video"><span>AI Advertisements</span></button>
+    </div>
+
+    <!-- All Projects + Videos -->
+    <div class="dc-projects-grid" id="workGrid">
+      <!-- Web Design Projects -->
+      <a href="/work/forgent-power.html" class="dc-project-card dc-reveal-scale dc-delay-1" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/forgent-thumb.png');"></div>
       </a>
-      <a href="/work/pwrq.html" class="dc-project-card dc-reveal-scale dc-delay-2">
+      <a href="/work/pwrq.html" class="dc-project-card dc-reveal-scale dc-delay-2" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/pwrq-thumb.png');"></div>
       </a>
-      <a href="/work/v-tech-solutions.html" class="dc-project-card dc-reveal-scale dc-delay-3">
+      <a href="/work/v-tech-solutions.html" class="dc-project-card dc-reveal-scale dc-delay-3" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/vtech-thumb.png');"></div>
       </a>
-      <a href="/work/paramount-development.html" class="dc-project-card dc-reveal-scale dc-delay-4">
+      <a href="/work/paramount-development.html" class="dc-project-card dc-reveal-scale dc-delay-4" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/pd-thumb.png');"></div>
         <video class="dc-project-thumb-video" autoplay muted loop playsinline preload="auto"><source src="/videos/pd-broll.mp4" type="video/mp4" /></video>
       </a>
-      <a href="/work/safety-security-consultants.html" class="dc-project-card dc-reveal-scale dc-delay-5">
+      <a href="/work/safety-security-consultants.html" class="dc-project-card dc-reveal-scale dc-delay-5" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/ssc-thumb.avif');"></div>
       </a>
-      <a href="/work/iron-guardian.html" class="dc-project-card dc-reveal-scale dc-delay-6">
+      <a href="/work/iron-guardian.html" class="dc-project-card dc-reveal-scale dc-delay-6" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/iron-guardian-thumb.avif');"></div>
       </a>
-      <a href="/work/olunike.html" class="dc-project-card dc-reveal-scale dc-delay-4">
+      <a href="/work/olunike.html" class="dc-project-card dc-reveal-scale dc-delay-4" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/olunike-thumb.jpg');"></div>
         <video class="dc-project-thumb-video" autoplay muted loop playsinline preload="auto"><source src="/videos/olunike-broll.mp4" type="video/mp4" /></video>
       </a>
-      <a href="/work/akkuun.html" class="dc-project-card dc-reveal-scale dc-delay-5">
+      <a href="/work/akkuun.html" class="dc-project-card dc-reveal-scale dc-delay-5" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/akkuun-thumb.jpg');"></div>
         <video class="dc-project-thumb-video" autoplay muted loop playsinline preload="auto"><source src="/videos/akkuun-broll.mp4" type="video/mp4" /></video>
       </a>
-      <a href="/work/prepaid-app.html" class="dc-project-card dc-reveal-scale dc-delay-6">
+      <a href="/work/prepaid-app.html" class="dc-project-card dc-reveal-scale dc-delay-6" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/prepaid-thumb.avif');"></div>
       </a>
-      <a href="/work/digiart-nft.html" class="dc-project-card dc-reveal-scale dc-delay-1">
+      <a href="/work/digiart-nft.html" class="dc-project-card dc-reveal-scale dc-delay-1" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/digiart-thumb.png');"></div>
       </a>
-      <a href="/work/style-by-chanel.html" class="dc-project-card dc-reveal-scale dc-delay-2">
+      <a href="/work/style-by-chanel.html" class="dc-project-card dc-reveal-scale dc-delay-2" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/style-by-chanel-thumb.png');"></div>
       </a>
-      <a href="/work/dj-fresh.html" class="dc-project-card dc-reveal-scale dc-delay-4">
+      <a href="/work/dj-fresh.html" class="dc-project-card dc-reveal-scale dc-delay-4" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/dj-fresh-thumb.jpg');"></div>
         <video class="dc-project-thumb-video" autoplay muted loop playsinline preload="auto"><source src="/videos/djfresh-broll.mp4" type="video/mp4" /></video>
       </a>
-      <a href="/work/acelar.html" class="dc-project-card dc-reveal-scale dc-delay-5">
+      <a href="/work/acelar.html" class="dc-project-card dc-reveal-scale dc-delay-5" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/acelar-thumb.png');"></div>
       </a>
-      <a href="/work/1choice.html" class="dc-project-card dc-reveal-scale dc-delay-6">
+      <a href="/work/1choice.html" class="dc-project-card dc-reveal-scale dc-delay-6" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/1choice-thumb.png');"></div>
+      </a>
+
+      <!-- AI Video Projects (7 on work page) -->
+      <a href="https://www.youtube.com/watch?v=yPOCNrJxEyw" target="_blank" rel="noopener" class="dc-video-card dc-reveal-scale dc-delay-1" data-category="video">
+        <div class="dc-project-bg" style="background-image: url('https://img.youtube.com/vi/yPOCNrJxEyw/hqdefault.jpg');"></div>
+        <div class="dc-video-play-btn"></div>
+        <div class="dc-video-info">
+          <div class="dc-video-tag">AI Ad</div>
+          <div class="dc-video-title">Kirkland Personal Injury — Law Firm Ad</div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=SPeM_pa29xY" target="_blank" rel="noopener" class="dc-video-card dc-reveal-scale dc-delay-2" data-category="video">
+        <div class="dc-project-bg" style="background-image: url('https://img.youtube.com/vi/SPeM_pa29xY/hqdefault.jpg');"></div>
+        <div class="dc-video-play-btn"></div>
+        <div class="dc-video-info">
+          <div class="dc-video-tag">AI Ad</div>
+          <div class="dc-video-title">Advanced Window Tinting — Ad</div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=EwOd_p_CyLY" target="_blank" rel="noopener" class="dc-video-card dc-reveal-scale dc-delay-3" data-category="video">
+        <div class="dc-project-bg" style="background-image: url('https://img.youtube.com/vi/EwOd_p_CyLY/hqdefault.jpg');"></div>
+        <div class="dc-video-play-btn"></div>
+        <div class="dc-video-info">
+          <div class="dc-video-tag">AI Ad</div>
+          <div class="dc-video-title">ASE Auto Sound &amp; Electronics — Ad</div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=4xgK057Di48" target="_blank" rel="noopener" class="dc-video-card dc-reveal-scale dc-delay-4" data-category="video">
+        <div class="dc-project-bg" style="background-image: url('https://img.youtube.com/vi/4xgK057Di48/hqdefault.jpg');"></div>
+        <div class="dc-video-play-btn"></div>
+        <div class="dc-video-info">
+          <div class="dc-video-tag">AI Film</div>
+          <div class="dc-video-title">Michael B. Jordan in YU YU HAKUSHO</div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=qQxxqLfz7t0" target="_blank" rel="noopener" class="dc-video-card dc-reveal-scale dc-delay-5" data-category="video">
+        <div class="dc-project-bg" style="background-image: url('https://img.youtube.com/vi/qQxxqLfz7t0/hqdefault.jpg');"></div>
+        <div class="dc-video-play-btn"></div>
+        <div class="dc-video-info">
+          <div class="dc-video-tag">AI Music Video</div>
+          <div class="dc-video-title">The Musalini NYC Freestyle</div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=hgyvHLpjCHU" target="_blank" rel="noopener" class="dc-video-card dc-reveal-scale dc-delay-6" data-category="video">
+        <div class="dc-project-bg" style="background-image: url('https://img.youtube.com/vi/hgyvHLpjCHU/hqdefault.jpg');"></div>
+        <div class="dc-video-play-btn"></div>
+        <div class="dc-video-info">
+          <div class="dc-video-tag">AI Film</div>
+          <div class="dc-video-title">Last of Us...Designers</div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=MarrXaaNm6w" target="_blank" rel="noopener" class="dc-video-card dc-reveal-scale dc-delay-1" data-category="video">
+        <div class="dc-project-bg" style="background-image: url('https://img.youtube.com/vi/MarrXaaNm6w/hqdefault.jpg');"></div>
+        <div class="dc-video-play-btn"></div>
+        <div class="dc-video-info">
+          <div class="dc-video-tag">AI Comedy</div>
+          <div class="dc-video-title">Graphic Design Client Roast</div>
+        </div>
       </a>
     </div>
 
