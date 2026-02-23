@@ -356,6 +356,7 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   width: 100%;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -442,6 +443,21 @@ a { text-decoration: none; color: inherit; }
 @keyframes dc-bounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(10px); }
+}
+/* Mobile: bring arrow closer to content so it's visible */
+@media (max-width: 767px) {
+  .dc-scroll-indicator {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 32px;
+    animation: dc-bounce-mobile 2s ease-in-out infinite;
+  }
+  @keyframes dc-bounce-mobile {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
 }
 /* Hide scroll arrow in landscape mobile (short viewport height) */
 @media (max-height: 500px) and (orientation: landscape) {
