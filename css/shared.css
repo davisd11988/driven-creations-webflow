@@ -423,6 +423,10 @@ a { text-decoration: none; color: inherit; }
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(10px); }
 }
+/* Hide scroll arrow in landscape mobile (short viewport height) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .dc-scroll-indicator { display: none; }
+}
 @media (max-width: 479px) {
   .dc-hero-title { font-size: 2.25rem; }
   .dc-hero-subtitle { font-size: 16px; }
