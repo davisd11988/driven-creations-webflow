@@ -1,19 +1,24 @@
 /* ==========================================
-   DRIVEN CREATIONS — Safari Transparent Video Fix
+   DRIVEN CREATIONS — Universal Transparent Video
    Canvas-based chroma key removes green screen
-   backgrounds on browsers that don't support
-   WebM/VP9 alpha transparency (Safari, iOS).
+   backgrounds on ALL browsers and devices.
+
+   Why universal (not Safari-only):
+   - Character hover videos are MP4 with green screens
+     (H.264 cannot encode alpha), so they need chroma
+     key on every browser including Chrome.
+   - WebM VP9 alpha may not decode on all mobile
+     hardware (some Android devices lack VP9 alpha
+     support in their hardware decoder).
+   - For browsers that DO decode VP9 alpha natively,
+     the canvas pass-through is harmless — already-
+     transparent pixels don't trigger green detection.
+   - Canvas is scaled down (300-600px) so overhead
+     is negligible on modern devices.
    ========================================== */
 
 (function() {
   'use strict';
-
-  // Only apply on Safari / iOS where WebM alpha channel is ignored
-  var ua = navigator.userAgent;
-  var isSafari = /Safari/.test(ua) && !/Chrome/.test(ua) && !/Chromium/.test(ua) && !/Edg/.test(ua);
-  var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-
-  if (!isSafari && !isIOS) return;
 
   /**
    * Apply chroma key to a video element.
@@ -66,6 +71,9 @@
 
       for (var i = 0; i < len; i += 4) {
         var r = d[i], g = d[i + 1], b = d[i + 2];
+
+        // Skip already-transparent pixels (VP9 alpha already decoded)
+        if (d[i + 3] === 0) continue;
 
         // Core green screen detection
         if (g > greenMin && g > r * ratio && g > b * ratio) {
