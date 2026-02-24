@@ -91,6 +91,19 @@
         }
       }
 
+      // Despill: remove green color cast from semi-transparent edge pixels
+      if (opts.despill) {
+        for (var j = 0; j < len; j += 4) {
+          var a = d[j + 3];
+          if (a > 0 && a < 240) {
+            var limit = Math.max(d[j], d[j + 2]);
+            if (d[j + 1] > limit) {
+              d[j + 1] = limit;
+            }
+          }
+        }
+      }
+
       ctx.putImageData(frame, 0, 0);
       rafId = requestAnimationFrame(render);
     }
@@ -156,7 +169,7 @@
     // 1. LOADER VIDEO — plays once on page load
     var loaderVideo = document.querySelector('.dc-loader-video');
     if (loaderVideo) {
-      var loaderCanvas = chromaKey(loaderVideo, { maxRes: 300, greenMin: 70 });
+      var loaderCanvas = chromaKey(loaderVideo, { maxRes: 300, greenMin: 50, ratio: 1.05, despill: true });
       // Match loader video CSS
       loaderCanvas.style.width = '200px';
       loaderCanvas.style.height = '200px';
