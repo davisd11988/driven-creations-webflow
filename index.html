@@ -52,10 +52,13 @@
   }
   </script>
 
+  <link rel="dns-prefetch" href="https://www.youtube.com" />
+  <link rel="dns-prefetch" href="https://calendly.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/shared.css?v=19" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" /></noscript>
+  <link rel="stylesheet" href="/css/shared.css?v=20" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.svg" />
 </head>
@@ -117,7 +120,7 @@
      ========================================== -->
 <section id="home" class="dc-hero">
   <div class="dc-hero-video-wrap">
-    <video class="dc-hero-video" autoplay muted loop playsinline>
+    <video class="dc-hero-video" autoplay muted loop playsinline preload="auto">
       <source src="/videos/bg-topaz-hero.mp4" type="video/mp4" />
     </video>
     <div class="dc-hero-video-overlay"></div>
@@ -677,7 +680,7 @@
 <!-- Scripts -->
 <script src="/js/chroma-key.js?v=4"></script>
 <script src="/js/loader.js"></script>
-<script src="/js/shared.js?v=3" defer></script>
+<script src="/js/shared.js?v=4" defer></script>
 
 </body>
 </html>

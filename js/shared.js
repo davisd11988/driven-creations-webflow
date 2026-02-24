@@ -441,6 +441,10 @@
       }
     };
 
+    // Track the chroma-key canvas so we can clear it between switches
+    var expandVideoContainer = expandOverlay.querySelector('.dc-character-expand-video');
+    var expandCanvas = expandVideoContainer ? expandVideoContainer.querySelector('.dc-chroma-canvas') : null;
+
     expandBtns.forEach(function(btn) {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
@@ -449,14 +453,53 @@
         var data = characterData[charKey];
         if (!data) return;
 
+        // Update text immediately
         expandName.textContent = data.name;
         expandRole.textContent = data.role;
         expandRole.style.color = data.roleColor;
         expandLore.textContent = data.lore;
-        if (expandVideoSource) {
+
+        if (expandVideoSource && expandVideo) {
+          // 1. Pause old video & hide video area instantly
+          expandVideo.pause();
+          if (expandVideoContainer) {
+            expandVideoContainer.classList.add('dc-video-loading');
+          }
+
+          // 2. Clear the chroma-key canvas so old character frame doesn't linger
+          if (!expandCanvas) {
+            expandCanvas = expandVideoContainer ? expandVideoContainer.querySelector('.dc-chroma-canvas') : null;
+          }
+          if (expandCanvas) {
+            var ctx = expandCanvas.getContext('2d');
+            if (ctx) ctx.clearRect(0, 0, expandCanvas.width, expandCanvas.height);
+          }
+
+          // 3. Swap source & load new video
           expandVideoSource.setAttribute('src', data.video);
           expandVideo.load();
-          expandVideo.play().catch(function() {});
+
+          // 4. Wait for new video data before showing
+          function onReady() {
+            expandVideo.removeEventListener('canplay', onReady);
+            expandVideo.play().catch(function() {});
+            // Small delay to let chroma-key render first frame
+            setTimeout(function() {
+              if (expandVideoContainer) {
+                expandVideoContainer.classList.remove('dc-video-loading');
+              }
+            }, 80);
+          }
+          expandVideo.addEventListener('canplay', onReady);
+
+          // Fallback: if canplay doesn't fire within 2s, show anyway
+          setTimeout(function() {
+            expandVideo.removeEventListener('canplay', onReady);
+            expandVideo.play().catch(function() {});
+            if (expandVideoContainer) {
+              expandVideoContainer.classList.remove('dc-video-loading');
+            }
+          }, 2000);
         }
 
         expandOverlay.classList.add('is-active');
@@ -482,29 +525,28 @@
   }
 
   /* ------------------------------------------
-     CINEMATIC SMOOTH SCROLL
-     Custom eased scroll for hero arrow and any
-     anchor links — feels like a camera dolly
+     SMOOTH SCROLL
+     Clean ease-out for hero arrow — starts
+     moving immediately, decelerates to a stop.
+     No perceived pause, just a fluid slide.
      ------------------------------------------ */
-  function cinematicScroll(targetEl, duration) {
-    duration = duration || 1400;
+  function smoothScroll(targetEl, duration) {
+    duration = duration || 900;
     var startY = window.scrollY;
     var targetY = targetEl.getBoundingClientRect().top + startY;
     var distance = targetY - startY;
     var startTime = null;
 
-    // Ease-in-out quart: slow start, gentle acceleration, long deceleration
-    function easeInOutQuart(t) {
-      return t < 0.5
-        ? 8 * t * t * t * t
-        : 1 - Math.pow(-2 * t + 2, 4) / 2;
+    // Ease-out cubic: moves right away, gently decelerates
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
     }
 
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
       var elapsed = timestamp - startTime;
       var progress = Math.min(elapsed / duration, 1);
-      var easedProgress = easeInOutQuart(progress);
+      var easedProgress = easeOutCubic(progress);
       window.scrollTo(0, startY + distance * easedProgress);
       if (progress < 1) {
         requestAnimationFrame(step);
@@ -523,7 +565,7 @@
         var target = document.getElementById(targetId.slice(1));
         if (target) {
           e.preventDefault();
-          cinematicScroll(target, 1400);
+          smoothScroll(target, 900);
           // Update URL hash without jumping
           history.pushState(null, '', targetId);
         }

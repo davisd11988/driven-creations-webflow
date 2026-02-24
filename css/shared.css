@@ -2493,6 +2493,11 @@ a { text-decoration: none; color: inherit; }
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+  transition: opacity 0.25s ease;
+}
+.dc-character-expand-video.dc-video-loading {
+  opacity: 0;
+  transition: none; /* hide instantly, fade in smoothly */
 }
 .dc-character-expand-video video {
   width: 100%;
