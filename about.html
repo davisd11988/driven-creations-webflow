@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/shared.css?v=14" />
+  <link rel="stylesheet" href="/css/shared.css?v=15" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.svg" />
 </head>
@@ -65,7 +65,7 @@
     <div class="dc-nav-cta">
       <a href="/contact-us.html" class="dc-btn dc-btn-primary dc-btn-sm">Get Started</a>
     </div>
-    <div class="dc-mobile-menu-btn">
+    <div class="dc-mobile-menu-btn" role="button" tabindex="0" aria-label="Toggle menu">
       <div class="dc-hamburger-line"></div>
       <div class="dc-hamburger-line"></div>
       <div class="dc-hamburger-line dc-hamburger-short"></div>
@@ -88,7 +88,7 @@
 <!-- ==========================================
      HERO SECTION (No video bg)
      ========================================== -->
-<section class="dc-hero dc-bg-gradient-down" style="min-height: 50vh;">
+<section class="dc-hero dc-hero--short dc-bg-gradient-down">
   <div class="dc-hero-dark-overlay"></div>
   <div class="dc-hero-content">
     <div class="dc-section-tag dc-section-tag-purple dc-hero-tag-anim">About Us</div>
@@ -203,7 +203,7 @@
      CHARACTER EXPAND OVERLAY
      ========================================== -->
 <div class="dc-character-expand-overlay">
-  <button class="dc-character-expand-close">&#10005;</button>
+  <button class="dc-character-expand-close" aria-label="Close character details">&#10005;</button>
   <div class="dc-character-expand-inner">
     <div class="dc-character-expand-video">
       <video autoplay muted loop playsinline>
@@ -237,7 +237,7 @@
 <!-- YouTube Video Modal -->
 <div class="dc-video-modal">
   <div class="dc-video-modal-inner">
-    <button class="dc-video-modal-close">&#10005;</button>
+    <button class="dc-video-modal-close" aria-label="Close video">&#10005;</button>
     <div class="dc-video-modal-embed">
       <iframe src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
