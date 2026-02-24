@@ -207,6 +207,7 @@ a { text-decoration: none; color: inherit; }
   z-index: 50;
   background-color: transparent;
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  padding-top: env(safe-area-inset-top, 0px);
 }
 .dc-navbar.is-scrolled {
   background-color: rgba(9, 3, 22, 0.85);
@@ -2188,7 +2189,7 @@ a { text-decoration: none; color: inherit; }
 .dc-footer-bottom {
   margin-top: 24px;
   padding-top: 16px;
-  padding-bottom: 12px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   justify-content: center;
@@ -3720,7 +3721,7 @@ select.dc-input option {
   left: 0;
   right: 0;
   z-index: 9999;
-  padding: 0 24px 24px;
+  padding: 0 24px calc(24px + env(safe-area-inset-bottom, 0px));
   pointer-events: none;
   opacity: 0;
   transform: translateY(100%);
