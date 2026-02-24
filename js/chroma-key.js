@@ -29,6 +29,7 @@
     var greenMin = opts.greenMin || 80;    // minimum green channel value
     var ratio    = opts.ratio    || 1.2;   // green must be this much higher than R and B
     var softEdge = opts.softEdge || 20;    // feather range for soft edges
+    var poster   = video.getAttribute('poster');  // cache for start/stop toggling
 
     var canvas = document.createElement('canvas');
     var ctx = canvas.getContext('2d', { willReadFrequently: true });
@@ -97,6 +98,10 @@
     function start() {
       if (!isRunning) {
         isRunning = true;
+        // Hide poster background while canvas is active (prevents doubling)
+        if (poster && video.parentNode) {
+          video.parentNode.style.backgroundImage = 'none';
+        }
         render();
       }
     }
@@ -106,6 +111,10 @@
       if (rafId) {
         cancelAnimationFrame(rafId);
         rafId = null;
+      }
+      // Restore poster background when stopped (prevents blank cards)
+      if (poster && video.parentNode) {
+        video.parentNode.style.backgroundImage = 'url(' + poster + ')';
       }
     }
 
@@ -120,7 +129,6 @@
 
     // Copy poster to parent as background-image so it stays visible
     // even after we hide the video element (prevents blank cards on mobile)
-    var poster = video.getAttribute('poster');
     if (poster && video.parentNode) {
       video.parentNode.style.backgroundImage = 'url(' + poster + ')';
       video.parentNode.style.backgroundSize = 'cover';
