@@ -70,35 +70,71 @@
       var d = frame.data;
       var len = d.length;
 
-      for (var i = 0; i < len; i += 4) {
-        var r = d[i], g = d[i + 1], b = d[i + 2];
+      if (opts.aggressive) {
+        // AGGRESSIVE MODE — for loader and isolated animations on dark backgrounds.
+        // Any pixel where green is dominant gets removed, with graduated edges.
+        for (var i = 0; i < len; i += 4) {
+          var r = d[i], g = d[i + 1], b = d[i + 2];
+          if (d[i + 3] === 0) continue;
 
-        // Skip already-transparent pixels (VP9 alpha already decoded)
-        if (d[i + 3] === 0) continue;
+          var maxRB = Math.max(r, b, 1);
 
-        // Core green screen detection
-        if (g > greenMin && g > r * ratio && g > b * ratio) {
-          // Hard green — fully transparent
-          d[i + 3] = 0;
-        } else if (g > greenMin * 0.7 && g > r * (ratio * 0.85) && g > b * (ratio * 0.85)) {
-          // Edge region — partially transparent for soft edges
-          var greenStrength = (g - Math.max(r, b)) / g;
-          var alpha = Math.round(255 * (1 - greenStrength));
-          alpha = Math.max(0, Math.min(255, alpha));
-          if (alpha < d[i + 3]) {
-            d[i + 3] = alpha;
+          if (g > r && g > b && g > 25) {
+            var dominance = g / maxRB;
+            if (dominance > 1.12) {
+              // Clear green — fully transparent
+              d[i + 3] = 0;
+            } else {
+              // Graduated edge — fade based on how close to green threshold
+              var edgeAlpha = Math.round(255 * (1 - (dominance - 1) / 0.12));
+              edgeAlpha = Math.max(0, Math.min(255, edgeAlpha));
+              if (edgeAlpha < d[i + 3]) {
+                d[i + 3] = edgeAlpha;
+              }
+            }
           }
         }
-      }
-
-      // Despill: remove green color cast from semi-transparent edge pixels
-      if (opts.despill) {
+        // Despill ALL remaining visible pixels — clamp green to max(r, b)
         for (var j = 0; j < len; j += 4) {
-          var a = d[j + 3];
-          if (a > 0 && a < 240) {
-            var limit = Math.max(d[j], d[j + 2]);
-            if (d[j + 1] > limit) {
-              d[j + 1] = limit;
+          if (d[j + 3] > 0) {
+            var clamp = Math.max(d[j], d[j + 2]);
+            if (d[j + 1] > clamp) {
+              d[j + 1] = clamp;
+            }
+          }
+        }
+      } else {
+        // STANDARD MODE — for character videos where skin tones must be preserved
+        for (var i = 0; i < len; i += 4) {
+          var r = d[i], g = d[i + 1], b = d[i + 2];
+
+          // Skip already-transparent pixels (VP9 alpha already decoded)
+          if (d[i + 3] === 0) continue;
+
+          // Core green screen detection
+          if (g > greenMin && g > r * ratio && g > b * ratio) {
+            // Hard green — fully transparent
+            d[i + 3] = 0;
+          } else if (g > greenMin * 0.7 && g > r * (ratio * 0.85) && g > b * (ratio * 0.85)) {
+            // Edge region — partially transparent for soft edges
+            var greenStrength = (g - Math.max(r, b)) / g;
+            var alpha = Math.round(255 * (1 - greenStrength));
+            alpha = Math.max(0, Math.min(255, alpha));
+            if (alpha < d[i + 3]) {
+              d[i + 3] = alpha;
+            }
+          }
+        }
+
+        // Despill: remove green color cast from semi-transparent edge pixels
+        if (opts.despill) {
+          for (var j = 0; j < len; j += 4) {
+            var a = d[j + 3];
+            if (a > 0 && a < 240) {
+              var limit = Math.max(d[j], d[j + 2]);
+              if (d[j + 1] > limit) {
+                d[j + 1] = limit;
+              }
             }
           }
         }
@@ -169,7 +205,7 @@
     // 1. LOADER VIDEO — plays once on page load
     var loaderVideo = document.querySelector('.dc-loader-video');
     if (loaderVideo) {
-      var loaderCanvas = chromaKey(loaderVideo, { maxRes: 300, greenMin: 50, ratio: 1.05, despill: true });
+      var loaderCanvas = chromaKey(loaderVideo, { maxRes: 300, aggressive: true });
       // Match loader video CSS
       loaderCanvas.style.width = '200px';
       loaderCanvas.style.height = '200px';
