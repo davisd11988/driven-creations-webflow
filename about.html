@@ -142,7 +142,7 @@
       <!-- DRIVE - Video Card -->
       <div class="dc-character-card dc-character-video-card dc-character-drive dc-reveal dc-delay-1">
         <div class="dc-character-video-wrap">
-          <video class="dc-character-video" muted playsinline webkit-playsinline preload="auto" poster="/images/drive-poster.jpg">
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" poster="/images/drive-poster.jpg">
             <source src="/videos/on-hover-drive.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-overlay">
@@ -161,7 +161,7 @@
       <!-- DEADLINE - Video Card -->
       <div class="dc-character-card dc-character-video-card dc-character-deadline dc-reveal dc-delay-2">
         <div class="dc-character-video-wrap">
-          <video class="dc-character-video" muted playsinline webkit-playsinline preload="auto" poster="/images/deadline-poster.jpg">
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" poster="/images/deadline-poster.jpg">
             <source src="/videos/on-hover-deadline.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-overlay">
@@ -180,7 +180,7 @@
       <!-- DR. DERRICK - Video Card -->
       <div class="dc-character-card dc-character-video-card dc-character-creator dc-reveal dc-delay-3">
         <div class="dc-character-video-wrap">
-          <video class="dc-character-video" muted playsinline webkit-playsinline preload="auto" poster="/images/derrick-poster.jpg">
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" poster="/images/derrick-poster.jpg">
             <source src="/videos/on-hover-derrick.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-overlay">
@@ -222,7 +222,7 @@
      THE CLASH - DRIVE VS DEADLINE
      ========================================== -->
 <section id="collision" class="dc-collision">
-  <video class="dc-collision-video" muted playsinline preload="auto">
+  <video class="dc-collision-video" muted playsinline preload="metadata">
     <source src="/videos/drive_deadline_clash_purple.mp4" type="video/mp4" />
   </video>
   <div class="dc-collision-overlay-dark"></div>
@@ -382,11 +382,9 @@
 </div>
 
 <!-- Scripts -->
-<script src="/js/chroma-key.js?v=3"></script>
-<script src="/js/loader.js"></script>
-<script src="/js/shared.js"></script>
-<!-- TEMP: Figma capture script (remove after capture) -->
-<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<script src="/js/chroma-key.js?v=3" defer></script>
+<script src="/js/loader.js" defer></script>
+<script src="/js/shared.js" defer></script>
 
 </body>
 </html>
