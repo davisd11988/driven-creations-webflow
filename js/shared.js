@@ -482,6 +482,56 @@
   }
 
   /* ------------------------------------------
+     CINEMATIC SMOOTH SCROLL
+     Custom eased scroll for hero arrow and any
+     anchor links — feels like a camera dolly
+     ------------------------------------------ */
+  function cinematicScroll(targetEl, duration) {
+    duration = duration || 1400;
+    var startY = window.scrollY;
+    var targetY = targetEl.getBoundingClientRect().top + startY;
+    var distance = targetY - startY;
+    var startTime = null;
+
+    // Ease-in-out quart: slow start, gentle acceleration, long deceleration
+    function easeInOutQuart(t) {
+      return t < 0.5
+        ? 8 * t * t * t * t
+        : 1 - Math.pow(-2 * t + 2, 4) / 2;
+    }
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var easedProgress = easeInOutQuart(progress);
+      window.scrollTo(0, startY + distance * easedProgress);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // Attach to hero scroll arrow
+  var heroArrow = document.querySelector('.dc-scroll-indicator[href]');
+  if (heroArrow) {
+    heroArrow.addEventListener('click', function(e) {
+      var targetId = heroArrow.getAttribute('href');
+      if (targetId && targetId.charAt(0) === '#') {
+        var target = document.getElementById(targetId.slice(1));
+        if (target) {
+          e.preventDefault();
+          cinematicScroll(target, 1400);
+          // Update URL hash without jumping
+          history.pushState(null, '', targetId);
+        }
+      }
+    });
+  }
+
+  /* ------------------------------------------
      BACK TO TOP BUTTON
      ------------------------------------------ */
   var backToTop = document.getElementById('backToTop');
