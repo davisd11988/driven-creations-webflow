@@ -57,6 +57,38 @@
   });
 
   /* ------------------------------------------
+     VIDEO LAZY LOADING
+     Videos with data-lazy-video won't fetch anything
+     until they approach the viewport. Saves dozens of
+     MB in wasted early network requests.
+     ------------------------------------------ */
+  var lazyVideos = document.querySelectorAll('video[data-lazy-video]');
+  if (lazyVideos.length) {
+    var videoLazyObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var video = entry.target;
+        if (entry.isIntersecting) {
+          // Restore real sources and start loading
+          var sources = video.querySelectorAll('source[data-src]');
+          sources.forEach(function(source) {
+            source.setAttribute('src', source.getAttribute('data-src'));
+            source.removeAttribute('data-src');
+          });
+          video.removeAttribute('data-lazy-video');
+          video.load();
+          videoLazyObserver.unobserve(video);
+        }
+      });
+    }, {
+      rootMargin: '200px 0px'  // Start loading 200px before entering viewport
+    });
+
+    lazyVideos.forEach(function(video) {
+      videoLazyObserver.observe(video);
+    });
+  }
+
+  /* ------------------------------------------
      SCROLL THROTTLE UTILITY
      ------------------------------------------ */
   var scrollTicking = false;

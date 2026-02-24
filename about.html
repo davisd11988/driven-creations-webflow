@@ -26,13 +26,14 @@
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="about Driven Creations, web design agency Maryland, Derrick Davis, digital design agency, Fulton MD" />
 
+  <link rel="preload" href="/css/shared.css?v=21" as="style" />
   <link rel="dns-prefetch" href="https://www.youtube.com" />
   <link rel="dns-prefetch" href="https://calendly.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" /></noscript>
-  <link rel="stylesheet" href="/css/shared.css?v=20" />
+  <link rel="stylesheet" href="/css/shared.css?v=21" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.svg" />
 </head>
@@ -146,8 +147,8 @@
       <!-- DRIVE - Video Card -->
       <div class="dc-character-card dc-character-video-card dc-character-drive dc-reveal dc-delay-1">
         <div class="dc-character-video-wrap">
-          <video class="dc-character-video" muted playsinline webkit-playsinline preload="metadata" poster="/images/drive-poster.jpg">
-            <source src="/videos/on-hover-drive.mp4" type="video/mp4" />
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" data-lazy-video poster="/images/drive-poster.jpg">
+            <source data-src="/videos/on-hover-drive.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-overlay">
             <div class="dc-character-play-hint">&#9654;</div>
@@ -165,8 +166,8 @@
       <!-- DEADLINE - Video Card -->
       <div class="dc-character-card dc-character-video-card dc-character-deadline dc-reveal dc-delay-2">
         <div class="dc-character-video-wrap">
-          <video class="dc-character-video" muted playsinline webkit-playsinline preload="metadata" poster="/images/deadline-poster.jpg">
-            <source src="/videos/on-hover-deadline.mp4" type="video/mp4" />
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" data-lazy-video poster="/images/deadline-poster.jpg">
+            <source data-src="/videos/on-hover-deadline.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-overlay">
             <div class="dc-character-play-hint">&#9654;</div>
@@ -184,8 +185,8 @@
       <!-- DR. DERRICK - Video Card -->
       <div class="dc-character-card dc-character-video-card dc-character-creator dc-reveal dc-delay-3">
         <div class="dc-character-video-wrap">
-          <video class="dc-character-video" muted playsinline webkit-playsinline preload="metadata" poster="/images/derrick-poster.jpg">
-            <source src="/videos/on-hover-derrick.mp4" type="video/mp4" />
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" data-lazy-video poster="/images/derrick-poster.jpg">
+            <source data-src="/videos/on-hover-derrick.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-overlay">
             <div class="dc-character-play-hint">&#9654;</div>
@@ -226,8 +227,8 @@
      THE CLASH - DRIVE VS DEADLINE
      ========================================== -->
 <section id="collision" class="dc-collision">
-  <video class="dc-collision-video" muted playsinline preload="metadata">
-    <source src="/videos/drive_deadline_clash_purple.mp4" type="video/mp4" />
+  <video class="dc-collision-video" muted playsinline preload="none" data-lazy-video>
+    <source data-src="/videos/drive_deadline_clash_purple.mp4" type="video/mp4" />
   </video>
   <div class="dc-collision-overlay-dark"></div>
   <div class="dc-collision-overlay-gradient"></div>
@@ -388,7 +389,7 @@
 <!-- Scripts -->
 <script src="/js/chroma-key.js?v=4"></script>
 <script src="/js/loader.js"></script>
-<script src="/js/shared.js?v=5" defer></script>
+<script src="/js/shared.js?v=6" defer></script>
 
 </body>
 </html>

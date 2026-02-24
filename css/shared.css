@@ -46,8 +46,25 @@ body {
 ::-webkit-scrollbar-track { background: #090316; }
 ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #a78bfa; }
-img { max-width: 100%; height: auto; }
+img { max-width: 100%; height: auto; decoding: async; }
+video { content-visibility: auto; }
 a { text-decoration: none; color: inherit; }
+
+/* ==========================================
+   PERFORMANCE: Skip rendering off-screen sections
+   Browser won't layout/paint these until near viewport
+   ========================================== */
+.dc-services,
+.dc-portfolio,
+.dc-process,
+.dc-story,
+.dc-collision,
+.dc-testimonials,
+.dc-cta,
+.dc-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
 
 /* Focus-visible indicators for keyboard navigation (accessibility) */
 :focus-visible {

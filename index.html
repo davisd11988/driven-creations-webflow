@@ -52,13 +52,14 @@
   }
   </script>
 
+  <link rel="preload" href="/css/shared.css?v=21" as="style" />
   <link rel="dns-prefetch" href="https://www.youtube.com" />
   <link rel="dns-prefetch" href="https://calendly.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" /></noscript>
-  <link rel="stylesheet" href="/css/shared.css?v=20" />
+  <link rel="stylesheet" href="/css/shared.css?v=21" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.svg" />
 </head>
@@ -83,7 +84,7 @@
 <nav class="dc-navbar">
   <div class="dc-navbar-inner">
     <a href="/" class="dc-navbar-logo">
-      <img src="/images/dc-logo-full-white.svg" alt="Driven Creations" width="190" height="52" />
+      <img src="/images/dc-logo-full-white.svg" alt="Driven Creations" width="190" height="52" fetchpriority="high" />
     </a>
     <div class="dc-nav-links">
       <a href="/" class="dc-nav-link is-active">Home</a>
@@ -238,21 +239,21 @@
       </a>
       <a href="/work/paramount-development.html" class="dc-project-card dc-reveal-scale dc-delay-2" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/pd-thumb.png');"></div>
-        <video class="dc-project-thumb-video" muted loop playsinline autoplay preload="metadata"><source src="/videos/pd-broll.mp4" type="video/mp4" /></video>
+        <video class="dc-project-thumb-video" muted loop playsinline autoplay preload="none" data-lazy-video><source data-src="/videos/pd-broll.mp4" type="video/mp4" /></video>
       </a>
       <a href="/work/pwrq.html" class="dc-project-card dc-reveal-scale dc-delay-3" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/pwrq-thumb.png');"></div>
       </a>
       <a href="/work/olunike.html" class="dc-project-card dc-reveal-scale dc-delay-4" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/olunike-thumb.jpg');"></div>
-        <video class="dc-project-thumb-video" muted loop playsinline autoplay preload="metadata"><source src="/videos/olunike-broll.mp4" type="video/mp4" /></video>
+        <video class="dc-project-thumb-video" muted loop playsinline autoplay preload="none" data-lazy-video><source data-src="/videos/olunike-broll.mp4" type="video/mp4" /></video>
       </a>
       <a href="/work/v-tech-solutions.html" class="dc-project-card dc-reveal-scale dc-delay-5" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/vtech-thumb.png');"></div>
       </a>
       <a href="/work/akkuun.html" class="dc-project-card dc-reveal-scale dc-delay-6" data-category="web">
         <div class="dc-project-bg" style="background-image: url('/images/work/akkuun-thumb.jpg');"></div>
-        <video class="dc-project-thumb-video" muted loop playsinline autoplay preload="metadata"><source src="/videos/akkuun-broll.mp4" type="video/mp4" /></video>
+        <video class="dc-project-thumb-video" muted loop playsinline autoplay preload="none" data-lazy-video><source data-src="/videos/akkuun-broll.mp4" type="video/mp4" /></video>
       </a>
 
       <!-- AI Video Projects (6 on homepage — hidden by default, open in modal popup) -->
@@ -375,8 +376,8 @@
       <!-- DRIVE - Video Card -->
       <div class="dc-character-card dc-character-video-card dc-character-drive dc-reveal dc-delay-1">
         <div class="dc-character-video-wrap">
-          <video class="dc-character-video" muted playsinline webkit-playsinline preload="metadata" poster="/images/drive-poster.jpg">
-            <source src="/videos/on-hover-drive.mp4" type="video/mp4" />
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" poster="/images/drive-poster.jpg" data-lazy-video>
+            <source data-src="/videos/on-hover-drive.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-overlay">
             <div class="dc-character-play-hint">&#9654;</div>
@@ -394,8 +395,8 @@
       <!-- DEADLINE - Video Card -->
       <div class="dc-character-card dc-character-video-card dc-character-deadline dc-reveal dc-delay-2">
         <div class="dc-character-video-wrap">
-          <video class="dc-character-video" muted playsinline webkit-playsinline preload="metadata" poster="/images/deadline-poster.jpg">
-            <source src="/videos/on-hover-deadline.mp4" type="video/mp4" />
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" poster="/images/deadline-poster.jpg" data-lazy-video>
+            <source data-src="/videos/on-hover-deadline.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-overlay">
             <div class="dc-character-play-hint">&#9654;</div>
@@ -413,8 +414,8 @@
       <!-- DR. DERRICK - Video Card -->
       <div class="dc-character-card dc-character-video-card dc-character-creator dc-reveal dc-delay-3">
         <div class="dc-character-video-wrap">
-          <video class="dc-character-video" muted playsinline webkit-playsinline preload="metadata" poster="/images/derrick-poster.jpg">
-            <source src="/videos/on-hover-derrick.mp4" type="video/mp4" />
+          <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" poster="/images/derrick-poster.jpg" data-lazy-video>
+            <source data-src="/videos/on-hover-derrick.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-overlay">
             <div class="dc-character-play-hint">&#9654;</div>
@@ -456,8 +457,8 @@
      SCROLL COLLISION SECTION
      ========================================== -->
 <section id="collision" class="dc-collision">
-  <video class="dc-collision-video" muted playsinline preload="metadata">
-    <source src="/videos/drive_deadline_clash_purple.mp4" type="video/mp4" />
+  <video class="dc-collision-video" muted playsinline preload="none" data-lazy-video>
+    <source data-src="/videos/drive_deadline_clash_purple.mp4" type="video/mp4" />
   </video>
   <div class="dc-collision-overlay-dark"></div>
   <div class="dc-collision-overlay-gradient"></div>
@@ -680,7 +681,7 @@
 <!-- Scripts -->
 <script src="/js/chroma-key.js?v=4"></script>
 <script src="/js/loader.js"></script>
-<script src="/js/shared.js?v=5" defer></script>
+<script src="/js/shared.js?v=6" defer></script>
 
 </body>
 </html>
