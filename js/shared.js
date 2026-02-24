@@ -525,38 +525,8 @@
   }
 
   /* ------------------------------------------
-     SMOOTH SCROLL
-     Clean ease-out for hero arrow — starts
-     moving immediately, decelerates to a stop.
-     No perceived pause, just a fluid slide.
+     HERO ARROW: native smooth scroll
      ------------------------------------------ */
-  function smoothScroll(targetEl, duration) {
-    duration = duration || 900;
-    var startY = window.scrollY;
-    var targetY = targetEl.getBoundingClientRect().top + startY;
-    var distance = targetY - startY;
-    var startTime = null;
-
-    // Ease-out cubic: moves right away, gently decelerates
-    function easeOutCubic(t) {
-      return 1 - Math.pow(1 - t, 3);
-    }
-
-    function step(timestamp) {
-      if (!startTime) startTime = timestamp;
-      var elapsed = timestamp - startTime;
-      var progress = Math.min(elapsed / duration, 1);
-      var easedProgress = easeOutCubic(progress);
-      window.scrollTo(0, startY + distance * easedProgress);
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    }
-
-    requestAnimationFrame(step);
-  }
-
-  // Attach to hero scroll arrow
   var heroArrow = document.querySelector('.dc-scroll-indicator[href]');
   if (heroArrow) {
     heroArrow.addEventListener('click', function(e) {
@@ -565,8 +535,7 @@
         var target = document.getElementById(targetId.slice(1));
         if (target) {
           e.preventDefault();
-          smoothScroll(target, 900);
-          // Update URL hash without jumping
+          target.scrollIntoView({ behavior: 'smooth' });
           history.pushState(null, '', targetId);
         }
       }
