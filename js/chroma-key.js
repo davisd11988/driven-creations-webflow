@@ -118,6 +118,15 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
 
+    // Copy poster to parent as background-image so it stays visible
+    // even after we hide the video element (prevents blank cards on mobile)
+    var poster = video.getAttribute('poster');
+    if (poster && video.parentNode) {
+      video.parentNode.style.backgroundImage = 'url(' + poster + ')';
+      video.parentNode.style.backgroundSize = 'cover';
+      video.parentNode.style.backgroundPosition = 'center';
+    }
+
     // Insert canvas after video, hide video visually (keep it for playback)
     video.parentNode.insertBefore(canvas, video.nextSibling);
     video.style.opacity = '0';
