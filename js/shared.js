@@ -57,18 +57,34 @@
   });
 
   /* ------------------------------------------
+     SCROLL THROTTLE UTILITY
+     ------------------------------------------ */
+  var scrollTicking = false;
+  var scrollCallbacks = [];
+  function onScroll(fn) { scrollCallbacks.push(fn); }
+  window.addEventListener('scroll', function() {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(function() {
+        for (var i = 0; i < scrollCallbacks.length; i++) scrollCallbacks[i]();
+        scrollTicking = false;
+      });
+    }
+  }, { passive: true });
+
+  /* ------------------------------------------
      NAVBAR SCROLL EFFECT
      ------------------------------------------ */
-  window.addEventListener('scroll', function() {
-    var navbar = document.querySelector('.dc-navbar');
-    if (navbar) {
+  var navbar = document.querySelector('.dc-navbar');
+  if (navbar) {
+    onScroll(function() {
       if (window.scrollY > 50) {
         navbar.classList.add('is-scrolled');
       } else {
         navbar.classList.remove('is-scrolled');
       }
-    }
-  }, { passive: true });
+    });
+  }
 
   /* ------------------------------------------
      MOBILE MENU TOGGLE
@@ -174,7 +190,7 @@
       }
     }
 
-    window.addEventListener('scroll', updateProgress, { passive: true });
+    onScroll(updateProgress);
     window.addEventListener('resize', function() {
       isMobile = window.innerWidth < 768;
       updateProgress();
@@ -197,7 +213,9 @@
 
       function playVideo() {
         video.currentTime = 0;
-        video.play().catch(function() {});
+        video.play().catch(function(err) {
+          if (err.name !== 'AbortError') card.classList.remove('is-playing');
+        });
         card.classList.add('is-playing');
       }
 
@@ -206,6 +224,10 @@
         video.currentTime = 0;
         card.classList.remove('is-playing');
       }
+
+      video.addEventListener('error', function() {
+        card.classList.remove('is-playing');
+      });
 
       if (!isTouch) {
         // Desktop: hover to play
@@ -228,7 +250,9 @@
         if (entry.isIntersecting && isTouch) {
           // Mobile/tablet: auto-play when scrolled into view
           video.currentTime = 0;
-          video.play().catch(function() {});
+          video.play().catch(function(err) {
+            if (err.name !== 'AbortError') card.classList.remove('is-playing');
+          });
           card.classList.add('is-playing');
           card.classList.add('is-autoplay');
         } else if (!entry.isIntersecting) {
@@ -335,7 +359,9 @@
         var video = entry.target.querySelector('.dc-project-thumb-video');
         if (!video) return;
         if (entry.isIntersecting) {
-          video.play().catch(function() {});
+          video.play().catch(function(err) {
+            if (err.name !== 'AbortError') entry.target.classList.remove('is-playing');
+          });
           entry.target.classList.add('is-playing');
         } else {
           video.pause();
@@ -460,13 +486,13 @@
      ------------------------------------------ */
   var backToTop = document.getElementById('backToTop');
   if (backToTop) {
-    window.addEventListener('scroll', function() {
+    onScroll(function() {
       if (window.scrollY > 600) {
         backToTop.classList.add('is-visible');
       } else {
         backToTop.classList.remove('is-visible');
       }
-    }, { passive: true });
+    });
 
     backToTop.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
