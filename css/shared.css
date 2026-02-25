@@ -1130,43 +1130,6 @@ a { text-decoration: none; color: inherit; }
 .dc-character-video-card:hover .dc-character-video {
   transform: scale(1.03);
 }
-.dc-character-video-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
-  transition: opacity 0.4s ease;
-}
-.dc-character-video-card.is-playing .dc-character-video-overlay {
-  opacity: 0;
-  pointer-events: none;
-}
-.dc-character-play-hint {
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: rgba(124, 58, 237, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 20px;
-  padding-left: 3px;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-.dc-character-video-card:hover .dc-character-play-hint {
-  transform: scale(1.1);
-  background: rgba(124, 58, 237, 0.8);
-}
-/* Hide play hint on touch devices — videos auto-play on scroll */
-@media (hover: none) and (pointer: coarse) {
-  .dc-character-video-overlay {
-    display: none;
-  }
-}
 .dc-character-video-gradient {
   position: absolute;
   bottom: 0; left: 0; right: 0;
