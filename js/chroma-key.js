@@ -274,10 +274,12 @@
 
     // 3. CHARACTER EXPAND VIDEO — fullscreen overlay (green-screen videos)
     //    These fullbody WebM videos DO have green backgrounds and need chroma-key.
-    //    Process at native resolution (960px) for pixel-perfect edge quality.
+    //    Video has preload="none" + no autoplay — nothing loads or processes
+    //    until the user clicks "Learn More" (openCharacter in shared.js).
+    //    500px is ideal quality for the 400px display container.
     var expandVideo = document.querySelector('.dc-character-expand-video video');
     if (expandVideo) {
-      var expandCanvas = chromaKey(expandVideo, { maxRes: 960, aggressive: true });
+      var expandCanvas = chromaKey(expandVideo, { maxRes: 500, aggressive: true });
       expandCanvas.style.width = '100%';
       expandCanvas.style.height = '100%';
       expandCanvas.style.objectFit = 'contain';
