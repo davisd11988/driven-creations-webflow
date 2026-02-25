@@ -251,25 +251,14 @@
       loaderCanvas.style.objectFit = 'contain';
     }
 
-    // 2. CHARACTER HOVER VIDEOS — play on hover/click
-    //    Aggressive mode: dominance-based green detection catches ALL green-screen
-    //    pixels (not just bright ones), graduated edges, and full despill on every
-    //    visible pixel. Higher resolution (600px) reduces visible edge dithering.
-    var charVideos = document.querySelectorAll('.dc-character-video');
-    charVideos.forEach(function(v) {
-      var c = chromaKey(v, { maxRes: 600, aggressive: true });
-      // Match character video positioning
-      c.style.position = 'absolute';
-      c.style.top = '0';
-      c.style.left = '0';
-      c.style.width = '100%';
-      c.style.height = '100%';
-      c.style.objectFit = 'cover';
-      c.style.zIndex = '2';
-    });
+    // 2. CHARACTER HOVER VIDEOS — play as native <video> elements.
+    //    These videos have fully-rendered scene backgrounds (purple cityscape,
+    //    blue tech lab, red/dark environment) — NOT green screens.
+    //    No chroma-key processing needed; the CSS positions and sizes the
+    //    video correctly (.dc-character-video in shared.css).
 
-    // 3. CHARACTER EXPAND VIDEO — fullscreen overlay
-    //    Same aggressive mode at higher resolution for fullscreen quality.
+    // 3. CHARACTER EXPAND VIDEO — fullscreen overlay (green-screen videos)
+    //    These fullbody WebM videos DO have green backgrounds and need chroma-key.
     var expandVideo = document.querySelector('.dc-character-expand-video video');
     if (expandVideo) {
       var expandCanvas = chromaKey(expandVideo, { maxRes: 700, aggressive: true });
