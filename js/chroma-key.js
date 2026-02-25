@@ -92,8 +92,10 @@
       var len = d.length;
 
       if (opts.aggressive) {
-        // AGGRESSIVE MODE — for loader and isolated animations on dark backgrounds.
+        // AGGRESSIVE MODE — for all character videos and the loader.
         // Any pixel where green is dominant gets removed, with graduated edges.
+        // Uses dominance ratio (g / max(r,b)) instead of absolute thresholds,
+        // producing much cleaner edges than the standard mode.
         for (var i = 0; i < len; i += 4) {
           var r = d[i], g = d[i + 1], b = d[i + 2];
           if (d[i + 3] === 0) continue;
@@ -250,10 +252,12 @@
     }
 
     // 2. CHARACTER HOVER VIDEOS — play on hover/click
-    //    Use tighter green detection + despill to prevent green fringing
+    //    Aggressive mode: dominance-based green detection catches ALL green-screen
+    //    pixels (not just bright ones), graduated edges, and full despill on every
+    //    visible pixel. Higher resolution (600px) reduces visible edge dithering.
     var charVideos = document.querySelectorAll('.dc-character-video');
     charVideos.forEach(function(v) {
-      var c = chromaKey(v, { maxRes: 400, greenMin: 60, ratio: 1.1, despill: true });
+      var c = chromaKey(v, { maxRes: 600, aggressive: true });
       // Match character video positioning
       c.style.position = 'absolute';
       c.style.top = '0';
@@ -265,10 +269,10 @@
     });
 
     // 3. CHARACTER EXPAND VIDEO — fullscreen overlay
-    //    Uses same tighter thresholds + despill for clean transparency
+    //    Same aggressive mode at higher resolution for fullscreen quality.
     var expandVideo = document.querySelector('.dc-character-expand-video video');
     if (expandVideo) {
-      var expandCanvas = chromaKey(expandVideo, { maxRes: 500, greenMin: 60, ratio: 1.1, despill: true });
+      var expandCanvas = chromaKey(expandVideo, { maxRes: 700, aggressive: true });
       expandCanvas.style.width = '100%';
       expandCanvas.style.height = '100%';
       expandCanvas.style.objectFit = 'contain';
