@@ -581,13 +581,9 @@
         }
 
         // 3. Swap source & load new video
-        //    Safari/iOS: use green-screen MP4 (chroma-key needs clean green).
-        //    Chrome/Firefox/Edge: use VP9 alpha WebM (plays natively).
-        var videoSrc = (window.dcSafariFallback && data.videoFallback) ? data.videoFallback : data.video;
-        expandVideoSource.setAttribute('src', videoSrc);
-        if (window.dcSafariFallback) {
-          expandVideoSource.setAttribute('type', 'video/mp4');
-        }
+        //    Always use green-screen MP4 — chroma-key processes it on all browsers.
+        expandVideoSource.setAttribute('src', data.videoFallback);
+        expandVideoSource.setAttribute('type', 'video/mp4');
         expandVideo.load();
 
         // 4. Wait for new video data before showing
