@@ -400,14 +400,17 @@
     '.dc-reveal, .dc-reveal-left, .dc-reveal-right, .dc-reveal-scale, .dc-reveal-text'
   );
   if (revealElements.length) {
-    // Check prefers-reduced-motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Check prefers-reduced-motion — reveal all elements instantly, skip observer.
+    // IMPORTANT: Do NOT use return here — it exits the entire IIFE and kills
+    // all code below (character expand, hero arrow, back to top, etc.).
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
       for (var j = 0; j < revealElements.length; j++) {
         revealElements[j].classList.add('is-revealed');
       }
-      return;
     }
 
+    if (!reducedMotion) {
     // Determine hero animation finish time for proper cascade ordering
     var heroAnimDone = 0;
     if (document.querySelector('.dc-hero-tag-anim')) {
@@ -448,6 +451,7 @@
     for (var k = 0; k < revealElements.length; k++) {
       revealObserver.observe(revealElements[k]);
     }
+    } // end if (!reducedMotion)
   }
 
   /* ------------------------------------------

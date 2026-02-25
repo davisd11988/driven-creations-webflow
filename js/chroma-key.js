@@ -31,6 +31,10 @@
     var softEdge = opts.softEdge || 20;    // feather range for soft edges
     var poster   = video.getAttribute('poster');  // cache for start/stop toggling
 
+    // Cache the original parent BEFORE any DOM manipulation.
+    // Video will be moved into a zero-size wrapper, so video.parentNode changes.
+    var originalParent = video.parentNode;
+
     var canvas = document.createElement('canvas');
     var ctx = canvas.getContext('2d', { willReadFrequently: true });
     canvas.className = 'dc-chroma-canvas';
@@ -78,8 +82,8 @@
       // Hide the poster ONLY after the first real frame has been drawn.
       // This prevents the blank gap between poster disappearing and
       // canvas rendering its first frame.
-      if (!posterHidden && poster && video.parentNode) {
-        video.parentNode.style.backgroundImage = 'none';
+      if (!posterHidden && poster && originalParent) {
+        originalParent.style.backgroundImage = 'none';
         posterHidden = true;
       }
 
@@ -179,8 +183,8 @@
         rafId = null;
       }
       // Restore poster background when stopped (prevents blank cards)
-      if (poster && video.parentNode) {
-        video.parentNode.style.backgroundImage = 'url(' + poster + ')';
+      if (poster && originalParent) {
+        originalParent.style.backgroundImage = 'url(' + poster + ')';
       }
     }
 
@@ -195,31 +199,32 @@
 
     // Copy poster to parent as background-image so it stays visible
     // even after we hide the video element (prevents blank cards on mobile)
-    if (poster && video.parentNode) {
-      video.parentNode.style.backgroundImage = 'url(' + poster + ')';
-      video.parentNode.style.backgroundSize = 'cover';
-      video.parentNode.style.backgroundPosition = 'center';
+    if (poster && originalParent) {
+      originalParent.style.backgroundImage = 'url(' + poster + ')';
+      originalParent.style.backgroundSize = 'cover';
+      originalParent.style.backgroundPosition = 'center';
     }
 
-    // Insert canvas after video, hide video visually (keep it for playback).
+    // Insert canvas into parent, then wrap video in zero-size hidden container.
     // CRITICAL: Chrome's hardware-accelerated video decoder creates a separate
-    // GPU compositing layer that can ignore opacity, width/height, and z-index.
-    // The video "bleeds through" causing green-screen doubling on Chrome.
-    //
-    // clip-path: inset(100%) is the nuclear option — it clips the element to a
-    // zero-size region that NO compositor can show, while drawImage() still reads
-    // from the decoded frame buffer (clip-path only affects visual rendering).
-    video.parentNode.insertBefore(canvas, video.nextSibling);
-    video.style.position = 'absolute';
-    video.style.width = '1px';
-    video.style.height = '1px';
-    video.style.top = '0';
-    video.style.left = '0';
-    video.style.opacity = '0';
-    video.style.pointerEvents = 'none';
-    video.style.zIndex = '-1';
-    video.style.clipPath = 'inset(100%)';
-    video.style.webkitClipPath = 'inset(100%)';
+    // GPU compositing layer that ignores opacity, clip-path, width, and z-index.
+    // The ONLY reliable cross-browser way to prevent the raw green-screen video
+    // from bleeding through is to place it inside a zero-size overflow:hidden
+    // wrapper. The video still decodes (it's in the DOM, not display:none) and
+    // drawImage() still reads from the decoded frame buffer — but the wrapper
+    // physically prevents any rendering on screen.
+    originalParent.insertBefore(canvas, video.nextSibling);
+
+    var videoHider = document.createElement('div');
+    videoHider.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;';
+    originalParent.insertBefore(videoHider, canvas);
+    videoHider.appendChild(video);
+
+    // Give video real dimensions inside wrapper so hardware decoder stays active.
+    // Without dimensions, some mobile browsers won't decode video frames.
+    video.style.position = 'static';
+    video.style.width = '320px';
+    video.style.height = '240px';
 
     // If video is already playing (autoplay)
     if (!video.paused && video.readyState >= 2) {
