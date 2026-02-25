@@ -222,18 +222,26 @@
       originalParent.style.backgroundPosition = 'center';
     }
 
-    // Insert canvas, then move video off-screen.
+    // Insert canvas into the video's original parent, then move the video
+    // to document.body for reliable off-screen positioning.
+    //
     // CRITICAL: Chrome's hardware-accelerated video decoder creates a separate
     // GPU compositing layer that ignores opacity, clip-path, overflow:hidden,
-    // and z-index. We tried 1×1px, clip-path:inset(100%), and zero-size
-    // overflow:hidden wrappers — Chrome's compositor bypasses ALL of them.
+    // and z-index. The ONLY way to hide it is position:fixed at (-9999,-9999).
     //
-    // The ONLY thing Chrome's compositor respects is POSITION. By moving the
-    // video to position:fixed at (-9999,-9999), the GPU layer renders off-screen
-    // where it's invisible. The video stays in the DOM tree (querySelector still
-    // finds it) and drawImage() still reads from the decoded frame buffer
-    // regardless of where the element is positioned.
+    // BUT: position:fixed inside a transformed ancestor (like
+    // .dc-character-expand-inner which has CSS transform) is positioned
+    // relative to THAT ancestor, not the viewport. Chrome's compositor then
+    // renders the GPU layer inside the visible container — causing the
+    // "duplicate character" bug on Deadline and Dr. Derrick.
+    //
+    // Moving the video to document.body ensures position:fixed is always
+    // viewport-relative. drawImage() and event listeners still work
+    // regardless of DOM position. shared.js caches its reference to the
+    // video element before this runs (defer scripts execute before
+    // DOMContentLoaded), so openCharacter() still finds the video.
     originalParent.insertBefore(canvas, video.nextSibling);
+    document.body.appendChild(video);
 
     video.style.position = 'fixed';
     video.style.left = '-9999px';
