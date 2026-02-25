@@ -1837,18 +1837,17 @@ a { text-decoration: none; color: inherit; }
 @media (min-width: 768px) {
   .dc-process-title { font-size: 3rem; }
 }
-/* Tablet: 2-row stacked grid for process steps */
+/* Tablet: clean 2-column grid for process steps */
 @media (min-width: 768px) and (max-width: 1023px) {
   .dc-process-steps {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px 32px;
+    justify-items: center;
   }
   .dc-process-step {
-    width: calc(33.333% - 24px);
-  }
-  .dc-process-step:nth-child(n+4) {
-    width: calc(50% - 16px);
+    width: auto;
+    max-width: 220px;
   }
   .dc-process-line-bg,
   .dc-process-line-progress {
