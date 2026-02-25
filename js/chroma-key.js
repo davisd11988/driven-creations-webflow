@@ -42,8 +42,16 @@
     var posterHidden = false;
 
     function render() {
-      if (video.paused || video.ended || video.readyState < 2) {
+      if (video.paused || video.ended) {
         isRunning = false;
+        return;
+      }
+
+      // If video data isn't decoded yet, keep polling instead of stopping.
+      // Chrome fires 'play' before readyState reaches HAVE_CURRENT_DATA (2),
+      // which previously killed the render loop permanently.
+      if (video.readyState < 2) {
+        rafId = requestAnimationFrame(render);
         return;
       }
 
@@ -194,19 +202,24 @@
     }
 
     // Insert canvas after video, hide video visually (keep it for playback).
-    // CRITICAL: On mobile browsers (iOS Safari, some Android), hardware-accelerated
-    // video renders on a separate compositing layer that ignores CSS opacity.
-    // Shrinking the video to 1×1px prevents the hardware layer from being visible
-    // while canvas drawImage still reads from the full decoded frame buffer.
+    // CRITICAL: Chrome's hardware-accelerated video decoder creates a separate
+    // GPU compositing layer that can ignore opacity, width/height, and z-index.
+    // The video "bleeds through" causing green-screen doubling on Chrome.
+    //
+    // clip-path: inset(100%) is the nuclear option — it clips the element to a
+    // zero-size region that NO compositor can show, while drawImage() still reads
+    // from the decoded frame buffer (clip-path only affects visual rendering).
     video.parentNode.insertBefore(canvas, video.nextSibling);
-    video.style.opacity = '0';
     video.style.position = 'absolute';
-    video.style.pointerEvents = 'none';
     video.style.width = '1px';
     video.style.height = '1px';
     video.style.top = '0';
     video.style.left = '0';
+    video.style.opacity = '0';
+    video.style.pointerEvents = 'none';
     video.style.zIndex = '-1';
+    video.style.clipPath = 'inset(100%)';
+    video.style.webkitClipPath = 'inset(100%)';
 
     // If video is already playing (autoplay)
     if (!video.paused && video.readyState >= 2) {
