@@ -1,24 +1,36 @@
 /* ==========================================
-   DRIVEN CREATIONS — Universal Transparent Video
-   Canvas-based chroma key removes green screen
-   backgrounds on ALL browsers and devices.
+   DRIVEN CREATIONS — Transparent Video System
 
-   Why universal (not Safari-only):
-   - Character hover videos are MP4 with green screens
-     (H.264 cannot encode alpha), so they need chroma
-     key on every browser including Chrome.
-   - WebM VP9 alpha may not decode on all mobile
-     hardware (some Android devices lack VP9 alpha
-     support in their hardware decoder).
-   - For browsers that DO decode VP9 alpha natively,
-     the canvas pass-through is harmless — already-
-     transparent pixels don't trigger green detection.
-   - Canvas is scaled down (300-600px) so overhead
-     is negligible on modern devices.
+   Strategy:
+   - Chrome/Firefox/Edge: VP9 alpha baked into WebM
+     files plays natively with transparency. No
+     runtime processing needed.
+   - Safari/iOS: WebKit does NOT decode VP9 alpha.
+     Falls back to runtime canvas chroma-key to
+     remove the green screen that becomes visible
+     when alpha is ignored.
+   - Project hero videos: Always use runtime chroma-
+     key (green-screen MP4 sources, no VP9 alpha).
    ========================================== */
 
 (function() {
   'use strict';
+
+  /**
+   * Detect browsers that cannot decode VP9 alpha transparency.
+   * Safari (macOS) and ALL iOS/iPadOS browsers use WebKit, which
+   * does not support the VP9 alpha channel. Chrome, Firefox, and
+   * Edge all decode VP9 alpha natively.
+   */
+  function needsChromaKeyFallback() {
+    var ua = navigator.userAgent;
+    // iOS / iPadOS — every browser uses WebKit (no VP9 alpha)
+    if (/iPad|iPhone|iPod/.test(ua)) return true;
+    if (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) return true;
+    // macOS Safari (exclude Chrome/Edge/Firefox which include "Safari" in UA)
+    if (/Safari/.test(ua) && !/Chrome|Chromium|CriOS|Edg|Firefox|FxiOS|OPR/.test(ua)) return true;
+    return false;
+  }
 
   /**
    * Apply chroma key to a video element.
@@ -264,18 +276,39 @@
    * Initialize chroma key on all transparent videos across the site
    */
   function init() {
-    // 1. LOADER VIDEO — now has VP9 alpha baked in, plays natively.
-    //    No runtime chroma-key needed.
+    var fallback = needsChromaKeyFallback();
+
+    // 1. LOADER VIDEO
+    //    VP9 alpha baked in — plays natively on Chrome/Firefox/Edge.
+    //    Safari/iOS: VP9 alpha not decoded → green screen visible →
+    //    runtime chroma-key removes it.
+    if (fallback) {
+      var loaderVideo = document.querySelector('.dc-loader-video');
+      if (loaderVideo) {
+        var c = chromaKey(loaderVideo, { maxRes: 500, aggressive: true });
+        c.style.width = '200px';
+        c.style.height = '200px';
+      }
+    }
 
     // 2. CHARACTER HOVER VIDEOS — play as native <video> elements.
     //    Scene backgrounds (not green screen). No chroma-key needed.
 
-    // 3. CHARACTER EXPAND VIDEO — now has VP9 alpha baked in, plays natively.
-    //    No runtime chroma-key needed. shared.js openCharacter() handles
-    //    source swapping and playback; the video plays with built-in
-    //    transparency on all modern browsers.
+    // 3. CHARACTER EXPAND VIDEO
+    //    VP9 alpha baked in — plays natively on Chrome/Firefox/Edge.
+    //    Safari/iOS: runtime chroma-key fallback. shared.js openCharacter()
+    //    handles source swapping; the chroma-key play/pause listeners
+    //    activate automatically when the video plays.
+    if (fallback) {
+      var expandVideo = document.querySelector('.dc-character-expand-video video');
+      if (expandVideo) {
+        var c = chromaKey(expandVideo, { maxRes: 500, aggressive: true });
+        c.style.width = '100%';
+      }
+    }
 
     // 4. PROJECT HERO VIDEOS (case study pages)
+    //    Green-screen MP4 sources — always need runtime chroma-key.
     var heroVideos = document.querySelectorAll('.dc-project-hero-video');
     heroVideos.forEach(function(v) {
       var c = chromaKey(v, { maxRes: 600, greenMin: 90 });
