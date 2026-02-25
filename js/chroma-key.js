@@ -39,6 +39,7 @@
     canvas.setAttribute('aria-hidden', 'true');
     var rafId = null;
     var isRunning = false;
+    var posterHidden = false;
 
     function render() {
       if (video.paused || video.ended || video.readyState < 2) {
@@ -65,6 +66,14 @@
       }
 
       ctx.drawImage(video, 0, 0, w, h);
+
+      // Hide the poster ONLY after the first real frame has been drawn.
+      // This prevents the blank gap between poster disappearing and
+      // canvas rendering its first frame.
+      if (!posterHidden && poster && video.parentNode) {
+        video.parentNode.style.backgroundImage = 'none';
+        posterHidden = true;
+      }
 
       var frame = ctx.getImageData(0, 0, w, h);
       var d = frame.data;
@@ -148,16 +157,15 @@
     function start() {
       if (!isRunning) {
         isRunning = true;
-        // Hide poster background while canvas is active (prevents doubling)
-        if (poster && video.parentNode) {
-          video.parentNode.style.backgroundImage = 'none';
-        }
+        // Poster is now hidden by render() after the first frame paints,
+        // so we don't blank it here — prevents the visible gap.
         render();
       }
     }
 
     function stop() {
       isRunning = false;
+      posterHidden = false;
       if (rafId) {
         cancelAnimationFrame(rafId);
         rafId = null;

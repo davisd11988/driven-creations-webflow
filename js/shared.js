@@ -62,21 +62,24 @@
      until they approach the viewport. Saves dozens of
      MB in wasted early network requests.
      ------------------------------------------ */
+  function activateLazyVideo(video) {
+    var sources = video.querySelectorAll('source[data-src]');
+    if (!sources.length) return; // Already activated
+    sources.forEach(function(source) {
+      source.setAttribute('src', source.getAttribute('data-src'));
+      source.removeAttribute('data-src');
+    });
+    video.removeAttribute('data-lazy-video');
+    video.load();
+  }
+
   var lazyVideos = document.querySelectorAll('video[data-lazy-video]');
   if (lazyVideos.length) {
     var videoLazyObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
-        var video = entry.target;
         if (entry.isIntersecting) {
-          // Restore real sources and start loading
-          var sources = video.querySelectorAll('source[data-src]');
-          sources.forEach(function(source) {
-            source.setAttribute('src', source.getAttribute('data-src'));
-            source.removeAttribute('data-src');
-          });
-          video.removeAttribute('data-lazy-video');
-          video.load();
-          videoLazyObserver.unobserve(video);
+          activateLazyVideo(entry.target);
+          videoLazyObserver.unobserve(entry.target);
         }
       });
     }, {
@@ -85,6 +88,30 @@
 
     lazyVideos.forEach(function(video) {
       videoLazyObserver.observe(video);
+    });
+  }
+
+  /* ------------------------------------------
+     EAGER PRELOAD: Character videos
+     After the page has fully loaded (images, hero video, etc.),
+     preload character hover videos so they're ready before the
+     user scrolls to them. Uses idle time — doesn't block initial paint.
+     ------------------------------------------ */
+  function preloadCharacterVideos() {
+    var charVideos = document.querySelectorAll('.dc-character-video[data-lazy-video]');
+    charVideos.forEach(function(video) {
+      activateLazyVideo(video);
+      if (videoLazyObserver) videoLazyObserver.unobserve(video);
+    });
+  }
+
+  if (document.readyState === 'complete') {
+    // Page already loaded — preload immediately
+    setTimeout(preloadCharacterVideos, 100);
+  } else {
+    window.addEventListener('load', function() {
+      // Small delay so hero video / critical assets finish first
+      setTimeout(preloadCharacterVideos, 500);
     });
   }
 
@@ -242,8 +269,29 @@
     videoCards.forEach(function(card) {
       var video = card.querySelector('.dc-character-video');
       if (!video) return;
+      var hoverPending = false;
 
       function playVideo() {
+        // If video data isn't loaded yet, wait for it
+        if (video.readyState < 2) {
+          hoverPending = true;
+          // Ensure source is activated (lazy loading might not have fired yet)
+          if (video.hasAttribute('data-lazy-video')) {
+            activateLazyVideo(video);
+          }
+          video.addEventListener('canplay', function onReady() {
+            video.removeEventListener('canplay', onReady);
+            if (hoverPending) {
+              hoverPending = false;
+              doPlay();
+            }
+          });
+          return;
+        }
+        doPlay();
+      }
+
+      function doPlay() {
         video.currentTime = 0;
         video.play().catch(function(err) {
           if (err.name !== 'AbortError') card.classList.remove('is-playing');
@@ -252,6 +300,7 @@
       }
 
       function pauseVideo() {
+        hoverPending = false;
         video.pause();
         video.currentTime = 0;
         card.classList.remove('is-playing');
@@ -280,13 +329,33 @@
         if (!video) return;
 
         if (entry.isIntersecting && isTouch) {
-          // Mobile/tablet: auto-play when scrolled into view
-          video.currentTime = 0;
-          video.play().catch(function(err) {
-            if (err.name !== 'AbortError') card.classList.remove('is-playing');
-          });
-          card.classList.add('is-playing');
-          card.classList.add('is-autoplay');
+          // Ensure source is activated (eager preload may not have run yet)
+          if (video.hasAttribute('data-lazy-video')) {
+            activateLazyVideo(video);
+          }
+
+          function startAutoPlay() {
+            video.currentTime = 0;
+            video.play().catch(function(err) {
+              if (err.name !== 'AbortError') card.classList.remove('is-playing');
+            });
+            card.classList.add('is-playing');
+            card.classList.add('is-autoplay');
+          }
+
+          // Wait for data if not loaded yet
+          if (video.readyState >= 2) {
+            startAutoPlay();
+          } else {
+            video.addEventListener('canplay', function onAutoReady() {
+              video.removeEventListener('canplay', onAutoReady);
+              // Only play if card is still in view
+              if (card.classList.contains('is-autoplay') || !card.classList.contains('is-playing')) {
+                startAutoPlay();
+              }
+            });
+            card.classList.add('is-autoplay'); // Mark as waiting
+          }
         } else if (!entry.isIntersecting) {
           video.pause();
           video.currentTime = 0;
