@@ -477,65 +477,96 @@
     var expandVideoContainer = expandOverlay.querySelector('.dc-character-expand-video');
     var expandCanvas = expandVideoContainer ? expandVideoContainer.querySelector('.dc-chroma-canvas') : null;
 
-    expandBtns.forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var charKey = btn.getAttribute('data-character');
-        var data = characterData[charKey];
-        if (!data) return;
+    // Shared handler — opens the character expand overlay
+    function openCharacter(charKey) {
+      var data = characterData[charKey];
+      if (!data) return;
 
-        // Update text immediately
-        expandName.textContent = data.name;
-        expandRole.textContent = data.role;
-        expandRole.style.color = data.roleColor;
-        expandLore.textContent = data.lore;
+      // Update text immediately
+      expandName.textContent = data.name;
+      expandRole.textContent = data.role;
+      expandRole.style.color = data.roleColor;
+      expandLore.textContent = data.lore;
 
-        if (expandVideoSource && expandVideo) {
-          // 1. Pause old video & hide video area instantly
-          expandVideo.pause();
-          if (expandVideoContainer) {
-            expandVideoContainer.classList.add('dc-video-loading');
-          }
+      if (expandVideoSource && expandVideo) {
+        // 1. Pause old video & hide video area instantly
+        expandVideo.pause();
+        if (expandVideoContainer) {
+          expandVideoContainer.classList.add('dc-video-loading');
+        }
 
-          // 2. Clear the chroma-key canvas so old character frame doesn't linger
-          if (!expandCanvas) {
-            expandCanvas = expandVideoContainer ? expandVideoContainer.querySelector('.dc-chroma-canvas') : null;
-          }
-          if (expandCanvas) {
-            var ctx = expandCanvas.getContext('2d');
-            if (ctx) ctx.clearRect(0, 0, expandCanvas.width, expandCanvas.height);
-          }
+        // 2. Clear the chroma-key canvas so old character frame doesn't linger
+        if (!expandCanvas) {
+          expandCanvas = expandVideoContainer ? expandVideoContainer.querySelector('.dc-chroma-canvas') : null;
+        }
+        if (expandCanvas) {
+          var ctx = expandCanvas.getContext('2d');
+          if (ctx) ctx.clearRect(0, 0, expandCanvas.width, expandCanvas.height);
+        }
 
-          // 3. Swap source & load new video
-          expandVideoSource.setAttribute('src', data.video);
-          expandVideo.load();
+        // 3. Swap source & load new video
+        expandVideoSource.setAttribute('src', data.video);
+        expandVideo.load();
 
-          // 4. Wait for new video data before showing
-          function onReady() {
-            expandVideo.removeEventListener('canplay', onReady);
-            expandVideo.play().catch(function() {});
-            // Small delay to let chroma-key render first frame
-            setTimeout(function() {
-              if (expandVideoContainer) {
-                expandVideoContainer.classList.remove('dc-video-loading');
-              }
-            }, 80);
-          }
-          expandVideo.addEventListener('canplay', onReady);
-
-          // Fallback: if canplay doesn't fire within 2s, show anyway
+        // 4. Wait for new video data before showing
+        function onReady() {
+          expandVideo.removeEventListener('canplay', onReady);
+          expandVideo.play().catch(function() {});
+          // Small delay to let chroma-key render first frame
           setTimeout(function() {
-            expandVideo.removeEventListener('canplay', onReady);
-            expandVideo.play().catch(function() {});
             if (expandVideoContainer) {
               expandVideoContainer.classList.remove('dc-video-loading');
             }
-          }, 2000);
+          }, 80);
         }
+        expandVideo.addEventListener('canplay', onReady);
 
-        expandOverlay.classList.add('is-active');
-        document.body.style.overflow = 'hidden';
+        // Fallback: if canplay doesn't fire within 2s, show anyway
+        setTimeout(function() {
+          expandVideo.removeEventListener('canplay', onReady);
+          expandVideo.play().catch(function() {});
+          if (expandVideoContainer) {
+            expandVideoContainer.classList.remove('dc-video-loading');
+          }
+        }, 2000);
+      }
+
+      expandOverlay.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Bind both click AND touch events for full mobile/tablet/desktop support.
+    // touchend fires immediately on lift — no 300ms delay, no missed taps.
+    expandBtns.forEach(function(btn) {
+      var touchStartY = 0;
+      var touchHandled = false;
+
+      btn.addEventListener('touchstart', function(e) {
+        touchStartY = e.touches[0].clientY;
+        touchHandled = false;
+      }, { passive: true });
+
+      btn.addEventListener('touchend', function(e) {
+        // Only handle taps, not scrolls (ignore if finger moved > 10px)
+        var touchEndY = e.changedTouches[0].clientY;
+        if (Math.abs(touchEndY - touchStartY) > 10) return;
+
+        touchHandled = true;
+        e.preventDefault(); // Prevent subsequent click from double-firing
+        var charKey = btn.getAttribute('data-character');
+        openCharacter(charKey);
+      });
+
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        // Skip if touchend already handled this interaction
+        if (touchHandled) {
+          touchHandled = false;
+          return;
+        }
+        var charKey = btn.getAttribute('data-character');
+        openCharacter(charKey);
       });
     });
 

@@ -126,11 +126,12 @@
           }
         }
 
-        // Despill: remove green color cast from semi-transparent edge pixels
+        // Despill: remove green color cast from ALL remaining visible pixels.
+        // Clamps green channel to max(red, blue) so no green fringe remains
+        // on skin, hair, clothing, or edges next to the removed background.
         if (opts.despill) {
           for (var j = 0; j < len; j += 4) {
-            var a = d[j + 3];
-            if (a > 0 && a < 240) {
+            if (d[j + 3] > 0) {
               var limit = Math.max(d[j], d[j + 2]);
               if (d[j + 1] > limit) {
                 d[j + 1] = limit;
@@ -184,11 +185,20 @@
       video.parentNode.style.backgroundPosition = 'center';
     }
 
-    // Insert canvas after video, hide video visually (keep it for playback)
+    // Insert canvas after video, hide video visually (keep it for playback).
+    // CRITICAL: On mobile browsers (iOS Safari, some Android), hardware-accelerated
+    // video renders on a separate compositing layer that ignores CSS opacity.
+    // Shrinking the video to 1×1px prevents the hardware layer from being visible
+    // while canvas drawImage still reads from the full decoded frame buffer.
     video.parentNode.insertBefore(canvas, video.nextSibling);
     video.style.opacity = '0';
     video.style.position = 'absolute';
     video.style.pointerEvents = 'none';
+    video.style.width = '1px';
+    video.style.height = '1px';
+    video.style.top = '0';
+    video.style.left = '0';
+    video.style.zIndex = '-1';
 
     // If video is already playing (autoplay)
     if (!video.paused && video.readyState >= 2) {
@@ -213,9 +223,10 @@
     }
 
     // 2. CHARACTER HOVER VIDEOS — play on hover/click
+    //    Use tighter green detection + despill to prevent green fringing
     var charVideos = document.querySelectorAll('.dc-character-video');
     charVideos.forEach(function(v) {
-      var c = chromaKey(v, { maxRes: 400 });
+      var c = chromaKey(v, { maxRes: 400, greenMin: 60, ratio: 1.1, despill: true });
       // Match character video positioning
       c.style.position = 'absolute';
       c.style.top = '0';
@@ -227,9 +238,10 @@
     });
 
     // 3. CHARACTER EXPAND VIDEO — fullscreen overlay
+    //    Uses same tighter thresholds + despill for clean transparency
     var expandVideo = document.querySelector('.dc-character-expand-video video');
     if (expandVideo) {
-      var expandCanvas = chromaKey(expandVideo, { maxRes: 500 });
+      var expandCanvas = chromaKey(expandVideo, { maxRes: 500, greenMin: 60, ratio: 1.1, despill: true });
       expandCanvas.style.width = '100%';
       expandCanvas.style.height = '100%';
       expandCanvas.style.objectFit = 'contain';
