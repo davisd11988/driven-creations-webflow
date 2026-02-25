@@ -205,26 +205,27 @@
       originalParent.style.backgroundPosition = 'center';
     }
 
-    // Insert canvas into parent, then wrap video in zero-size hidden container.
+    // Insert canvas, then move video off-screen.
     // CRITICAL: Chrome's hardware-accelerated video decoder creates a separate
-    // GPU compositing layer that ignores opacity, clip-path, width, and z-index.
-    // The ONLY reliable cross-browser way to prevent the raw green-screen video
-    // from bleeding through is to place it inside a zero-size overflow:hidden
-    // wrapper. The video still decodes (it's in the DOM, not display:none) and
-    // drawImage() still reads from the decoded frame buffer — but the wrapper
-    // physically prevents any rendering on screen.
+    // GPU compositing layer that ignores opacity, clip-path, overflow:hidden,
+    // and z-index. We tried 1×1px, clip-path:inset(100%), and zero-size
+    // overflow:hidden wrappers — Chrome's compositor bypasses ALL of them.
+    //
+    // The ONLY thing Chrome's compositor respects is POSITION. By moving the
+    // video to position:fixed at (-9999,-9999), the GPU layer renders off-screen
+    // where it's invisible. The video stays in the DOM tree (querySelector still
+    // finds it) and drawImage() still reads from the decoded frame buffer
+    // regardless of where the element is positioned.
     originalParent.insertBefore(canvas, video.nextSibling);
 
-    var videoHider = document.createElement('div');
-    videoHider.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;';
-    originalParent.insertBefore(videoHider, canvas);
-    videoHider.appendChild(video);
-
-    // Give video real dimensions inside wrapper so hardware decoder stays active.
-    // Without dimensions, some mobile browsers won't decode video frames.
-    video.style.position = 'static';
+    video.style.position = 'fixed';
+    video.style.left = '-9999px';
+    video.style.top = '-9999px';
     video.style.width = '320px';
     video.style.height = '240px';
+    video.style.opacity = '0';
+    video.style.pointerEvents = 'none';
+    video.style.zIndex = '-9999';
 
     // If video is already playing (autoplay)
     if (!video.paused && video.readyState >= 2) {
