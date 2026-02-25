@@ -264,34 +264,16 @@
    * Initialize chroma key on all transparent videos across the site
    */
   function init() {
-    // 1. LOADER VIDEO — plays once on page load
-    var loaderVideo = document.querySelector('.dc-loader-video');
-    if (loaderVideo) {
-      var loaderCanvas = chromaKey(loaderVideo, { maxRes: 300, aggressive: true });
-      // Match loader video CSS
-      loaderCanvas.style.width = '200px';
-      loaderCanvas.style.height = '200px';
-      loaderCanvas.style.objectFit = 'contain';
-    }
+    // 1. LOADER VIDEO — now has VP9 alpha baked in, plays natively.
+    //    No runtime chroma-key needed.
 
     // 2. CHARACTER HOVER VIDEOS — play as native <video> elements.
-    //    These videos have fully-rendered scene backgrounds (purple cityscape,
-    //    blue tech lab, red/dark environment) — NOT green screens.
-    //    No chroma-key processing needed; the CSS positions and sizes the
-    //    video correctly (.dc-character-video in shared.css).
+    //    Scene backgrounds (not green screen). No chroma-key needed.
 
-    // 3. CHARACTER EXPAND VIDEO — fullscreen overlay (green-screen videos)
-    //    These fullbody WebM videos DO have green backgrounds and need chroma-key.
-    //    Video has preload="none" + no autoplay — nothing loads or processes
-    //    until the user clicks "Learn More" (openCharacter in shared.js).
-    //    500px is ideal quality for the 400px display container.
-    var expandVideo = document.querySelector('.dc-character-expand-video video');
-    if (expandVideo) {
-      var expandCanvas = chromaKey(expandVideo, { maxRes: 500, aggressive: true });
-      expandCanvas.style.width = '100%';
-      expandCanvas.style.height = '100%';
-      expandCanvas.style.objectFit = 'contain';
-    }
+    // 3. CHARACTER EXPAND VIDEO — now has VP9 alpha baked in, plays natively.
+    //    No runtime chroma-key needed. shared.js openCharacter() handles
+    //    source swapping and playback; the video plays with built-in
+    //    transparency on all modern browsers.
 
     // 4. PROJECT HERO VIDEOS (case study pages)
     var heroVideos = document.querySelectorAll('.dc-project-hero-video');

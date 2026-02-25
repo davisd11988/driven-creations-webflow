@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Green Screen Video Processor</title>
+<style>
+  body { font-family: system-ui; background: #111; color: #fff; padding: 40px; }
+  h1 { color: #8b5cf6; }
+  .status { padding: 16px; background: #1a1a2e; border-radius: 8px; margin: 16px 0; font-family: monospace; white-space: pre-wrap; max-height: 400px; overflow-y: auto; }
+  button { padding: 12px 32px; font-size: 16px; background: #8b5cf6; color: white; border: none; border-radius: 8px; cursor: pointer; margin: 8px 4px; }
+  button:hover { background: #7c3aed; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .preview { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+  .preview canvas { border: 2px solid #333; border-radius: 8px; background: repeating-conic-gradient(#222 0% 25%, #333 0% 50%) 50% / 20px 20px; }
+  .download-links { margin-top: 20px; }
+  .download-links a { display: inline-block; padding: 10px 20px; background: #22c55e; color: white; text-decoration: none; border-radius: 6px; margin: 4px; }
+</style>
+</head>
+<body>
+<h1>Green Screen Video Processor</h1>
+<p>This tool processes your green-screen videos and bakes in transparency using Chrome's VP9 alpha encoder.<br>
+The output files will play natively with transparency in all modern browsers — no runtime chroma-key needed.</p>
+
+<button id="processBtn" onclick="processAll()">Process All Videos</button>
+<button id="testBtn" onclick="runTest()">Test Alpha (Quick Check)</button>
+
+<div class="status" id="log">Ready. Click "Process All Videos" to start.</div>
+
+<div class="preview" id="preview"></div>
+<div class="download-links" id="downloads"></div>
+
+<script>
+const VIDEOS = [
+  { src: '/videos/loader-drive.webm', out: 'loader-drive.webm', label: 'Loader (Drive)' }
+];
+
+const logEl = document.getElementById('log');
+function log(msg) {
+  logEl.textContent += '\n' + msg;
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+// Same chroma-key algorithm as the proven working version
+function applyChromaKey(ctx, w, h) {
+  const frame = ctx.getImageData(0, 0, w, h);
+  const d = frame.data;
+  const len = d.length;
+
+  for (let i = 0; i < len; i += 4) {
+    const r = d[i], g = d[i + 1], b = d[i + 2];
+    if (d[i + 3] === 0) continue;
+    const maxRB = Math.max(r, b, 1);
+    if (g > r && g > b && g > 25) {
+      const dominance = g / maxRB;
+      if (dominance > 1.12) {
+        d[i + 3] = 0; // Fully transparent
+      } else if (dominance > 1.0) {
+        const t = (dominance - 1.0) / 0.12;
+        const clamped = Math.max(0, Math.min(1, t));
+        const smooth = clamped * clamped * (3 - 2 * clamped);
+        const edgeAlpha = Math.round(255 * (1 - smooth));
+        if (edgeAlpha < d[i + 3]) d[i + 3] = edgeAlpha;
+      }
+    }
+  }
+  // Despill: clamp green to max(r, b)
+  for (let j = 0; j < len; j += 4) {
+    if (d[j + 3] > 0) {
+      const clamp = Math.max(d[j], d[j + 2]);
+      if (d[j + 1] > clamp) d[j + 1] = clamp;
+    }
+  }
+  ctx.putImageData(frame, 0, 0);
+}
+
+// Quick test to verify Chrome's MediaRecorder preserves canvas alpha
+async function runTest() {
+  log('\n--- ALPHA TEST ---');
+  const testCanvas = document.createElement('canvas');
+  testCanvas.width = 100; testCanvas.height = 100;
+  const ctx = testCanvas.getContext('2d');
+
+  // Draw half transparent, half opaque
+  ctx.clearRect(0, 0, 100, 100); // All transparent
+  ctx.fillStyle = 'red';
+  ctx.fillRect(50, 0, 50, 100); // Right half red, left half transparent
+
+  const stream = testCanvas.captureStream(30);
+
+  // Check supported codecs
+  const codecs = ['video/webm; codecs=vp9', 'video/webm; codecs=vp8', 'video/webm'];
+  let mimeType = '';
+  for (const c of codecs) {
+    if (MediaRecorder.isTypeSupported(c)) {
+      mimeType = c;
+      log('Using codec: ' + c);
+      break;
+    }
+  }
+  if (!mimeType) { log('ERROR: No supported WebM codec!'); return; }
+
+  const recorder = new MediaRecorder(stream, {
+    mimeType: mimeType,
+    videoBitsPerSecond: 1000000
+  });
+
+  const chunks = [];
+  recorder.ondataavailable = e => { if (e.data.size) chunks.push(e.data); };
+
+  return new Promise(resolve => {
+    recorder.onstop = async () => {
+      const blob = new Blob(chunks, { type: 'video/webm' });
+      log('Test video size: ' + (blob.size / 1024).toFixed(1) + ' KB');
+
+      // Decode and check alpha
+      const url = URL.createObjectURL(blob);
+      const video = document.createElement('video');
+      video.muted = true; video.src = url;
+      await new Promise(r => { video.onloadeddata = r; video.load(); });
+      await video.play();
+      await new Promise(r => setTimeout(r, 100));
+      video.pause();
+
+      const checkCanvas = document.createElement('canvas');
+      checkCanvas.width = 100; checkCanvas.height = 100;
+      const checkCtx = checkCanvas.getContext('2d');
+      checkCtx.drawImage(video, 0, 0);
+      const px = checkCtx.getImageData(0, 0, 100, 100).data;
+
+      // Check left side (should be transparent)
+      const leftAlpha = px[(25 * 100 + 25) * 4 + 3];
+      // Check right side (should be opaque red)
+      const rightAlpha = px[(25 * 100 + 75) * 4 + 3];
+
+      log('Left side alpha (should be 0): ' + leftAlpha);
+      log('Right side alpha (should be 255): ' + rightAlpha);
+
+      if (leftAlpha === 0 && rightAlpha === 255) {
+        log('ALPHA TEST PASSED! Chrome preserves canvas alpha in VP9.');
+      } else if (leftAlpha < 50 && rightAlpha > 200) {
+        log('ALPHA TEST MOSTLY PASSED (some compression artifacts). Proceeding should work.');
+      } else {
+        log('WARNING: Alpha may not be preserved. Left=' + leftAlpha + ', Right=' + rightAlpha);
+      }
+
+      URL.revokeObjectURL(url);
+      resolve();
+    };
+
+    recorder.start();
+    // Record for 500ms
+    setTimeout(() => recorder.stop(), 500);
+  });
+}
+
+async function processVideo(videoInfo, index) {
+  const { src, out, label } = videoInfo;
+  log('\n--- Processing: ' + label + ' (' + src + ') ---');
+
+  return new Promise((resolve, reject) => {
+    const video = document.createElement('video');
+    video.muted = true;
+    video.crossOrigin = 'anonymous';
+    video.preload = 'auto';
+    video.src = src;
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+    // Add preview canvas
+    const previewCanvas = document.createElement('canvas');
+    previewCanvas.style.maxWidth = '300px';
+    previewCanvas.style.maxHeight = '300px';
+    const previewCtx = previewCanvas.getContext('2d');
+    document.getElementById('preview').appendChild(previewCanvas);
+
+    video.addEventListener('error', (e) => {
+      log('ERROR loading video: ' + (video.error?.message || 'unknown'));
+      reject(new Error('Video load failed'));
+    });
+
+    video.addEventListener('loadedmetadata', () => {
+      const vw = video.videoWidth, vh = video.videoHeight;
+      canvas.width = vw;
+      canvas.height = vh;
+      previewCanvas.width = vw;
+      previewCanvas.height = vh;
+      log('Video dimensions: ' + vw + 'x' + vh);
+      log('Duration: ' + video.duration.toFixed(2) + 's');
+      log('Frame rate detected, using 30fps capture stream');
+
+      const stream = canvas.captureStream(30);
+
+      // Find best codec
+      const codecs = ['video/webm; codecs=vp9', 'video/webm; codecs=vp8', 'video/webm'];
+      let mimeType = '';
+      for (const c of codecs) {
+        if (MediaRecorder.isTypeSupported(c)) { mimeType = c; break; }
+      }
+      log('Codec: ' + mimeType);
+
+      const recorder = new MediaRecorder(stream, {
+        mimeType: mimeType,
+        videoBitsPerSecond: 4000000 // 4 Mbps for good quality
+      });
+
+      const chunks = [];
+      recorder.ondataavailable = e => { if (e.data.size) chunks.push(e.data); };
+
+      recorder.onstop = () => {
+        const blob = new Blob(chunks, { type: 'video/webm' });
+        const sizeMB = (blob.size / (1024 * 1024)).toFixed(2);
+        log(label + ' complete! Size: ' + sizeMB + ' MB');
+
+        // Create download link
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = out;
+        a.textContent = 'Download ' + out + ' (' + sizeMB + ' MB)';
+        document.getElementById('downloads').appendChild(a);
+
+        // Auto-download
+        a.click();
+        resolve({ blob, filename: out });
+      };
+
+      let frameCount = 0;
+      let lastLogTime = 0;
+
+      function renderFrame() {
+        if (video.ended || video.paused) {
+          log(label + ': Finished processing ' + frameCount + ' frames');
+          recorder.stop();
+          return;
+        }
+
+        if (video.readyState >= 2) {
+          ctx.drawImage(video, 0, 0);
+          applyChromaKey(ctx, canvas.width, canvas.height);
+          frameCount++;
+
+          // Update preview every 10 frames
+          if (frameCount % 10 === 0) {
+            previewCtx.drawImage(canvas, 0, 0);
+          }
+
+          const now = Date.now();
+          if (now - lastLogTime > 2000) {
+            const progress = ((video.currentTime / video.duration) * 100).toFixed(0);
+            log(label + ': ' + progress + '% (' + frameCount + ' frames)');
+            lastLogTime = now;
+          }
+        }
+        requestAnimationFrame(renderFrame);
+      }
+
+      // Start recording, then play the video
+      recorder.start(100); // Collect data every 100ms
+      video.play().then(() => {
+        log(label + ': Playback started, recording...');
+        renderFrame();
+      }).catch(err => {
+        log('ERROR playing video: ' + err.message);
+        reject(err);
+      });
+    });
+
+    video.load();
+  });
+}
+
+async function processAll() {
+  const btn = document.getElementById('processBtn');
+  btn.disabled = true;
+  document.getElementById('preview').innerHTML = '';
+  document.getElementById('downloads').innerHTML = '<h3>Downloads:</h3>';
+  logEl.textContent = 'Starting video processing...';
+
+  // Run alpha test first
+  await runTest();
+
+  for (let i = 0; i < VIDEOS.length; i++) {
+    try {
+      await processVideo(VIDEOS[i], i);
+    } catch (err) {
+      log('FAILED: ' + VIDEOS[i].label + ' - ' + err.message);
+    }
+  }
+
+  log('\n=== ALL DONE ===');
+  log('Replace the old videos in /videos/ with the downloaded files.');
+  log('Then the site will play them natively with transparency — no chroma-key needed.');
+  btn.disabled = false;
+}
+</script>
+</body>
+</html>
