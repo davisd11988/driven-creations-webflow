@@ -528,21 +528,24 @@
         role: 'The Hero',
         roleColor: '#8b5cf6',
         lore: 'Born from the first pixel of Creativity City, Drive is the embodiment of creative excellence. He exists for one singular purpose: to destroy Deadline and prove that great design never has to be rushed. With every project he touches, Drive brings precision, passion, and an unwavering commitment to quality that transforms brands from forgettable to unforgettable.',
-        video: '/videos/drive-fullbody.webm'
+        video: '/videos/drive-fullbody.webm',
+        videoFallback: '/videos/drive-fullbody-src.mp4'
       },
       deadline: {
         name: 'DEADLINE',
         role: 'The Villain',
         roleColor: '#ef4444',
         lore: 'The force behind every rushed launch and every "just ship it" decision. Deadline is the shadow that looms over every creative project, turning vision into compromise and excellence into "good enough." He feeds on shortcuts, thrives on panic, and grows stronger with every corner cut. Unless someone stands in his way.',
-        video: '/videos/deadline-fullbody.webm'
+        video: '/videos/deadline-fullbody.webm',
+        videoFallback: '/videos/deadline-fullbody.mp4'
       },
       derrick: {
         name: 'DR. DERRICK',
         role: 'The Creator',
         roleColor: '#fbbf24',
         lore: 'The architect of the resistance. Dr. Derrick built Drive and Driven Creations to prove that quality always wins the long game. With over 15 years of experience in digital design and brand transformation, he has led the charge against mediocrity, empowering startups, B2B organizations, and government agencies to achieve design excellence.',
-        video: '/videos/derrick-fullbody.webm'
+        video: '/videos/derrick-fullbody.webm',
+        videoFallback: '/videos/derrick-fullbody-src.mp4'
       }
     };
 
@@ -578,7 +581,13 @@
         }
 
         // 3. Swap source & load new video
-        expandVideoSource.setAttribute('src', data.video);
+        //    Safari/iOS: use green-screen MP4 (chroma-key needs clean green).
+        //    Chrome/Firefox/Edge: use VP9 alpha WebM (plays natively).
+        var videoSrc = (window.dcSafariFallback && data.videoFallback) ? data.videoFallback : data.video;
+        expandVideoSource.setAttribute('src', videoSrc);
+        if (window.dcSafariFallback) {
+          expandVideoSource.setAttribute('type', 'video/mp4');
+        }
         expandVideo.load();
 
         // 4. Wait for new video data before showing

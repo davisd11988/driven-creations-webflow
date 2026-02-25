@@ -4,11 +4,10 @@
    Strategy:
    - Chrome/Firefox/Edge: VP9 alpha baked into WebM
      files plays natively with transparency. No
-     runtime processing needed.
+     runtime processing needed. DO NOT TOUCH.
    - Safari/iOS: WebKit does NOT decode VP9 alpha.
-     Falls back to runtime canvas chroma-key to
-     remove the green screen that becomes visible
-     when alpha is ignored.
+     Swaps video sources to the original green-screen
+     MP4 files and applies runtime canvas chroma-key.
    - Project hero videos: Always use runtime chroma-
      key (green-screen MP4 sources, no VP9 alpha).
    ========================================== */
@@ -30,6 +29,53 @@
     // macOS Safari (exclude Chrome/Edge/Firefox which include "Safari" in UA)
     if (/Safari/.test(ua) && !/Chrome|Chromium|CriOS|Edg|Firefox|FxiOS|OPR/.test(ua)) return true;
     return false;
+  }
+
+  /**
+   * Green-screen MP4 sources for Safari fallback.
+   * VP9 encoder corrupts RGB values of transparent pixels during
+   * compression. When Safari plays VP9 without alpha decoding, the
+   * background shows as black/artifacts instead of green — making
+   * chroma-key impossible. These MP4 files are the ORIGINAL green-
+   * screen recordings with clean, bright green backgrounds that the
+   * chroma-key algorithm can reliably detect and remove.
+   */
+  var greenScreenSources = {
+    '/videos/loader-drive.webm':      '/videos/loader-drive-fallback.mp4',
+    '/videos/drive-fullbody.webm':    '/videos/drive-fullbody-src.mp4',
+    '/videos/deadline-fullbody.webm': '/videos/deadline-fullbody.mp4',
+    '/videos/derrick-fullbody.webm':  '/videos/derrick-fullbody-src.mp4'
+  };
+
+  /**
+   * Swap a video's source from VP9 alpha WebM to green-screen MP4.
+   * Safari picks the WebM (it supports VP9 video, just not VP9 alpha),
+   * so we must force the MP4 green-screen source instead.
+   */
+  function swapToGreenScreen(video) {
+    // Pause any in-progress playback
+    video.pause();
+
+    // Check <source> elements
+    var sources = video.querySelectorAll('source');
+    var swapped = false;
+    for (var i = 0; i < sources.length; i++) {
+      var src = sources[i].getAttribute('src');
+      if (greenScreenSources[src]) {
+        sources[i].setAttribute('src', greenScreenSources[src]);
+        sources[i].setAttribute('type', 'video/mp4');
+        swapped = true;
+        break;
+      }
+    }
+
+    if (swapped) {
+      video.load();
+      // Resume autoplay if the video had it
+      if (video.hasAttribute('autoplay')) {
+        video.play().catch(function() {});
+      }
+    }
   }
 
   /**
@@ -278,13 +324,22 @@
   function init() {
     var fallback = needsChromaKeyFallback();
 
+    // Expose fallback flag globally so shared.js can use MP4 sources
+    // for character expand video swapping on Safari/iOS.
+    if (fallback) {
+      window.dcSafariFallback = true;
+    }
+
     // 1. LOADER VIDEO
     //    VP9 alpha baked in — plays natively on Chrome/Firefox/Edge.
-    //    Safari/iOS: VP9 alpha not decoded → green screen visible →
-    //    runtime chroma-key removes it.
+    //    Safari/iOS: swap to green-screen MP4, then chroma-key removes green.
     if (fallback) {
       var loaderVideo = document.querySelector('.dc-loader-video');
       if (loaderVideo) {
+        // MUST swap source BEFORE chromaKey() — VP9 alpha WebM backgrounds
+        // show as black/artifacts on Safari, not green. Chroma-key needs
+        // the original green-screen MP4 to detect and remove the green.
+        swapToGreenScreen(loaderVideo);
         var c = chromaKey(loaderVideo, { maxRes: 500, aggressive: true });
         c.style.width = '200px';
         c.style.height = '200px';
@@ -296,12 +351,14 @@
 
     // 3. CHARACTER EXPAND VIDEO
     //    VP9 alpha baked in — plays natively on Chrome/Firefox/Edge.
-    //    Safari/iOS: runtime chroma-key fallback. shared.js openCharacter()
-    //    handles source swapping; the chroma-key play/pause listeners
-    //    activate automatically when the video plays.
+    //    Safari/iOS: swap to green-screen MP4, then chroma-key removes green.
+    //    shared.js openCharacter() handles per-character source swapping;
+    //    it reads window.dcSafariFallback to pick MP4 sources on Safari.
     if (fallback) {
       var expandVideo = document.querySelector('.dc-character-expand-video video');
       if (expandVideo) {
+        // Swap initial source to green-screen MP4
+        swapToGreenScreen(expandVideo);
         var c = chromaKey(expandVideo, { maxRes: 500, aggressive: true });
         c.style.width = '100%';
       }
