@@ -92,37 +92,78 @@
       var len = d.length;
 
       if (opts.aggressive) {
-        // AGGRESSIVE MODE — for all character videos and the loader.
-        // Any pixel where green is dominant gets removed, with graduated edges.
-        // Uses dominance ratio (g / max(r,b)) instead of absolute thresholds,
-        // producing much cleaner edges than the standard mode.
+        // ─── AGGRESSIVE MODE v2 ───────────────────────────────────
+        // Green-excess-ratio detection with smoothstep edge transitions.
+        // Designed for bright green screens (~#08D800) found in the
+        // fullbody character expand videos.
+        //
+        // Algorithm:
+        //   greenRatio = (G - max(R,B)) / G
+        //   Core green (bright + high ratio) → fully transparent
+        //   Edge zone (bright + moderate ratio) → smoothstep graduated alpha
+        //   Dim green spill on character → kept opaque (brightness filter)
+        //
+        // The green-excess-ratio is more stable across Chrome/Safari
+        // YUV→RGB differences than raw dominance ratios. The brightness
+        // filter (G > 120) protects character pixels that have green
+        // tint from green screen light spill.
+
         for (var i = 0; i < len; i += 4) {
           var r = d[i], g = d[i + 1], b = d[i + 2];
+
+          // Skip already-transparent pixels
           if (d[i + 3] === 0) continue;
+          // Skip very dark pixels (shadows, not green screen)
+          if (g < 40) continue;
 
-          var maxRB = Math.max(r, b, 1);
+          var maxRB = Math.max(r, b);
 
-          if (g > r && g > b && g > 25) {
-            var dominance = g / maxRB;
-            if (dominance > 1.12) {
-              // Clear green — fully transparent
-              d[i + 3] = 0;
-            } else {
-              // Graduated edge — fade based on how close to green threshold
-              var edgeAlpha = Math.round(255 * (1 - (dominance - 1) / 0.12));
-              edgeAlpha = Math.max(0, Math.min(255, edgeAlpha));
-              if (edgeAlpha < d[i + 3]) {
-                d[i + 3] = edgeAlpha;
-              }
+          // Only process pixels where green is dominant
+          if (g <= maxRB) continue;
+
+          // Green excess ratio: 0 = no excess, ~1 = pure green screen
+          var greenRatio = (g - maxRB) / g;
+
+          // Brightness gate: dim green-tinted pixels are spill, not screen.
+          // Green screen is bright (G > 200), spill is dimmer.
+          // Bright pixels: standard thresholds.
+          // Dim pixels (G <= 120): require extreme ratio (> 0.75) to key.
+          var isBright = g > 120;
+
+          if (isBright && greenRatio > 0.35) {
+            // CORE: bright green screen — fully transparent
+            d[i + 3] = 0;
+          } else if (!isBright && greenRatio > 0.75) {
+            // EXTREME dim green — also transparent (very pure green even when dark)
+            d[i + 3] = 0;
+          } else if (isBright && greenRatio > 0.05) {
+            // EDGE ZONE: smoothstep transition from opaque to transparent
+            // Maps greenRatio 0.05→0.35 to alpha 255→0 using smoothstep
+            var t = (greenRatio - 0.05) / 0.30; // 0 at edge, 1 at core
+            t = Math.max(0, Math.min(1, t));
+            // Smoothstep: 3t² - 2t³ (hermite interpolation)
+            var smooth = t * t * (3 - 2 * t);
+            var newAlpha = Math.round(255 * (1 - smooth));
+            if (newAlpha < d[i + 3]) {
+              d[i + 3] = newAlpha;
             }
           }
         }
-        // Despill ALL remaining visible pixels — clamp green to max(r, b)
+
+        // ── Despill pass ──
+        // Remove green color cast from ALL remaining visible pixels.
+        // Proportional: more aggressive on edge pixels (lower alpha),
+        // gentler on fully opaque character pixels to preserve natural colors.
         for (var j = 0; j < len; j += 4) {
           if (d[j + 3] > 0) {
-            var clamp = Math.max(d[j], d[j + 2]);
-            if (d[j + 1] > clamp) {
-              d[j + 1] = clamp;
+            var rr = d[j], gg = d[j + 1], bb = d[j + 2];
+            var limit = Math.max(rr, bb);
+            if (gg > limit) {
+              var excess = gg - limit;
+              // Edge pixels (semi-transparent) get full despill;
+              // opaque character pixels get gentler despill
+              var spillFactor = d[j + 3] < 200 ? 1.0 : 0.85;
+              d[j + 1] = Math.round(gg - excess * spillFactor);
             }
           }
         }
@@ -259,9 +300,10 @@
 
     // 3. CHARACTER EXPAND VIDEO — fullscreen overlay (green-screen videos)
     //    These fullbody WebM videos DO have green backgrounds and need chroma-key.
+    //    Process at native resolution (960px) for pixel-perfect edge quality.
     var expandVideo = document.querySelector('.dc-character-expand-video video');
     if (expandVideo) {
-      var expandCanvas = chromaKey(expandVideo, { maxRes: 700, aggressive: true });
+      var expandCanvas = chromaKey(expandVideo, { maxRes: 960, aggressive: true });
       expandCanvas.style.width = '100%';
       expandCanvas.style.height = '100%';
       expandCanvas.style.objectFit = 'contain';
