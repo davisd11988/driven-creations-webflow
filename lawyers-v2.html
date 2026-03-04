@@ -306,27 +306,23 @@
       display: block;
       background: #000;
     }
-    /* Preview layer: muted autoplay video + play button overlay */
-    .law-video-preview {
-      position: relative;
-      cursor: pointer;
-    }
-    .law-video-preview video {
-      width: 100%;
-      display: block;
-      background: #000;
-    }
-    .law-video-play-btn {
+    /* Play button overlay on video */
+    .law-video-overlay {
       position: absolute;
       inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       background: rgba(9, 3, 22, 0.35);
+      cursor: pointer;
       transition: background 0.3s ease;
+      z-index: 2;
     }
-    .law-video-preview:hover .law-video-play-btn {
+    .law-video-overlay:hover {
       background: rgba(9, 3, 22, 0.2);
+    }
+    .law-video-overlay.is-hidden {
+      display: none;
     }
     .law-video-play-icon {
       width: 80px;
@@ -339,7 +335,7 @@
       box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4), 0 0 60px rgba(124, 58, 237, 0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .law-video-preview:hover .law-video-play-icon {
+    .law-video-overlay:hover .law-video-play-icon {
       transform: scale(1.1);
       box-shadow: 0 12px 40px rgba(124, 58, 237, 0.5), 0 0 80px rgba(124, 58, 237, 0.2);
     }
@@ -348,16 +344,6 @@
       height: 32px;
       color: #fff;
       margin-left: 4px;
-    }
-    /* Main video hidden until play is clicked */
-    .law-video-main {
-      display: none;
-    }
-    .law-video-main.is-active {
-      display: block;
-    }
-    .law-video-preview.is-hidden {
-      display: none;
     }
 
     /* Results Section */
@@ -1236,19 +1222,12 @@
       <p class="law-section-sub law-section-sub--centered">How we transform law firm brands</p>
     </div>
     <div class="law-video-wrap">
-      <!-- Preview: silent autoplay loop with play button overlay -->
-      <div class="law-video-preview" id="videoPreview">
-        <video autoplay muted loop playsinline preload="auto">
-          <source src="video/law-firm-offer-web.mp4" type="video/mp4">
-        </video>
-        <div class="law-video-play-btn">
-          <div class="law-video-play-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </div>
+      <div class="law-video-overlay" id="videoOverlay">
+        <div class="law-video-play-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
-      <!-- Main video: shown on click, plays from start with audio -->
-      <video class="law-video-main" id="videoMain" controls preload="metadata">
+      <video id="videoPlayer" autoplay muted loop playsinline preload="auto">
         <source src="video/law-firm-offer-web.mp4" type="video/mp4">
       </video>
     </div>
@@ -1631,15 +1610,18 @@
 <!-- Scripts -->
 <script src="/js/shared.js?v=11" defer></script>
 <script>
-  document.getElementById('videoPreview').addEventListener('click', function() {
-    var preview = this;
-    var main = document.getElementById('videoMain');
-    preview.querySelector('video').pause();
-    preview.classList.add('is-hidden');
-    main.classList.add('is-active');
-    main.currentTime = 0;
-    main.play();
-  });
+  (function() {
+    var overlay = document.getElementById('videoOverlay');
+    var video = document.getElementById('videoPlayer');
+    overlay.addEventListener('click', function() {
+      overlay.classList.add('is-hidden');
+      video.loop = false;
+      video.muted = false;
+      video.controls = true;
+      video.currentTime = 0;
+      video.play();
+    });
+  })();
 </script>
 
 </body>
