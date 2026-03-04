@@ -64,7 +64,7 @@
   }
   </script>
 
-  <!-- Structured Data: FAQ (AEO — AI Answer Engine Optimization) -->
+  <!-- Structured Data: FAQ (AEO  - AI Answer Engine Optimization) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -130,7 +130,7 @@
 
   <style>
     /* ==========================================
-       LAWYERS V2 — Page-Specific Overrides
+       LAWYERS V2  - Page-Specific Overrides
        Uses DC design system from shared.css
        ========================================== */
 
@@ -145,7 +145,7 @@
       overflow: hidden;
     }
 
-    /* Background video — visible but blended with brand colors */
+    /* Background video  - visible but blended with brand colors */
     .law-hero-bg-video {
       position: absolute;
       inset: 0;
@@ -231,7 +231,7 @@
     }
     .law-hero-tag {
     }
-    /* Hero CTA — prominent but proportional */
+    /* Hero CTA  - prominent but proportional */
     .dc-btn-xl {
       padding: 18px 44px;
       font-size: 1.05rem;
@@ -398,16 +398,16 @@
       line-height: 1.8;
     }
 
-    /* Social Proof Section */
-    .law-proof {
+    /* Client Projects Row */
+    .law-clients {
       background: #090316;
-      padding: 80px 0;
+      padding: 64px 0 72px;
     }
-    .law-proof-header {
+    .law-clients-header {
       text-align: center;
-      margin-bottom: 64px;
+      margin-bottom: 48px;
     }
-    .law-proof-grid {
+    .law-clients-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
@@ -415,39 +415,19 @@
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-    .law-proof-card {
+    .law-client-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 16px;
-      padding: 0;
+      overflow: hidden;
       position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s ease;
+      transition: border-color 0.3s ease, transform 0.3s ease;
     }
-    .law-proof-card-img {
-      width: 100%;
-      aspect-ratio: 16/10;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .law-proof-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    .law-proof-card:hover .law-proof-card-img img {
-      transform: scale(1.03);
-    }
-    .law-proof-card-body {
-      padding: 28px 28px 36px;
-    }
-    .law-proof-card:hover {
+    .law-client-card:hover {
       border-color: rgba(124, 58, 237, 0.25);
+      transform: translateY(-4px);
     }
-    .law-proof-card::before {
+    .law-client-card::before {
       content: '';
       position: absolute;
       bottom: 0;
@@ -459,43 +439,47 @@
       transition: opacity 0.3s ease;
       z-index: 1;
     }
-    .law-proof-card:hover::before { opacity: 0.6; }
-    .law-proof-card h4 {
+    .law-client-card:hover::before { opacity: 0.6; }
+    .law-client-card-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .law-client-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .law-client-card:hover .law-client-card-img img {
+      transform: scale(1.03);
+    }
+    .law-client-card-body {
+      padding: 28px 28px 32px;
+    }
+    .law-client-card h4 {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.15rem;
       font-weight: 700;
       color: #ffffff;
       margin-bottom: 6px;
     }
-    .law-proof-type {
+    .law-client-type {
       font-family: 'Inter', system-ui, sans-serif;
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: #a78bfa;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
-    .law-proof-card p {
-      font-size: 0.9rem;
-      color: #a1a1aa;
-      line-height: 1.8;
-    }
-    .law-proof-result {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+    .law-client-result {
       font-size: 0.88rem;
       color: #22d3ee;
       font-weight: 600;
-    }
-    .law-proof-tagline {
-      text-align: center;
-      margin-top: 48px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #d4d4d8;
     }
 
     /* Soft CTA */
@@ -509,84 +493,7 @@
       overflow: hidden;
       isolation: isolate;
     }
-    /* Client Showcase — Staggered alternating layout */
-    .law-showcase {
-      background: #090316;
-      padding: 80px 0;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-    .law-showcase-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .law-showcase-items {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 56px;
-    }
-    .law-showcase-item {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .law-showcase-item:nth-child(even) {
-      direction: rtl;
-    }
-    .law-showcase-item:nth-child(even) > * {
-      direction: ltr;
-    }
-    .law-showcase-img {
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(124, 58, 237, 0.06);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-    .law-showcase-img:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 28px 60px rgba(0,0,0,0.45), 0 0 50px rgba(124, 58, 237, 0.1);
-    }
-    .law-showcase-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .law-showcase-text h3 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-    .law-showcase-text .law-showcase-type {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #a78bfa;
-      margin-bottom: 20px;
-    }
-    .law-showcase-text p {
-      font-size: 0.92rem;
-      color: #a1a1aa;
-      line-height: 1.85;
-      margin-bottom: 14px;
-    }
-    .law-showcase-text p:last-of-type { margin-bottom: 0; }
-    .law-showcase-result {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.88rem;
-      color: #22d3ee;
-      font-weight: 600;
-    }
-    /* Visit Site links for proof cards + showcase */
+    /* Visit Site links for client cards */
     .law-visit-link {
       display: inline-flex;
       align-items: center;
@@ -608,14 +515,6 @@
       width: 14px;
       height: 14px;
       flex-shrink: 0;
-    }
-    @media (max-width: 767px) {
-      .law-showcase-item,
-      .law-showcase-item:nth-child(even) {
-        grid-template-columns: 1fr;
-        direction: ltr;
-        gap: 28px;
-      }
     }
 
     /* Floating screenshot mosaic behind CTA */
@@ -906,7 +805,7 @@
       margin-bottom: 20px;
     }
 
-    /* Book a Call — Calendly Section */
+    /* Book a Call  - Calendly Section */
     .law-book {
       position: relative;
       text-align: center;
@@ -1054,7 +953,7 @@
     /* ── Responsive: Tablet landscape (max 991px) ── */
     @media (max-width: 991px) {
       .law-results-grid,
-      .law-proof-grid {
+      .law-clients-grid {
         grid-template-columns: 1fr 1fr;
       }
       .law-sauce-grid {
@@ -1067,7 +966,7 @@
       .law-video-ads-preview { max-width: 600px; margin: 0 auto; }
       .law-hero { padding: 100px 1.5rem 56px; }
       .law-results { padding: 64px 0; }
-      .law-proof { padding: 64px 0; }
+      .law-clients { padding: 48px 0 56px; }
       .law-sauce { padding: 64px 0; }
       .law-video-ads { padding: 64px 0; }
       .law-soft-cta { padding: 64px 1.5rem; }
@@ -1082,7 +981,7 @@
     /* ── Responsive: Tablet portrait (max 767px) ── */
     @media (max-width: 767px) {
       .law-results-grid,
-      .law-proof-grid {
+      .law-clients-grid {
         grid-template-columns: 1fr;
       }
       .law-hero { padding: 96px 1.25rem 48px; }
@@ -1093,9 +992,9 @@
       .law-result-step { font-size: 2.5rem; }
       .law-result-card,
       .law-sauce-card { padding: 32px 24px; }
-      .law-proof-card-body { padding: 24px 24px 32px; }
+      .law-client-card-body { padding: 24px 24px 28px; }
       .law-results { padding: 56px 0; }
-      .law-proof { padding: 56px 0; }
+      .law-clients { padding: 40px 0 48px; }
       .law-sauce { padding: 56px 0; }
       .law-video-ads { padding: 56px 0; }
       .law-soft-cta { padding: 56px 1.25rem; }
@@ -1110,9 +1009,8 @@
       .law-faq-answer { padding-left: 20px; padding-right: 20px; }
       .law-faq-item.is-open .law-faq-answer { padding: 0 20px 20px; }
       .law-results-header,
-      .law-proof-header,
+      .law-clients-header,
       .law-sauce-header { margin-bottom: 40px; }
-      .law-proof-tagline { font-size: 1.15rem; margin-top: 36px; }
       .law-video-ads-bottom { font-size: 1rem; margin-top: 36px; padding-top: 36px; }
       .law-scroll-arrow { bottom: 24px; }
     }
@@ -1129,16 +1027,16 @@
       .law-section-title { font-size: 1.2rem; }
       .law-result-card,
       .law-sauce-card { padding: 28px 20px; }
-      .law-proof-card-body { padding: 20px 20px 28px; }
+      .law-client-card-body { padding: 20px 20px 24px; }
       .law-result-step { font-size: 2rem; margin-bottom: 14px; }
       .law-result-card h3 { font-size: 1.1rem; }
-      .law-proof-card h4 { font-size: 1rem; }
+      .law-client-card h4 { font-size: 1rem; }
       .law-sauce-card h3 { font-size: 1.2rem; }
       .law-video-ads-text h2 { font-size: 1.3rem; }
       .law-video-feature strong { font-size: 0.88rem; }
       .law-video-feature span { font-size: 0.8rem; }
       .law-results { padding: 48px 0; }
-      .law-proof { padding: 48px 0; }
+      .law-clients { padding: 36px 0 40px; }
       .law-sauce { padding: 48px 0; }
       .law-video-ads { padding: 48px 0; }
       .law-soft-cta { padding: 48px 1rem; }
@@ -1148,9 +1046,8 @@
       .law-book-embed .dc-calendly-embed { padding: 8px; border-radius: 10px; }
       .law-book-guarantee { font-size: 0.78rem; flex-direction: column; gap: 4px; }
       .law-results-header,
-      .law-proof-header,
+      .law-clients-header,
       .law-sauce-header { margin-bottom: 32px; }
-      .law-proof-tagline { font-size: 1rem; }
       .law-video-ads-bottom { font-size: 0.9rem; }
       .law-video-ads-preview { border-radius: 12px; }
       .law-hero-video-wrap { margin: 20px 0 24px; border-radius: 10px; }
@@ -1164,7 +1061,7 @@
 <body>
 
 <!-- ==========================================
-     NAVBAR — Standalone one-pager navigation
+     NAVBAR  - Standalone one-pager navigation
      ========================================== -->
 <nav class="dc-navbar">
   <div class="dc-navbar-inner">
@@ -1174,7 +1071,6 @@
     <div class="dc-nav-links">
       <a href="#work-showcase" class="dc-nav-link">Our Work</a>
       <a href="#results" class="dc-nav-link">Process</a>
-      <a href="#proof" class="dc-nav-link">Results</a>
       <a href="#video-ads" class="dc-nav-link">Video Ads</a>
       <a href="#faq" class="dc-nav-link">FAQ</a>
     </div>
@@ -1193,7 +1089,6 @@
 <div class="dc-mobile-menu" id="mobileMenu">
   <a href="#work-showcase" class="dc-mobile-menu-link">Our Work</a>
   <a href="#results" class="dc-mobile-menu-link">Process</a>
-  <a href="#proof" class="dc-mobile-menu-link">Results</a>
   <a href="#video-ads" class="dc-mobile-menu-link">Video Ads</a>
   <a href="#faq" class="dc-mobile-menu-link">FAQ</a>
   <div class="dc-mobile-menu-cta">
@@ -1216,7 +1111,7 @@
     <div class="dc-section-tag dc-section-tag-purple law-hero-tag">Law Firm Web Design <span class="dc-symbol">&</span> Branding</div>
     <h1 class="law-hero-title">Build <span class="dc-gradient-text">Instant Authority</span> With a Brand That Wins Clients</h1>
     <p class="law-hero-sub">If you're a boutique law firm whose website blends in with the competition and fails to build trust with high-value clients, we'll help you attract your ideal clients with a standout brand and website in 28 days or less.</p>
-    <!-- VSL Video — directly in hero per instructor feedback -->
+    <!-- VSL Video  - directly in hero per instructor feedback -->
     <div class="law-hero-video-wrap">
       <div class="law-video-overlay" id="videoOverlay">
         <div class="law-video-play-icon">
@@ -1239,7 +1134,7 @@
 </section>
 
 <!-- ==========================================
-     WORK SAMPLES MARQUEE (second section — right after hero)
+     WORK SAMPLES MARQUEE (second section  - right after hero)
      ========================================== -->
 <section id="work-showcase" class="dc-work-marquee">
   <div class="dc-work-marquee-row">
@@ -1279,6 +1174,51 @@
 </section>
 
 <!-- ==========================================
+     CLIENT PROJECTS  - Real Results
+     ========================================== -->
+<section class="law-clients" id="clients">
+  <div class="law-clients-header">
+    <div class="dc-section-tag dc-section-tag-purple">Real Client Work</div>
+    <div class="law-section-title">Projects We've <span class="dc-gradient-text">Delivered</span></div>
+  </div>
+  <div class="law-clients-grid">
+    <div class="law-client-card">
+      <div class="law-client-card-img">
+        <img src="images/lawyers/kirkland-screenshot.png" alt="Kirkland Personal Injury website" width="800" height="500" loading="lazy" />
+      </div>
+      <div class="law-client-card-body">
+        <h4>Kirkland Personal Injury</h4>
+        <div class="law-client-type">Personal Injury Law</div>
+        <div class="law-client-result">Custom brand identity + high-converting website</div>
+        <a href="https://www.kirklandpersonalinjury.com/" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+    <div class="law-client-card">
+      <div class="law-client-card-img">
+        <img src="images/lawyers/thornton-james-screenshot.png" alt="Thornton James LLP website" width="1400" height="900" loading="lazy" />
+      </div>
+      <div class="law-client-card-body">
+        <h4>Thornton James LLP</h4>
+        <div class="law-client-type">Tax &amp; Financial Law</div>
+        <div class="law-client-result">Luxury brand identity for a premier Dallas firm</div>
+        <a href="https://www.thorntonjameslaw.com/" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+    <div class="law-client-card">
+      <div class="law-client-card-img">
+        <img src="images/lawyers/hargrove-associates-screenshot.png" alt="Hargrove & Associates website" width="1440" height="900" loading="lazy" />
+      </div>
+      <div class="law-client-card-body">
+        <h4>Hargrove &amp; Associates</h4>
+        <div class="law-client-type">Estate Planning</div>
+        <div class="law-client-result">Trust-driven rebrand for a legacy Boston practice</div>
+        <a href="https://www.hargroveassociates.com/" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
      3 KEY RESULTS
      ========================================== -->
 <section class="law-results" id="results" style="position:relative;overflow:hidden;">
@@ -1306,111 +1246,6 @@
       <h3>Polished Launch &amp; Growth</h3>
       <p class="problem">Most people just launch their website and think that's it. They have a "build it and they will come" attitude. Without consistent work and a sound strategy for driving traffic, your website will just sit there.</p>
       <p class="solution">We handle the entire launch process. Rigorous QA testing across every device. The end result? A website that works for you. One you're confident sending every prospect to.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================
-     SOCIAL PROOF
-     ========================================== -->
-<section class="law-proof" id="proof" style="position:relative;overflow:hidden;">
-  <!-- Decorative: Diagonal lines -->
-  <svg class="law-deco law-deco--line" style="bottom:30px;left:20px;width:200px;height:200px;" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="200" y2="200"/><line x1="40" y1="0" x2="200" y2="160"/><line x1="80" y1="0" x2="200" y2="120"/><line x1="0" y1="40" x2="160" y2="200"/><line x1="0" y1="80" x2="120" y2="200"/></svg>
-  <div class="law-proof-header">
-    <div class="dc-section-tag dc-section-tag-purple">Proven Results</div>
-    <div class="law-section-title">We<span class="dc-symbol">'</span>ve Done This for Firms <span class="dc-gradient-text">Like Yours</span></div>
-  </div>
-  <div class="law-proof-grid">
-    <div class="law-proof-card">
-      <div class="law-proof-card-img">
-        <img src="images/lawyers/kirkland-screenshot.png" alt="Kirkland Personal Injury website redesign" width="1440" height="900" loading="lazy" />
-      </div>
-      <div class="law-proof-card-body">
-        <h4>Kirkland Personal Injury</h4>
-        <div class="law-proof-type">Personal Injury Law</div>
-        <p>They came to us with an outdated website that wasn't generating leads. Potential clients searching for a personal injury attorney couldn't find them, and when they did, the site didn't instill confidence.</p>
-        <div class="law-proof-result">Now ranks higher in search results. Intake calls have increased significantly.</div>
-        <a href="https://www.kirklandpersonalinjury.com/" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-    </div>
-    <div class="law-proof-card">
-      <div class="law-proof-card-img">
-        <img src="images/lawyers/premium-title-screenshot.png" alt="Premium Title and Escrow website redesign" width="2659" height="1570" loading="lazy" />
-      </div>
-      <div class="law-proof-card-body">
-        <h4>Premium Title &amp; Escrow</h4>
-        <div class="law-proof-type">Title Services &bull; 6 States</div>
-        <p>They had a professional reputation, but their online presence didn't match. Real estate agents and lenders who checked them out online weren't impressed.</p>
-        <div class="law-proof-result">Referral partners across all six states now see a credible brand from the first click.</div>
-        <a href="https://www.premiumtitlellc.com/" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-    </div>
-    <div class="law-proof-card">
-      <div class="law-proof-card-img">
-        <img src="images/lawyers/paramount-screenshot.png" alt="Paramount Development website redesign" width="1440" height="900" loading="lazy" />
-      </div>
-      <div class="law-proof-card-body">
-        <h4>Paramount Development</h4>
-        <div class="law-proof-type">Luxury Real Estate &bull; Washington DC</div>
-        <p>A luxury real estate firm whose old website didn't match their premium brand. High-end buyers saw a generic site with no premium feel.</p>
-        <div class="law-proof-result">Buyers and investors immediately see a company that operates at the highest level.</div>
-        <a href="https://www.paramountdevelopmentllc.com/" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-    </div>
-  </div>
-  <p class="law-proof-tagline">We deliver results. Every time.</p>
-</section>
-
-<!-- ==========================================
-     CLIENT SHOWCASE — Staggered alternating layout
-     ========================================== -->
-<section class="law-showcase" id="showcase">
-  <div class="law-showcase-header">
-    <div class="dc-section-tag dc-section-tag-purple">Our Work</div>
-    <div class="law-section-title">Real Clients<span class="dc-symbol">.</span> <span class="dc-gradient-text">Real Results</span></div>
-  </div>
-  <div class="law-showcase-items">
-    <!-- 1: Image left, text right -->
-    <div class="law-showcase-item">
-      <div class="law-showcase-img">
-        <img src="images/lawyers/kirkland-screenshot.png" alt="Kirkland Personal Injury website" width="1440" height="900" loading="lazy" />
-      </div>
-      <div class="law-showcase-text">
-        <h3>Kirkland Personal Injury</h3>
-        <div class="law-showcase-type">Personal Injury Law</div>
-        <p>Kirkland came to us with an outdated website that wasn't generating leads. Potential clients searching for a personal injury attorney couldn't find them, and when they did, the site didn't instill confidence.</p>
-        <p>We rebuilt their entire online presence with a professional, trust-first design that positions them as the go-to personal injury firm in their market.</p>
-        <div class="law-showcase-result">Now ranks higher in search results. Intake calls have increased significantly.</div>
-        <a href="https://www.kirklandpersonalinjury.com/" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-    </div>
-    <!-- 2: Text left, image right (reversed) -->
-    <div class="law-showcase-item">
-      <div class="law-showcase-img">
-        <img src="images/lawyers/premium-title-screenshot.png" alt="Premium Title and Escrow website" width="2659" height="1570" loading="lazy" />
-      </div>
-      <div class="law-showcase-text">
-        <h3>Premium Title &amp; Escrow</h3>
-        <div class="law-showcase-type">Title Services &bull; 6 States</div>
-        <p>They had a professional reputation across six states, but their online presence didn't match. Real estate agents and lenders who checked them out online weren't impressed.</p>
-        <p>We delivered a polished brand and website that reflects the premium service they're known for in person.</p>
-        <div class="law-showcase-result">Referral partners across all six states now see a credible brand from the first click.</div>
-        <a href="https://www.premiumtitlellc.com/" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-    </div>
-    <!-- 3: Image left, text right -->
-    <div class="law-showcase-item">
-      <div class="law-showcase-img">
-        <img src="images/lawyers/paramount-screenshot.png" alt="Paramount Development website" width="1440" height="900" loading="lazy" />
-      </div>
-      <div class="law-showcase-text">
-        <h3>Paramount Development</h3>
-        <div class="law-showcase-type">Luxury Real Estate &bull; Washington DC</div>
-        <p>A luxury real estate firm whose old website didn't match their premium brand. High-end buyers saw a generic site with no premium feel.</p>
-        <p>We created a sleek, cinematic experience that mirrors the quality of their developments and immediately signals prestige.</p>
-        <div class="law-showcase-result">Buyers and investors immediately see a company that operates at the highest level.</div>
-        <a href="https://www.paramountdevelopmentllc.com/" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
     </div>
   </div>
 </section>
@@ -1582,7 +1417,7 @@
 </section>
 
 <!-- ==========================================
-     TESTIMONIALS — Real Client Reviews
+     TESTIMONIALS  - Real Client Reviews
      ========================================== -->
 <section id="testimonials" class="dc-testimonials" style="position:relative;">
   <div class="dc-section-container">
@@ -1668,7 +1503,7 @@
 </section>
 
 <!-- ==========================================
-     BOOK A CALL — Calendly Embed Section
+     BOOK A CALL  - Calendly Embed Section
      ========================================== -->
 <section class="law-book" id="book">
   <div class="law-book-content">
@@ -1708,7 +1543,6 @@
         <nav class="dc-footer-nav">
           <a href="#work-showcase" class="dc-footer-link">Our Work</a>
           <a href="#results" class="dc-footer-link">Process</a>
-          <a href="#proof" class="dc-footer-link">Results</a>
           <a href="#video-ads" class="dc-footer-link">Video Ads</a>
           <a href="#faq" class="dc-footer-link">FAQ</a>
           <a href="#book" class="dc-footer-link">Book a Call</a>
