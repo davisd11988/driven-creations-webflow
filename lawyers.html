@@ -133,7 +133,7 @@
   }
   </script>
 
-  <link rel="dns-prefetch" href="https://calendly.com" />
+  <link rel="dns-prefetch" href="https://form.typeform.com" />
   <link rel="preload" href="/css/shared.css?v=26" as="style" />
   <link rel="stylesheet" href="/css/shared.css?v=26" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
@@ -1048,7 +1048,7 @@
       flex-shrink: 0;
     }
 
-    /* Book a Call — Calendly Section */
+    /* Book a Call — Typeform Section */
     .law-book {
       position: relative;
       text-align: center;
@@ -1088,7 +1088,7 @@
       max-width: 1140px;
       margin: 0 auto;
     }
-    .law-book-embed .dc-calendly-embed {
+    .law-book-embed .dc-typeform-embed {
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid rgba(124, 58, 237, 0.2);
@@ -1098,9 +1098,12 @@
       padding: 24px;
       box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3), 0 0 60px rgba(124, 58, 237, 0.06);
     }
-    .law-book-embed .calendly-inline-widget {
+    .law-book-embed .dc-typeform-embed [data-tf-widget] {
       border-radius: 12px;
       overflow: hidden;
+    }
+    .law-book-embed .dc-typeform-embed iframe {
+      border-radius: 12px;
     }
     .law-book-guarantee {
       position: relative;
@@ -1219,9 +1222,8 @@
       .law-pricing-grid { grid-template-columns: 1fr 1fr; }
       .law-pricing-card--featured { transform: scale(1.02); }
       .law-pricing-card--featured:hover { transform: scale(1.02) translateY(-4px); }
-      .law-book-embed .dc-calendly-embed { padding: 16px; }
+      .law-book-embed .dc-typeform-embed { padding: 16px; }
       .law-book-embed { max-width: 520px; }
-      .law-book-embed .calendly-inline-widget { height: 700px !important; }
       .law-video { padding: 0 0 64px; }
     }
 
@@ -1249,7 +1251,8 @@
       .law-soft-cta { padding: 40px 1.25rem; }
       .law-book { padding: 64px 1.25rem 56px; }
       .law-book-content { margin-bottom: 36px; }
-      .law-book-embed .dc-calendly-embed { padding: 12px; border-radius: 12px; }
+      .law-book-embed .dc-typeform-embed { padding: 12px; border-radius: 12px; }
+      .law-book-embed .dc-typeform-embed [data-tf-widget] { height: 500px; }
       .law-book-guarantee { font-size: 0.8rem; margin-top: 20px; }
       .law-video { padding: 0 0 56px; }
       .law-video-wrap { border-radius: 12px; margin: 0 1rem; }
@@ -1296,7 +1299,8 @@
       .law-book { padding: 56px 1rem 48px; }
       .law-book-content { margin-bottom: 28px; }
       .law-book-urgency { font-size: 0.8rem; }
-      .law-book-embed .dc-calendly-embed { padding: 8px; border-radius: 10px; }
+      .law-book-embed .dc-typeform-embed { padding: 8px; border-radius: 10px; }
+      .law-book-embed .dc-typeform-embed [data-tf-widget] { height: 480px; }
       .law-book-guarantee { font-size: 0.78rem; flex-direction: column; gap: 4px; }
       .law-video { padding: 0 0 48px; }
       .law-video-wrap { margin: 0 0.5rem; border-radius: 10px; }
@@ -1679,21 +1683,19 @@
 </section>
 
 <!-- ==========================================
-     BOOK A CALL — Calendly Embed Section
+     BOOK A CALL — Typeform Questionnaire Section
      ========================================== -->
 <section class="law-book" id="book">
   <div class="law-book-content">
     <div class="dc-section-tag dc-section-tag-purple">Let's Talk</div>
     <div class="law-section-title">Your Competitors Are Already Investing in Their Brand<span class="dc-symbol">.</span> <span class="dc-gradient-text">Are You<span class="dc-symbol">?</span></span></div>
-    <p class="law-section-sub law-section-sub--centered">Book a free strategy call. We'll discuss your firm, your goals, and what's not working with your website. I'll show you exactly what a transformed online presence looks like for your practice.</p>
-    <p class="law-book-urgency">We only take on a handful of law firm clients at a time. Our calendar fills up.</p>
+    <p class="law-section-sub law-section-sub--centered">Answer a few quick questions about your firm and goals. We'll review your answers and reach out with a personalized strategy — no pressure, no obligation.</p>
+    <p class="law-book-urgency">We only take on a handful of law firm clients at a time.</p>
   </div>
   <div class="law-book-embed">
-    <div class="dc-calendly-embed">
-      <!-- Calendly inline widget begin -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/15mindc/web-design-branding-chat?primary_color=793ef1" style="min-width:100%;height:920px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      <!-- Calendly inline widget end -->
+    <div class="dc-typeform-embed">
+      <div data-tf-widget="c5PBaGqV" data-tf-opacity="100" data-tf-inline-on-mobile data-tf-medium="snippet" style="width:100%;height:550px;"></div>
+      <script src="//embed.typeform.com/next/embed.js"></script>
     </div>
   </div>
   <div class="law-book-guarantee">
