@@ -75,7 +75,7 @@
         "name": "How much does a law firm website cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Driven Creations law firm projects typically range from five figures to the mid-teens, depending on scope — whether you need a website refresh, full branding, copywriting, or video ads. Every engagement is tailored to the firm's goals. The best way to get an accurate number is to book a free strategy call."
+          "text": "Driven Creations law firm projects typically range from five figures to the mid-teens, depending on scope. Whether you need a website refresh, full branding, copywriting, or video ads. Every engagement is tailored to the firm's goals. The best way to get an accurate number is to book a free strategy call."
         }
       },
       {
@@ -99,7 +99,7 @@
         "name": "What if I'm not happy with the design?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Every package includes unlimited revisions. Driven Creations works until you're 100% satisfied — no exceptions."
+          "text": "Every package includes unlimited revisions. Driven Creations works until you're 100% satisfied. No exceptions."
         }
       },
       {
@@ -202,7 +202,7 @@
       font-size: clamp(1rem, 2vw, 1.15rem);
       font-weight: 400;
       color: #a1a1aa;
-      max-width: 640px;
+      max-width: 740px;
       margin: 0 auto 40px;
       line-height: 1.8;
     }
@@ -419,10 +419,30 @@
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 16px;
-      padding: 36px 28px;
+      padding: 0;
       position: relative;
       overflow: hidden;
       transition: border-color 0.3s ease;
+    }
+    .law-proof-card-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .law-proof-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .law-proof-card:hover .law-proof-card-img img {
+      transform: scale(1.03);
+    }
+    .law-proof-card-body {
+      padding: 28px 28px 36px;
     }
     .law-proof-card:hover {
       border-color: rgba(124, 58, 237, 0.25);
@@ -430,13 +450,14 @@
     .law-proof-card::before {
       content: '';
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 28px;
       right: 28px;
       height: 2px;
       background: linear-gradient(to right, transparent, #7c3aed, transparent);
       opacity: 0;
       transition: opacity 0.3s ease;
+      z-index: 1;
     }
     .law-proof-card:hover::before { opacity: 0.6; }
     .law-proof-card h4 {
@@ -488,25 +509,112 @@
       overflow: hidden;
       isolation: isolate;
     }
+    /* Client Showcase — Staggered alternating layout */
+    .law-showcase {
+      background: #090316;
+      padding: 80px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .law-showcase-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .law-showcase-items {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+    .law-showcase-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .law-showcase-item:nth-child(even) {
+      direction: rtl;
+    }
+    .law-showcase-item:nth-child(even) > * {
+      direction: ltr;
+    }
+    .law-showcase-img {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(124, 58, 237, 0.06);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .law-showcase-img:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.45), 0 0 50px rgba(124, 58, 237, 0.1);
+    }
+    .law-showcase-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .law-showcase-text h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .law-showcase-text .law-showcase-type {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #a78bfa;
+      margin-bottom: 20px;
+    }
+    .law-showcase-text p {
+      font-size: 0.92rem;
+      color: #a1a1aa;
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    .law-showcase-text p:last-of-type { margin-bottom: 0; }
+    .law-showcase-result {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.88rem;
+      color: #22d3ee;
+      font-weight: 600;
+    }
+    @media (max-width: 767px) {
+      .law-showcase-item,
+      .law-showcase-item:nth-child(even) {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 28px;
+      }
+    }
+
     /* Floating screenshot mosaic behind CTA */
     .law-soft-cta-bg {
       position: absolute;
-      inset: -60px;
+      inset: -80px;
       z-index: 0;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 20px;
-      transform: rotate(-6deg) scale(1.15);
-      opacity: 0.18;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 14px;
+      transform: rotate(-6deg) scale(1.2);
+      opacity: 0.14;
       pointer-events: none;
-      filter: grayscale(0.3) brightness(0.9);
+      filter: grayscale(0.3) brightness(0.85);
     }
     .law-soft-cta-bg img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 10px;
+      object-position: top center;
+      border-radius: 8px;
       display: block;
     }
     /* Heavy vignette overlay so text stays crisp */
@@ -961,8 +1069,8 @@
       .law-section-sub { font-size: 0.9rem; }
       .law-result-step { font-size: 2.5rem; }
       .law-result-card,
-      .law-proof-card,
       .law-sauce-card { padding: 32px 24px; }
+      .law-proof-card-body { padding: 24px 24px 32px; }
       .law-results { padding: 56px 0; }
       .law-proof { padding: 56px 0; }
       .law-sauce { padding: 56px 0; }
@@ -997,8 +1105,8 @@
       .law-hero-guarantee { font-size: 0.78rem; }
       .law-section-title { font-size: 1.2rem; }
       .law-result-card,
-      .law-proof-card,
       .law-sauce-card { padding: 28px 20px; }
+      .law-proof-card-body { padding: 20px 20px 28px; }
       .law-result-step { font-size: 2rem; margin-bottom: 14px; }
       .law-result-card h3 { font-size: 1.1rem; }
       .law-proof-card h4 { font-size: 1rem; }
@@ -1113,36 +1221,36 @@
 <section id="work-showcase" class="dc-work-marquee">
   <div class="dc-work-marquee-row">
     <div class="dc-work-marquee-track dc-work-marquee-track--left">
-      <a href="lawyers/showcase/ashford-sterling.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="Ashford & Sterling — Personal Injury" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/blackwell-reid.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/blackwell-reid-thumb.png" alt="Blackwell Reid — Criminal Defense" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/mercer-rhodes.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/mercer-rhodes-thumb.png" alt="Mercer & Rhodes — Family Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/caldwell-hart.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/caldwell-hart-thumb.png" alt="Caldwell Hart — Corporate Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/hargrove-associates.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/hargrove-associates-thumb.png" alt="Hargrove & Associates — Estate Planning" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/rivera-law.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="Rivera Law — Immigration" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/ashford-sterling.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="Ashford & Sterling - Personal Injury" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/blackwell-reid.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/blackwell-reid-thumb.png" alt="Blackwell Reid - Criminal Defense" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/mercer-rhodes.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/mercer-rhodes-thumb.png" alt="Mercer & Rhodes - Family Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/caldwell-hart.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/caldwell-hart-thumb.png" alt="Caldwell Hart - Corporate Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/hargrove-associates.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/hargrove-associates-thumb.png" alt="Hargrove & Associates - Estate Planning" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/rivera-law.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="Rivera Law - Immigration" width="280" height="213" loading="lazy" /></a>
       <!-- Duplicate for seamless loop -->
-      <a href="lawyers/showcase/ashford-sterling.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="Ashford & Sterling — Personal Injury" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/blackwell-reid.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/blackwell-reid-thumb.png" alt="Blackwell Reid — Criminal Defense" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/mercer-rhodes.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/mercer-rhodes-thumb.png" alt="Mercer & Rhodes — Family Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/caldwell-hart.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/caldwell-hart-thumb.png" alt="Caldwell Hart — Corporate Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/hargrove-associates.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/hargrove-associates-thumb.png" alt="Hargrove & Associates — Estate Planning" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/rivera-law.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="Rivera Law — Immigration" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/ashford-sterling.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="Ashford & Sterling - Personal Injury" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/blackwell-reid.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/blackwell-reid-thumb.png" alt="Blackwell Reid - Criminal Defense" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/mercer-rhodes.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/mercer-rhodes-thumb.png" alt="Mercer & Rhodes - Family Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/caldwell-hart.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/caldwell-hart-thumb.png" alt="Caldwell Hart - Corporate Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/hargrove-associates.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/hargrove-associates-thumb.png" alt="Hargrove & Associates - Estate Planning" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/rivera-law.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="Rivera Law - Immigration" width="280" height="213" loading="lazy" /></a>
     </div>
   </div>
   <div class="dc-work-marquee-row">
     <div class="dc-work-marquee-track dc-work-marquee-track--right">
-      <a href="lawyers/showcase/whitfield-drake.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="Whitfield & Drake — Intellectual Property" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/thornton-james.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="Thornton James LLP — Tax & Financial Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/nakamura-voss.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/nakamura-voss-thumb.png" alt="Nakamura & Voss — International Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/chambers-whitley.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/chambers-whitley-thumb.png" alt="Chambers Whitley — Environmental Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/prescott-monroe.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/prescott-monroe-thumb.png" alt="Prescott & Monroe — Maritime Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/delgado-morales.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/delgado-morales-thumb.png" alt="Delgado & Morales — Civil Rights" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/whitfield-drake.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="Whitfield & Drake - Intellectual Property" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/thornton-james.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="Thornton James LLP - Tax & Financial Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/nakamura-voss.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/nakamura-voss-thumb.png" alt="Nakamura & Voss - International Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/chambers-whitley.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/chambers-whitley-thumb.png" alt="Chambers Whitley - Environmental Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/prescott-monroe.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/prescott-monroe-thumb.png" alt="Prescott & Monroe - Maritime Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/delgado-morales.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/delgado-morales-thumb.png" alt="Delgado & Morales - Civil Rights" width="280" height="213" loading="lazy" /></a>
       <!-- Duplicate for seamless loop -->
-      <a href="lawyers/showcase/whitfield-drake.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="Whitfield & Drake — Intellectual Property" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/thornton-james.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="Thornton James LLP — Tax & Financial Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/nakamura-voss.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/nakamura-voss-thumb.png" alt="Nakamura & Voss — International Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/chambers-whitley.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/chambers-whitley-thumb.png" alt="Chambers Whitley — Environmental Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/prescott-monroe.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/prescott-monroe-thumb.png" alt="Prescott & Monroe — Maritime Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/delgado-morales.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/delgado-morales-thumb.png" alt="Delgado & Morales — Civil Rights" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/whitfield-drake.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="Whitfield & Drake - Intellectual Property" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/thornton-james.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="Thornton James LLP - Tax & Financial Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/nakamura-voss.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/nakamura-voss-thumb.png" alt="Nakamura & Voss - International Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/chambers-whitley.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/chambers-whitley-thumb.png" alt="Chambers Whitley - Environmental Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/prescott-monroe.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/prescott-monroe-thumb.png" alt="Prescott & Monroe - Maritime Law" width="280" height="213" loading="lazy" /></a>
+      <a href="lawyers/showcase/delgado-morales.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/delgado-morales-thumb.png" alt="Delgado & Morales - Civil Rights" width="280" height="213" loading="lazy" /></a>
     </div>
   </div>
 </section>
@@ -1161,20 +1269,20 @@
     <div class="law-result-card">
       <div class="law-result-step">01</div>
       <h3>Strategic Brand Foundation</h3>
-      <p class="problem">So many law firms jump right into building a website without thinking through their goals, their strategy, or their long-term vision. But your website is the most important thing you have online &mdash; it's the soul of your law firm.</p>
+      <p class="problem">So many law firms jump right into building a website without thinking through their goals, their strategy, or their long-term vision. But your website is the most important thing you have online. It's the soul of your law firm.</p>
       <p class="solution">Before we design a single pixel, we dive deep into understanding your firm. Through our brand discovery process, we uncover what makes your practice unique, your values, your ideal clients, and the outcomes you deliver.</p>
     </div>
     <div class="law-result-card">
       <div class="law-result-step">02</div>
       <h3>Custom Designed Website</h3>
-      <p class="problem">Here's the danger with cheap websites or trying to do it yourself with an AI builder &mdash; it won't come across as premium. When your site looks like everything else out there, potential clients can't tell you apart from the competition.</p>
+      <p class="problem">Here's the danger with cheap websites or trying to do it yourself with an AI builder. It won't come across as premium. When your site looks like everything else out there, potential clients can't tell you apart from the competition.</p>
       <p class="solution">We bring your brand to life with a fully custom website. High-fidelity wireframes, professional SEO-friendly copy, and a design that positions you as the obvious choice in your market.</p>
     </div>
     <div class="law-result-card">
       <div class="law-result-step">03</div>
       <h3>Polished Launch &amp; Growth</h3>
       <p class="problem">Most people just launch their website and think that's it. They have a "build it and they will come" attitude. Without consistent work and a sound strategy for driving traffic, your website will just sit there.</p>
-      <p class="solution">We handle the entire launch process. Rigorous QA testing across every device. The end result? A website that works for you &mdash; one you're confident sending every prospect to.</p>
+      <p class="solution">We handle the entire launch process. Rigorous QA testing across every device. The end result? A website that works for you. One you're confident sending every prospect to.</p>
     </div>
   </div>
 </section>
@@ -1191,25 +1299,91 @@
   </div>
   <div class="law-proof-grid">
     <div class="law-proof-card">
-      <h4>Kirkland Personal Injury</h4>
-      <div class="law-proof-type">Personal Injury Law</div>
-      <p>They came to us with an outdated website that wasn't generating leads. Potential clients searching for a personal injury attorney couldn't find them, and when they did, the site didn't instill confidence.</p>
-      <div class="law-proof-result">Now ranks higher in search results. Intake calls have increased significantly.</div>
+      <div class="law-proof-card-img">
+        <img src="images/lawyers/kirkland-screenshot.png" alt="Kirkland Personal Injury website redesign" width="1440" height="900" loading="lazy" />
+      </div>
+      <div class="law-proof-card-body">
+        <h4>Kirkland Personal Injury</h4>
+        <div class="law-proof-type">Personal Injury Law</div>
+        <p>They came to us with an outdated website that wasn't generating leads. Potential clients searching for a personal injury attorney couldn't find them, and when they did, the site didn't instill confidence.</p>
+        <div class="law-proof-result">Now ranks higher in search results. Intake calls have increased significantly.</div>
+      </div>
     </div>
     <div class="law-proof-card">
-      <h4>Premium Title &amp; Escrow</h4>
-      <div class="law-proof-type">Title Services &bull; 6 States</div>
-      <p>They had a professional reputation, but their online presence didn't match. Real estate agents and lenders who checked them out online weren't impressed.</p>
-      <div class="law-proof-result">Referral partners across all six states now see a credible brand from the first click.</div>
+      <div class="law-proof-card-img">
+        <img src="images/lawyers/premium-title-screenshot.png" alt="Premium Title and Escrow website redesign" width="1440" height="900" loading="lazy" />
+      </div>
+      <div class="law-proof-card-body">
+        <h4>Premium Title &amp; Escrow</h4>
+        <div class="law-proof-type">Title Services &bull; 6 States</div>
+        <p>They had a professional reputation, but their online presence didn't match. Real estate agents and lenders who checked them out online weren't impressed.</p>
+        <div class="law-proof-result">Referral partners across all six states now see a credible brand from the first click.</div>
+      </div>
     </div>
     <div class="law-proof-card">
-      <h4>Paramount Development</h4>
-      <div class="law-proof-type">Luxury Real Estate &bull; Washington DC</div>
-      <p>A luxury real estate firm whose old website didn't match their premium brand. High-end buyers saw a generic site with no premium feel.</p>
-      <div class="law-proof-result">Buyers and investors immediately see a company that operates at the highest level.</div>
+      <div class="law-proof-card-img">
+        <img src="images/lawyers/paramount-screenshot.png" alt="Paramount Development website redesign" width="1440" height="900" loading="lazy" />
+      </div>
+      <div class="law-proof-card-body">
+        <h4>Paramount Development</h4>
+        <div class="law-proof-type">Luxury Real Estate &bull; Washington DC</div>
+        <p>A luxury real estate firm whose old website didn't match their premium brand. High-end buyers saw a generic site with no premium feel.</p>
+        <div class="law-proof-result">Buyers and investors immediately see a company that operates at the highest level.</div>
+      </div>
     </div>
   </div>
   <p class="law-proof-tagline">We deliver results. Every time.</p>
+</section>
+
+<!-- ==========================================
+     CLIENT SHOWCASE — Staggered alternating layout
+     ========================================== -->
+<section class="law-showcase" id="showcase">
+  <div class="law-showcase-header">
+    <div class="dc-section-tag dc-section-tag-purple">Our Work</div>
+    <div class="law-section-title">Real Clients<span class="dc-symbol">.</span> <span class="dc-gradient-text">Real Results</span></div>
+  </div>
+  <div class="law-showcase-items">
+    <!-- 1: Image left, text right -->
+    <div class="law-showcase-item">
+      <div class="law-showcase-img">
+        <img src="images/lawyers/kirkland-screenshot.png" alt="Kirkland Personal Injury website" width="1440" height="900" loading="lazy" />
+      </div>
+      <div class="law-showcase-text">
+        <h3>Kirkland Personal Injury</h3>
+        <div class="law-showcase-type">Personal Injury Law</div>
+        <p>Kirkland came to us with an outdated website that wasn't generating leads. Potential clients searching for a personal injury attorney couldn't find them, and when they did, the site didn't instill confidence.</p>
+        <p>We rebuilt their entire online presence with a professional, trust-first design that positions them as the go-to personal injury firm in their market.</p>
+        <div class="law-showcase-result">Now ranks higher in search results. Intake calls have increased significantly.</div>
+      </div>
+    </div>
+    <!-- 2: Text left, image right (reversed) -->
+    <div class="law-showcase-item">
+      <div class="law-showcase-img">
+        <img src="images/lawyers/premium-title-screenshot.png" alt="Premium Title and Escrow website" width="1440" height="900" loading="lazy" />
+      </div>
+      <div class="law-showcase-text">
+        <h3>Premium Title &amp; Escrow</h3>
+        <div class="law-showcase-type">Title Services &bull; 6 States</div>
+        <p>They had a professional reputation across six states, but their online presence didn't match. Real estate agents and lenders who checked them out online weren't impressed.</p>
+        <p>We delivered a polished brand and website that reflects the premium service they're known for in person.</p>
+        <div class="law-showcase-result">Referral partners across all six states now see a credible brand from the first click.</div>
+      </div>
+    </div>
+    <!-- 3: Image left, text right -->
+    <div class="law-showcase-item">
+      <div class="law-showcase-img">
+        <img src="images/lawyers/paramount-screenshot.png" alt="Paramount Development website" width="1440" height="900" loading="lazy" />
+      </div>
+      <div class="law-showcase-text">
+        <h3>Paramount Development</h3>
+        <div class="law-showcase-type">Luxury Real Estate &bull; Washington DC</div>
+        <p>A luxury real estate firm whose old website didn't match their premium brand. High-end buyers saw a generic site with no premium feel.</p>
+        <p>We created a sleek, cinematic experience that mirrors the quality of their developments and immediately signals prestige.</p>
+        <div class="law-showcase-result">Buyers and investors immediately see a company that operates at the highest level.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ==========================================
@@ -1223,7 +1397,7 @@
       <div class="dc-section-tag dc-section-tag-purple">Beyond Your Website</div>
       <h2>Attract Clients With <span class="dc-gradient-text">Professional Video Ads</span></h2>
 
-      <p>Most law firms rely on their website alone. But the firms winning right now are showing up in front of ideal clients with <strong>professional video ads</strong> &mdash; on social media, YouTube, and local search.</p>
+      <p>Most law firms rely on their website alone. But the firms winning right now are showing up in front of ideal clients with <strong>professional video ads</strong> on social media, YouTube, and local search.</p>
       <p>Traditional video production is expensive and slow. We use <strong>AI-powered tools</strong> to create polished commercials at a fraction of the cost.</p>
       <div class="law-video-ads-features">
         <div class="law-video-feature">
@@ -1253,7 +1427,7 @@
       <iframe src="https://www.youtube.com/embed/yPOCNrJxEyw" title="AI Video Ad Example - Law Firm" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
-  <p class="law-video-ads-bottom"><strong>Website + Video Ads</strong> &mdash; the complete package to dominate your market.</p>
+  <p class="law-video-ads-bottom"><strong>Website + Video Ads.</strong> The complete package to dominate your market.</p>
 </section>
 
 <!-- ==========================================
@@ -1269,6 +1443,10 @@
     <img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="" loading="lazy" />
     <img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="" loading="lazy" />
     <img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/nakamura-voss-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/chambers-whitley-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/prescott-monroe-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/delgado-morales-thumb.png" alt="" loading="lazy" />
   </div>
   <div class="dc-section-tag dc-section-tag-purple">Curious?</div>
   <div class="law-section-title">See How This Would Work for <span class="dc-gradient-text">Your Firm</span></div>
@@ -1299,7 +1477,7 @@
       <h3>We Understand Law Firms</h3>
       <p>We've worked with law firms across different practice areas, and we understand what makes this industry unique.</p>
       <p>We know that <strong>trust is everything</strong>. Potential clients are often going through stressful situations and need to feel confident in their choice before they ever pick up the phone.</p>
-      <p>That expertise shows up in every decision we make &mdash; from the imagery we choose to the way we structure your content to the calls-to-action we place throughout your site.</p>
+      <p>That expertise shows up in every decision we make, from the imagery we choose to the way we structure your content to the calls-to-action we place throughout your site.</p>
     </div>
   </div>
 </section>
@@ -1319,7 +1497,7 @@
         <div class="law-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </div>
       <div class="law-faq-answer">
-        <p>Our projects typically range from five figures to the mid-teens, depending on the scope of work &mdash; whether you need a website refresh, full branding, copywriting, or video ads. Every engagement is tailored to your firm's goals. The best way to get an accurate number is to hop on a quick strategy call so we can understand your situation.</p>
+        <p>Our projects typically range from five figures to the mid-teens, depending on the scope of work. Whether you need a website refresh, full branding, copywriting, or video ads. Every engagement is tailored to your firm's goals. The best way to get an accurate number is to hop on a quick strategy call so we can understand your situation.</p>
       </div>
     </div>
     <div class="law-faq-item">
@@ -1346,7 +1524,7 @@
         <div class="law-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </div>
       <div class="law-faq-answer">
-        <p>Every package includes unlimited revisions. We work until you're 100% satisfied &mdash; no exceptions. We don't move forward until you love what you see.</p>
+        <p>Every package includes unlimited revisions. We work until you're 100% satisfied. No exceptions. We don't move forward until you love what you see.</p>
       </div>
     </div>
     <div class="law-faq-item">
@@ -1364,7 +1542,7 @@
         <div class="law-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </div>
       <div class="law-faq-answer">
-        <p>We'll discuss your firm, your goals, and what's not working with your current website. I'll give you an honest assessment and show you exactly what a transformed online presence looks like for your practice. No pressure, no obligation &mdash; just a conversation.</p>
+        <p>We'll discuss your firm, your goals, and what's not working with your current website. I'll give you an honest assessment and show you exactly what a transformed online presence looks like for your practice. No pressure, no obligation. Just a conversation.</p>
       </div>
     </div>
   </div>
