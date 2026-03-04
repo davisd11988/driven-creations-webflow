@@ -268,6 +268,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(26, 14, 8, 0.85) 0%, rgba(26, 14, 8, 0.4) 70%, transparent 100%);
       transition: var(--transition-elegant);
     }
     .nav.scrolled {
@@ -412,24 +413,27 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      padding-top: 100px;
       padding-bottom: 96px;
       position: relative;
       overflow: hidden;
     }
-    /* Abstract warm background — layered gradients, no photo */
+    /* Abstract warm background — layered gradients with subtle drift */
     .hero-bg {
       position: absolute;
-      inset: 0;
+      inset: -20px;
       background:
         /* Warm diagonal sweep */
         linear-gradient(135deg, #1a0e08 0%, #2a1810 25%, #3a2010 50%, #2a1810 75%, #120a05 100%);
       transform: scale(1.04);
       transition: transform 8s ease-out;
+      animation: heroBaseDrift 30s ease-in-out infinite;
     }
+    /* Burgundy & gold light glows — slow wandering */
     .hero-bg::before {
       content: '';
       position: absolute;
-      inset: 0;
+      inset: -40px;
       background:
         /* Burgundy glow — upper right */
         radial-gradient(ellipse 60% 50% at 75% 20%, rgba(107, 29, 42, 0.35) 0%, transparent 70%),
@@ -440,12 +444,13 @@
         /* Warm highlight — top center */
         radial-gradient(ellipse 70% 30% at 50% 5%, rgba(74, 44, 26, 0.45) 0%, transparent 60%);
       mix-blend-mode: screen;
+      animation: heroGlowDrift 20s ease-in-out infinite;
     }
+    /* Diagonal line texture — slow creep */
     .hero-bg::after {
       content: '';
       position: absolute;
-      inset: 0;
-      /* Subtle diagonal lines texture */
+      inset: -40px;
       background-image:
         repeating-linear-gradient(
           -30deg,
@@ -461,8 +466,36 @@
           rgba(107, 29, 42, 0.02) 120px,
           rgba(107, 29, 42, 0.02) 121px
         );
+      background-size: 200% 200%;
+      animation: heroTexturePan 40s linear infinite;
     }
-    .hero-bg.loaded { transform: scale(1); }
+    .hero-bg.loaded {
+      /* Initial scale handled by animation — override transition */
+      animation: heroBaseDrift 30s ease-in-out infinite;
+    }
+
+    /* ── Hero ambient motion keyframes ──
+       All layers drift along the -30deg diagonal (upper-right → lower-left)
+       matching the pinstripe line direction */
+    @keyframes heroBaseDrift {
+      0%   { transform: scale(1.06) translate(10px, -6px); }
+      50%  { transform: scale(1.06) translate(-10px, 6px); }
+      100% { transform: scale(1.06) translate(10px, -6px); }
+    }
+    @keyframes heroGlowDrift {
+      0%   { transform: translate(14px, -8px) scale(1); opacity: 1; }
+      50%  { transform: translate(-14px, 8px) scale(1.03); opacity: 0.9; }
+      100% { transform: translate(14px, -8px) scale(1); opacity: 1; }
+    }
+    @keyframes heroTexturePan {
+      0%   { background-position: 0% 0%; }
+      100% { background-position: -100% 58%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-bg,
+      .hero-bg::before,
+      .hero-bg::after { animation: none !important; }
+    }
     /* Vignette overlay so text stays crisp */
     .hero-vignette {
       position: absolute;
@@ -1610,7 +1643,7 @@
         <div class="hero-stat-label">Years Serving<br>Dallas</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-number">$9B+</div>
+        <div class="hero-stat-number">3,200+</div>
         <div class="hero-stat-label">Tax Matters<br>Resolved</div>
       </div>
       <div class="hero-stat">
@@ -1680,12 +1713,12 @@
           </div>
           <h2 class="t-headline reveal reveal-delay-1">
             Discretion is not a<br>
-            service &mdash; it is our<br>
+            service. It is our<br>
             <em style="font-style:italic; color:var(--gold-light);">first obligation.</em>
           </h2>
           <div class="philosophy-pull reveal reveal-delay-2">
             <blockquote>
-              "The finest tax counsel is invisible. Our clients sleep soundly because their affairs are in order &mdash; not because they are in the news."
+              "The finest tax counsel is invisible. Our clients sleep soundly because their affairs are in order, not because they are in the news."
             </blockquote>
             <cite> - William D. Thornton, Founding Partner</cite>
           </div>
@@ -1693,7 +1726,7 @@
             Since 1983, Thornton James LLP has guided Dallas's most distinguished families, private enterprises, and family offices through the full spectrum of tax and financial law. We do not chase headlines. We build enduring relationships grounded in integrity, precision, and an unwavering commitment to our clients' financial futures.
           </p>
           <p class="t-body reveal reveal-delay-4">
-            Our attorneys are not generalists. Each brings deep, concentrated expertise to a specific domain of tax and financial law &mdash; and together, we bring the full weight of that knowledge to bear on every engagement.
+            Our attorneys are not generalists. Each brings deep, concentrated expertise to a specific domain of tax and financial law, and together, we bring the full weight of that knowledge to bear on every engagement.
           </p>
           <div class="philosophy-pillars reveal reveal-delay-5">
             <div class="philosophy-pillar">
@@ -1773,7 +1806,7 @@
             <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
           </div>
           <h3 class="practice-title">Business Succession</h3>
-          <p class="practice-desc">The transition of a family enterprise is among the most consequential events in a business's history. We structure the transaction &mdash; and the relationships &mdash; to ensure the legacy you have built endures on your terms.</p>
+          <p class="practice-desc">The transition of a family enterprise is among the most consequential events in a business's history. We structure both the transaction and the relationships to ensure the legacy you have built endures on your terms.</p>
           <div class="practice-card-footer">
             Explore this area
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1787,7 +1820,7 @@
             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 class="practice-title">IRS Disputes &amp; Audits</h3>
-          <p class="practice-desc">When the government calls, composure matters as much as competence. Our seasoned litigators bring decades of negotiation experience to every IRS controversy &mdash; protecting your interests at every stage of the administrative and judicial process.</p>
+          <p class="practice-desc">When the government calls, composure matters as much as competence. Our seasoned litigators bring decades of negotiation experience to every IRS controversy, protecting your interests at every stage of the administrative and judicial process.</p>
           <div class="practice-card-footer">
             Explore this area
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1801,7 +1834,7 @@
             <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
           </div>
           <h3 class="practice-title">Wealth Preservation</h3>
-          <p class="practice-desc">Accumulated wealth requires ongoing stewardship. We design integrated structures &mdash; trusts, family limited partnerships, charitable vehicles &mdash; that protect assets from exposure while maximizing growth and tax efficiency across the family balance sheet.</p>
+          <p class="practice-desc">Accumulated wealth requires ongoing stewardship. We design integrated structures, including trusts, family limited partnerships, and charitable vehicles, that protect assets from exposure while maximizing growth and tax efficiency across the family balance sheet.</p>
           <div class="practice-card-footer">
             Explore this area
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1815,7 +1848,7 @@
             <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </div>
           <h3 class="practice-title">M&amp;A Tax Advisory</h3>
-          <p class="practice-desc">Every transaction has a tax dimension that shapes its ultimate value. Our M&amp;A tax team structures deal economics from letter of intent through closing &mdash; identifying exposures, optimizing consideration, and ensuring the economics reflect the intention.</p>
+          <p class="practice-desc">Every transaction has a tax dimension that shapes its ultimate value. Our M&amp;A tax team structures deal economics from letter of intent through closing, identifying exposures, optimizing consideration, and ensuring the economics reflect the intention.</p>
           <div class="practice-card-footer">
             Explore this area
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1845,7 +1878,7 @@
         <div class="legacy-right reveal">
           <h3 class="t-subheadline">Trusted by Texas's<br>Most Prominent Families</h3>
           <p class="t-body-sm">
-            From oil and gas dynasties to tech founders, multi-generational ranches to family foundations, our client roster reads like a quiet history of Dallas enterprise. We cannot share their names &mdash; and that is precisely why they trust us.
+            From oil and gas dynasties to tech founders, multi-generational ranches to family foundations, our client roster reads like a quiet history of Dallas enterprise. We cannot share their names, and that is precisely why they trust us.
           </p>
         </div>
       </div>
@@ -1867,7 +1900,7 @@
         </div>
         <div class="credentials-separator reveal reveal-delay-2" aria-hidden="true"></div>
         <div class="credential-item reveal reveal-delay-2">
-          <div class="credential-value">$9B+</div>
+          <div class="credential-value">3,200+</div>
           <div class="credential-label">Tax Matters Counseled</div>
         </div>
         <div class="credentials-separator reveal reveal-delay-3" aria-hidden="true"></div>
@@ -1970,7 +2003,7 @@
       <div class="testimonial-inner">
         <span class="testimonial-quote-mark reveal" aria-hidden="true">&ldquo;</span>
         <p class="testimonial-text reveal reveal-delay-1" id="testimonial-text">
-          Thornton James has represented our family's financial interests for twenty-seven years. Three generations, two estate transitions, and a business sale that spanned eighteen months. They have never once let us down &mdash; and they have never once made us feel like a file number.
+          Thornton James has represented our family's financial interests for twenty-seven years. Three generations, two estate transitions, and a business sale that spanned eighteen months. They have never once let us down, and they have never once made us feel like a file number.
         </p>
         <div class="testimonial-divider reveal reveal-delay-2"></div>
         <div class="testimonial-author reveal reveal-delay-3" id="testimonial-author">
@@ -2004,7 +2037,7 @@
             <em style="font-style:italic; color:var(--gold-light);">costs you nothing.</em>
           </h2>
           <p class="t-body reveal reveal-delay-2">
-            Initial consultations are conducted in complete confidence. Our attorneys will listen, evaluate your circumstances, and provide a candid assessment &mdash; with no obligation and no pressure. We earn your trust before we ask for your business.
+            Initial consultations are conducted in complete confidence. Our attorneys will listen, evaluate your circumstances, and provide a candid assessment, with no obligation and no pressure. We earn your trust before we ask for your business.
           </p>
           <p class="t-body reveal reveal-delay-3">
             Engagements are accepted on a selective basis. We limit our client roster deliberately, so that every client receives the full attention of a senior partner.
@@ -2201,12 +2234,12 @@
     /* ── Testimonial carousel ── */
     const testimonials = [
       {
-        text: "Thornton James has represented our family's financial interests for twenty-seven years. Three generations, two estate transitions, and a business sale that spanned eighteen months. They have never once let us down &mdash; and they have never once made us feel like a file number.",
+        text: "Thornton James has represented our family's financial interests for twenty-seven years. Three generations, two estate transitions, and a business sale that spanned eighteen months. They have never once let us down, and they have never once made us feel like a file number.",
         name: "George &amp; Eleanor Whitfield",
         role: "Third-Generation Dallas Family &nbsp;&middot;&nbsp; Clients Since 1998"
       },
       {
-        text: "When the IRS came for us, I called every firm in Dallas. Only Thornton James told me the truth: it would be hard, it would take time, and they would be with us every step. They were right on all three counts &mdash; and we prevailed. I would not trust my affairs to anyone else.",
+        text: "When the IRS came for us, I called every firm in Dallas. Only Thornton James told me the truth: it would be hard, it would take time, and they would be with us every step. They were right on all three counts, and we prevailed. I would not trust my affairs to anyone else.",
         name: "Richard M. Caldwell",
         role: "Founder, Caldwell Energy Partners &nbsp;&middot;&nbsp; Client Since 2009"
       },
