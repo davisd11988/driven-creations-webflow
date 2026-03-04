@@ -42,7 +42,7 @@
         { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
         { "key": "Vary", "value": "Accept-Encoding" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' assets.calendly.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: img.youtube.com; font-src 'self'; frame-src calendly.com www.youtube.com www.youtube-nocookie.com; connect-src 'self' calendly.com; object-src 'none'; base-uri 'self'; form-action 'self'" }
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' assets.calendly.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: img.youtube.com; font-src 'self' fonts.gstatic.com; frame-src calendly.com www.youtube.com www.youtube-nocookie.com; connect-src 'self' calendly.com; object-src 'none'; base-uri 'self'; form-action 'self'" }
       ]
     }
   ],

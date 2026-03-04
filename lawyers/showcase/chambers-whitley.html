@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chambers Whitley — Environmental Law Firm in Denver, Colorado. Protecting natural resources, clean air, water rights, and wildlands through rigorous environmental advocacy." />
+  <meta property="og:title" content="Chambers Whitley — Environmental Law, Denver CO" />
+  <meta property="og:description" content="Denver environmental law firm committed to protecting Colorado's natural heritage. Clean Air, Water Rights, NEPA, Endangered Species, Land Use, and Corporate Sustainability." />
+  <meta property="og:type" content="website" />
+  <title>Chambers Whitley — Environmental Law | Denver, Colorado</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --forest:       #1a3a2a;
+      --forest-deep:  #111f18;
+      --forest-mid:   #243d2f;
+      --sandstone:    #c4a777;
+      --sandstone-lt: #d4bc96;
+      --sandstone-dk: #a8895a;
+      --earth:        #5c4a3a;
+      --earth-lt:     #7a6252;
+      --slate:        #2d3a3a;
+      --slate-lt:     #3e5050;
+      --sage:         #7a9a7a;
+      --sage-lt:      #9ab89a;
+      --sage-dk:      #5a7a5a;
+      --cream:        #f0ebe3;
+      --cream-dk:     #e0d8cc;
+      --cream-lt:     #f8f4ef;
+      --charcoal:     #1c1c1c;
+      --charcoal-lt:  #2a2a2a;
+      --text-light:   #d4cdc2;
+      --text-dim:     #8a9080;
+      --text-faint:   #546054;
+      --border-lt:    rgba(196, 167, 119, 0.15);
+      --border-md:    rgba(196, 167, 119, 0.25);
+      --border-sage:  rgba(122, 154, 122, 0.2);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--charcoal);
+      color: var(--text-light);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* ─────────────────────────────────────────
+       TOPOGRAPHIC BACKGROUND PATTERN
+       SVG inline data-URI — CSS only, no external URLs
+    ───────────────────────────────────────── */
+    .topo-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .topo-bg::before {
+      content: '';
+      position: absolute;
+      inset: -20%;
+      opacity: 0.06;
+      background-image:
+        /* Topo rings — stacked elliptical gradients that mimic contour lines */
+        radial-gradient(ellipse 120% 60% at 30% 40%, transparent 18%, rgba(122,154,122,0.8) 19%, transparent 20%),
+        radial-gradient(ellipse 120% 60% at 30% 40%, transparent 27%, rgba(122,154,122,0.8) 28%, transparent 29%),
+        radial-gradient(ellipse 120% 60% at 30% 40%, transparent 36%, rgba(122,154,122,0.8) 37%, transparent 38%),
+        radial-gradient(ellipse 120% 60% at 30% 40%, transparent 45%, rgba(122,154,122,0.8) 46%, transparent 47%),
+        radial-gradient(ellipse 120% 60% at 30% 40%, transparent 54%, rgba(122,154,122,0.8) 55%, transparent 56%),
+        radial-gradient(ellipse 120% 60% at 30% 40%, transparent 63%, rgba(122,154,122,0.8) 64%, transparent 65%),
+        radial-gradient(ellipse 120% 60% at 30% 40%, transparent 72%, rgba(122,154,122,0.8) 73%, transparent 74%),
+        radial-gradient(ellipse 80% 40% at 70% 65%, transparent 15%, rgba(196,167,119,0.6) 16%, transparent 17%),
+        radial-gradient(ellipse 80% 40% at 70% 65%, transparent 25%, rgba(196,167,119,0.6) 26%, transparent 27%),
+        radial-gradient(ellipse 80% 40% at 70% 65%, transparent 35%, rgba(196,167,119,0.6) 36%, transparent 37%),
+        radial-gradient(ellipse 80% 40% at 70% 65%, transparent 45%, rgba(196,167,119,0.6) 46%, transparent 47%),
+        radial-gradient(ellipse 80% 40% at 70% 65%, transparent 55%, rgba(196,167,119,0.6) 56%, transparent 57%);
+      background-size: 100% 100%;
+    }
+
+    .topo-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image:
+        /* Fine grain overlay */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ─────────────────────────────────────────
+       UTILITY
+    ───────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .section {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .section--tight {
+      padding: 80px 0;
+    }
+
+    .label {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sandstone);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--sandstone);
+      flex-shrink: 0;
+    }
+
+    .heading-xl {
+      font-family: 'Bitter', serif;
+      font-size: clamp(3.2rem, 6vw, 6rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+    }
+
+    .heading-lg {
+      font-family: 'Bitter', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--cream);
+    }
+
+    .heading-md {
+      font-family: 'Bitter', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--cream);
+    }
+
+    .heading-sm {
+      font-family: 'Bitter', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--cream);
+    }
+
+    .body-lg {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    .body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    .text-sandstone { color: var(--sandstone); }
+    .text-sage { color: var(--sage); }
+    .text-cream { color: var(--cream); }
+    .text-dim { color: var(--text-dim); }
+
+    /* ─────────────────────────────────────────
+       BUTTONS
+    ───────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn--primary {
+      background: var(--sandstone);
+      color: var(--charcoal);
+    }
+
+    .btn--primary:hover {
+      background: var(--sandstone-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(196, 167, 119, 0.3);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(240, 235, 227, 0.3);
+    }
+
+    .btn--outline:hover {
+      border-color: var(--sandstone);
+      color: var(--sandstone);
+      transform: translateY(-2px);
+    }
+
+    .btn-arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ─────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 0;
+      transition: padding 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav.scrolled {
+      padding: 16px 0;
+      background: rgba(18, 20, 18, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: var(--border-lt);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+    }
+
+    .nav__logo-name {
+      font-family: 'Bitter', serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+    }
+
+    .nav__logo-sub {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sandstone);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      color: var(--text-dim);
+      transition: color 0.25s ease;
+      text-transform: uppercase;
+    }
+
+    .nav__links a:hover {
+      color: var(--sage-lt);
+    }
+
+    .nav__cta {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--sandstone);
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 1px solid var(--border-md);
+      padding: 10px 22px;
+      border-radius: 3px;
+      transition: all 0.25s ease;
+    }
+
+    .nav__cta:hover {
+      background: var(--sandstone);
+      color: var(--charcoal);
+      border-color: var(--sandstone);
+    }
+
+    /* Hamburger */
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--cream);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+
+    .nav__hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav__hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .nav__hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile menu */
+    .nav__mobile {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--forest-deep);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .nav__mobile.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .nav__mobile a {
+      font-family: 'Bitter', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav__mobile a:hover {
+      color: var(--sandstone);
+    }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(
+        160deg,
+        var(--forest-deep) 0%,
+        #152416 35%,
+        var(--slate) 65%,
+        #1a2020 100%
+      );
+    }
+
+    /* Topo lines for hero */
+    .hero__topo {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero__topo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.07;
+      background:
+        radial-gradient(ellipse 140% 70% at 75% 55%, transparent 10%, rgba(122,154,122,1) 11%, transparent 12%),
+        radial-gradient(ellipse 140% 70% at 75% 55%, transparent 19%, rgba(122,154,122,1) 20%, transparent 21%),
+        radial-gradient(ellipse 140% 70% at 75% 55%, transparent 28%, rgba(122,154,122,1) 29%, transparent 30%),
+        radial-gradient(ellipse 140% 70% at 75% 55%, transparent 37%, rgba(122,154,122,1) 38%, transparent 39%),
+        radial-gradient(ellipse 140% 70% at 75% 55%, transparent 46%, rgba(122,154,122,1) 47%, transparent 48%),
+        radial-gradient(ellipse 140% 70% at 75% 55%, transparent 55%, rgba(122,154,122,1) 56%, transparent 57%),
+        radial-gradient(ellipse 140% 70% at 75% 55%, transparent 64%, rgba(122,154,122,1) 65%, transparent 66%),
+        radial-gradient(ellipse 140% 70% at 75% 55%, transparent 73%, rgba(122,154,122,1) 74%, transparent 75%),
+        radial-gradient(ellipse 140% 70% at 75% 55%, transparent 82%, rgba(122,154,122,1) 83%, transparent 84%);
+    }
+
+    .hero__topo::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 55%;
+      opacity: 0.04;
+      background:
+        radial-gradient(ellipse 100% 55% at 60% 60%, transparent 8%, rgba(196,167,119,1) 9%, transparent 10%),
+        radial-gradient(ellipse 100% 55% at 60% 60%, transparent 17%, rgba(196,167,119,1) 18%, transparent 19%),
+        radial-gradient(ellipse 100% 55% at 60% 60%, transparent 26%, rgba(196,167,119,1) 27%, transparent 28%),
+        radial-gradient(ellipse 100% 55% at 60% 60%, transparent 35%, rgba(196,167,119,1) 36%, transparent 37%),
+        radial-gradient(ellipse 100% 55% at 60% 60%, transparent 44%, rgba(196,167,119,1) 45%, transparent 46%),
+        radial-gradient(ellipse 100% 55% at 60% 60%, transparent 53%, rgba(196,167,119,1) 54%, transparent 55%),
+        radial-gradient(ellipse 100% 55% at 60% 60%, transparent 62%, rgba(196,167,119,1) 63%, transparent 64%);
+    }
+
+    /* Mountain silhouette divider */
+    .hero__mountain {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 180px;
+      pointer-events: none;
+    }
+
+    .hero__mountain svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Gradient overlay on right side */
+    .hero__fade {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 40%;
+      background: linear-gradient(90deg, transparent, rgba(10, 20, 10, 0.5));
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      padding-top: 120px;
+      padding-bottom: 200px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .hero__text {
+      max-width: 600px;
+    }
+
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 32px;
+    }
+
+    .hero__eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--sage);
+    }
+
+    .hero__heading {
+      font-family: 'Bitter', serif;
+      font-size: clamp(3.4rem, 6.5vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+
+    .hero__heading em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--sandstone);
+    }
+
+    .hero__tagline {
+      font-size: 1.1875rem;
+      line-height: 1.75;
+      color: var(--text-light);
+      max-width: 480px;
+      margin-bottom: 48px;
+      opacity: 0.9;
+    }
+
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero__aside {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-self: flex-end;
+      padding-bottom: 60px;
+    }
+
+    .hero__stat-card {
+      background: rgba(26, 58, 42, 0.35);
+      border: 1px solid var(--border-lt);
+      border-left: 3px solid var(--sandstone);
+      border-radius: 4px;
+      padding: 28px 32px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .hero__stat-num {
+      font-family: 'Bitter', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--sandstone);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero__stat-label {
+      font-size: 0.875rem;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    .hero__cert {
+      background: rgba(45, 58, 58, 0.4);
+      border: 1px solid var(--border-sage);
+      border-radius: 4px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero__cert-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(122, 154, 122, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hero__cert-text {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--sage-lt);
+      line-height: 1.4;
+    }
+
+    /* Scroll indicator */
+    .hero__scroll {
+      position: absolute;
+      bottom: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .hero__scroll-text {
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      writing-mode: vertical-rl;
+    }
+
+    .hero__scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--sandstone), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    /* ─────────────────────────────────────────
+       ANIMATIONS — organic, plant-like
+    ───────────────────────────────────────── */
+    @keyframes riseUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes rootIn {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes unfurl {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero__eyebrow { animation: unfurl 0.8s ease both 0.2s; }
+    .hero__heading { animation: riseUp 1s ease both 0.4s; }
+    .hero__tagline { animation: riseUp 1s ease both 0.6s; }
+    .hero__actions { animation: riseUp 1s ease both 0.8s; }
+    .hero__stat-card:nth-child(1) { animation: rootIn 0.9s ease both 0.9s; }
+    .hero__stat-card:nth-child(2) { animation: rootIn 0.9s ease both 1.1s; }
+    .hero__cert { animation: rootIn 0.9s ease both 1.3s; }
+
+    /* Intersection observer reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+    .reveal--delay-4 { transition-delay: 0.4s; }
+    .reveal--delay-5 { transition-delay: 0.5s; }
+
+    /* ─────────────────────────────────────────
+       SECTION: MISSION / ABOUT
+    ───────────────────────────────────────── */
+    .mission {
+      background: var(--forest-deep);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--sandstone), transparent);
+      opacity: 0.3;
+    }
+
+    .mission__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .mission__accent-line {
+      width: 3px;
+      height: 80px;
+      background: linear-gradient(to bottom, var(--sandstone), transparent);
+      margin-bottom: 40px;
+    }
+
+    .mission__body {
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+
+    .mission__quote {
+      border-left: 2px solid var(--sage);
+      padding-left: 28px;
+      margin-top: 40px;
+    }
+
+    .mission__quote p {
+      font-family: 'Bitter', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.65;
+    }
+
+    .mission__quote cite {
+      display: block;
+      font-style: normal;
+      font-size: 0.8125rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-top: 16px;
+    }
+
+    /* Values / pillars */
+    .mission__pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .pillar {
+      background: rgba(26, 58, 42, 0.3);
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 32px 36px;
+      transition: all 0.35s ease;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--sandstone);
+      transform: scaleY(0);
+      transition: transform 0.35s ease;
+      transform-origin: bottom;
+    }
+
+    .pillar:hover {
+      background: rgba(26, 58, 42, 0.55);
+      border-color: var(--border-lt);
+    }
+
+    .pillar:hover::before {
+      transform: scaleY(1);
+    }
+
+    .pillar__icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .pillar__title {
+      font-family: 'Bitter', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .pillar__body {
+      font-size: 0.9375rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    /* ─────────────────────────────────────────
+       SECTION: PRACTICE AREAS
+    ───────────────────────────────────────── */
+    .practice {
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Faint topo watermark */
+    .practice::before {
+      content: '';
+      position: absolute;
+      right: -10%;
+      top: 10%;
+      width: 55%;
+      height: 80%;
+      opacity: 0.03;
+      background:
+        radial-gradient(ellipse 100% 60% at 50% 50%, transparent 10%, rgba(196,167,119,1) 11%, transparent 12%),
+        radial-gradient(ellipse 100% 60% at 50% 50%, transparent 22%, rgba(196,167,119,1) 23%, transparent 24%),
+        radial-gradient(ellipse 100% 60% at 50% 50%, transparent 34%, rgba(196,167,119,1) 35%, transparent 36%),
+        radial-gradient(ellipse 100% 60% at 50% 50%, transparent 46%, rgba(196,167,119,1) 47%, transparent 48%),
+        radial-gradient(ellipse 100% 60% at 50% 50%, transparent 58%, rgba(196,167,119,1) 59%, transparent 60%),
+        radial-gradient(ellipse 100% 60% at 50% 50%, transparent 70%, rgba(196,167,119,1) 71%, transparent 72%);
+      pointer-events: none;
+    }
+
+    .practice__header {
+      max-width: 600px;
+      margin-bottom: 72px;
+    }
+
+    .practice__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .practice-card {
+      background: rgba(28, 28, 28, 0.8);
+      border: 1px solid rgba(240, 235, 227, 0.06);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      cursor: default;
+    }
+
+    .practice-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--sandstone);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+      transform-origin: left;
+    }
+
+    .practice-card:hover {
+      background: rgba(26, 58, 42, 0.25);
+      border-color: var(--border-lt);
+    }
+
+    .practice-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .practice-card__number {
+      font-family: 'Bitter', serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: var(--sandstone);
+      opacity: 0.6;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .practice-card__icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(122, 154, 122, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      transition: background 0.3s ease;
+    }
+
+    .practice-card:hover .practice-card__icon {
+      background: rgba(122, 154, 122, 0.2);
+    }
+
+    .practice-card__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--sage);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .practice-card__title {
+      font-family: 'Bitter', serif;
+      font-size: 1.1875rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .practice-card__body {
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: var(--text-dim);
+      margin-bottom: 28px;
+    }
+
+    .practice-card__link {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sandstone);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.25s ease;
+    }
+
+    .practice-card__link:hover {
+      gap: 14px;
+    }
+
+    /* ─────────────────────────────────────────
+       MOUNTAIN RANGE DIVIDER
+    ───────────────────────────────────────── */
+    .mountain-divider {
+      position: relative;
+      height: 120px;
+      overflow: hidden;
+    }
+
+    .mountain-divider svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    /* ─────────────────────────────────────────
+       SECTION: IMPACT / STATS
+    ───────────────────────────────────────── */
+    .impact {
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .impact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.05;
+      background:
+        radial-gradient(ellipse 160% 80% at 20% 50%, transparent 12%, rgba(240,235,227,1) 13%, transparent 14%),
+        radial-gradient(ellipse 160% 80% at 20% 50%, transparent 24%, rgba(240,235,227,1) 25%, transparent 26%),
+        radial-gradient(ellipse 160% 80% at 20% 50%, transparent 36%, rgba(240,235,227,1) 37%, transparent 38%),
+        radial-gradient(ellipse 160% 80% at 20% 50%, transparent 48%, rgba(240,235,227,1) 49%, transparent 50%),
+        radial-gradient(ellipse 160% 80% at 20% 50%, transparent 60%, rgba(240,235,227,1) 61%, transparent 62%),
+        radial-gradient(ellipse 160% 80% at 20% 50%, transparent 72%, rgba(240,235,227,1) 73%, transparent 74%);
+      pointer-events: none;
+    }
+
+    .impact__header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 80px;
+    }
+
+    .impact__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-bottom: 80px;
+    }
+
+    .impact-stat {
+      padding: 52px 40px;
+      border: 1px solid rgba(240, 235, 227, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      text-align: center;
+      position: relative;
+    }
+
+    .impact-stat::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background: var(--sandstone);
+      opacity: 0.6;
+    }
+
+    .impact-stat__num {
+      font-family: 'Bitter', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--sandstone);
+      line-height: 1;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .impact-stat__unit {
+      font-size: 1.5rem;
+    }
+
+    .impact-stat__label {
+      font-size: 0.875rem;
+      color: var(--sage-lt);
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+    }
+
+    /* Landmark cases */
+    .impact__cases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .case-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(240, 235, 227, 0.08);
+      padding: 40px 44px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s ease;
+    }
+
+    .case-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .case-card__tag {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .case-card__title {
+      font-family: 'Bitter', serif;
+      font-size: 1.1875rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .case-card__body {
+      font-size: 0.9375rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    .case-card__outcome {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--sandstone);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─────────────────────────────────────────
+       SECTION: TEAM
+    ───────────────────────────────────────── */
+    .team {
+      background: var(--charcoal-lt);
+      position: relative;
+    }
+
+    .team__header {
+      max-width: 560px;
+      margin-bottom: 72px;
+    }
+
+    .team__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .team-card {
+      background: rgba(26, 58, 42, 0.15);
+      border: 1px solid rgba(240, 235, 227, 0.06);
+      padding: 40px 32px;
+      transition: all 0.35s ease;
+      cursor: default;
+    }
+
+    .team-card:hover {
+      background: rgba(26, 58, 42, 0.3);
+      border-color: var(--border-lt);
+      transform: translateY(-4px);
+    }
+
+    .team-card__avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--forest-mid);
+      border: 2px solid var(--border-lt);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .team-card__avatar-initials {
+      font-family: 'Bitter', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--sandstone);
+    }
+
+    /* Leaf decorative shape on avatar */
+    .team-card__avatar::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      width: 22px;
+      height: 22px;
+      background: var(--sage-dk);
+      border-radius: 0 50% 50% 50%;
+      transform: rotate(-45deg);
+      border: 2px solid var(--charcoal-lt);
+    }
+
+    .team-card__name {
+      font-family: 'Bitter', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .team-card__title {
+      font-size: 0.8125rem;
+      color: var(--sandstone);
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .team-card__focus {
+      font-size: 0.875rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .team-card__edu {
+      font-size: 0.75rem;
+      color: var(--text-faint);
+      letter-spacing: 0.04em;
+      border-top: 1px solid rgba(240, 235, 227, 0.06);
+      padding-top: 16px;
+    }
+
+    /* ─────────────────────────────────────────
+       SECTION: CTA
+    ───────────────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--forest-deep) 0%, var(--slate) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      background:
+        radial-gradient(ellipse 120% 70% at 80% 30%, transparent 12%, rgba(122,154,122,1) 13%, transparent 14%),
+        radial-gradient(ellipse 120% 70% at 80% 30%, transparent 23%, rgba(122,154,122,1) 24%, transparent 25%),
+        radial-gradient(ellipse 120% 70% at 80% 30%, transparent 34%, rgba(122,154,122,1) 35%, transparent 36%),
+        radial-gradient(ellipse 120% 70% at 80% 30%, transparent 45%, rgba(122,154,122,1) 46%, transparent 47%),
+        radial-gradient(ellipse 120% 70% at 80% 30%, transparent 56%, rgba(122,154,122,1) 57%, transparent 58%),
+        radial-gradient(ellipse 120% 70% at 80% 30%, transparent 67%, rgba(122,154,122,1) 68%, transparent 69%);
+      pointer-events: none;
+    }
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--sandstone), transparent);
+      opacity: 0.3;
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .cta-inner__heading {
+      font-family: 'Bitter', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .cta-inner__heading em {
+      font-style: italic;
+      color: var(--sandstone);
+    }
+
+    .cta-inner__sub {
+      font-size: 1.0625rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .cta-inner__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      min-width: 240px;
+    }
+
+    .cta-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cta-contact a {
+      font-family: 'Bitter', serif;
+      font-size: 1.375rem;
+      font-weight: 500;
+      color: var(--sandstone);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .cta-contact a:hover { color: var(--sandstone-lt); }
+
+    .cta-contact span {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    .footer {
+      background: var(--forest-deep);
+      border-top: 1px solid var(--border-lt);
+      padding: 64px 0 40px;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 56px;
+    }
+
+    .footer__brand-name {
+      font-family: 'Bitter', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .footer__brand-sub {
+      font-size: 0.6875rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sandstone);
+      margin-bottom: 20px;
+    }
+
+    .footer__brand-body {
+      font-size: 0.9375rem;
+      color: var(--text-dim);
+      line-height: 1.75;
+      max-width: 280px;
+    }
+
+    .footer__col-title {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sandstone);
+      margin-bottom: 20px;
+    }
+
+    .footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer__links a {
+      font-size: 0.9375rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer__links a:hover { color: var(--sage-lt); }
+
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(240, 235, 227, 0.05);
+      padding-top: 32px;
+    }
+
+    .footer__copy {
+      font-size: 0.8125rem;
+      color: var(--text-faint);
+    }
+
+    .footer__badges {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer__badge {
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      border: 1px solid rgba(240, 235, 227, 0.08);
+      padding: 6px 12px;
+      border-radius: 2px;
+    }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
+    @media (max-width: 991px) {
+      .container { padding: 0 32px; }
+      .section { padding: 88px 0; }
+
+      .nav__links,
+      .nav__cta { display: none; }
+      .nav__hamburger { display: flex; }
+      .nav__mobile { display: flex; }
+
+      .hero__content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding-bottom: 160px;
+      }
+
+      .hero__aside {
+        align-self: auto;
+        padding-bottom: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .hero__cert { grid-column: 1 / -1; }
+
+      .mission__grid { grid-template-columns: 1fr; gap: 56px; }
+
+      .practice__grid { grid-template-columns: repeat(2, 1fr); }
+
+      .impact__grid { grid-template-columns: repeat(2, 1fr); }
+
+      .impact__cases { grid-template-columns: 1fr; }
+
+      .team__grid { grid-template-columns: repeat(2, 1fr); }
+
+      .cta-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 767px) {
+      .container { padding: 0 24px; }
+      .section { padding: 72px 0; }
+
+      .hero__heading { font-size: 3rem; }
+      .hero__content { padding-bottom: 140px; }
+      .hero__aside { grid-template-columns: 1fr; }
+      .hero__cert { grid-column: auto; }
+
+      .practice__grid { grid-template-columns: 1fr; }
+
+      .impact__grid { grid-template-columns: repeat(2, 1fr); }
+
+      .team__grid { grid-template-columns: 1fr 1fr; }
+
+      .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+
+    @media (max-width: 479px) {
+      .container { padding: 0 20px; }
+      .section { padding: 60px 0; }
+
+      .hero__heading { font-size: 2.5rem; }
+      .hero__actions { flex-direction: column; align-items: flex-start; }
+      .hero__actions .btn { width: 100%; justify-content: center; }
+
+      .impact__grid { grid-template-columns: 1fr; }
+
+      .team__grid { grid-template-columns: 1fr; }
+
+      .cta-inner__actions { width: 100%; }
+      .cta-inner__actions .btn { width: 100%; justify-content: center; }
+
+      .footer__badges { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav class="nav" id="mainNav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo">
+          <span class="nav__logo-name">Chambers Whitley</span>
+          <span class="nav__logo-sub">Environmental Law</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="#mission">About</a></li>
+          <li><a href="#practice">Practice</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+        <a href="#contact" class="nav__cta">Free Consultation</a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="#mission" class="mobile-link">About</a>
+    <a href="#practice" class="mobile-link">Practice Areas</a>
+    <a href="#impact" class="mobile-link">Impact</a>
+    <a href="#team" class="mobile-link">Our Team</a>
+    <a href="#contact" class="mobile-link" style="color: var(--sandstone);">Consultation</a>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="home">
+    <div class="hero__topo"></div>
+    <div class="hero__fade"></div>
+
+    <div class="container" style="position: relative; z-index: 2; width: 100%;">
+      <div class="hero__content">
+        <div class="hero__text">
+          <div class="hero__eyebrow">Denver, Colorado &nbsp;·&nbsp; Est. 1998</div>
+          <h1 class="hero__heading">
+            The land<br>
+            has a<br>
+            <em>voice.</em><br>
+            We speak for it.
+          </h1>
+          <p class="hero__tagline">
+            Chambers Whitley is Colorado's leading environmental law firm — defending clean air, protecting water rights, and holding industry accountable to the natural world.
+          </p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">
+              Free Consultation
+              <span class="btn-arrow">&#8594;</span>
+            </a>
+            <a href="#practice" class="btn btn--outline">Our Practice Areas</a>
+          </div>
+        </div>
+
+        <div class="hero__aside">
+          <div class="hero__stat-card">
+            <div class="hero__stat-num">340+</div>
+            <div class="hero__stat-label">Environmental cases successfully resolved</div>
+          </div>
+          <div class="hero__stat-card">
+            <div class="hero__stat-num">2.8M</div>
+            <div class="hero__stat-label">Acres of Colorado wilderness protected</div>
+          </div>
+          <div class="hero__cert">
+            <div class="hero__cert-icon">
+              <!-- Leaf icon -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7a9a7a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+              </svg>
+            </div>
+            <div class="hero__cert-text">LEED Accredited Office &nbsp;·&nbsp; B Corp Certified Practice</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mountain silhouette divider -->
+    <div class="hero__mountain">
+      <svg viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="mountainFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#111f18" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#111f18" stop-opacity="1"/>
+          </linearGradient>
+        </defs>
+        <!-- Far range — lighter -->
+        <path d="M0,180 L0,120 L60,90 L140,140 L220,70 L320,100 L400,55 L500,110 L580,80 L660,130 L740,60 L840,105 L920,45 L1020,95 L1100,65 L1180,110 L1260,75 L1340,120 L1440,80 L1440,180 Z" fill="rgba(26,58,42,0.25)"/>
+        <!-- Near range — dark forest -->
+        <path d="M0,180 L0,150 L80,100 L160,160 L240,95 L340,155 L440,85 L520,140 L600,100 L680,165 L760,90 L860,145 L960,75 L1060,135 L1140,90 L1220,155 L1320,105 L1440,140 L1440,180 Z" fill="url(#mountainFill)"/>
+      </svg>
+    </div>
+
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      <div class="hero__scroll-text">Scroll</div>
+    </div>
+  </section>
+
+  <!-- ─── MISSION / ABOUT ─── -->
+  <section class="mission section" id="mission">
+    <div class="topo-bg"></div>
+    <div class="container">
+      <div class="mission__grid">
+        <div>
+          <div class="mission__accent-line reveal"></div>
+          <div class="label reveal">Our Mission</div>
+          <h2 class="heading-lg reveal reveal--delay-1" style="margin-bottom: 32px;">Rooted in the land.<br>Rigorous in the law.</h2>
+          <p class="mission__body reveal reveal--delay-2">
+            Since 1998, Chambers Whitley has represented environmental organizations, Indigenous tribes, municipalities, and private landowners in Colorado's most consequential environmental battles. We believe that legal advocacy for natural systems is among the most urgent work of our time.
+          </p>
+          <p class="mission__body reveal reveal--delay-3">
+            Our attorneys bring deep technical fluency — in geology, hydrology, and ecology — alongside litigation experience that spans federal appellate courts to administrative hearings. We don't just know environmental law. We understand the land we're fighting to protect.
+          </p>
+          <div class="mission__quote reveal reveal--delay-4">
+            <p>"The Colorado River doesn't hire a lawyer. We do that for it."</p>
+            <cite>— Eleanor Chambers, Founding Partner</cite>
+          </div>
+        </div>
+
+        <div class="mission__pillars">
+          <div class="pillar reveal">
+            <span class="pillar__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4a777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+              </svg>
+            </span>
+            <div class="pillar__title">Federal Advocacy</div>
+            <div class="pillar__body">We litigate in federal district and appellate courts, including the Tenth Circuit, defending environmental statutes against industry challenge.</div>
+          </div>
+          <div class="pillar reveal reveal--delay-1">
+            <span class="pillar__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4a777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/>
+              </svg>
+            </span>
+            <div class="pillar__title">Community Partnerships</div>
+            <div class="pillar__body">We work alongside rural communities, conservation districts, and tribal nations to build durable legal protections for the places they call home.</div>
+          </div>
+          <div class="pillar reveal reveal--delay-2">
+            <span class="pillar__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4a777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </span>
+            <div class="pillar__title">Science-Backed Law</div>
+            <div class="pillar__body">Every case we take is grounded in current ecological science. Our network of expert witnesses includes hydrologists, atmospheric scientists, and conservation biologists.</div>
+          </div>
+          <div class="pillar reveal reveal--delay-3">
+            <span class="pillar__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4a777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23,6 13.5,15.5 8.5,10.5 1,18"/><polyline points="17,6 23,6 23,12"/>
+              </svg>
+            </span>
+            <div class="pillar__title">Long-Term Strategy</div>
+            <div class="pillar__body">We advise clients not just on immediate disputes, but on building regulatory frameworks that protect ecosystems for generations to come.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mountain range divider -->
+  <div class="mountain-divider" style="background: var(--mission-bg, #111f18);">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,120 L0,80 L90,30 L180,75 L280,10 L380,60 L460,20 L560,70 L650,35 L740,80 L840,15 L940,65 L1040,25 L1140,70 L1240,40 L1340,85 L1440,50 L1440,120 Z" fill="#1c1c1c"/>
+    </svg>
+  </div>
+
+  <!-- ─── PRACTICE AREAS ─── -->
+  <section class="practice section" id="practice">
+    <div class="container">
+      <div class="practice__header">
+        <div class="label reveal">Practice Areas</div>
+        <h2 class="heading-lg reveal reveal--delay-1">Where nature<br>meets the law.</h2>
+        <p class="body-lg reveal reveal--delay-2" style="margin-top: 20px; color: var(--text-dim);">
+          Six core disciplines that cover the full spectrum of environmental protection — from the atmosphere above to the aquifer below.
+        </p>
+      </div>
+
+      <div class="practice__grid">
+
+        <!-- Card 1 -->
+        <div class="practice-card reveal">
+          <span class="practice-card__number">01</span>
+          <div class="practice-card__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m10 0h3a2 2 0 0 0 2-2v-3"/>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+            </svg>
+          </div>
+          <h3 class="practice-card__title">Clean Air Act Enforcement</h3>
+          <p class="practice-card__body">Representing communities and organizations challenging industrial emissions violations. From oil and gas operations on the Front Range to wildfire smoke mitigation policy — we hold polluters accountable under federal air quality standards.</p>
+          <a href="#contact" class="practice-card__link">Consult with us &#8594;</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="practice-card reveal reveal--delay-1">
+          <span class="practice-card__number">02</span>
+          <div class="practice-card__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/>
+              <path d="M12 8c-2.8 2-4 4.4-4 6 0 2.2 1.8 4 4 4s4-1.8 4-4c0-1.6-1.2-4-4-6z"/>
+            </svg>
+          </div>
+          <h3 class="practice-card__title">Water Rights & Conservation</h3>
+          <p class="practice-card__body">Colorado's water law is among the most complex in the nation. We represent water districts, irrigation cooperatives, and conservation groups in prior appropriation disputes, compact compliance, and instream flow protection.</p>
+          <a href="#contact" class="practice-card__link">Consult with us &#8594;</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="practice-card reveal reveal--delay-2">
+          <span class="practice-card__number">03</span>
+          <div class="practice-card__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10,9 9,9 8,9"/>
+            </svg>
+          </div>
+          <h3 class="practice-card__title">NEPA Compliance & Review</h3>
+          <p class="practice-card__body">Ensuring federal agencies conduct thorough environmental impact analysis under the National Environmental Policy Act. We challenge inadequate EIS processes and represent clients during scoping, public comment, and judicial review phases.</p>
+          <a href="#contact" class="practice-card__link">Consult with us &#8594;</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="practice-card reveal reveal--delay-1">
+          <span class="practice-card__number">04</span>
+          <div class="practice-card__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+              <path d="M12 2C6.48 2 2 6.48 2 12"/>
+            </svg>
+          </div>
+          <h3 class="practice-card__title">Endangered Species Act</h3>
+          <p class="practice-card__body">Defending critical habitat designations and challenging federal decisions that threaten protected species. We have represented conservation groups in ESA listing petitions for Colorado River fish, prairie dogs, lynx, and wolverine populations.</p>
+          <a href="#contact" class="practice-card__link">Consult with us &#8594;</a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="practice-card reveal reveal--delay-2">
+          <span class="practice-card__number">05</span>
+          <div class="practice-card__icon">
+            <svg viewBox="0 0 24 24">
+              <polygon points="3,11 22,2 13,21 11,13 3,11"/>
+            </svg>
+          </div>
+          <h3 class="practice-card__title">Land Use & Zoning</h3>
+          <p class="practice-card__body">Advising municipalities, landowners, and conservation organizations on development proposals that intersect with sensitive ecosystems. We navigate county land use codes, state statutes, and federal overlay regulations to protect open space and wildland corridors.</p>
+          <a href="#contact" class="practice-card__link">Consult with us &#8594;</a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="practice-card reveal reveal--delay-3">
+          <span class="practice-card__number">06</span>
+          <div class="practice-card__icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+              <path d="M7 7h10M7 11h6"/>
+            </svg>
+          </div>
+          <h3 class="practice-card__title">Corporate Sustainability Counsel</h3>
+          <p class="practice-card__body">Guiding companies through ESG compliance, voluntary carbon programs, green bond issuance frameworks, and environmental due diligence for mergers and acquisitions. We help businesses build sustainability strategies that are legally defensible and genuinely impactful.</p>
+          <a href="#contact" class="practice-card__link">Consult with us &#8594;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mountain range divider 2 -->
+  <div class="mountain-divider" style="background: #1c1c1c;">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,120 L0,90 L120,40 L220,85 L320,25 L440,75 L540,30 L640,90 L720,45 L820,95 L920,20 L1040,70 L1140,30 L1240,80 L1340,50 L1440,90 L1440,120 Z" fill="var(--forest, #1a3a2a)"/>
+    </svg>
+  </div>
+
+  <!-- ─── IMPACT ─── -->
+  <section class="impact section" id="impact">
+    <div class="container">
+      <div class="impact__header reveal">
+        <div class="label" style="justify-content: center;">Our Impact</div>
+        <h2 class="heading-lg" style="margin-bottom: 20px;">26 years of standing<br>our ground.</h2>
+        <p class="body-lg" style="color: var(--sage-lt); opacity: 0.85;">
+          Numbers that represent real places, real species, and real communities protected under Colorado and federal law.
+        </p>
+      </div>
+
+      <div class="impact__grid">
+        <div class="impact-stat reveal">
+          <span class="impact-stat__num">340<span class="impact-stat__unit">+</span></span>
+          <div class="impact-stat__label">Environmental cases resolved in clients' favor</div>
+        </div>
+        <div class="impact-stat reveal reveal--delay-1">
+          <span class="impact-stat__num">2.8M</span>
+          <div class="impact-stat__label">Acres of Colorado wilderness secured from development</div>
+        </div>
+        <div class="impact-stat reveal reveal--delay-2">
+          <span class="impact-stat__num">47</span>
+          <div class="impact-stat__label">Species protected through successful ESA litigation</div>
+        </div>
+        <div class="impact-stat reveal reveal--delay-3">
+          <span class="impact-stat__num">$620M</span>
+          <div class="impact-stat__label">In environmental penalties secured from polluters</div>
+        </div>
+      </div>
+
+      <!-- Landmark Cases -->
+      <div class="label reveal" style="margin-bottom: 32px;">Landmark Cases</div>
+      <div class="impact__cases">
+
+        <div class="case-card reveal">
+          <span class="case-card__tag">Water Rights · 2019</span>
+          <div class="case-card__title">Colorado River Compact — San Juan County Instream Flow</div>
+          <p class="case-card__body">Represented a coalition of conservation organizations challenging a proposed water diversion that would have reduced San Juan River flows to critical habitat levels. The case established precedent for applying Colorado's instream flow doctrine to compact water allocations.</p>
+          <span class="case-card__outcome">Outcome: Diversion denied. 14 miles of critical habitat preserved.</span>
+        </div>
+
+        <div class="case-card reveal reveal--delay-1">
+          <span class="case-card__tag">Clean Air Act · 2021</span>
+          <div class="case-card__title">Front Range Ozone Nonattainment — Weld County</div>
+          <p class="case-card__body">Filed citizen suit under CAA against a consortium of upstream oil and gas operators contributing to chronic ozone nonattainment in the Denver-Boulder metro. Successfully negotiated a consent decree requiring LDAR programs and $18M in mitigation funding.</p>
+          <span class="case-card__outcome">Outcome: $18M community mitigation fund established.</span>
+        </div>
+
+        <div class="case-card reveal reveal--delay-2">
+          <span class="case-card__tag">NEPA · 2022</span>
+          <div class="case-card__title">Pike-San Isabel National Forest Road Expansion</div>
+          <p class="case-card__body">Challenged the Forest Service's environmental assessment for a forest road expansion project in a roadless area. The court agreed that the EA's cumulative impact analysis was inadequate and remanded for a full EIS — halting the project for over two years.</p>
+          <span class="case-card__outcome">Outcome: Full EIS ordered. Project redesigned to avoid roadless core.</span>
+        </div>
+
+        <div class="case-card reveal reveal--delay-3">
+          <span class="case-card__tag">Endangered Species · 2023</span>
+          <div class="case-card__title">Gunnison Sage-Grouse Critical Habitat Expansion</div>
+          <p class="case-card__body">Co-counsel in a challenge to the U.S. Fish and Wildlife Service's failure to designate adequate critical habitat for the Gunnison sage-grouse. The Tenth Circuit's ruling required FWS to reconsider exclusions of private ranch lands from the critical habitat designation.</p>
+          <span class="case-card__outcome">Outcome: 190,000 acres of additional habitat under consideration.</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mountain range divider 3 -->
+  <div class="mountain-divider" style="background: var(--forest, #1a3a2a);">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,120 L0,70 L100,20 L200,65 L300,15 L400,60 L500,25 L620,75 L720,35 L820,80 L920,22 L1020,68 L1120,32 L1220,75 L1340,45 L1440,85 L1440,120 Z" fill="#2a2a2a"/>
+    </svg>
+  </div>
+
+  <!-- ─── TEAM ─── -->
+  <section class="team section" id="team">
+    <div class="container">
+      <div class="team__header">
+        <div class="label reveal">Our Team</div>
+        <h2 class="heading-lg reveal reveal--delay-1">Attorneys who know the terrain — and the law.</h2>
+      </div>
+
+      <div class="team__grid">
+
+        <div class="team-card reveal">
+          <div class="team-card__avatar">
+            <span class="team-card__avatar-initials">EC</span>
+          </div>
+          <div class="team-card__name">Eleanor Chambers</div>
+          <div class="team-card__title">Founding Partner</div>
+          <p class="team-card__focus">Water rights, NEPA litigation, and federal lands law. 30 years of environmental advocacy in Colorado and the Mountain West.</p>
+          <div class="team-card__edu">Yale Law School · J.D. 1994</div>
+        </div>
+
+        <div class="team-card reveal reveal--delay-1">
+          <div class="team-card__avatar">
+            <span class="team-card__avatar-initials">RW</span>
+          </div>
+          <div class="team-card__name">Raymond Whitley</div>
+          <div class="team-card__title">Founding Partner</div>
+          <p class="team-card__focus">Clean Air Act enforcement, toxic tort defense, and corporate environmental compliance. Former EPA Regional Counsel.</p>
+          <div class="team-card__edu">University of Colorado Law · J.D. 1993</div>
+        </div>
+
+        <div class="team-card reveal reveal--delay-2">
+          <div class="team-card__avatar">
+            <span class="team-card__avatar-initials">SB</span>
+          </div>
+          <div class="team-card__name">Sofia Barrientos</div>
+          <div class="team-card__title">Senior Associate</div>
+          <p class="team-card__focus">Endangered Species Act, tribal environmental rights, and biodiversity conservation policy. Fluent in Spanish and Portuguese.</p>
+          <div class="team-card__edu">University of Denver · J.D. 2014</div>
+        </div>
+
+        <div class="team-card reveal reveal--delay-3">
+          <div class="team-card__avatar">
+            <span class="team-card__avatar-initials">TK</span>
+          </div>
+          <div class="team-card__name">Thomas Keller</div>
+          <div class="team-card__title">Associate</div>
+          <p class="team-card__focus">Land use, zoning appeals, and conservation easements. Former Colorado DOLA policy analyst with deep municipal government experience.</p>
+          <div class="team-card__edu">Lewis & Clark Law · J.D. 2018</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA / CONTACT ─── -->
+  <section class="cta-section section" id="contact">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <div class="label reveal">Start a Conversation</div>
+          <h2 class="cta-inner__heading reveal reveal--delay-1">
+            The land needs advocates.<br>
+            <em>Let's talk about yours.</em>
+          </h2>
+          <p class="cta-inner__sub reveal reveal--delay-2">
+            Whether you're facing a permit dispute, documenting pollution impacts, or building a long-term conservation strategy — our attorneys are ready to listen. Initial consultations are free and confidential.
+          </p>
+        </div>
+        <div class="cta-inner__actions reveal reveal--delay-3">
+          <a href="tel:+13035550170" class="btn btn--primary" style="width: 100%; justify-content: center; margin-bottom: 8px;">
+            (303) 555-0170
+          </a>
+          <a href="mailto:consult@chamberswhitley.com" class="btn btn--outline" style="width: 100%; justify-content: center;">
+            Email Us
+          </a>
+          <div class="cta-contact" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-lt);">
+            <span style="font-size: 0.6875rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-faint);">Office</span>
+            <p style="font-size: 0.9375rem; color: var(--text-dim); margin-top: 6px; line-height: 1.6;">
+              1600 Glenarm Place, Suite 900<br>
+              Denver, CO 80202
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Chambers Whitley</div>
+          <div class="footer__brand-sub">Environmental Law · Denver, Colorado</div>
+          <p class="footer__brand-body">
+            Fighting for Colorado's natural heritage since 1998. Clean air, clean water, and wild places — these are not luxuries. They are rights we defend in court.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Practice</div>
+          <ul class="footer__links">
+            <li><a href="#practice">Clean Air Act</a></li>
+            <li><a href="#practice">Water Rights</a></li>
+            <li><a href="#practice">NEPA Compliance</a></li>
+            <li><a href="#practice">Endangered Species</a></li>
+            <li><a href="#practice">Land Use & Zoning</a></li>
+            <li><a href="#practice">Corporate Sustainability</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Firm</div>
+          <ul class="footer__links">
+            <li><a href="#mission">About Us</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#impact">Case Results</a></li>
+            <li><a href="#contact">Consultation</a></li>
+            <li><a href="#">News & Insights</a></li>
+            <li><a href="#">Pro Bono</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <ul class="footer__links">
+            <li><a href="tel:+13035550170">(303) 555-0170</a></li>
+            <li><a href="mailto:consult@chamberswhitley.com">consult@chamberswhitley.com</a></li>
+            <li style="color: var(--text-faint); font-size: 0.9rem; line-height: 1.6; margin-top: 8px;">
+              1600 Glenarm Place<br>
+              Suite 900<br>
+              Denver, CO 80202
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__copy">
+          &copy; 2026 Chambers Whitley LLP. All rights reserved. Attorney advertising. Prior results do not guarantee similar outcomes.
+        </div>
+        <div class="footer__badges">
+          <span class="footer__badge">B Corp Certified</span>
+          <span class="footer__badge">LEED Office</span>
+          <span class="footer__badge">Super Lawyers 2026</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── NAV SCROLL STATE
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ─── HAMBURGER MENU
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ─── INTERSECTION OBSERVER — organic reveal
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

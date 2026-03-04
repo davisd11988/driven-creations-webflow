@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackwell Reid | Criminal Defense Attorneys Chicago</title>
+  <meta name="description" content="Chicago's most aggressive criminal defense firm. Federal crimes, DUI, drug offenses, white collar, violent crimes. Available 24/7. Call (312) 555-0198." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black:          #000000;
+      --white:          #ffffff;
+      --crimson:        #8b1a1a;
+      --crimson-hover:  #a82020;
+      --crimson-deep:   #6a1414;
+      --dim:            #0d0d0d;
+      --line:           #1e1e1e;
+      --muted:          #444444;
+      --text-dim:       #888888;
+      --serif:          'DM Serif Display', Georgia, serif;
+      --sans:           'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAVIGATION ─────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      padding: 0 56px;
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.14em !important;
+      color: var(--white) !important;
+      background: var(--crimson);
+      padding: 11px 22px;
+      border: 1px solid var(--crimson);
+      transition: background 0.2s, border-color 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--crimson-hover) !important;
+      border-color: var(--crimson-hover) !important;
+      color: var(--white) !important;
+    }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px 4px;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.active span:nth-child(2) { opacity: 0; }
+    .nav-burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ───────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 56px 96px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/blackwell-hero.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+
+    .hero-bg.loaded { transform: scale(1); }
+
+    /* Multi-layer overlay: hard black at bottom, gradient from mid */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.55) 0%,
+          rgba(0,0,0,0.45) 35%,
+          rgba(0,0,0,0.72) 62%,
+          rgba(0,0,0,0.97) 100%
+        );
+    }
+
+    /* Vertical rule — editorial detail */
+    .hero-vline {
+      position: absolute;
+      top: 0;
+      right: clamp(80px, 12vw, 200px);
+      width: 1px;
+      height: 100%;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1020px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 36px;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--crimson);
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(50px, 8.8vw, 120px);
+      line-height: 0.96;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      max-width: 900px;
+      margin-bottom: 44px;
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.9s ease 0.28s, transform 0.9s ease 0.28s;
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 1.6vw, 19px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.62);
+      max-width: 460px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease 0.44s, transform 0.7s ease 0.44s;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease 0.58s, transform 0.6s ease 0.58s;
+    }
+
+    .hero-btn-primary {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--crimson);
+      padding: 18px 44px;
+      border: 1px solid var(--crimson);
+      transition: background 0.22s, border-color 0.22s;
+    }
+
+    .hero-btn-primary:hover {
+      background: var(--crimson-hover);
+      border-color: var(--crimson-hover);
+    }
+
+    .hero-btn-ghost {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-btn-ghost:hover {
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    /* Animate-in class added by JS */
+    #hero.anim-in .hero-eyebrow,
+    #hero.anim-in .hero-headline,
+    #hero.anim-in .hero-sub,
+    #hero.anim-in .hero-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Scroll indicator */
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      right: 56px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    /* ── SECTION SHARED ─────────────────────────────────────────── */
+    .section-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 52px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-tag::after {
+      content: '';
+      display: block;
+      flex: 1;
+      max-width: 48px;
+      height: 1px;
+      background: var(--crimson);
+    }
+
+    /* ── PRACTICE AREAS ─────────────────────────────────────────── */
+    #practice {
+      background: var(--black);
+      padding: 112px 56px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .practice-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: end;
+      margin-bottom: 72px;
+    }
+
+    .practice-title {
+      font-family: var(--serif);
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: 1.02;
+      color: var(--white);
+    }
+
+    .practice-intro {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.78;
+      max-width: 380px;
+    }
+
+    .practice-list { list-style: none; }
+
+    .practice-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .practice-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .practice-item:last-child { border-bottom: 1px solid var(--line); }
+
+    .practice-accent {
+      flex-shrink: 0;
+      width: 4px;
+      height: 56px;
+      background: var(--crimson);
+      margin-right: 36px;
+      margin-top: 4px;
+    }
+
+    .practice-body { flex: 1; }
+
+    .practice-name {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.8vw, 36px);
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .practice-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .practice-idx {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      padding-top: 8px;
+      margin-left: 32px;
+    }
+
+    /* ── TRACK RECORD ───────────────────────────────────────────── */
+    #track-record {
+      position: relative;
+      padding: 128px 56px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .track-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/blackwell-courtroom.jpg');
+      background-size: cover;
+      background-position: center 45%;
+      background-repeat: no-repeat;
+    }
+
+    .track-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.86) 0%,
+        rgba(0,0,0,0.80) 50%,
+        rgba(0,0,0,0.92) 100%
+      );
+    }
+
+    .track-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .track-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: end;
+      margin-bottom: 88px;
+    }
+
+    .track-title {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.5vw, 60px);
+      line-height: 1.06;
+      color: var(--white);
+    }
+
+    .track-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.72;
+      max-width: 360px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .stat-col {
+      padding: 56px 48px 56px 0;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .stat-col.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stat-col:last-child {
+      border-right: none;
+      padding-left: 48px;
+      padding-right: 0;
+    }
+
+    .stat-col:nth-child(2) {
+      padding-left: 48px;
+    }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: clamp(60px, 8vw, 100px);
+      line-height: 0.92;
+      color: var(--white);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-num sup {
+      font-size: 0.42em;
+      vertical-align: super;
+      color: var(--crimson);
+    }
+
+    .stat-num .suffix {
+      color: var(--crimson);
+      font-size: 0.7em;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.55;
+      max-width: 200px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── TESTIMONIAL ────────────────────────────────────────────── */
+    #testimonial {
+      background: var(--dim);
+      padding: 128px 56px;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .testimonial-mark {
+      font-family: var(--serif);
+      font-size: 96px;
+      line-height: 0.6;
+      color: var(--crimson);
+      margin-bottom: 40px;
+      opacity: 0.7;
+    }
+
+    .testimonial-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(22px, 3vw, 40px);
+      line-height: 1.46;
+      color: var(--white);
+      max-width: 860px;
+      margin: 0 auto 52px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .testimonial-quote.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .testimonial-rule {
+      width: 40px;
+      height: 2px;
+      background: var(--crimson);
+      margin: 0 auto 24px;
+    }
+
+    .testimonial-author {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ── TEAM ───────────────────────────────────────────────────── */
+    #team {
+      background: var(--black);
+      padding: 112px 56px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      margin-top: 72px;
+    }
+
+    .team-card {
+      background: var(--black);
+      padding: 72px 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .team-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .team-bar {
+      width: 40px;
+      height: 3px;
+      background: var(--crimson);
+      margin-bottom: 36px;
+    }
+
+    .team-name {
+      font-family: var(--serif);
+      font-size: clamp(30px, 3.6vw, 48px);
+      line-height: 1.06;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .team-role {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 32px;
+    }
+
+    .team-bio {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.78;
+    }
+
+    /* ── EMERGENCY CTA ──────────────────────────────────────────── */
+    #emergency {
+      background: var(--crimson);
+      padding: 112px 56px;
+      text-align: center;
+    }
+
+    .emergency-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 36px;
+    }
+
+    .emergency-headline {
+      font-family: var(--serif);
+      font-size: clamp(56px, 9.5vw, 128px);
+      line-height: 0.95;
+      color: var(--white);
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    .emergency-phone {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(38px, 6.5vw, 88px);
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      transition: opacity 0.2s;
+    }
+
+    .emergency-phone:hover { opacity: 0.82; }
+
+    .emergency-detail {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.68);
+      letter-spacing: 0.05em;
+      margin-bottom: 56px;
+      line-height: 1.65;
+    }
+
+    .emergency-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 14px 32px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .emergency-badge:hover {
+      color: rgba(255,255,255,0.85);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      padding: 72px 56px 48px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+
+    .footer-brand {
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-address {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      font-style: normal;
+    }
+
+    .footer-address a {
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .footer-address a:hover { color: var(--white); }
+
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: right;
+    }
+
+    .footer-nav a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--white); }
+
+    .footer-divider {
+      height: 1px;
+      background: var(--line);
+      margin-bottom: 32px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer-legal {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 440px;
+      text-align: right;
+    }
+
+    /* ── SCROLL REVEAL ──────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE — 1024px ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .nav { padding: 0 32px; }
+
+      #hero { padding: 0 32px 80px; }
+
+      #practice,
+      #track-record,
+      #testimonial,
+      #team,
+      #emergency,
+      footer { padding-left: 32px; padding-right: 32px; }
+
+      .practice-head { grid-template-columns: 1fr; gap: 28px; }
+      .practice-intro { max-width: 100%; }
+
+      .track-header { grid-template-columns: 1fr; gap: 28px; }
+      .track-sub { max-width: 100%; }
+
+      .stats-row { grid-template-columns: 1fr 1fr; }
+
+      .stat-col:nth-child(odd) {
+        border-right: 1px solid rgba(255,255,255,0.12);
+        padding-right: 32px;
+        padding-left: 0;
+      }
+
+      .stat-col:nth-child(even) {
+        border-right: none;
+        padding-left: 32px;
+        padding-right: 0;
+      }
+
+      .stat-col:nth-child(n+3) {
+        border-top: 1px solid rgba(255,255,255,0.12);
+        padding-top: 40px;
+      }
+
+      .team-grid { grid-template-columns: 1fr; }
+      .team-card { padding: 56px 40px; }
+    }
+
+    /* ── RESPONSIVE — 768px ──────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        inset: 68px 0 0 0;
+        background: var(--black);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 44px;
+        border-top: 1px solid var(--line);
+        z-index: 199;
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 15px; letter-spacing: 0.18em; }
+      .nav-cta { padding: 14px 32px !important; }
+
+      .nav-burger { display: flex; }
+
+      #hero { padding: 0 20px 72px; }
+
+      .hero-headline { letter-spacing: -0.03em; }
+
+      .hero-scroll-hint { display: none; }
+
+      #practice  { padding: 80px 20px; }
+      #track-record { padding: 88px 20px; }
+      #testimonial { padding: 88px 20px; }
+      #team { padding: 80px 20px; }
+      #emergency { padding: 88px 20px; }
+      footer { padding: 56px 20px 40px; }
+
+      .practice-accent { width: 3px; height: 44px; margin-right: 24px; }
+
+      .stats-row { grid-template-columns: 1fr; border-top: none; }
+
+      .stat-col {
+        border-right: none !important;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        padding: 40px 0 !important;
+      }
+
+      .stat-col:first-child { padding-top: 0 !important; border-top: none; }
+
+      .team-card { padding: 48px 24px; }
+
+      .footer-top { flex-direction: column; }
+      .footer-nav { text-align: left; }
+      .footer-bottom { flex-direction: column; gap: 20px; }
+      .footer-legal { text-align: left; max-width: 100%; }
+    }
+
+    /* ── RESPONSIVE — 480px ──────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .hero-btn-primary,
+      .hero-btn-ghost { text-align: center; }
+      .hero-btn-primary { width: 100%; padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ══════════════════════════════════════════════ -->
+  <nav class="nav" id="siteNav">
+    <a href="#hero" class="nav-logo">Blackwell Reid</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#practice">Defense</a></li>
+      <li><a href="#track-record">Track Record</a></li>
+      <li><a href="#team">The Attorneys</a></li>
+      <li><a href="#emergency">Contact</a></li>
+      <li><a href="tel:+13125550198" class="nav-cta">24/7 Emergency Line</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ══ HERO ════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-vline" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Chicago Criminal Defense</p>
+      <h1 class="hero-headline">Every Person<br>Deserves a<br>Fearless Defense.</h1>
+      <p class="hero-sub">Chicago's most aggressive criminal defense team — available 24 hours a day, 7 days a week. From first call to final verdict.</p>
+      <div class="hero-actions">
+        <a href="tel:+13125550198" class="hero-btn-primary">Call Now &mdash; (312) 555-0198</a>
+        <a href="#practice" class="hero-btn-ghost">Our Practice Areas</a>
+      </div>
+    </div>
+
+    <span class="hero-scroll-hint" aria-hidden="true">Scroll</span>
+  </section>
+
+  <!-- ══ PRACTICE AREAS ══════════════════════════════════════════ -->
+  <section id="practice">
+    <p class="section-tag">What We Defend</p>
+    <div class="practice-head reveal">
+      <h2 class="practice-title">We take on the cases others won't touch.</h2>
+      <p class="practice-intro">From federal indictments to first-time DUI charges, we enter every courtroom with a single objective: your freedom. No case is too complex. No charge is too serious.</p>
+    </div>
+
+    <ul class="practice-list">
+      <li class="practice-item" style="transition-delay:0.04s">
+        <div class="practice-accent" aria-hidden="true"></div>
+        <div class="practice-body">
+          <p class="practice-name">Federal Crimes</p>
+          <p class="practice-desc">RICO, conspiracy, fraud, and federal drug charges. We litigate at the highest level of the federal court system and know how U.S. Attorneys build their cases.</p>
+        </div>
+        <span class="practice-idx" aria-hidden="true">01</span>
+      </li>
+      <li class="practice-item" style="transition-delay:0.09s">
+        <div class="practice-accent" aria-hidden="true"></div>
+        <div class="practice-body">
+          <p class="practice-name">DUI / DWI Defense</p>
+          <p class="practice-desc">Field sobriety challenges, breathalyzer validity, and procedural defects. We attack the state's evidence from every angle before it reaches a jury.</p>
+        </div>
+        <span class="practice-idx" aria-hidden="true">02</span>
+      </li>
+      <li class="practice-item" style="transition-delay:0.14s">
+        <div class="practice-accent" aria-hidden="true"></div>
+        <div class="practice-body">
+          <p class="practice-name">Drug Offenses</p>
+          <p class="practice-desc">Possession, trafficking, and distribution. We challenge unlawful searches, chain of custody, and prosecutorial overreach that too many attorneys accept at face value.</p>
+        </div>
+        <span class="practice-idx" aria-hidden="true">03</span>
+      </li>
+      <li class="practice-item" style="transition-delay:0.19s">
+        <div class="practice-accent" aria-hidden="true"></div>
+        <div class="practice-body">
+          <p class="practice-name">White Collar Crime</p>
+          <p class="practice-desc">Securities fraud, embezzlement, wire fraud, and insider trading. Protecting executives, business owners, and professionals whose reputations are on the line.</p>
+        </div>
+        <span class="practice-idx" aria-hidden="true">04</span>
+      </li>
+      <li class="practice-item" style="transition-delay:0.24s">
+        <div class="practice-accent" aria-hidden="true"></div>
+        <div class="practice-body">
+          <p class="practice-name">Violent Crimes</p>
+          <p class="practice-desc">Assault, battery, robbery, and homicide defense. When the stakes are highest, you need the most prepared and relentless team in the room.</p>
+        </div>
+        <span class="practice-idx" aria-hidden="true">05</span>
+      </li>
+      <li class="practice-item" style="transition-delay:0.29s">
+        <div class="practice-accent" aria-hidden="true"></div>
+        <div class="practice-body">
+          <p class="practice-name">Domestic Violence</p>
+          <p class="practice-desc">False accusations and overzealous prosecution destroy lives and families. We protect your rights, your record, and your right to remain present in your family's life.</p>
+        </div>
+        <span class="practice-idx" aria-hidden="true">06</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ══ TRACK RECORD ════════════════════════════════════════════ -->
+  <section id="track-record">
+    <div class="track-bg" aria-hidden="true"></div>
+    <div class="track-overlay" aria-hidden="true"></div>
+    <div class="track-content">
+      <p class="section-tag">The Numbers</p>
+      <div class="track-header reveal">
+        <h2 class="track-title">Results that speak louder than promises.</h2>
+        <p class="track-sub">Over two decades of relentless advocacy, measured in acquittals, dismissals, and lives returned to their rightful owners.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-col">
+          <p class="stat-num">3,200<span class="suffix">+</span></p>
+          <p class="stat-label">Cases defended since 2002</p>
+        </div>
+        <div class="stat-col" style="transition-delay:0.12s">
+          <p class="stat-num">94<span class="suffix">%</span></p>
+          <p class="stat-label">Dismissal and acquittal rate across all case types</p>
+        </div>
+        <div class="stat-col" style="transition-delay:0.24s">
+          <p class="stat-num">0</p>
+          <p class="stat-label">Clients wrongfully convicted on our watch</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIAL ══════════════════════════════════════════════ -->
+  <section id="testimonial">
+    <p class="testimonial-mark" aria-hidden="true">&ldquo;</p>
+    <blockquote>
+      <p class="testimonial-quote">When the federal government came after my business, everyone told me to take a plea. Blackwell Reid fought for 18 months and got every single charge dismissed. They gave me my life back.</p>
+    </blockquote>
+    <div class="testimonial-rule" aria-hidden="true"></div>
+    <p class="testimonial-author">Marcus T. &nbsp;&mdash;&nbsp; Federal Case, Northern District of Illinois</p>
+  </section>
+
+  <!-- ══ TEAM ════════════════════════════════════════════════════ -->
+  <section id="team">
+    <p class="section-tag">The Attorneys</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-bar" aria-hidden="true"></div>
+        <h3 class="team-name">James Blackwell</h3>
+        <p class="team-role">Founding Partner &mdash; 22 Years</p>
+        <p class="team-bio">A former federal prosecutor with the U.S. Attorney's Office for the Northern District of Illinois, James spent a decade building cases for the government before crossing the aisle to dismantle them. He knows precisely how federal prosecutors think — and exactly how to expose the gaps in their arguments. Named among Illinois' top 10 criminal defense attorneys for six consecutive years by Illinois Super Lawyers.</p>
+      </div>
+      <div class="team-card" style="transition-delay:0.14s">
+        <div class="team-bar" aria-hidden="true"></div>
+        <h3 class="team-name">Sarah Reid</h3>
+        <p class="team-role">Founding Partner &mdash; 18 Years</p>
+        <p class="team-bio">One of the Midwest's foremost appellate law experts, Sarah has reversed convictions that other attorneys accepted as final. Her meticulous command of evidentiary procedure, constitutional law, and post-conviction relief has freed clients who had all but surrendered hope. She clerked for the Seventh Circuit Court of Appeals before entering private practice, and brings that precision to every case she touches.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EMERGENCY CTA ════════════════════════════════════════════ -->
+  <section id="emergency">
+    <p class="emergency-label">You Need to Act Now</p>
+    <h2 class="emergency-headline">Arrested?<br>Call Now.</h2>
+    <a href="tel:+13125550198" class="emergency-phone">(312) 555-0198</a>
+    <p class="emergency-detail">
+      Available 24 hours a day &nbsp;&bull;&nbsp; 7 days a week &nbsp;&bull;&nbsp; 365 days a year<br>
+      We answer every call. No voicemail. No delays. No exceptions.
+    </p>
+    <a href="tel:+13125550198" class="emergency-badge">Don't say anything until you talk to us.</a>
+  </section>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <p class="footer-brand">Blackwell Reid</p>
+        <address class="footer-address">
+          233 S. Wacker Drive, Suite 4500<br>
+          Chicago, IL 60606<br>
+          <a href="tel:+13125550198">(312) 555-0198</a>
+        </address>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#practice">Defense Practice</a>
+        <a href="#track-record">Track Record</a>
+        <a href="#team">The Attorneys</a>
+        <a href="#emergency">24/7 Emergency Line</a>
+      </nav>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Blackwell Reid LLC. All rights reserved.</p>
+      <p class="footer-legal">Attorney advertising. Prior results do not guarantee a similar outcome. The information on this website is for general informational purposes only and does not constitute legal advice or establish an attorney-client relationship.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // ── Hero image load + entrance animation ─────────────────────
+      var heroBg = document.getElementById('heroBg');
+      var hero   = document.getElementById('hero');
+
+      function kickHeroAnim() {
+        requestAnimationFrame(function () {
+          setTimeout(function () {
+            if (heroBg) heroBg.classList.add('loaded');
+            if (hero)   hero.classList.add('anim-in');
+          }, 80);
+        });
+      }
+
+      if (heroBg) {
+        var probe = new Image();
+        probe.onload  = kickHeroAnim;
+        probe.onerror = kickHeroAnim;
+        probe.src = 'images/blackwell-hero.jpg';
+      } else {
+        kickHeroAnim();
+      }
+
+      // ── Mobile nav ───────────────────────────────────────────────
+      var burger   = document.getElementById('navBurger');
+      var navLinks = document.getElementById('navLinks');
+
+      if (burger && navLinks) {
+        burger.addEventListener('click', function () {
+          var isOpen = navLinks.classList.toggle('open');
+          burger.classList.toggle('active', isOpen);
+          burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        navLinks.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            navLinks.classList.remove('open');
+            burger.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      // ── Scroll reveal ────────────────────────────────────────────
+      var targets = document.querySelectorAll(
+        '.reveal, .practice-item, .stat-col, .team-card, .testimonial-quote'
+      );
+
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+        targets.forEach(function (el) { io.observe(el); });
+      } else {
+        targets.forEach(function (el) { el.classList.add('visible'); });
+      }
+
+      // ── Nav border on scroll ─────────────────────────────────────
+      var siteNav = document.getElementById('siteNav');
+
+      window.addEventListener('scroll', function () {
+        if (!siteNav) return;
+        var y = window.scrollY || window.pageYOffset;
+        siteNav.style.background = y > 24
+          ? 'rgba(0,0,0,0.96)'
+          : 'rgba(0,0,0,0.88)';
+      }, { passive: true });
+
+    }());
+  </script>
+</body>
+</html>

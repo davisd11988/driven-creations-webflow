@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashford &amp; Sterling | Personal Injury Attorneys | Washington, D.C.</title>
+  <meta name="description" content="Washington D.C.'s premier personal injury law firm. Over $150 million recovered for our clients. Free consultation. (202) 555-0142." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: #0a0a0a;
+      color: #c4bdb4;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ── Tokens ── */
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --gold-dim: rgba(201,168,76,0.15);
+      --gold-border: rgba(201,168,76,0.25);
+      --cream: #f5f0e8;
+      --bg: #0a0a0a;
+      --bg-1: #0e0e0e;
+      --bg-2: #111111;
+      --bg-3: #141414;
+      --text: #c4bdb4;
+      --text-muted: #7a746d;
+      --ease: cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    @media (max-width: 768px) { .container { padding: 0 20px; } }
+
+    /* ─────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 32px;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10,10,10,0);
+      border-bottom: 1px solid rgba(201,168,76,0);
+      transition: background 0.45s var(--ease), border-color 0.45s var(--ease);
+    }
+    .nav.scrolled {
+      background: rgba(10,10,10,0.95);
+      border-bottom-color: var(--gold-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .nav-logo span {
+      display: block;
+      font-size: 0.6rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      padding: 10px 24px;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.16em !important;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      transition: background 0.25s, color 0.25s !important;
+    }
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: #0a0a0a !important;
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--gold);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 78px; left: 0; right: 0;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(16px);
+      padding: 32px;
+      border-bottom: 1px solid var(--gold-border);
+      flex-direction: column;
+      gap: 24px;
+      z-index: 99;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: color 0.25s;
+    }
+    .nav-mobile a:hover { color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+    }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/ashford-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s var(--ease);
+      will-change: transform;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(10,10,10,0.82) 0%,
+        rgba(10,10,10,0.65) 55%,
+        rgba(10,10,10,0.40) 100%
+      );
+    }
+    .hero-overlay-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 220px;
+      background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      padding: 120px 32px 100px;
+      margin-left: calc((100vw - 1180px) / 2);
+    }
+    @media (max-width: 1212px) {
+      .hero-content { margin-left: 32px; }
+    }
+    @media (max-width: 768px) {
+      .hero-content { margin-left: 20px; padding: 110px 20px 90px; }
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s 0.2s var(--ease) forwards;
+    }
+    .hero-eyebrow-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-eyebrow-text {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--cream);
+      margin-bottom: 28px;
+      opacity: 0;
+      transform: translateY(28px);
+      animation: fadeUp 0.9s 0.35s var(--ease) forwards;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.5vw, 1.18rem);
+      font-weight: 300;
+      color: rgba(245,240,232,0.72);
+      max-width: 520px;
+      margin-bottom: 44px;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.9s 0.5s var(--ease) forwards;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.9s 0.65s var(--ease) forwards;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--gold);
+      color: #0a0a0a;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .hero-phone {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(245,240,232,0.6);
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      transition: color 0.25s;
+    }
+    .hero-phone:hover { color: var(--gold); }
+    .hero-phone svg { flex-shrink: 0; }
+
+    /* ─────────────────────────────────────────
+       STATS BAR
+    ───────────────────────────────────────── */
+    .stats-bar {
+      background: var(--bg-3);
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .stat-item {
+      padding: 40px 32px;
+      text-align: center;
+      border-right: 1px solid var(--gold-border);
+      position: relative;
+      transition: background 0.3s;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(201,168,76,0.04); }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-top: 1px solid var(--gold-border); border-right: 1px solid var(--gold-border); }
+      .stat-item:nth-child(4) { border-top: 1px solid var(--gold-border); }
+    }
+    @media (max-width: 480px) {
+      .stat-item { padding: 28px 20px; }
+    }
+
+    /* ─────────────────────────────────────────
+       SECTION SHARED
+    ───────────────────────────────────────── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .section-label-line {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .section-label-text {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.15;
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ─────────────────────────────────────────
+       PRACTICE AREAS
+    ───────────────────────────────────────── */
+    .practice {
+      padding: 110px 0;
+      background: var(--bg-1);
+    }
+    .practice-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .practice-header .section-label {
+      justify-content: center;
+    }
+    .practice-header .section-title {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .practice-card {
+      background: var(--bg-2);
+      padding: 48px 36px;
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.35s, background 0.35s, transform 0.3s;
+      cursor: default;
+    }
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease);
+    }
+    .practice-card:hover::before { transform: scaleX(1); }
+    .practice-card:hover {
+      border-color: var(--gold-border);
+      background: var(--bg-3);
+      transform: translateY(-4px);
+    }
+    .practice-icon {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 28px;
+      color: var(--gold);
+    }
+    .practice-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+    .practice-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+    .practice-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: gap 0.25s;
+    }
+    .practice-card:hover .practice-link { gap: 14px; }
+
+    @media (max-width: 1000px) {
+      .practice-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .practice-grid { grid-template-columns: 1fr; }
+      .practice-card { padding: 36px 28px; }
+    }
+
+    /* ─────────────────────────────────────────
+       ABOUT
+    ───────────────────────────────────────── */
+    .about {
+      padding: 120px 0;
+      background: var(--bg);
+    }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-content {}
+    .about-content .section-label { margin-bottom: 16px; }
+    .about-content .section-title { margin-bottom: 28px; }
+    .about-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .about-body + .about-body { margin-bottom: 40px; }
+    .about-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold-border);
+      margin: 32px 0;
+    }
+    .about-credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .about-credential {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .about-credential-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+    .about-credential-text {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .about-credential-text strong {
+      color: var(--cream);
+      font-weight: 600;
+    }
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-image-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .about-image-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        transparent 50%,
+        rgba(10,10,10,0.6) 100%
+      );
+    }
+    .about-image-frame img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.8s var(--ease);
+    }
+    .about-image-wrap:hover .about-image-frame img {
+      transform: scale(1.04);
+    }
+    .about-image-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--gold);
+      color: #0a0a0a;
+      padding: 28px 32px;
+      text-align: center;
+      z-index: 2;
+    }
+    .about-image-badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+    .about-image-badge-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 960px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .about-image-wrap { order: -1; }
+      .about-image-frame img { height: 420px; }
+      .about-image-badge { bottom: -16px; left: -12px; padding: 22px 24px; }
+      .about-image-badge-num { font-size: 2rem; }
+    }
+
+    /* ─────────────────────────────────────────
+       TESTIMONIAL
+    ───────────────────────────────────────── */
+    .testimonial {
+      padding: 110px 0;
+      background: var(--bg-3);
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 28rem;
+      color: rgba(201,168,76,0.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .testimonial-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial-quote-mark {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .testimonial-quote-mark svg {
+      color: var(--gold);
+      opacity: 0.7;
+    }
+    .testimonial-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 2.1rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.6;
+      margin-bottom: 44px;
+    }
+    .testimonial-attribution {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .testimonial-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 16px;
+    }
+    .testimonial-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .testimonial-case {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .testimonial-stars svg { color: var(--gold); }
+
+    /* ─────────────────────────────────────────
+       CONTACT CTA
+    ───────────────────────────────────────── */
+    .cta-section {
+      padding: 120px 0;
+      background: var(--bg-1);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-bg-line {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      border: 1px solid rgba(201,168,76,0.05);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .cta-bg-line-2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      border: 1px solid rgba(201,168,76,0.07);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .cta-inner .section-label { justify-content: center; margin-bottom: 20px; }
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+    .cta-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .cta-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 50px;
+      line-height: 1.7;
+    }
+    .cta-phone-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .cta-phone-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .cta-phone-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      transition: color 0.25s;
+      display: inline-block;
+    }
+    .cta-phone-number:hover { color: var(--gold-light); }
+    .cta-disclaimer {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+    .cta-divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 32px 0;
+    }
+    .cta-divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--gold-border);
+    }
+    .cta-divider-text {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .btn-outline {
+      display: inline-block;
+      padding: 15px 40px;
+      border: 1px solid var(--gold-border);
+      color: var(--cream);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: border-color 0.25s, color 0.25s, background 0.25s;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-dim);
+    }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    .footer {
+      background: #070707;
+      border-top: 1px solid var(--gold-border);
+      padding: 70px 0 40px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 56px;
+      margin-bottom: 56px;
+    }
+    .footer-brand {}
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .footer-logo-sub {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .footer-tagline {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      max-width: 280px;
+    }
+    .footer-address {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .footer-address strong {
+      display: block;
+      color: var(--cream);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .footer-col-title {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .footer-col-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-col-links a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      transition: color 0.25s;
+      letter-spacing: 0.02em;
+    }
+    .footer-col-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .footer-disclaimer {
+      font-size: 0.7rem;
+      color: rgba(122,116,109,0.6);
+      max-width: 480px;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    @media (max-width: 960px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 560px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .footer-disclaimer { text-align: left; }
+    }
+
+    /* ─────────────────────────────────────────
+       SCROLL REVEALS
+    ───────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─────────────────────────────────────────
+       KEYFRAMES
+    ───────────────────────────────────────── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════
+       NAV
+  ══════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">
+      Ashford &amp; Sterling
+      <span>Personal Injury Attorneys</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#practice">Practice Areas</a></li>
+      <li><a href="#about">Our Firm</a></li>
+      <li><a href="#testimonial">Results</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="tel:2025550142" class="nav-cta">Free Consultation</a></li>
+    </ul>
+
+    <div class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="#practice" onclick="closeMobileNav()">Practice Areas</a>
+    <a href="#about" onclick="closeMobileNav()">Our Firm</a>
+    <a href="#testimonial" onclick="closeMobileNav()">Results</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+    <a href="tel:2025550142" style="color:var(--gold);">Free Consultation — (202) 555-0142</a>
+  </div>
+
+
+  <!-- ══════════════════════════════
+       HERO
+  ══════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay-bottom"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Washington, D.C. Personal Injury Law</span>
+      </div>
+
+      <h1 class="hero-headline">
+        When It Matters Most,<br />
+        You Deserve<br />
+        <em>the Best.</em>
+      </h1>
+
+      <p class="hero-sub">
+        Over $150 million recovered for injured clients across the District.
+        Ashford &amp; Sterling fights with precision — so you can focus on healing.
+      </p>
+
+      <div class="hero-actions">
+        <a href="tel:2025550142" class="btn-primary">Free Case Evaluation</a>
+        <a href="tel:2025550142" class="hero-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.42 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.33 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          (202) 555-0142
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       STATS BAR
+  ══════════════════════════════ -->
+  <section class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="150" data-suffix="M+">$0M+</div>
+        <div class="stat-label">Recovered for Clients</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number" data-target="2500" data-suffix="+">0+</div>
+        <div class="stat-label">Cases Won</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number" data-target="98" data-suffix="%">0%</div>
+        <div class="stat-label">Success Rate</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number" data-target="35" data-suffix="+">0+</div>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       PRACTICE AREAS
+  ══════════════════════════════ -->
+  <section class="practice" id="practice">
+    <div class="container">
+      <div class="practice-header">
+        <div class="section-label reveal">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">What We Handle</span>
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">
+          Relentless Advocacy Across<br /><em>Every Case Type</em>
+        </h2>
+      </div>
+
+      <div class="practice-grid">
+
+        <!-- Auto Accidents -->
+        <div class="practice-card reveal">
+          <svg class="practice-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="18" width="40" height="20" rx="5"/>
+            <path d="M10 18l5-8h22l5 8"/>
+            <circle cx="14" cy="38" r="4"/>
+            <circle cx="38" cy="38" r="4"/>
+            <line x1="18" y1="38" x2="34" y2="38"/>
+          </svg>
+          <div class="practice-name">Auto Accidents</div>
+          <p class="practice-desc">Catastrophic collisions, rideshare crashes, commercial truck accidents — we secure maximum compensation for every client.</p>
+          <span class="practice-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+
+        <!-- Medical Malpractice -->
+        <div class="practice-card reveal reveal-delay-1">
+          <svg class="practice-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M26 6v40M6 26h40"/>
+            <rect x="14" y="14" width="24" height="24" rx="4"/>
+          </svg>
+          <div class="practice-name">Medical Malpractice</div>
+          <p class="practice-desc">Surgical errors, misdiagnosis, birth injuries — when healthcare providers fail, we hold them to the highest standard of accountability.</p>
+          <span class="practice-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+
+        <!-- Workplace Injuries -->
+        <div class="practice-card reveal reveal-delay-2">
+          <svg class="practice-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="26,6 44,44 8,44"/>
+            <line x1="26" y1="20" x2="26" y2="32"/>
+            <circle cx="26" cy="37" r="1.5" fill="currentColor"/>
+          </svg>
+          <div class="practice-name">Workplace Injuries</div>
+          <p class="practice-desc">Construction site accidents, toxic exposure, repetitive stress injuries — your right to a safe workplace is one we defend without compromise.</p>
+          <span class="practice-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+
+        <!-- Wrongful Death -->
+        <div class="practice-card reveal reveal-delay-3">
+          <svg class="practice-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="26" cy="18" r="8"/>
+            <path d="M10 46c0-8.84 7.16-16 16-16s16 7.16 16 16"/>
+            <path d="M20 34l6 8 6-8"/>
+          </svg>
+          <div class="practice-name">Wrongful Death</div>
+          <p class="practice-desc">When negligence claims a life, we stand beside grieving families — pursuing justice and the financial security they deserve.</p>
+          <span class="practice-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       ABOUT
+  ══════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-inner">
+
+        <div class="about-content">
+          <div class="section-label reveal">
+            <div class="section-label-line"></div>
+            <span class="section-label-text">Our Story</span>
+          </div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Founded on Principle.<br /><em>Built on Results.</em>
+          </h2>
+
+          <div class="about-divider reveal reveal-delay-1"></div>
+
+          <p class="about-body reveal reveal-delay-2">
+            In 1989, James Ashford and Margaret Sterling opened a two-attorney practice in the heart of Washington, D.C. with a single conviction: that every injured person, regardless of their background or resources, deserves the same standard of excellence as the most powerful defendant they face.
+          </p>
+          <p class="about-body reveal reveal-delay-2">
+            Over three decades later, that conviction has evolved into one of the District's most respected personal injury practices — a firm that has won over $150 million for clients and shaped landmark precedent in D.C. courts.
+          </p>
+
+          <div class="about-credentials reveal reveal-delay-3">
+            <div class="about-credential">
+              <div class="about-credential-dot"></div>
+              <div class="about-credential-text"><strong>Super Lawyers</strong> — Top 100 Washington D.C. attorneys, 12 consecutive years</div>
+            </div>
+            <div class="about-credential">
+              <div class="about-credential-dot"></div>
+              <div class="about-credential-text"><strong>Martindale-Hubbell AV Preeminent</strong> — highest peer-review rating in legal ability and ethics</div>
+            </div>
+            <div class="about-credential">
+              <div class="about-credential-dot"></div>
+              <div class="about-credential-text"><strong>Million Dollar Advocates Forum</strong> — member since 2001</div>
+            </div>
+            <div class="about-credential">
+              <div class="about-credential-dot"></div>
+              <div class="about-credential-text"><strong>No fee unless we win</strong> — contingency representation on all personal injury cases</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-image-wrap reveal reveal-delay-2">
+          <div class="about-image-frame">
+            <img
+              src="images/ashford-office.jpg"
+              alt="Aerial view of Washington D.C. at golden hour"
+              loading="lazy"
+            />
+          </div>
+          <div class="about-image-badge">
+            <span class="about-image-badge-num">35</span>
+            <span class="about-image-badge-label">Years Serving D.C.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       TESTIMONIAL
+  ══════════════════════════════ -->
+  <section class="testimonial" id="testimonial">
+    <div class="container">
+      <div class="testimonial-inner">
+
+        <div class="testimonial-quote-mark">
+          <svg width="48" height="36" viewBox="0 0 48 36" fill="currentColor">
+            <path d="M0 36V22.4C0 15.2 1.6 9.6 4.8 5.6 8.16 1.6 13.04 0 19.44 0L21.6 6.4C17.92 7.04 15.2 8.56 13.44 11.04 11.84 13.36 11.04 16.24 11.04 19.68H20.16V36H0ZM27.84 36V22.4C27.84 15.2 29.44 9.6 32.64 5.6 36 1.6 40.88 0 47.28 0L49.44 6.4C45.76 7.04 43.04 8.56 41.28 11.04 39.68 13.36 38.88 16.24 38.88 19.68H48V36H27.84Z"/>
+          </svg>
+        </div>
+
+        <div class="testimonial-stars">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+
+        <blockquote class="testimonial-text">
+          "After my accident, I was overwhelmed and scared. Ashford &amp; Sterling took my case within 24 hours, kept me informed at every step, and secured a $2.4 million settlement I never thought possible. They treated me like family, not a case number."
+        </blockquote>
+
+        <div class="testimonial-attribution">
+          <div class="testimonial-divider"></div>
+          <div class="testimonial-name">Marcus T.</div>
+          <div class="testimonial-case">Commercial Vehicle Accident — $2.4M Settlement</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       CONTACT CTA
+  ══════════════════════════════ -->
+  <section class="cta-section" id="contact">
+    <div class="cta-bg-line"></div>
+    <div class="cta-bg-line-2"></div>
+
+    <div class="container">
+      <div class="cta-inner">
+        <div class="section-label reveal">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Start Today — No Fee Unless We Win</span>
+        </div>
+
+        <h2 class="cta-title reveal reveal-delay-1">
+          Your Recovery Starts<br /><em>With a Call.</em>
+        </h2>
+
+        <p class="cta-sub reveal reveal-delay-2">
+          A senior attorney reviews every case personally. Reach us 24 hours a day — because accidents don't keep office hours.
+        </p>
+
+        <div class="cta-phone-block reveal reveal-delay-2">
+          <span class="cta-phone-label">Call Anytime, 24 / 7</span>
+          <a href="tel:2025550142" class="cta-phone-number">(202) 555-0142</a>
+        </div>
+
+        <div class="cta-divider reveal reveal-delay-3">
+          <div class="cta-divider-line"></div>
+          <span class="cta-divider-text">or</span>
+          <div class="cta-divider-line"></div>
+        </div>
+
+        <a href="#" class="btn-outline reveal reveal-delay-3">Schedule a Free Consultation</a>
+
+        <p class="cta-disclaimer reveal reveal-delay-4" style="margin-top:28px;">
+          No obligation. Confidential. No fees unless you recover.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <div class="footer-logo">Ashford &amp; Sterling</div>
+          <div class="footer-logo-sub">Personal Injury Attorneys</div>
+          <p class="footer-tagline">
+            Serving injured individuals and families throughout Washington, D.C., Maryland, and Virginia since 1989.
+          </p>
+          <div class="footer-address">
+            <strong>Office</strong>
+            1200 K Street NW, Suite 800<br />
+            Washington, DC 20005
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Practice Areas</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Auto Accidents</a></li>
+            <li><a href="#">Medical Malpractice</a></li>
+            <li><a href="#">Workplace Injuries</a></li>
+            <li><a href="#">Wrongful Death</a></li>
+            <li><a href="#">Slip &amp; Fall</a></li>
+            <li><a href="#">Product Liability</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Our Firm</div>
+          <ul class="footer-col-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Attorneys</a></li>
+            <li><a href="#">Notable Cases</a></li>
+            <li><a href="#">Awards &amp; Recognition</a></li>
+            <li><a href="#">Community</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-col-links">
+            <li><a href="tel:2025550142">(202) 555-0142</a></li>
+            <li><a href="mailto:info@ashfordsterling.com">info@ashfordsterling.com</a></li>
+            <li><a href="#">Free Consultation</a></li>
+            <li><a href="#">Client Portal</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          &copy; 2026 Ashford &amp; Sterling LLP. All rights reserved.
+        </div>
+        <div class="footer-disclaimer">
+          Attorney advertising. Prior results do not guarantee a similar outcome. This website is for informational purposes only and does not constitute legal advice.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    /* ── Nav: scroll state ── */
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── Mobile nav toggle ── */
+    const navToggle = document.getElementById('navToggle');
+    const navMobile = document.getElementById('navMobile');
+    navToggle.addEventListener('click', () => {
+      const open = navMobile.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    function closeMobileNav() {
+      navMobile.classList.remove('open');
+    }
+
+    /* ── Hero image pan on load ── */
+    const heroBg = document.getElementById('heroBg');
+    requestAnimationFrame(() => {
+      setTimeout(() => heroBg.classList.add('loaded'), 100);
+    });
+
+    /* ── Scroll reveal ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ── Counter animation ── */
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        const prefix = el.textContent.startsWith('$') ? '$' : '';
+        const duration = 1800;
+        const startTime = performance.now();
+
+        const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+        function tick(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const current = Math.round(easeOut(progress) * target);
+          el.textContent = prefix + (target >= 1000 ? current.toLocaleString() : current) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+      counterObserver.observe(el);
+    });
+
+    /* ── Smooth anchor scroll (offset for fixed nav) ── */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = link.getAttribute('href');
+        if (target === '#') return;
+        const el = document.querySelector(target);
+        if (!el) return;
+        e.preventDefault();
+        const offset = 78;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        closeMobileNav();
+      });
+    });
+  </script>
+
+</body>
+</html>

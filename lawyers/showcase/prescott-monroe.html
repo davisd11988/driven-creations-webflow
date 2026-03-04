@@ -1,0 +1,2592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescott &amp; Monroe | Maritime Law | Charleston, South Carolina</title>
+  <meta name="description" content="Prescott &amp; Monroe — Charleston's preeminent admiralty and maritime law firm. Serving port commerce, offshore energy, and seafarers since 1938. (843) 555-0174." />
+  <meta property="og:title" content="Prescott &amp; Monroe | Maritime Law | Charleston, SC" />
+  <meta property="og:description" content="Preeminent admiralty counsel serving Charleston's port, offshore energy sector, and maritime commerce for over eight decades." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─────────────────────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: #0c1a2e;
+      color: #e8dcc8;
+      font-family: 'Karla', system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─────────────────────────────────────────────────────────────
+       DESIGN TOKENS
+    ───────────────────────────────────────────────────────────── */
+    :root {
+      --navy:        #0c1a2e;
+      --brass:       #b8924a;
+      --brass-light: #d4aa68;
+      --brass-dim:   rgba(184,146,74,0.18);
+      --brass-border:rgba(184,146,74,0.28);
+      --storm:       #1e3a5f;
+      --teal:        #2a5a6a;
+      --parchment:   #e8dcc8;
+      --fog:         #f0eee8;
+      --charcoal:    #1a1a24;
+      --navy-mid:    #0f2240;
+      --navy-glass:  rgba(12,26,46,0.72);
+      --text-dim:    rgba(232,220,200,0.58);
+      --text-muted:  rgba(232,220,200,0.38);
+      --serif:       'EB Garamond', Georgia, 'Times New Roman', serif;
+      --sans:        'Karla', system-ui, sans-serif;
+      --ease-tide:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --ease-drift:  cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       WAVE BACKGROUND — CSS sine-wave pattern
+    ───────────────────────────────────────────────────────────── */
+    .wave-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .wave-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 110% 60% at 50% 0%, #1e3a5f 0%, transparent 70%),
+        radial-gradient(ellipse 80% 50% at 0% 100%, #0f2240 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 100% 80%, #2a5a6a22 0%, transparent 60%),
+        #0c1a2e;
+    }
+
+    /* SVG-like wave lines drawn with repeating-linear-gradient */
+    .wave-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.055;
+      background-image:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0px,
+          transparent 34px,
+          rgba(184,146,74,0.6) 34px,
+          rgba(184,146,74,0.6) 35px
+        );
+      mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    }
+
+    /* Animated flowing wave layer */
+    .wave-layer {
+      position: fixed;
+      bottom: 0;
+      left: -10%;
+      width: 120%;
+      height: 220px;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.06;
+      animation: waveDrift 22s ease-in-out infinite;
+    }
+
+    .wave-layer:nth-child(2) {
+      opacity: 0.04;
+      animation-duration: 30s;
+      animation-delay: -8s;
+      bottom: 60px;
+    }
+
+    @keyframes waveDrift {
+      0%   { transform: translateX(0) scaleY(1); }
+      50%  { transform: translateX(-4%) scaleY(1.08); }
+      100% { transform: translateX(0) scaleY(1); }
+    }
+
+    /* Main content sits above background */
+    .page-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       CONTAINER
+    ───────────────────────────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    @media (max-width: 991px) { .container { padding: 0 32px; } }
+    @media (max-width: 767px) { .container { padding: 0 24px; } }
+    @media (max-width: 479px) { .container { padding: 0 18px; } }
+
+    /* ─────────────────────────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(12,26,46,0);
+      border-bottom: 1px solid rgba(184,146,74,0);
+      transition: background 0.5s var(--ease-tide), border-color 0.5s var(--ease-tide);
+    }
+
+    .nav.scrolled {
+      background: rgba(12,26,46,0.96);
+      border-bottom-color: var(--brass-border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    /* Logo lockup */
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--fog);
+      line-height: 1.1;
+    }
+
+    .nav-logo-sub {
+      font-family: var(--sans);
+      font-size: 0.585rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-top: 2px;
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.25s var(--ease-tide);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass);
+      transition: width 0.32s var(--ease-drift);
+    }
+
+    .nav-links a:hover {
+      color: var(--brass-light);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Nav CTA */
+    .nav-consult {
+      font-family: var(--sans);
+      font-size: 0.68rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.2em !important;
+      text-transform: uppercase;
+      color: var(--navy) !important;
+      background: var(--brass);
+      padding: 10px 24px;
+      border: 1px solid var(--brass);
+      transition: background 0.25s, border-color 0.25s, color 0.25s !important;
+    }
+
+    .nav-consult:hover {
+      background: var(--brass-light) !important;
+      border-color: var(--brass-light) !important;
+      color: var(--navy) !important;
+    }
+
+    .nav-consult::after { display: none !important; }
+
+    /* Burger */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--parchment);
+      transition: transform 0.35s var(--ease-drift), opacity 0.3s;
+    }
+
+    .nav-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 76px; left: 0; right: 0;
+      z-index: 199;
+      background: rgba(12,26,46,0.98);
+      border-bottom: 1px solid var(--brass-border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 32px 24px 40px;
+      flex-direction: column;
+      gap: 28px;
+      transform: translateY(-12px);
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-tide), transform 0.35s var(--ease-drift);
+    }
+
+    .nav-mobile.open {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-mobile a {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+
+    .nav-mobile a:hover { color: var(--brass-light); }
+
+    .nav-mobile .nav-consult {
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+    }
+
+    @media (max-width: 991px) {
+      .nav { padding: 0 32px; }
+      .nav-links { gap: 24px; }
+    }
+
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links, .nav-consult { display: none; }
+      .nav-burger { display: flex; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION UTILITIES
+    ───────────────────────────────────────────────────────────── */
+    .section {
+      padding: 120px 0;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 28px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--brass);
+    }
+
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: 0.01em;
+      color: var(--fog);
+      margin-bottom: 24px;
+    }
+
+    .section-heading em {
+      font-style: italic;
+      color: var(--brass-light);
+    }
+
+    .section-body {
+      font-family: var(--sans);
+      font-size: 1.01rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.82;
+      max-width: 580px;
+    }
+
+    /* Wave divider */
+    .wave-divider {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      position: relative;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* Brass thin rule */
+    .brass-rule {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--brass), transparent);
+      margin: 32px 0;
+    }
+
+    /* Scroll-reveal base state */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s var(--ease-drift), transform 0.85s var(--ease-drift);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.32s; }
+    .reveal-delay-4 { transition-delay: 0.46s; }
+    .reveal-delay-5 { transition-delay: 0.6s; }
+
+    /* ─────────────────────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 100px;
+      overflow: hidden;
+    }
+
+    /* Compass rose — CSS-drawn decorative element */
+    .compass-rose {
+      position: absolute;
+      top: 50%;
+      right: 8%;
+      transform: translateY(-50%);
+      width: clamp(240px, 28vw, 420px);
+      height: clamp(240px, 28vw, 420px);
+      opacity: 0.065;
+      animation: compassSpin 90s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes compassSpin {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to   { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    /* Anchor watermark */
+    .anchor-mark {
+      position: absolute;
+      top: 50%;
+      right: 8%;
+      transform: translateY(-50%);
+      width: clamp(240px, 28vw, 420px);
+      height: clamp(240px, 28vw, 420px);
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    /* Horizontal vessel lines — nautical chart feel */
+    .hero-chart-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-chart-lines::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(184,146,74,0.12) 20%, rgba(184,146,74,0.12) 80%, transparent);
+    }
+
+    .hero-chart-lines::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      top: 38%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184,146,74,0.1) 15%, rgba(184,146,74,0.1) 85%, transparent);
+    }
+
+    /* Harbor-dusk gradient overlay */
+    .hero-atmosphere {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 20% 60%, rgba(42,90,106,0.22) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 60% at 80% 30%, rgba(30,58,95,0.28) 0%, transparent 65%),
+        linear-gradient(
+          to bottom,
+          rgba(12,26,46,0.35) 0%,
+          rgba(12,26,46,0.2) 30%,
+          rgba(12,26,46,0.7) 68%,
+          rgba(12,26,46,0.97) 100%
+        );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-established {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s var(--ease-drift) 0.2s, transform 0.8s var(--ease-drift) 0.2s;
+    }
+
+    .hero-established .est-dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--brass);
+    }
+
+    .hero-h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 8.5vw, 7.4rem);
+      font-weight: 500;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      color: var(--fog);
+      max-width: 820px;
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.95s var(--ease-drift) 0.34s, transform 0.95s var(--ease-drift) 0.34s;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--brass-light);
+    }
+
+    .hero-ampersand {
+      display: block;
+      font-size: 0.62em;
+      font-style: italic;
+      color: rgba(184,146,74,0.5);
+      letter-spacing: 0.04em;
+      margin-bottom: -4px;
+      line-height: 1;
+    }
+
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      font-style: italic;
+      font-weight: 400;
+      color: rgba(232,220,200,0.55);
+      margin-top: 24px;
+      margin-bottom: 52px;
+      max-width: 540px;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.8s var(--ease-drift) 0.52s, transform 0.8s var(--ease-drift) 0.52s;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s var(--ease-drift) 0.68s, transform 0.7s var(--ease-drift) 0.68s;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--brass);
+      padding: 18px 48px;
+      border: 1px solid var(--brass);
+      transition: background 0.28s var(--ease-tide), border-color 0.28s, color 0.28s;
+    }
+
+    .btn-primary:hover {
+      background: var(--brass-light);
+      border-color: var(--brass-light);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(232,220,200,0.6);
+      border-bottom: 1px solid rgba(232,220,200,0.22);
+      padding-bottom: 2px;
+      transition: color 0.25s, border-color 0.25s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--parchment);
+      border-color: rgba(232,220,200,0.5);
+    }
+
+    /* Animate-in state triggered by JS */
+    #hero.loaded .hero-established,
+    #hero.loaded .hero-h1,
+    #hero.loaded .hero-tagline,
+    #hero.loaded .hero-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Scroll hint */
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      right: 48px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      animation: scrollHintFade 2.5s ease-in-out 1.8s infinite alternate;
+    }
+
+    @keyframes scrollHintFade {
+      from { opacity: 0.4; }
+      to   { opacity: 0.9; }
+    }
+
+    .hero-scroll-line {
+      width: 32px;
+      height: 1px;
+      background: var(--brass);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-scroll-line::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--fog);
+      animation: lineRun 2.5s ease-in-out 1.8s infinite;
+    }
+
+    @keyframes lineRun {
+      0%   { left: -100%; }
+      50%  { left: 0%; }
+      100% { left: 100%; }
+    }
+
+    /* Hero stat bar */
+    .hero-stats {
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+      z-index: 2;
+      display: flex;
+      border-top: 1px solid var(--brass-border);
+      background: rgba(12,26,46,0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .hero-stat {
+      flex: 1;
+      padding: 24px 32px;
+      border-right: 1px solid var(--brass-border);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s var(--ease-drift), transform 0.6s var(--ease-drift);
+    }
+
+    .hero-stat:last-child { border-right: none; }
+
+    #hero.loaded .hero-stat:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.9s; }
+    #hero.loaded .hero-stat:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 1.05s; }
+    #hero.loaded .hero-stat:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 1.2s; }
+    #hero.loaded .hero-stat:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 1.35s; }
+
+    .hero-stat-value {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 500;
+      color: var(--brass-light);
+      line-height: 1.1;
+      display: block;
+    }
+
+    .hero-stat-label {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 991px) {
+      .hero-content { padding: 0 32px; }
+      .hero-scroll { right: 32px; }
+      .hero-stats { display: none; }
+      #hero { padding-bottom: 80px; }
+    }
+
+    @media (max-width: 767px) {
+      .hero-content { padding: 0 24px; }
+      .hero-actions { gap: 22px; }
+      .btn-primary { padding: 16px 36px; }
+      .compass-rose, .anchor-mark { display: none; }
+    }
+
+    @media (max-width: 479px) {
+      .hero-content { padding: 0 18px; }
+      .hero-scroll { display: none; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       WAVE SVG DIVIDER
+    ───────────────────────────────────────────────────────────── */
+    .section-wave {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       ABOUT / HERITAGE
+    ───────────────────────────────────────────────────────────── */
+    #heritage {
+      background: var(--charcoal);
+      position: relative;
+    }
+
+    /* Nautical rope-like left border accent */
+    .rope-border {
+      position: absolute;
+      left: 0;
+      top: 60px;
+      bottom: 60px;
+      width: 3px;
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--brass) 0px,
+        var(--brass) 6px,
+        transparent 6px,
+        transparent 10px,
+        rgba(184,146,74,0.4) 10px,
+        rgba(184,146,74,0.4) 14px,
+        transparent 14px,
+        transparent 20px
+      );
+      opacity: 0.5;
+    }
+
+    .heritage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .heritage-quote {
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--parchment);
+      line-height: 1.55;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .heritage-quote::before {
+      content: '"';
+      position: absolute;
+      left: -8px;
+      top: -12px;
+      font-size: 5rem;
+      font-family: var(--serif);
+      color: var(--brass);
+      opacity: 0.28;
+      line-height: 1;
+    }
+
+    .heritage-quote-attr {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-top: 24px;
+      font-style: normal;
+    }
+
+    .heritage-body p {
+      font-family: var(--sans);
+      font-size: 0.98rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .heritage-body p:last-child { margin-bottom: 0; }
+
+    /* Timeline markers */
+    .heritage-timeline {
+      display: flex;
+      gap: 0;
+      margin-top: 48px;
+      border-top: 1px solid var(--brass-border);
+      padding-top: 36px;
+    }
+
+    .timeline-item {
+      flex: 1;
+      position: relative;
+      padding-right: 20px;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 100%;
+      background: var(--brass-border);
+    }
+
+    .timeline-item:last-child::after { display: none; }
+    .timeline-item:last-child { padding-right: 0; }
+    .timeline-item:not(:first-child) { padding-left: 20px; }
+
+    .timeline-year {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--brass-light);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .timeline-desc {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 991px) {
+      .heritage-grid {
+        grid-template-columns: 1fr;
+        gap: 52px;
+      }
+    }
+
+    @media (max-width: 479px) {
+      .heritage-timeline {
+        flex-direction: column;
+        gap: 28px;
+      }
+      .timeline-item::after { display: none; }
+      .timeline-item { padding: 0 0 28px; border-bottom: 1px solid var(--brass-border); }
+      .timeline-item:last-child { border-bottom: none; padding-bottom: 0; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       PRACTICE AREAS
+    ───────────────────────────────────────────────────────────── */
+    #practice {
+      background: var(--navy);
+      position: relative;
+    }
+
+    .practice-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 72px;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    /* Glass card with brass borders */
+    .practice-card {
+      background: rgba(30,58,95,0.35);
+      border: 1px solid var(--brass-border);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.38s var(--ease-tide), border-color 0.38s;
+      cursor: default;
+    }
+
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--brass), transparent);
+      opacity: 0;
+      transition: opacity 0.38s var(--ease-tide);
+    }
+
+    /* Inner glow on hover */
+    .practice-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 40px rgba(184,146,74,0);
+      transition: box-shadow 0.4s var(--ease-tide);
+      pointer-events: none;
+    }
+
+    .practice-card:hover {
+      background: rgba(42,90,106,0.35);
+      border-color: rgba(184,146,74,0.52);
+    }
+
+    .practice-card:hover::before { opacity: 1; }
+    .practice-card:hover::after {
+      box-shadow: inset 0 0 40px rgba(184,146,74,0.06);
+    }
+
+    .practice-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 24px;
+      color: var(--brass);
+      opacity: 0.75;
+    }
+
+    .practice-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--fog);
+      letter-spacing: 0.01em;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .practice-desc {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.75;
+    }
+
+    .practice-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-top: 22px;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .practice-link::after {
+      content: '→';
+      transition: transform 0.2s var(--ease-drift);
+    }
+
+    .practice-card:hover .practice-link { color: var(--brass-light); }
+    .practice-card:hover .practice-link::after { transform: translateX(4px); }
+
+    @media (max-width: 991px) {
+      .practice-intro { grid-template-columns: 1fr; gap: 32px; margin-bottom: 52px; }
+      .practice-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 479px) {
+      .practice-grid { grid-template-columns: 1fr; }
+      .practice-card { padding: 32px 24px; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       NOTABLE CASES / VICTORIES
+    ───────────────────────────────────────────────────────────── */
+    #victories {
+      background: var(--storm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background texture for this section */
+    #victories::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          135deg,
+          transparent 0px,
+          transparent 48px,
+          rgba(184,146,74,0.025) 48px,
+          rgba(184,146,74,0.025) 49px
+        );
+      pointer-events: none;
+    }
+
+    .victories-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 72px;
+    }
+
+    .victories-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-bottom: 72px;
+    }
+
+    .vstat {
+      background: rgba(12,26,46,0.55);
+      border: 1px solid var(--brass-border);
+      padding: 44px 28px;
+      text-align: center;
+      position: relative;
+    }
+
+    .vstat::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 20%; right: 20%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--brass), transparent);
+    }
+
+    .vstat-number {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 500;
+      color: var(--brass-light);
+      display: block;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .vstat-label {
+      font-family: var(--sans);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* Case cards */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .case-card {
+      background: rgba(12,26,46,0.65);
+      border: 1px solid var(--brass-border);
+      border-left: 3px solid var(--brass);
+      padding: 36px 28px;
+      position: relative;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .case-card:hover {
+      background: rgba(12,26,46,0.82);
+      border-color: rgba(184,146,74,0.55);
+      border-left-color: var(--brass-light);
+    }
+
+    .case-type {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .case-title {
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: var(--fog);
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .case-outcome {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    .case-verdict {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--brass);
+      padding: 5px 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 991px) {
+      .victories-stats { grid-template-columns: repeat(2, 1fr); }
+      .cases-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 767px) {
+      .victories-header { margin-bottom: 48px; }
+    }
+
+    @media (max-width: 479px) {
+      .victories-stats { grid-template-columns: repeat(2, 1fr); gap: 1px; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .vstat { padding: 32px 18px; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       TEAM
+    ───────────────────────────────────────────────────────────── */
+    #team {
+      background: var(--charcoal);
+      position: relative;
+    }
+
+    .team-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 72px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .attorney-card {
+      position: relative;
+    }
+
+    /* Portrait area — CSS-drawn silhouette with gradient */
+    .attorney-portrait {
+      width: 100%;
+      aspect-ratio: 3/4;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(
+        160deg,
+        var(--storm) 0%,
+        var(--navy-mid) 50%,
+        var(--charcoal) 100%
+      );
+      border: 1px solid var(--brass-border);
+      margin-bottom: 20px;
+    }
+
+    /* Decorative abstract silhouette */
+    .attorney-portrait::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 65%;
+      height: 80%;
+      background: linear-gradient(to top, rgba(184,146,74,0.1), transparent);
+      clip-path: polygon(20% 100%, 0% 55%, 10% 40%, 35% 30%, 50% 20%, 65% 30%, 90% 40%, 100% 55%, 80% 100%);
+    }
+
+    .attorney-portrait::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(26,26,36,0.9), transparent);
+    }
+
+    .attorney-portrait-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 2;
+      width: 32px;
+      height: 32px;
+    }
+
+    .attorney-name {
+      font-family: var(--serif);
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: var(--fog);
+      line-height: 1.25;
+      margin-bottom: 5px;
+    }
+
+    .attorney-title {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .attorney-focus {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 991px) {
+      .team-intro { grid-template-columns: 1fr; gap: 32px; margin-bottom: 52px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 479px) {
+      .team-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       WHY PRESCOTT & MONROE (TRUST SIGNALS)
+    ───────────────────────────────────────────────────────────── */
+    #distinction {
+      background: var(--navy);
+      position: relative;
+    }
+
+    .distinction-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .distinction-left .section-heading {
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    }
+
+    .distinction-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .pillar {
+      background: rgba(30,58,95,0.3);
+      border: 1px solid var(--brass-border);
+      padding: 36px 28px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .pillar:hover {
+      background: rgba(42,90,106,0.3);
+      border-color: rgba(184,146,74,0.45);
+    }
+
+    .pillar-icon {
+      color: var(--brass);
+      opacity: 0.7;
+      margin-bottom: 18px;
+    }
+
+    .pillar-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--fog);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .pillar-text {
+      font-family: var(--sans);
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.72;
+    }
+
+    @media (max-width: 991px) {
+      .distinction-grid { grid-template-columns: 1fr; gap: 56px; }
+      .distinction-pillars { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 479px) {
+      .distinction-pillars { grid-template-columns: 1fr; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       CONTACT / CTA
+    ───────────────────────────────────────────────────────────── */
+    #contact {
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative compass points behind CTA */
+    #contact::before {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(184,146,74,0.07);
+      box-shadow:
+        0 0 0 80px rgba(184,146,74,0.025),
+        0 0 0 160px rgba(184,146,74,0.015),
+        0 0 0 240px rgba(184,146,74,0.008);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .contact-left .section-heading {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .contact-body {
+      font-family: var(--sans);
+      font-size: 0.98rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.82;
+      margin-bottom: 40px;
+      max-width: 460px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 44px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-info-icon {
+      color: var(--brass);
+      opacity: 0.7;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .contact-info-label {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .contact-info-value {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--parchment);
+    }
+
+    /* Form */
+    .contact-form {
+      background: rgba(30,58,95,0.28);
+      border: 1px solid var(--brass-border);
+      padding: 48px 40px;
+      position: relative;
+    }
+
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 20%; right: 20%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--brass), transparent);
+    }
+
+    .form-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--fog);
+      margin-bottom: 8px;
+    }
+
+    .form-subtitle {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      display: block;
+      width: 100%;
+      background: rgba(12,26,46,0.6);
+      border: 1px solid rgba(184,146,74,0.22);
+      color: var(--parchment);
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 300;
+      padding: 14px 18px;
+      transition: border-color 0.25s, background 0.25s;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--brass);
+      background: rgba(12,26,46,0.85);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b8924a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      color: var(--text-muted);
+    }
+
+    .form-select option {
+      background: var(--navy);
+      color: var(--parchment);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-submit {
+      display: block;
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--brass);
+      border: 1px solid var(--brass);
+      padding: 18px;
+      cursor: pointer;
+      transition: background 0.25s, border-color 0.25s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--brass-light);
+      border-color: var(--brass-light);
+    }
+
+    .form-disclaimer {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-top: 14px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    @media (max-width: 991px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+      .contact-form { padding: 36px 28px; }
+    }
+
+    @media (max-width: 479px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form { padding: 28px 20px; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────────────────────── */
+    footer {
+      background: #080f1a;
+      border-top: 1px solid rgba(184,146,74,0.18);
+      padding: 60px 0 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--fog);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .footer-brand-sub {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 18px;
+    }
+
+    .footer-tagline {
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col-title {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-family: var(--sans);
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--parchment); }
+
+    .footer-contact-item {
+      font-family: var(--sans);
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184,146,74,0.2), transparent);
+      margin-bottom: 28px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover { color: var(--text-dim); }
+
+    @media (max-width: 991px) {
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 479px) {
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION SPACING RESPONSIVE
+    ───────────────────────────────────────────────────────────── */
+    @media (max-width: 991px) {
+      .section { padding: 88px 0; }
+    }
+
+    @media (max-width: 767px) {
+      .section { padding: 72px 0; }
+    }
+
+    @media (max-width: 479px) {
+      .section { padding: 56px 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── ANIMATED WAVE BACKGROUND ──────────────────────────────── -->
+  <div class="wave-bg" aria-hidden="true">
+    <!-- Animated SVG wave layers -->
+    <svg class="wave-layer" viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,110 C120,160 240,60 360,110 C480,160 600,60 720,110 C840,160 960,60 1080,110 C1200,160 1320,60 1440,110 L1440,220 L0,220 Z" fill="rgba(184,146,74,1)"/>
+    </svg>
+    <svg class="wave-layer" viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,90 C180,140 360,40 540,90 C720,140 900,40 1080,90 C1260,140 1380,60 1440,80 L1440,220 L0,220 Z" fill="rgba(42,90,106,1)"/>
+    </svg>
+  </div>
+
+  <!-- ── PAGE CONTENT ────────────────────────────────────────── -->
+  <div class="page-content">
+
+    <!-- ── NAVIGATION ─────────────────────────────────────────── -->
+    <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+      <a href="#hero" class="nav-logo" aria-label="Prescott &amp; Monroe home">
+        <span class="nav-logo-name">Prescott &amp; Monroe</span>
+        <span class="nav-logo-sub">Admiralty &amp; Maritime Law</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#heritage">Heritage</a></li>
+        <li><a href="#practice">Practice</a></li>
+        <li><a href="#victories">Victories</a></li>
+        <li><a href="#team">Counsel</a></li>
+        <li><a href="#contact" class="nav-consult">Consultation</a></li>
+      </ul>
+
+      <button class="nav-burger" id="navBurger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="nav-mobile" id="navMobile" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <a href="#heritage">Heritage</a>
+      <a href="#practice">Practice Areas</a>
+      <a href="#victories">Notable Victories</a>
+      <a href="#team">Our Counsel</a>
+      <a href="#contact" class="nav-consult">Request Consultation</a>
+    </div>
+
+    <!-- ── HERO ───────────────────────────────────────────────── -->
+    <section id="hero" aria-labelledby="hero-heading">
+
+      <!-- Decorative chart-line overlays -->
+      <div class="hero-chart-lines" aria-hidden="true"></div>
+
+      <!-- Atmosphere overlay (harbor dusk gradient) -->
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+
+      <!-- CSS Compass Rose -->
+      <svg class="compass-rose" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Outer ring -->
+        <circle cx="200" cy="200" r="190" stroke="rgba(184,146,74,1)" stroke-width="0.8"/>
+        <circle cx="200" cy="200" r="160" stroke="rgba(184,146,74,0.6)" stroke-width="0.5"/>
+        <circle cx="200" cy="200" r="120" stroke="rgba(184,146,74,0.4)" stroke-width="0.5"/>
+        <circle cx="200" cy="200" r="60" stroke="rgba(184,146,74,0.6)" stroke-width="0.8"/>
+        <!-- Cardinal points N -->
+        <polygon points="200,10 192,80 200,60 208,80" fill="rgba(184,146,74,1)"/>
+        <!-- Cardinal points S -->
+        <polygon points="200,390 192,320 200,340 208,320" fill="rgba(184,146,74,0.6)"/>
+        <!-- Cardinal points E -->
+        <polygon points="390,200 320,192 340,200 320,208" fill="rgba(184,146,74,0.6)"/>
+        <!-- Cardinal points W -->
+        <polygon points="10,200 80,192 60,200 80,208" fill="rgba(184,146,74,0.6)"/>
+        <!-- Intercardinal lines -->
+        <line x1="200" y1="10" x2="200" y2="390" stroke="rgba(184,146,74,0.25)" stroke-width="0.5"/>
+        <line x1="10" y1="200" x2="390" y2="200" stroke="rgba(184,146,74,0.25)" stroke-width="0.5"/>
+        <line x1="56" y1="56" x2="344" y2="344" stroke="rgba(184,146,74,0.18)" stroke-width="0.5"/>
+        <line x1="344" y1="56" x2="56" y2="344" stroke="rgba(184,146,74,0.18)" stroke-width="0.5"/>
+        <!-- Tick marks -->
+        <g stroke="rgba(184,146,74,0.4)" stroke-width="0.6">
+          <line x1="200" y1="30" x2="200" y2="42"/>
+          <line x1="200" y1="358" x2="200" y2="370"/>
+          <line x1="30" y1="200" x2="42" y2="200"/>
+          <line x1="358" y1="200" x2="370" y2="200"/>
+        </g>
+        <!-- Center dot -->
+        <circle cx="200" cy="200" r="6" fill="rgba(184,146,74,0.8)"/>
+        <circle cx="200" cy="200" r="3" fill="rgba(184,146,74,1)"/>
+        <!-- N label -->
+        <text x="200" y="8" text-anchor="middle" fill="rgba(184,146,74,0.9)" font-size="14" font-family="Georgia, serif" font-weight="bold">N</text>
+      </svg>
+
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <p class="hero-established">
+          <span class="est-dot"></span>
+          Established 1938
+          <span class="est-dot"></span>
+          Charleston, South Carolina
+          <span class="est-dot"></span>
+          Admiralty Counsel
+        </p>
+
+        <h1 class="hero-h1" id="hero-heading">
+          <span class="hero-ampersand">Prescott &amp;</span>
+          Monroe
+        </h1>
+
+        <p class="hero-tagline">
+          Where the law of the sea meets the rigor of the court.<br>
+          Charleston's preeminent admiralty and maritime counsel since 1938.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Request Consultation</a>
+          <a href="#practice" class="btn-ghost">Our Practice Areas</a>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <p class="hero-scroll" aria-hidden="true">
+        <span class="hero-scroll-line"></span>
+        Scroll
+      </p>
+
+      <!-- Stat Bar -->
+      <div class="hero-stats" role="region" aria-label="Firm statistics">
+        <div class="hero-stat">
+          <span class="hero-stat-value">86+</span>
+          <span class="hero-stat-label">Years of Practice</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">$940M</span>
+          <span class="hero-stat-label">Recovered for Clients</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">1,200+</span>
+          <span class="hero-stat-label">Maritime Cases Resolved</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">94%</span>
+          <span class="hero-stat-label">Favorable Outcomes</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- WAVE DIVIDER -->
+    <div class="section-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;background:#0c1a2e;">
+        <path d="M0,36 C240,72 480,0 720,36 C960,72 1200,0 1440,36 L1440,72 L0,72 Z" fill="#1a1a24"/>
+        <path d="M0,48 C200,20 400,68 600,48 C800,28 1000,68 1200,48 C1320,36 1380,42 1440,40 L1440,72 L0,72 Z" fill="rgba(184,146,74,0.06)"/>
+      </svg>
+    </div>
+
+    <!-- ── HERITAGE ─────────────────────────────────────────────── -->
+    <section id="heritage" class="section" aria-labelledby="heritage-heading">
+      <div class="rope-border" aria-hidden="true"></div>
+      <div class="container">
+
+        <div class="heritage-grid">
+          <!-- Left: Quote + Timeline -->
+          <div>
+            <p class="section-label reveal">Our Heritage</p>
+            <h2 class="section-heading reveal reveal-delay-1" id="heritage-heading">
+              Anchored in the<br><em>Port City's History</em>
+            </h2>
+
+            <blockquote class="heritage-quote reveal reveal-delay-2">
+              The sea does not yield easily — nor do we. For eight decades, Prescott &amp; Monroe has stood beside those whose livelihoods run with the tide.
+              <cite class="heritage-quote-attr">— Harlan Prescott III, Senior Partner</cite>
+            </blockquote>
+
+            <div class="heritage-timeline reveal reveal-delay-3">
+              <div class="timeline-item">
+                <span class="timeline-year">1938</span>
+                <p class="timeline-desc">Founded by Elias Prescott to serve Charleston's growing port commerce</p>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-year">1961</span>
+                <p class="timeline-desc">Monroe family joins; firm expands into offshore jurisdiction disputes</p>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-year">2003</span>
+                <p class="timeline-desc">Landmark Jones Act victory redefines seafarer protections in the 4th Circuit</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Body copy -->
+          <div class="heritage-body">
+            <p class="reveal reveal-delay-1">
+              Founded at the edge of the Cooper River in 1938, Prescott &amp; Monroe was born of the waterfront itself. Elias Prescott, a former merchant marine officer turned barrister, understood the sea not as metaphor but as livelihood — and the law that governed it as something demanding precision, courage, and intimate local knowledge.
+            </p>
+            <p class="reveal reveal-delay-2">
+              Today, under the third generation of Prescott leadership alongside the Monroe family's unbroken tradition of admiralty advocacy, the firm represents vessel owners, cargo interests, offshore energy operators, and the seafarers themselves. We practice before the United States District Court for the District of South Carolina, federal appellate courts, and arbitral bodies across the Gulf and Atlantic coasts.
+            </p>
+            <p class="reveal reveal-delay-3">
+              Charleston's waterfront has changed. The law of the sea has evolved. What has not changed is our uncompromising standard: no maritime dispute is too complex, no client too small, no voyage too far.
+            </p>
+            <div class="brass-rule reveal reveal-delay-4"></div>
+            <p class="reveal reveal-delay-4" style="font-family: var(--serif); font-size: 1.02rem; font-style: italic; color: var(--text-dim); line-height: 1.7;">
+              Licensed in South Carolina, Georgia, Louisiana &amp; Virginia. Admiralty matters in all federal districts.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WAVE DIVIDER -->
+    <div class="section-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;background:#1a1a24;">
+        <path d="M0,28 C360,56 720,0 1080,28 C1260,42 1380,18 1440,28 L1440,56 L0,56 Z" fill="#0c1a2e"/>
+      </svg>
+    </div>
+
+    <!-- ── PRACTICE AREAS ─────────────────────────────────────── -->
+    <section id="practice" class="section" aria-labelledby="practice-heading">
+      <div class="container">
+
+        <div class="practice-intro">
+          <div>
+            <p class="section-label reveal">Practice Areas</p>
+            <h2 class="section-heading reveal reveal-delay-1" id="practice-heading">
+              Command of <em>Maritime Law</em><br>in Every Jurisdiction
+            </h2>
+          </div>
+          <div>
+            <p class="section-body reveal reveal-delay-2">
+              The law of the sea is ancient, complex, and unforgiving. Prescott &amp; Monroe brings focused expertise across every dimension of admiralty and maritime practice — from cargo disputes in Charleston harbor to offshore platform litigation in federal courts.
+            </p>
+          </div>
+        </div>
+
+        <div class="practice-grid">
+
+          <!-- Card 1 -->
+          <div class="practice-card reveal">
+            <svg class="practice-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M22 6 L22 38 M10 22 L34 22" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="22" cy="22" r="16" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+              <circle cx="22" cy="22" r="4" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <h3 class="practice-title">Admiralty &amp; Maritime</h3>
+            <p class="practice-desc">Full-spectrum admiralty litigation and counsel — vessel collisions, salvage claims, general average, limitation of liability proceedings, and maritime contract disputes under federal admiralty jurisdiction.</p>
+            <span class="practice-link">Learn more</span>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="practice-card reveal reveal-delay-1">
+            <svg class="practice-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="8" y="14" width="28" height="20" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M14 14 L14 10 L30 10 L30 14" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="14" y1="22" x2="30" y2="22" stroke="currentColor" stroke-width="1" stroke-dasharray="3 2"/>
+              <line x1="14" y1="27" x2="24" y2="27" stroke="currentColor" stroke-width="1" stroke-dasharray="3 2"/>
+            </svg>
+            <h3 class="practice-title">Cargo Disputes</h3>
+            <p class="practice-desc">Representation of shippers, consignees, and cargo insurers in loss, damage, and shortage claims. Bills of lading disputes, Carmack claims, and multi-modal cargo litigation across domestic and international voyages.</p>
+            <span class="practice-link">Learn more</span>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="practice-card reveal reveal-delay-2">
+            <svg class="practice-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M22 8 C22 8 12 16 12 24 C12 29.5 16.5 34 22 34 C27.5 34 32 29.5 32 24 C32 16 22 8 22 8 Z" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="22" y1="34" x2="22" y2="40" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="16" y1="40" x2="28" y2="40" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <h3 class="practice-title">Jones Act Claims</h3>
+            <p class="practice-desc">Vigorous advocacy for injured seamen under the Jones Act and general maritime law. Maintenance and cure, unseaworthiness, and employer negligence claims prosecuted to maximum recovery.</p>
+            <span class="practice-link">Learn more</span>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="practice-card reveal reveal-delay-3">
+            <svg class="practice-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 32 L22 12 L36 32 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <circle cx="22" cy="22" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/>
+              <line x1="22" y1="8" x2="22" y2="34" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            </svg>
+            <h3 class="practice-title">Marine Insurance</h3>
+            <p class="practice-desc">Counsel to underwriters, P&amp;I clubs, and policyholders on hull and machinery claims, cargo policy disputes, coverage opinions, and bad faith litigation under marine insurance law.</p>
+            <span class="practice-link">Learn more</span>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="practice-card reveal reveal-delay-4">
+            <svg class="practice-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="6" y="30" width="32" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 30 L10 20 L18 20 L18 30" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M20 30 L20 14 L24 14 L24 30" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M26 30 L26 22 L34 22 L34 30" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="6" y1="12" x2="38" y2="12" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3"/>
+            </svg>
+            <h3 class="practice-title">Port &amp; Harbor Regulation</h3>
+            <p class="practice-desc">Navigating the regulatory intersection of Coast Guard compliance, USACE permits, port authority disputes, and environmental maritime law at Charleston's working harbor and beyond.</p>
+            <span class="practice-link">Learn more</span>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="practice-card reveal reveal-delay-5">
+            <svg class="practice-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="22" cy="22" r="6" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="22" y1="6" x2="22" y2="16" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="22" y1="28" x2="22" y2="38" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="6" y1="22" x2="16" y2="22" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="28" y1="22" x2="38" y2="22" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="22" cy="22" r="14" stroke="currentColor" stroke-width="0.7" stroke-dasharray="4 2"/>
+            </svg>
+            <h3 class="practice-title">Offshore Energy</h3>
+            <p class="practice-desc">Legal counsel for offshore drilling operators, platform owners, and energy companies navigating OCSLA jurisdiction, personal injury indemnity disputes, and environmental liability in federal waters.</p>
+            <span class="practice-link">Learn more</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WAVE DIVIDER -->
+    <div class="section-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;background:#0c1a2e;">
+        <path d="M0,0 C240,56 480,0 720,28 C960,56 1200,0 1440,28 L1440,56 L0,56 Z" fill="#1e3a5f"/>
+      </svg>
+    </div>
+
+    <!-- ── VICTORIES ────────────────────────────────────────────── -->
+    <section id="victories" class="section" aria-labelledby="victories-heading">
+      <div class="container">
+
+        <div class="victories-header">
+          <p class="section-label reveal" style="justify-content: center;">Notable Victories</p>
+          <h2 class="section-heading reveal reveal-delay-1" id="victories-heading" style="text-align:center;">
+            A Record Built on<br><em>the Merits</em>
+          </h2>
+          <p class="section-body reveal reveal-delay-2" style="margin: 0 auto; text-align: center; max-width: 520px;">
+            Eight decades of admiralty litigation have produced verdicts and settlements that have shaped maritime law across the Atlantic and Gulf coasts.
+          </p>
+        </div>
+
+        <!-- Stats row -->
+        <div class="victories-stats">
+          <div class="vstat reveal">
+            <span class="vstat-number">$940M+</span>
+            <span class="vstat-label">Total Client Recovery</span>
+          </div>
+          <div class="vstat reveal reveal-delay-1">
+            <span class="vstat-number">1,200+</span>
+            <span class="vstat-label">Cases Resolved</span>
+          </div>
+          <div class="vstat reveal reveal-delay-2">
+            <span class="vstat-number">94%</span>
+            <span class="vstat-label">Favorable Outcomes</span>
+          </div>
+          <div class="vstat reveal reveal-delay-3">
+            <span class="vstat-number">8</span>
+            <span class="vstat-label">Landmark Appellate Decisions</span>
+          </div>
+        </div>
+
+        <!-- Case cards -->
+        <div class="cases-grid">
+
+          <div class="case-card reveal">
+            <span class="case-type">Cargo Dispute · 2022</span>
+            <h3 class="case-title">In re: MV Atlantic Sovereign Cargo Claim</h3>
+            <p class="case-outcome">Represented a consortium of international cargo insurers following a catastrophic containership incident in Charleston Harbor. Secured full cargo value recovery across 14 separate claims totaling $62M.</p>
+            <span class="case-verdict">$62M Recovery</span>
+          </div>
+
+          <div class="case-card reveal reveal-delay-1">
+            <span class="case-type">Jones Act · 2020</span>
+            <h3 class="case-title">Holloway v. Coastal Towing Enterprises</h3>
+            <p class="case-outcome">Fourth Circuit landmark ruling affirming Jones Act seaman status for inland towing workers. Jury verdict of $18.4M upheld on appeal — redefining "vessel in navigation" for tug operators along the Carolina coast.</p>
+            <span class="case-verdict">$18.4M Verdict</span>
+          </div>
+
+          <div class="case-card reveal reveal-delay-2">
+            <span class="case-type">Offshore Energy · 2019</span>
+            <h3 class="case-title">Tidewater Drilling v. Seaboard Energy Group</h3>
+            <p class="case-outcome">Successfully defended offshore drilling contractor against $240M OCSLA indemnity claim arising from platform blowout. Court dismissed on jurisdictional grounds following our motion practice — zero liability for client.</p>
+            <span class="case-verdict">Full Defense Verdict</span>
+          </div>
+
+          <div class="case-card reveal reveal-delay-1">
+            <span class="case-type">Admiralty · 2017</span>
+            <h3 class="case-title">Charleston Port Authority v. MSC Bridgette</h3>
+            <p class="case-outcome">Represented vessel owner in allision dispute with port infrastructure. Navigated limitation of liability act proceedings, establishing proportionate fault allocation that capped client exposure to $4.2M from $38M claimed.</p>
+            <span class="case-verdict">Liability Limitation</span>
+          </div>
+
+          <div class="case-card reveal reveal-delay-2">
+            <span class="case-type">Marine Insurance · 2015</span>
+            <h3 class="case-title">Meridian Hull & Machinery Coverage Dispute</h3>
+            <p class="case-outcome">Prosecuted bad faith marine insurance claim on behalf of vessel owner denied coverage following structural failure. Jury awarded full hull value plus $8M in extracontractual damages — largest marine bad faith verdict in SC history.</p>
+            <span class="case-verdict">$28M Total Award</span>
+          </div>
+
+          <div class="case-card reveal reveal-delay-3">
+            <span class="case-type">Port Regulation · 2013</span>
+            <h3 class="case-title">Cooper River Dredging Permit Challenge</h3>
+            <p class="case-outcome">Represented consortium of harbor pilots and shippers challenging Army Corps permit restrictions. Successfully obtained injunctive relief and negotiated revised permit conditions protecting commercial navigation rights.</p>
+            <span class="case-verdict">Injunction Granted</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WAVE DIVIDER -->
+    <div class="section-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;background:#1e3a5f;">
+        <path d="M0,28 C180,0 360,56 540,28 C720,0 900,56 1080,28 C1260,0 1380,42 1440,28 L1440,56 L0,56 Z" fill="#1a1a24"/>
+      </svg>
+    </div>
+
+    <!-- ── TEAM ─────────────────────────────────────────────────── -->
+    <section id="team" class="section" aria-labelledby="team-heading">
+      <div class="container">
+
+        <div class="team-intro">
+          <div>
+            <p class="section-label reveal">Our Counsel</p>
+            <h2 class="section-heading reveal reveal-delay-1" id="team-heading">
+              Officers of the<br><em>Admiralty Bar</em>
+            </h2>
+          </div>
+          <div>
+            <p class="section-body reveal reveal-delay-2">
+              The attorneys of Prescott &amp; Monroe bring decades of federal maritime practice, judicial clerkships, and sea-side industry experience. We do not generalize — every partner concentrates exclusively in admiralty and maritime law.
+            </p>
+            <div class="brass-rule reveal reveal-delay-3"></div>
+          </div>
+        </div>
+
+        <div class="team-grid">
+
+          <div class="attorney-card reveal">
+            <div class="attorney-portrait">
+              <!-- Compass badge -->
+              <svg class="attorney-portrait-badge" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="16" cy="16" r="15" stroke="rgba(184,146,74,0.6)" stroke-width="0.8"/>
+                <circle cx="16" cy="16" r="3" fill="rgba(184,146,74,0.5)"/>
+                <line x1="16" y1="4" x2="16" y2="12" stroke="rgba(184,146,74,0.7)" stroke-width="1"/>
+                <line x1="16" y1="20" x2="16" y2="28" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+                <line x1="4" y1="16" x2="12" y2="16" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+                <line x1="20" y1="16" x2="28" y2="16" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+              </svg>
+            </div>
+            <h3 class="attorney-name">Harlan Prescott III</h3>
+            <span class="attorney-title">Senior Partner &amp; Founding Counsel</span>
+            <p class="attorney-focus">Admiralty litigation, Jones Act, limitation proceedings. Former USCG JAG Officer. 38 years of practice.</p>
+          </div>
+
+          <div class="attorney-card reveal reveal-delay-1">
+            <div class="attorney-portrait">
+              <svg class="attorney-portrait-badge" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="16" cy="16" r="15" stroke="rgba(184,146,74,0.6)" stroke-width="0.8"/>
+                <circle cx="16" cy="16" r="3" fill="rgba(184,146,74,0.5)"/>
+                <line x1="16" y1="4" x2="16" y2="12" stroke="rgba(184,146,74,0.7)" stroke-width="1"/>
+                <line x1="16" y1="20" x2="16" y2="28" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+                <line x1="4" y1="16" x2="12" y2="16" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+                <line x1="20" y1="16" x2="28" y2="16" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+              </svg>
+            </div>
+            <h3 class="attorney-name">Victoria Monroe</h3>
+            <span class="attorney-title">Managing Partner</span>
+            <p class="attorney-focus">Offshore energy, OCSLA jurisdiction, marine insurance. Former US District Court clerk, EDSC. 24 years of practice.</p>
+          </div>
+
+          <div class="attorney-card reveal reveal-delay-2">
+            <div class="attorney-portrait">
+              <svg class="attorney-portrait-badge" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="16" cy="16" r="15" stroke="rgba(184,146,74,0.6)" stroke-width="0.8"/>
+                <circle cx="16" cy="16" r="3" fill="rgba(184,146,74,0.5)"/>
+                <line x1="16" y1="4" x2="16" y2="12" stroke="rgba(184,146,74,0.7)" stroke-width="1"/>
+                <line x1="16" y1="20" x2="16" y2="28" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+                <line x1="4" y1="16" x2="12" y2="16" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+                <line x1="20" y1="16" x2="28" y2="16" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+              </svg>
+            </div>
+            <h3 class="attorney-name">Clement Farrow</h3>
+            <span class="attorney-title">Partner — Cargo &amp; P&amp;I</span>
+            <p class="attorney-focus">Cargo claims, P&amp;I defense, bills of lading, international maritime arbitration. Former Lloyd's of London correspondent. 19 years.</p>
+          </div>
+
+          <div class="attorney-card reveal reveal-delay-3">
+            <div class="attorney-portrait">
+              <svg class="attorney-portrait-badge" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="16" cy="16" r="15" stroke="rgba(184,146,74,0.6)" stroke-width="0.8"/>
+                <circle cx="16" cy="16" r="3" fill="rgba(184,146,74,0.5)"/>
+                <line x1="16" y1="4" x2="16" y2="12" stroke="rgba(184,146,74,0.7)" stroke-width="1"/>
+                <line x1="16" y1="20" x2="16" y2="28" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+                <line x1="4" y1="16" x2="12" y2="16" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+                <line x1="20" y1="16" x2="28" y2="16" stroke="rgba(184,146,74,0.4)" stroke-width="1"/>
+              </svg>
+            </div>
+            <h3 class="attorney-name">Renata Alves</h3>
+            <span class="attorney-title">Associate — Jones Act &amp; Seafarer Rights</span>
+            <p class="attorney-focus">Jones Act personal injury, maintenance &amp; cure, unseaworthiness. Bilingual (English/Portuguese). 8 years of practice.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WAVE DIVIDER -->
+    <div class="section-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;background:#1a1a24;">
+        <path d="M0,14 C360,56 720,0 1080,28 C1260,42 1380,10 1440,20 L1440,56 L0,56 Z" fill="#0c1a2e"/>
+      </svg>
+    </div>
+
+    <!-- ── DISTINCTION ─────────────────────────────────────────── -->
+    <section id="distinction" class="section" aria-labelledby="distinction-heading">
+      <div class="container">
+        <div class="distinction-grid">
+
+          <div class="distinction-left">
+            <p class="section-label reveal">Why Prescott &amp; Monroe</p>
+            <h2 class="section-heading reveal reveal-delay-1" id="distinction-heading">
+              The Standard of<br><em>Admiralty Excellence</em><br>in the Low Country
+            </h2>
+            <div class="brass-rule reveal reveal-delay-2"></div>
+            <p class="section-body reveal reveal-delay-2">
+              In admiralty law, experience is not a credential — it is a requirement. The federal courts, the Coast Guard, the port authorities, the offshore operators: they know this firm, and they know what we represent.
+            </p>
+          </div>
+
+          <div class="distinction-pillars">
+
+            <div class="pillar reveal">
+              <div class="pillar-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M14 3 L14 25 M6 14 L22 14" stroke="currentColor" stroke-width="1.4"/>
+                  <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1" stroke-dasharray="3 2"/>
+                </svg>
+              </div>
+              <h3 class="pillar-title">Federal Court Presence</h3>
+              <p class="pillar-text">Admitted to practice before the United States District Courts and Courts of Appeal across the Atlantic and Gulf coasts. Deep relationships with admiralty judges and magistrates.</p>
+            </div>
+
+            <div class="pillar reveal reveal-delay-1">
+              <div class="pillar-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="4" y="8" width="20" height="14" rx="1" stroke="currentColor" stroke-width="1.4"/>
+                  <path d="M9 8 L9 5 L19 5 L19 8" stroke="currentColor" stroke-width="1.4"/>
+                  <line x1="8" y1="14" x2="20" y2="14" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+                </svg>
+              </div>
+              <h3 class="pillar-title">Industry Knowledge</h3>
+              <p class="pillar-text">Our partners include former merchant marine officers, Lloyd's correspondents, and Coast Guard legal officers. We understand the industry from the waterline up.</p>
+            </div>
+
+            <div class="pillar reveal reveal-delay-2">
+              <div class="pillar-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="14" cy="14" r="8" stroke="currentColor" stroke-width="1.4"/>
+                  <path d="M14 8 L14 14 L18 17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="0.6" stroke-dasharray="2 3"/>
+                </svg>
+              </div>
+              <h3 class="pillar-title">Rapid Response</h3>
+              <p class="pillar-text">Maritime emergencies do not observe business hours. Our casualty response team is available around the clock for vessel arrests, incident response, and emergency injunctive relief.</p>
+            </div>
+
+            <div class="pillar reveal reveal-delay-3">
+              <div class="pillar-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M4 24 L14 6 L24 24 Z" stroke="currentColor" stroke-width="1.4" fill="none"/>
+                  <line x1="9" y1="24" x2="19" y2="24" stroke="currentColor" stroke-width="1"/>
+                  <line x1="14" y1="14" x2="14" y2="20" stroke="currentColor" stroke-width="1.4"/>
+                  <circle cx="14" cy="12" r="1.5" fill="currentColor"/>
+                </svg>
+              </div>
+              <h3 class="pillar-title">Transparent Counsel</h3>
+              <p class="pillar-text">We provide clear-eyed assessments, not false promises. Contingency arrangements available for Jones Act and personal injury matters. Fixed-fee retainers for P&amp;I club clients.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAVE DIVIDER -->
+    <div class="section-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;background:#0c1a2e;">
+        <path d="M0,28 C240,0 480,56 720,28 C960,0 1200,56 1440,28 L1440,56 L0,56 Z" fill="#1a1a24"/>
+      </svg>
+    </div>
+
+    <!-- ── CONTACT ──────────────────────────────────────────────── -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Left: Info -->
+          <div class="contact-left">
+            <p class="section-label reveal">Contact</p>
+            <h2 class="section-heading reveal reveal-delay-1" id="contact-heading">
+              Ready to Chart<br>Your <em>Legal Course?</em>
+            </h2>
+            <p class="contact-body reveal reveal-delay-2">
+              Whether you are facing a cargo dispute in the harbor, an offshore injury claim, or a complex admiralty proceeding, Prescott &amp; Monroe is prepared to act. Initial consultations are confidential and without obligation.
+            </p>
+
+            <div class="contact-info reveal reveal-delay-3">
+              <div class="contact-info-item">
+                <svg class="contact-info-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M9 1C6.24 1 4 3.24 4 6C4 9.75 9 17 9 17C9 17 14 9.75 14 6C14 3.24 11.76 1 9 1ZM9 7.5C8.17 7.5 7.5 6.83 7.5 6C7.5 5.17 8.17 4.5 9 4.5C9.83 4.5 10.5 5.17 10.5 6C10.5 6.83 9.83 7.5 9 7.5Z" fill="currentColor" opacity="0.7"/>
+                </svg>
+                <div>
+                  <span class="contact-info-label">Office</span>
+                  <span class="contact-info-value">12 Broad Street, Suite 400<br>Charleston, South Carolina 29401</span>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <svg class="contact-info-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3.6 1H6.8L8.4 5.2L6.4 6.4C7.26 8.16 8.84 9.74 10.6 10.6L11.8 8.6L16 10.2V13.4C16 14.8 14.6 16 13.2 16C6.4 16 2 9.6 2 4.8C2 3.4 3.2 1 3.6 1Z" stroke="currentColor" stroke-width="1.4" fill="none"/>
+                </svg>
+                <div>
+                  <span class="contact-info-label">Phone</span>
+                  <span class="contact-info-value">(843) 555-0174</span>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <svg class="contact-info-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="2" y="4" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.4"/>
+                  <path d="M2 6L9 11L16 6" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                <div>
+                  <span class="contact-info-label">Email</span>
+                  <span class="contact-info-value">counsel@prescottmonroe.com</span>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <svg class="contact-info-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.4"/>
+                  <path d="M9 4V9L12 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                <div>
+                  <span class="contact-info-label">Hours</span>
+                  <span class="contact-info-value">Monday–Friday, 8:00 AM – 6:00 PM<br>Maritime emergencies: 24-hour line available</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="tel:+18435550174" class="btn-primary reveal reveal-delay-4">Call Our Office</a>
+          </div>
+
+          <!-- Right: Form -->
+          <div class="contact-form reveal reveal-delay-2">
+            <h3 class="form-title">Request a Consultation</h3>
+            <p class="form-subtitle">Complete the form below and a member of our admiralty team will respond within one business day.</p>
+
+            <form action="#" method="POST" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="firstName">First Name</label>
+                  <input class="form-input" type="text" id="firstName" name="firstName" placeholder="First name" autocomplete="given-name" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="lastName">Last Name</label>
+                  <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Last name" autocomplete="family-name" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input class="form-input" type="tel" id="phone" name="phone" placeholder="(843) 000-0000" autocomplete="tel" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="matter">Type of Matter</label>
+                <select class="form-select" id="matter" name="matter" required>
+                  <option value="" disabled selected>Select practice area</option>
+                  <option value="admiralty">Admiralty &amp; Maritime Litigation</option>
+                  <option value="cargo">Cargo Dispute</option>
+                  <option value="jones-act">Jones Act / Seafarer Injury</option>
+                  <option value="marine-insurance">Marine Insurance</option>
+                  <option value="port-regulation">Port &amp; Harbor Regulation</option>
+                  <option value="offshore">Offshore Energy</option>
+                  <option value="other">Other Maritime Matter</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Brief Description</label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Please describe your matter briefly. All communications are protected by attorney-client privilege."></textarea>
+              </div>
+
+              <button type="submit" class="form-submit">Submit Consultation Request</button>
+              <p class="form-disclaimer">All inquiries are held in strict confidence. Submission of this form does not establish an attorney-client relationship.</p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ──────────────────────────────────────────────── -->
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="footer-top">
+
+          <div>
+            <p class="footer-brand-name">Prescott &amp; Monroe</p>
+            <p class="footer-brand-sub">Admiralty &amp; Maritime Law</p>
+            <p class="footer-tagline">Serving the law of the sea from the waterfront of Charleston since 1938.</p>
+          </div>
+
+          <div>
+            <p class="footer-col-title">Practice</p>
+            <ul class="footer-links" role="list">
+              <li><a href="#practice">Admiralty &amp; Maritime</a></li>
+              <li><a href="#practice">Cargo Disputes</a></li>
+              <li><a href="#practice">Jones Act Claims</a></li>
+              <li><a href="#practice">Marine Insurance</a></li>
+              <li><a href="#practice">Port &amp; Harbor</a></li>
+              <li><a href="#practice">Offshore Energy</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="footer-col-title">Firm</p>
+            <ul class="footer-links" role="list">
+              <li><a href="#heritage">Our Heritage</a></li>
+              <li><a href="#victories">Notable Victories</a></li>
+              <li><a href="#team">Our Counsel</a></li>
+              <li><a href="#distinction">Why Our Firm</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="footer-col-title">Contact</p>
+            <p class="footer-contact-item">12 Broad Street, Suite 400<br>Charleston, SC 29401</p>
+            <p class="footer-contact-item">(843) 555-0174</p>
+            <p class="footer-contact-item">counsel@prescottmonroe.com</p>
+            <p class="footer-contact-item" style="margin-top:12px;font-size:0.72rem;color:var(--text-muted);">24-Hour Maritime Emergency Line Available</p>
+          </div>
+
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+          <p class="footer-copy">&copy; 2026 Prescott &amp; Monroe, LLP. All rights reserved. Admiralty &amp; Maritime Law, Charleston, South Carolina.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Disclaimer</a>
+            <a href="#">Attorney Advertising</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /.page-content -->
+
+  <!-- ── JAVASCRIPT ─────────────────────────────────────────────── -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── Hero load animation ── */
+      const hero = document.getElementById('hero');
+      if (hero) {
+        // Short defer so fonts have rendered
+        setTimeout(function () {
+          hero.classList.add('loaded');
+        }, 80);
+      }
+
+      /* ── Nav: scroll state + burger ── */
+      const nav        = document.getElementById('mainNav');
+      const burger     = document.getElementById('navBurger');
+      const mobileMenu = document.getElementById('navMobile');
+
+      // Scroll-based nav style
+      function handleNavScroll() {
+        if (window.scrollY > 40) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', handleNavScroll, { passive: true });
+      handleNavScroll();
+
+      // Burger toggle
+      burger.addEventListener('click', function () {
+        var open = burger.classList.toggle('open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        mobileMenu.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+
+      // Close mobile menu on link click
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          burger.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+
+      /* ── Scroll reveal ── */
+      var revealEls = document.querySelectorAll('.reveal');
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealEls.forEach(function (el) {
+        observer.observe(el);
+      });
+
+      /* ── Smooth anchor scroll (fallback for older browsers) ── */
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            var navHeight = nav ? nav.offsetHeight : 0;
+            var targetY = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+          }
+        });
+      });
+
+    }());
+  </script>
+
+</body>
+</html>

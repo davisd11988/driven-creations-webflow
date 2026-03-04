@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Delgado & Morales — Civil Rights & Employment Law firm in Los Angeles, CA. Fighting workplace discrimination, police misconduct, housing inequality, and constitutional violations." />
+  <meta property="og:title" content="Delgado & Morales | Civil Rights & Employment Law | Los Angeles" />
+  <meta property="og:description" content="Your Rights. Our Fight. Champions of the underrepresented in Los Angeles." />
+  <meta property="og:type" content="website" />
+  <title>Delgado &amp; Morales | Civil Rights &amp; Employment Law | Los Angeles, CA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & BASE ────────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black:       #0d0d0d;
+      --black-mid:   #141414;
+      --black-light: #1a1a1a;
+      --black-card:  #161616;
+      --amber:       #e8a317;
+      --amber-dark:  #c4870e;
+      --amber-glow:  rgba(232, 163, 23, 0.18);
+      --amber-border:rgba(232, 163, 23, 0.35);
+      --crimson:     #b22234;
+      --crimson-dark:#8c1a28;
+      --crimson-glow:rgba(178, 34, 52, 0.20);
+      --white:       #ffffff;
+      --off-white:   #f5f0e8;
+      --gray-light:  #c8c0b0;
+      --gray-mid:    #8a8070;
+      --gray-muted:  #4a4438;
+      --border-dark: rgba(255, 255, 255, 0.07);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--off-white);
+      background-color: var(--black);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Bebas Neue', cursive;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Grunge texture overlay on body */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 300px 300px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ─── NAV ──────────────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: var(--black);
+      border-bottom: 1px solid var(--border-dark);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(13, 13, 13, 0.97);
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-name {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.35rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .nav-logo-sub {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--amber);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--amber);
+    }
+
+    .nav-cta {
+      background: var(--amber);
+      color: var(--black) !important;
+      padding: 10px 22px;
+      font-weight: 700 !important;
+      transition: background 0.2s ease !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--amber-dark) !important;
+      color: var(--black) !important;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    /* Left amber stripe accent */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--amber) 0%, var(--crimson) 100%);
+      z-index: 2;
+    }
+
+    /* Bottom red block */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--crimson);
+    }
+
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 80px 40px 80px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--amber);
+    }
+
+    .hero-heading {
+      font-size: clamp(4.5rem, 8vw, 8rem);
+      color: var(--white);
+      margin-bottom: 0;
+      line-height: 0.95;
+    }
+
+    .hero-heading .amber-text {
+      color: var(--amber);
+      display: block;
+    }
+
+    .hero-heading .crimson-text {
+      color: var(--crimson);
+      display: block;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--amber), var(--crimson));
+      margin: 28px 0;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--gray-light);
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+
+    .hero-sub strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--amber);
+      color: var(--black);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--amber-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+      transform: translateY(-2px);
+    }
+
+    .hero-image-wrap {
+      position: relative;
+    }
+
+    .hero-image-badge {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: var(--crimson);
+      color: var(--white);
+      font-family: 'Bebas Neue', cursive;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      padding: 10px 16px;
+      z-index: 3;
+    }
+
+    .hero-image-corner {
+      position: absolute;
+      bottom: -16px;
+      left: -16px;
+      width: 64px;
+      height: 64px;
+      background: var(--amber);
+      z-index: 3;
+    }
+
+    /* ─── IMPACT NUMBERS ────────────────────────────────────────────────── */
+    .impact {
+      background: var(--crimson);
+      padding: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .impact-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .impact-item {
+      padding: 52px 32px;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      transition: background 0.2s ease;
+    }
+
+    .impact-item:last-child {
+      border-right: none;
+    }
+
+    .impact-item:hover {
+      background: var(--crimson-dark);
+    }
+
+    .impact-number {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(2.8rem, 4vw, 4rem);
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .impact-number span {
+      color: var(--amber);
+    }
+
+    .impact-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* ─── PRACTICE AREAS ─────────────────────────────────────────────────── */
+    .practice {
+      background: var(--black);
+      padding: 100px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .practice-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--amber);
+    }
+
+    .section-heading {
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--gray-light);
+      max-width: 560px;
+      margin-bottom: 60px;
+      line-height: 1.7;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+
+    .practice-card {
+      background: var(--black-card);
+      border: 1px solid var(--amber-border);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease, background 0.3s ease;
+      cursor: default;
+    }
+
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--amber);
+      transition: width 0.3s ease;
+    }
+
+    .practice-card:nth-child(even)::before {
+      background: var(--crimson);
+    }
+
+    .practice-card:hover {
+      background: var(--black-light);
+      border-color: var(--amber);
+    }
+
+    .practice-card:hover::before {
+      width: 6px;
+    }
+
+    .practice-card:nth-child(even):hover {
+      border-color: var(--crimson);
+    }
+
+    .practice-number {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 4rem;
+      color: var(--amber-border);
+      line-height: 1;
+      margin-bottom: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .practice-card:nth-child(even) .practice-number {
+      color: var(--crimson-glow);
+    }
+
+    .practice-card:hover .practice-number {
+      color: rgba(232, 163, 23, 0.3);
+    }
+
+    .practice-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    .practice-desc {
+      font-size: 0.9rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .practice-statutes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .statute-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      border: 1px solid var(--amber-border);
+      padding: 4px 10px;
+    }
+
+    .practice-card:nth-child(even) .statute-tag {
+      color: var(--crimson);
+      border-color: var(--crimson-glow);
+    }
+
+    /* ─── ABOUT ──────────────────────────────────────────────────────────── */
+    .about {
+      background: var(--black-mid);
+      padding: 100px 40px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    /* Large background text */
+    .about::before {
+      content: 'JUSTICE';
+      position: absolute;
+      top: 50%;
+      right: -40px;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', cursive;
+      font-size: 18vw;
+      color: rgba(232, 163, 23, 0.03);
+      line-height: 1;
+      pointer-events: none;
+      z-index: 0;
+      white-space: nowrap;
+    }
+
+    .about-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-pull-quote {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      color: var(--amber);
+      line-height: 1.1;
+      border-left: 4px solid var(--amber);
+      padding-left: 24px;
+      margin-bottom: 32px;
+    }
+
+    .about-body {
+      font-size: 0.95rem;
+      color: var(--gray-light);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .about-body strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .about-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--gray-light);
+    }
+
+    .about-list li::before {
+      content: '//';
+      color: var(--amber);
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .about-image-block {
+      position: relative;
+    }
+
+    .about-image-placeholder {
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(135deg, #0d0d0d, #1a1209);
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--amber);
+      font-size: 1rem;
+      font-weight: 600;
+      border: 1px solid var(--amber-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-image-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          rgba(232, 163, 23, 0.03) 0px,
+          rgba(232, 163, 23, 0.03) 1px,
+          transparent 1px,
+          transparent 40px
+        );
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: 24px;
+      left: -24px;
+      background: var(--crimson);
+      padding: 20px 28px;
+      z-index: 2;
+    }
+
+    .about-badge-number {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2.4rem;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .about-badge-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* ─── TEAM ───────────────────────────────────────────────────────────── */
+    .team {
+      background: var(--black);
+      padding: 100px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .team-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .attorney-card {
+      background: var(--black-card);
+      border: 1px solid var(--border-dark);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .attorney-card:hover {
+      border-color: var(--amber-border);
+      transform: translateY(-4px);
+    }
+
+    .attorney-photo {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #1a1209, #0d0d0d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--amber);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .attorney-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          rgba(232, 163, 23, 0.025) 0px,
+          rgba(232, 163, 23, 0.025) 1px,
+          transparent 1px,
+          transparent 32px
+        );
+    }
+
+    .attorney-photo-initials {
+      width: 80px;
+      height: 80px;
+      background: var(--amber-glow);
+      border: 2px solid var(--amber-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2rem;
+      color: var(--amber);
+      letter-spacing: 0.05em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .attorney-bar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--crimson));
+    }
+
+    .attorney-info {
+      padding: 28px 28px 32px;
+    }
+
+    .attorney-name {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.6rem;
+      color: var(--white);
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .attorney-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+
+    .attorney-bio {
+      font-size: 0.875rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .attorney-credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .credential {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--gray-mid);
+    }
+
+    .credential::before {
+      content: '—';
+      color: var(--crimson);
+      flex-shrink: 0;
+    }
+
+    /* ─── TESTIMONIALS / CASE RESULTS ────────────────────────────────────── */
+    .results {
+      background: var(--black-mid);
+      padding: 100px 40px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .results::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--crimson), var(--amber));
+    }
+
+    .results-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .result-card {
+      background: var(--black-card);
+      border: 1px solid var(--border-dark);
+      padding: 40px 32px;
+      position: relative;
+      transition: border-color 0.3s ease;
+    }
+
+    .result-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 6rem;
+      color: rgba(232, 163, 23, 0.08);
+      line-height: 1;
+    }
+
+    .result-card:hover {
+      border-color: var(--amber-border);
+    }
+
+    .result-verdict {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2rem;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+
+    .result-type {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 20px;
+    }
+
+    .result-quote {
+      font-size: 0.875rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .result-client {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    .result-client span {
+      color: var(--gray-mid);
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    /* ─── CONTACT ────────────────────────────────────────────────────────── */
+    .contact {
+      background: var(--black);
+      padding: 100px 40px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: 'FIGHT';
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', cursive;
+      font-size: 22vw;
+      color: rgba(178, 34, 52, 0.04);
+      line-height: 1;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .contact-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-heading {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .contact-heading .amber-text {
+      color: var(--amber);
+    }
+
+    .contact-sub {
+      font-size: 1rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-detail-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .contact-detail-value {
+      font-size: 1rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .contact-detail-value a:hover {
+      color: var(--amber);
+    }
+
+    .contact-form-block {
+      background: var(--black-card);
+      border: 1px solid var(--amber-border);
+      padding: 48px 40px;
+      position: relative;
+    }
+
+    .contact-form-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--crimson));
+    }
+
+    .contact-form-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .contact-form-sub {
+      font-size: 0.85rem;
+      color: var(--gray-mid);
+      margin-bottom: 32px;
+    }
+
+    .form-field {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: var(--black-light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 14px 16px;
+      transition: border-color 0.2s ease;
+      outline: none;
+      appearance: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--amber);
+    }
+
+    .form-input::placeholder {
+      color: var(--gray-muted);
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--crimson);
+      color: var(--white);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      justify-content: center;
+      transition: background 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--crimson-dark);
+    }
+
+    .form-disclaimer {
+      font-size: 0.72rem;
+      color: var(--gray-muted);
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────────────── */
+    .footer {
+      background: var(--crimson);
+      padding: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 64px 40px 48px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 60px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2rem;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .footer-brand-sub {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 20px;
+    }
+
+    .footer-tagline {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.5rem;
+      color: var(--amber);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .footer-desc {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.7;
+    }
+
+    .footer-col-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      color: var(--white);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--amber);
+    }
+
+    .footer-contact-item {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .footer-contact-item strong {
+      color: var(--white);
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-bottom-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-disclaimer {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.4);
+      max-width: 480px;
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    /* ─── EMERGENCY BAR ──────────────────────────────────────────────────── */
+    .emergency-bar {
+      background: var(--amber);
+      padding: 12px 40px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .emergency-bar p {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .emergency-bar a {
+      color: var(--crimson);
+      font-weight: 700;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────────────────── */
+
+    /* 991px — Tablet */
+    @media (max-width: 991px) {
+      .nav-inner {
+        padding: 0 24px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 80px 24px;
+        text-align: center;
+      }
+
+      .hero::before {
+        width: 4px;
+      }
+
+      .hero-label {
+        justify-content: center;
+      }
+
+      .hero-label::before {
+        display: none;
+      }
+
+      .hero-divider {
+        margin: 28px auto;
+      }
+
+      .hero-sub {
+        margin: 0 auto 40px;
+        max-width: 100%;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-image-badge {
+        top: -10px;
+        right: -10px;
+      }
+
+      .hero-image-corner {
+        bottom: -10px;
+        left: -10px;
+      }
+
+      .impact-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .impact-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .impact-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .impact-item:nth-child(3),
+      .impact-item:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .practice {
+        padding: 72px 24px;
+      }
+
+      .practice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        padding: 72px 24px;
+      }
+
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .about-image-placeholder {
+        height: 360px;
+      }
+
+      .about-badge {
+        left: 0;
+      }
+
+      .team {
+        padding: 72px 24px;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+
+      .results {
+        padding: 72px 24px;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding: 72px 24px;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding: 48px 24px 40px;
+      }
+
+      .footer-bottom-inner {
+        padding: 16px 24px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-disclaimer {
+        text-align: center;
+      }
+    }
+
+    /* 767px — Mobile Large */
+    @media (max-width: 767px) {
+      .impact-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-heading {
+        font-size: 2.4rem;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+      }
+
+      .emergency-bar {
+        padding: 12px 20px;
+      }
+
+      .practice-card {
+        padding: 36px 28px;
+      }
+
+      .contact-form-block {
+        padding: 36px 28px;
+      }
+    }
+
+    /* 479px — Mobile Small */
+    @media (max-width: 479px) {
+      .nav-inner {
+        padding: 0 16px;
+      }
+
+      .nav-logo-name {
+        font-size: 1.1rem;
+      }
+
+      .hero-inner {
+        padding: 72px 16px 60px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        text-align: center;
+        justify-content: center;
+      }
+
+      .impact-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .impact-item {
+        padding: 36px 16px;
+      }
+
+      .practice {
+        padding: 60px 16px;
+      }
+
+      .practice-statutes {
+        flex-wrap: wrap;
+      }
+
+      .about {
+        padding: 60px 16px;
+      }
+
+      .team {
+        padding: 60px 16px;
+      }
+
+      .results {
+        padding: 60px 16px;
+      }
+
+      .contact {
+        padding: 60px 16px;
+      }
+
+      .contact-form-block {
+        padding: 28px 20px;
+      }
+
+      .footer-main {
+        padding: 40px 16px 32px;
+      }
+
+      .footer-bottom-inner {
+        padding: 16px;
+      }
+
+      .emergency-bar {
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── EMERGENCY TOP BAR ──────────────────────────────────────────────── -->
+  <div class="emergency-bar">
+    <p>Free consultations. No fee unless we win. Call now: <a href="tel:+12135550192">(213) 555-0192</a></p>
+  </div>
+
+  <!-- ─── NAV ───────────────────────────────────────────────────────────── -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Delgado & Morales Home">
+        <span class="nav-logo-name">Delgado &amp; Morales</span>
+        <span class="nav-logo-sub">Civil Rights &amp; Employment Law</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#practice">Practice Areas</a></li>
+        <li><a href="#about">Our Mission</a></li>
+        <li><a href="#team">Attorneys</a></li>
+        <li><a href="#results">Case Results</a></li>
+        <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ──────────────────────────────────────────────────────────── -->
+  <section class="hero" id="hero" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-label">Los Angeles, California</p>
+        <h1 class="hero-heading" id="hero-heading">
+          <span>Your Rights.</span>
+          <span class="amber-text">Our Fight.</span>
+        </h1>
+        <div class="hero-divider" aria-hidden="true"></div>
+        <p class="hero-sub">
+          When your employer breaks the law, when police use excessive force, when a landlord slams the door in your face — <strong>we answer.</strong> Delgado &amp; Morales has spent 15 years going to court for the people who deserve justice most and get it least.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Fight Back Today</a>
+          <a href="#results" class="btn-secondary">See Our Results</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="hero-image-badge">15 Years of Justice</div>
+        <div style="width:100%;height:500px;background:linear-gradient(135deg,#0d0d0d,#1a1209);border-radius:0;display:flex;align-items:center;justify-content:center;color:#e8a317;font-size:1.2rem;border:1px solid rgba(232,163,23,0.25);position:relative;overflow:hidden;">
+          <span style="position:relative;z-index:1;font-weight:600;letter-spacing:0.05em;">AI-Generated Hero Image</span>
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(232,163,23,0.025) 0px,rgba(232,163,23,0.025) 1px,transparent 1px,transparent 40px);"></div>
+        </div>
+        <div class="hero-image-corner" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── IMPACT NUMBERS ─────────────────────────────────────────────────── -->
+  <section class="impact" aria-label="Firm results at a glance">
+    <div class="impact-inner">
+      <div class="impact-item">
+        <div class="impact-number"><span>$47M</span>+</div>
+        <div class="impact-label">Recovered for Clients</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-number"><span>500</span>+</div>
+        <div class="impact-label">Cases Won</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-number"><span>15</span></div>
+        <div class="impact-label">Years Fighting</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-number"><span>3</span></div>
+        <div class="impact-label">Landmark Rulings</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRACTICE AREAS ─────────────────────────────────────────────────── -->
+  <section class="practice" id="practice" aria-labelledby="practice-heading">
+    <div class="practice-inner">
+      <p class="section-label">What We Fight For</p>
+      <h2 class="section-heading" id="practice-heading">Practice Areas</h2>
+      <p class="section-sub">
+        We take on the cases other firms walk away from. If your rights were violated, we want to hear your story.
+      </p>
+      <div class="practice-grid">
+
+        <!-- Card 1 -->
+        <div class="practice-card">
+          <div class="practice-number" aria-hidden="true">01</div>
+          <h3 class="practice-title">Workplace Discrimination</h3>
+          <p class="practice-desc">
+            No one should lose their job, their promotion, or their dignity because of their race, gender, age, religion, disability, or sexual orientation. We pursue claims against employers who violate federal and California law — from hostile work environments to wrongful termination and retaliation.
+          </p>
+          <div class="practice-statutes" aria-label="Relevant statutes">
+            <span class="statute-tag">Title VII</span>
+            <span class="statute-tag">FEHA</span>
+            <span class="statute-tag">ADA</span>
+            <span class="statute-tag">ADEA</span>
+            <span class="statute-tag">Cal. Lab. Code</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="practice-card">
+          <div class="practice-number" aria-hidden="true">02</div>
+          <h3 class="practice-title">Police Misconduct &amp; Excessive Force</h3>
+          <p class="practice-desc">
+            When law enforcement crosses the line — unlawful arrests, excessive force, racial profiling, or deadly encounters — we hold officers and municipalities accountable. We have litigated Section 1983 civil rights claims through federal court, including cases that reached the Ninth Circuit.
+          </p>
+          <div class="practice-statutes" aria-label="Relevant statutes">
+            <span class="statute-tag">42 U.S.C. § 1983</span>
+            <span class="statute-tag">4th Amendment</span>
+            <span class="statute-tag">14th Amendment</span>
+            <span class="statute-tag">Bane Act</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="practice-card">
+          <div class="practice-number" aria-hidden="true">03</div>
+          <h3 class="practice-title">Housing Discrimination</h3>
+          <p class="practice-desc">
+            Everyone deserves a home free from bias. We represent tenants and applicants who face discrimination based on race, national origin, familial status, disability, or source of income. From unlawful evictions to discriminatory lending, we use the full force of federal and state law to protect housing rights.
+          </p>
+          <div class="practice-statutes" aria-label="Relevant statutes">
+            <span class="statute-tag">Fair Housing Act</span>
+            <span class="statute-tag">FEHA</span>
+            <span class="statute-tag">Unruh Act</span>
+            <span class="statute-tag">HUD Regulations</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="practice-card">
+          <div class="practice-number" aria-hidden="true">04</div>
+          <h3 class="practice-title">Wage Theft &amp; Labor Violations</h3>
+          <p class="practice-desc">
+            Stolen wages are stolen lives. We represent workers who have been denied overtime, misclassified as independent contractors, forced to work off the clock, or cheated out of meal and rest breaks. We pursue individual claims and class actions against employers who treat workers as disposable.
+          </p>
+          <div class="practice-statutes" aria-label="Relevant statutes">
+            <span class="statute-tag">FLSA</span>
+            <span class="statute-tag">Cal. Lab. Code § 226</span>
+            <span class="statute-tag">PAGA</span>
+            <span class="statute-tag">AB5</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────────────────────── -->
+  <section class="about" id="about" aria-labelledby="about-heading">
+    <div class="about-inner">
+      <div class="about-text">
+        <p class="section-label">Our Mission</p>
+        <h2 class="section-heading" id="about-heading" style="margin-bottom:0;">We Take the Cases Others Won't.</h2>
+        <div class="about-pull-quote">
+          "The most important cases are the ones powerful institutions hope you'll give up on."
+        </div>
+        <p class="about-body">
+          Delgado &amp; Morales was founded in 2009 by Elena Delgado and Marco Morales after a combined decade of front-line public interest work — Elena as a staff attorney with the ACLU of Southern California and Marco as a federal public defender. They saw the same pattern everywhere: <strong>ordinary people with legitimate civil rights claims being turned away by firms chasing only the easy cases.</strong>
+        </p>
+        <p class="about-body">
+          They built this firm to be different. Clients here are not case numbers. Every intake call is taken seriously, every claim investigated fully, and every case fought with the intensity it deserves — whether it settles for policy change or a seven-figure jury verdict.
+        </p>
+        <p class="about-body">
+          Today our team of six attorneys has recovered more than $47 million for clients across Southern California, won three appeals that changed how California courts interpret civil rights law, and secured systemic policy reforms through settlement agreements that protect communities beyond any individual case.
+        </p>
+        <ul class="about-list" aria-label="Core commitments">
+          <li>Free initial consultation — no fee unless we win</li>
+          <li>Contingency representation for qualifying civil rights claims</li>
+          <li>Bilingual attorneys — English and Spanish</li>
+          <li>Federal and state court litigation experience</li>
+          <li>Appellate practice through the Ninth Circuit</li>
+        </ul>
+      </div>
+      <div class="about-image-block">
+        <div class="about-image-placeholder" aria-label="Delgado and Morales office and team">
+          <span style="position:relative;z-index:1;font-weight:600;letter-spacing:0.05em;color:#e8a317;">AI-Generated Firm Image</span>
+        </div>
+        <div class="about-badge" aria-label="ACLU Partnership">
+          <div class="about-badge-number">ACLU</div>
+          <div class="about-badge-label">Former Counsel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TEAM ──────────────────────────────────────────────────────────── -->
+  <section class="team" id="team" aria-labelledby="team-heading">
+    <div class="team-inner">
+      <p class="section-label">The Attorneys</p>
+      <h2 class="section-heading" id="team-heading">Who Will Fight for You</h2>
+      <div class="team-grid">
+
+        <!-- Attorney 1 -->
+        <article class="attorney-card">
+          <div class="attorney-photo" aria-label="Elena Delgado, Founding Partner">
+            <div class="attorney-photo-initials">ED</div>
+          </div>
+          <div class="attorney-bar" aria-hidden="true"></div>
+          <div class="attorney-info">
+            <h3 class="attorney-name">Elena Delgado</h3>
+            <p class="attorney-title">Founding Partner</p>
+            <p class="attorney-bio">
+              Elena leads the firm's police misconduct and constitutional litigation practice. A former ACLU staff attorney, she has argued before the Ninth Circuit and was co-counsel in a landmark consent decree requiring LAPD use-of-force reforms. Named to the California Super Lawyers Rising Stars list four consecutive years.
+            </p>
+            <div class="attorney-credentials" aria-label="Credentials">
+              <p class="credential">UCLA School of Law, J.D. 2006</p>
+              <p class="credential">ACLU of Southern California, Staff Attorney (2006–2009)</p>
+              <p class="credential">Ninth Circuit Civil Rights Fellow</p>
+              <p class="credential">Board Member, National Police Accountability Project</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Attorney 2 -->
+        <article class="attorney-card">
+          <div class="attorney-photo" aria-label="Marco Morales, Founding Partner">
+            <div class="attorney-photo-initials">MM</div>
+          </div>
+          <div class="attorney-bar" aria-hidden="true"></div>
+          <div class="attorney-info">
+            <h3 class="attorney-name">Marco Morales</h3>
+            <p class="attorney-title">Founding Partner</p>
+            <p class="attorney-bio">
+              Marco built his career as a federal public defender in the Central District of California before co-founding Delgado &amp; Morales. His practice focuses on employment discrimination, PAGA class actions, and wage theft litigation. He has secured more than $28 million in employment recoveries over his career.
+            </p>
+            <div class="attorney-credentials" aria-label="Credentials">
+              <p class="credential">USC Gould School of Law, J.D. 2005</p>
+              <p class="credential">Federal Public Defender, C.D. Cal. (2005–2009)</p>
+              <p class="credential">California Employment Lawyers Association</p>
+              <p class="credential">Adjunct Professor, Loyola Law School</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Attorney 3 -->
+        <article class="attorney-card">
+          <div class="attorney-photo" aria-label="Simone Adeyemi, Senior Associate">
+            <div class="attorney-photo-initials">SA</div>
+          </div>
+          <div class="attorney-bar" aria-hidden="true"></div>
+          <div class="attorney-info">
+            <h3 class="attorney-name">Simone Adeyemi</h3>
+            <p class="attorney-title">Senior Associate</p>
+            <p class="attorney-bio">
+              Simone leads the firm's housing discrimination and fair lending practice. A graduate of Harvard Law School and a former Skadden Fellow at the National Housing Law Project, she has represented hundreds of tenants across Los Angeles County in Fair Housing Act claims and habitability actions.
+            </p>
+            <div class="attorney-credentials" aria-label="Credentials">
+              <p class="credential">Harvard Law School, J.D. 2012</p>
+              <p class="credential">Skadden Fellowship, National Housing Law Project</p>
+              <p class="credential">HUD Fair Housing Initiative Partner</p>
+              <p class="credential">Co-author, California Fair Housing Practice Guide</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CASE RESULTS ───────────────────────────────────────────────────── -->
+  <section class="results" id="results" aria-labelledby="results-heading">
+    <div class="results-inner">
+      <p class="section-label">Case Results</p>
+      <h2 class="section-heading" id="results-heading">Justice Has a Dollar Amount</h2>
+      <p class="section-sub" style="max-width:600px;color:var(--gray-light);font-size:1rem;line-height:1.7;margin-top:16px;margin-bottom:0;">
+        Past results do not guarantee future outcomes. But they tell you who we are and what we fight for.
+      </p>
+      <div class="results-grid">
+
+        <div class="result-card">
+          <div class="result-verdict">$9.4M</div>
+          <div class="result-type">Police Misconduct / Section 1983</div>
+          <p class="result-quote">
+            "They told me nobody would believe me. Ms. Delgado believed me from the first call. She didn't just win my case — she changed how the department trains its officers."
+          </p>
+          <p class="result-client">James T. <span>— Excessive Force Claim, Los Angeles County</span></p>
+        </div>
+
+        <div class="result-card">
+          <div class="result-verdict">$3.1M</div>
+          <div class="result-type">PAGA Class Action / Wage Theft</div>
+          <p class="result-quote">
+            "We were working 12-hour shifts and being paid for eight. Mr. Morales turned our individual complaints into a class action that got every worker in our warehouse what they were owed."
+          </p>
+          <p class="result-client">Maria R. <span>— Class Representative, Warehouse Wage Case</span></p>
+        </div>
+
+        <div class="result-card">
+          <div class="result-verdict">Policy Win</div>
+          <div class="result-type">Fair Housing / Systemic Reform</div>
+          <p class="result-quote">
+            "Our landlord rejected 42 Section 8 applicants in a single year. Simone took our case and turned it into a consent decree that changed leasing practices across our entire complex."
+          </p>
+          <p class="result-client">Community Coalition <span>— Fair Housing Complaint, South LA</span></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────────────────────── -->
+  <section class="contact" id="contact" aria-labelledby="contact-heading">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <p class="section-label">Get Started</p>
+        <h2 class="contact-heading" id="contact-heading">
+          Ready to<br>
+          <span class="amber-text">Fight Back?</span>
+        </h2>
+        <p class="contact-sub">
+          Your first consultation is completely free. Tell us what happened. We will tell you whether you have a case and what fighting back looks like — no obligation, no pressure.
+        </p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <span class="contact-detail-label">Address</span>
+            <span class="contact-detail-value">800 Wilshire Boulevard, Suite 1200<br>Los Angeles, CA 90017</span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-label">Phone</span>
+            <span class="contact-detail-value"><a href="tel:+12135550192">(213) 555-0192</a></span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-label">Email</span>
+            <span class="contact-detail-value"><a href="mailto:info@delgadomoraleslaw.com">info@delgadomoraleslaw.com</a></span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-label">Hours</span>
+            <span class="contact-detail-value">Monday – Friday: 8am – 7pm<br>Emergency consultations available</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-block" role="region" aria-label="Free consultation request form">
+        <h3 class="contact-form-title">Request a Free Consultation</h3>
+        <p class="contact-form-sub">We respond to all inquiries within one business day.</p>
+
+        <div class="form-field">
+          <label class="form-label" for="name">Full Name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="phone">Phone Number</label>
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="(213) 555-0000" autocomplete="tel" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="email">Email Address</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="area">Practice Area</label>
+          <select class="form-input" id="area" name="area">
+            <option value="" disabled selected>Select a practice area</option>
+            <option value="workplace">Workplace Discrimination</option>
+            <option value="police">Police Misconduct / Excessive Force</option>
+            <option value="housing">Housing Discrimination</option>
+            <option value="wage">Wage Theft / Labor Violations</option>
+            <option value="other">Other Civil Rights Matter</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="message">What Happened?</label>
+          <textarea class="form-input" id="message" name="message" placeholder="Briefly describe your situation. All information is confidential."></textarea>
+        </div>
+        <button type="button" class="form-submit">Send My Case Details</button>
+        <p class="form-disclaimer">
+          Attorney-client relationship is not established until a written retainer agreement is signed. All information submitted is protected by attorney-client privilege.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─────────────────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Delgado &amp; Morales</div>
+        <div class="footer-brand-sub">Civil Rights &amp; Employment Law</div>
+        <div class="footer-tagline">Justice doesn't wait.<br>Neither do we.</div>
+        <p class="footer-desc">
+          Representing the underrepresented across Los Angeles County since 2009. Fighting for workers, tenants, and communities who deserve a fighting chance.
+        </p>
+      </div>
+
+      <div class="footer-nav">
+        <p class="footer-col-title">Practice Areas</p>
+        <ul class="footer-links" role="list">
+          <li><a href="#practice">Workplace Discrimination</a></li>
+          <li><a href="#practice">Police Misconduct</a></li>
+          <li><a href="#practice">Housing Discrimination</a></li>
+          <li><a href="#practice">Wage Theft &amp; Labor</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact-info">
+        <p class="footer-col-title">Contact</p>
+        <div class="footer-contact-item">
+          <strong>Address</strong>
+          800 Wilshire Boulevard, Suite 1200<br>Los Angeles, CA 90017
+        </div>
+        <div class="footer-contact-item">
+          <strong>Phone</strong>
+          (213) 555-0192
+        </div>
+        <div class="footer-contact-item">
+          <strong>Email</strong>
+          info@delgadomoraleslaw.com
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">&copy; 2026 Delgado &amp; Morales LLP. All rights reserved. Los Angeles, CA.</p>
+        <p class="footer-disclaimer">This website is for informational purposes only and does not constitute legal advice. Prior results do not guarantee a similar outcome.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── NAV SCROLL DETECTION ───────────────────────────────────────────── -->
+  <script>
+    (function() {
+      var nav = document.getElementById('nav');
+      var scrollThreshold = 20;
+      function handleScroll() {
+        if (window.scrollY > scrollThreshold) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+    })();
+  </script>
+
+</body>
+</html>

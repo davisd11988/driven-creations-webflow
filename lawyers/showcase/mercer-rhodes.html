@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercer &amp; Rhodes — Atlanta Family Law Firm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #faf8f5;
+      --bg-card:      #f5f1eb;
+      --bg-cream:     #ede8e0;
+      --green:        #1a3c2a;
+      --green-mid:    #2b5c3f;
+      --green-light:  #e4ede8;
+      --terra:        #c4704b;
+      --terra-dark:   #a85c3a;
+      --terra-light:  #f8ece5;
+      --text:         #3a3530;
+      --text-muted:   #7a7068;
+      --border:       rgba(26,60,42,0.13);
+      --shadow:       0 4px 28px rgba(26,60,42,0.09);
+      --shadow-hover: 0 14px 44px rgba(26,60,42,0.15);
+      --radius:       20px;
+      --radius-sm:    12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITY ── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .section { padding: 104px 0; }
+    .section-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 14px;
+      display: block;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--green);
+      line-height: 1.18;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(.22,.8,.36,1), transform 0.75s cubic-bezier(.22,.8,.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity 0.8s cubic-bezier(.22,.8,.36,1), transform 0.8s cubic-bezier(.22,.8,.36,1);
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity 0.8s cubic-bezier(.22,.8,.36,1), transform 0.8s cubic-bezier(.22,.8,.36,1);
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: rgba(250,248,245,0);
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(250,248,245,0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(26,60,42,0.1), 0 4px 24px rgba(26,60,42,0.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 40px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 23px;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.025em;
+      transition: color 0.3s;
+    }
+    nav.scrolled .nav-logo { color: var(--green); }
+    .nav-logo span { color: var(--terra); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    nav.scrolled .nav-links a { color: var(--text-muted); }
+    .nav-links a:hover { color: #fff; }
+    nav.scrolled .nav-links a:hover { color: var(--green); }
+    .btn-nav {
+      background: var(--terra) !important;
+      color: #fff !important;
+      padding: 10px 24px !important;
+      border-radius: 50px !important;
+      font-weight: 700 !important;
+      font-size: 12.5px !important;
+      letter-spacing: 0.05em !important;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
+      box-shadow: 0 4px 16px rgba(196,112,75,0.35) !important;
+    }
+    .btn-nav:hover {
+      background: var(--terra-dark) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 22px rgba(196,112,75,0.42) !important;
+      color: #fff !important;
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    nav.scrolled .nav-toggle span { background: var(--green); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/mercer-hero.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+      will-change: transform;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(26,60,42,0.62) 0%,
+        rgba(26,42,30,0.48) 40%,
+        rgba(196,112,75,0.18) 100%
+      );
+    }
+    .hero-overlay-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 180px;
+      background: linear-gradient(to bottom, transparent, rgba(250,248,245,0.55));
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 820px;
+      padding: 0 40px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 7px 20px;
+      border-radius: 50px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.08);
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: var(--terra);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 6.5vw, 78px);
+      font-weight: 400;
+      line-height: 1.12;
+      color: #fff;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.2);
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.78);
+      max-width: 580px;
+      margin: 0 auto 44px;
+      font-weight: 300;
+      line-height: 1.8;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.15);
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--terra);
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 17px 38px;
+      border-radius: 50px;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 6px 28px rgba(196,112,75,0.45);
+    }
+    .btn-primary:hover {
+      background: var(--terra-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 36px rgba(196,112,75,0.5);
+    }
+    .btn-ghost {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 17px 38px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      backdrop-filter: blur(6px);
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.65);
+      transform: translateY(-2px);
+    }
+    .hero-trust {
+      position: absolute;
+      bottom: 44px;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      z-index: 2;
+      flex-wrap: wrap;
+      padding: 0 24px;
+    }
+    .hero-trust-item {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.03em;
+    }
+    .hero-trust-item::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: var(--terra);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 44px;
+      right: 44px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-scroll span {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      writing-mode: vertical-rl;
+      font-family: 'Lato', sans-serif;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+    }
+
+    /* ── PRACTICE AREAS ── */
+    .practice-areas { background: var(--bg); }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header h2 {
+      font-size: clamp(32px, 4.2vw, 54px);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 16.5px;
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .practice-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 38px 32px 34px;
+      transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--terra) 0%, rgba(196,112,75,0.3) 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .practice-card:hover::before { transform: scaleX(1); }
+    .practice-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(26,60,42,0.22);
+    }
+    .practice-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--green-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      font-size: 24px;
+      transition: background 0.3s;
+    }
+    .practice-card:hover .practice-icon { background: var(--terra-light); }
+    .practice-card h3 {
+      font-size: 21px;
+      font-weight: 500;
+      margin-bottom: 11px;
+      color: var(--green);
+    }
+    .practice-card p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .practice-card .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--terra);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .practice-card .card-link:hover { gap: 10px; }
+    .card-arrow { font-size: 14px; }
+
+    /* ── OUR APPROACH ── */
+    .our-approach {
+      background: var(--bg-card);
+      overflow: hidden;
+    }
+    .approach-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .approach-text .section-label { text-align: left; }
+    .approach-text h2 {
+      font-size: clamp(32px, 4vw, 54px);
+      font-weight: 400;
+      color: var(--green);
+      line-height: 1.17;
+      margin-bottom: 10px;
+    }
+    .approach-text h2 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--green-mid);
+    }
+    .approach-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--terra), transparent);
+      border-radius: 2px;
+      margin: 28px 0 32px;
+    }
+    .approach-text p {
+      font-size: 15.5px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+    .approach-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .pillar-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--terra);
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+    .pillar span {
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+    .approach-image-wrap {
+      position: relative;
+    }
+    .approach-image-wrap::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      right: -24px;
+      bottom: 24px;
+      left: 24px;
+      background: var(--green-light);
+      border-radius: 28px;
+      z-index: 0;
+    }
+    .approach-image {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 24px;
+      display: block;
+      box-shadow: 0 20px 60px rgba(26,60,42,0.18);
+    }
+    .approach-badge {
+      position: absolute;
+      bottom: -16px;
+      left: -16px;
+      z-index: 2;
+      background: var(--terra);
+      color: #fff;
+      border-radius: 16px;
+      padding: 20px 26px;
+      box-shadow: 0 8px 32px rgba(196,112,75,0.4);
+    }
+    .approach-badge .badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 1;
+      display: block;
+    }
+    .approach-badge .badge-txt {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.88;
+      display: block;
+      margin-top: 3px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--bg); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 0;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 44px 40px;
+      box-shadow: var(--shadow);
+      position: relative;
+      border: 1.5px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+    .testimonial-quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 100px;
+      line-height: 0.6;
+      color: var(--terra-light);
+      display: block;
+      margin-bottom: 12px;
+      user-select: none;
+    }
+    .testimonial-card blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.68;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--green-light);
+      border: 2px solid rgba(26,60,42,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.02em;
+    }
+    .author-detail {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-top: 2px;
+    }
+    .stars {
+      color: var(--terra);
+      font-size: 15px;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+
+    /* ── STATS ── */
+    .stats {
+      background: var(--green);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .stats::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(196,112,75,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      text-align: center;
+    }
+    .stat-item {
+      padding: 32px 20px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 58px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .stat-accent { color: var(--terra); }
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.58);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+    }
+    .stat-check {
+      font-size: 38px;
+      color: var(--terra);
+      line-height: 1.2;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* ── CONTACT CTA ── */
+    .contact-cta {
+      background: linear-gradient(160deg, #faf8f5 0%, #ede7dc 100%);
+      text-align: center;
+    }
+    .contact-cta h2 {
+      font-size: clamp(34px, 4.5vw, 58px);
+      font-weight: 400;
+      margin-bottom: 14px;
+      line-height: 1.15;
+    }
+    .contact-cta h2 em { font-style: italic; font-weight: 300; color: var(--green-mid); }
+    .contact-cta .sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin: 0 auto 52px;
+      max-width: 480px;
+      line-height: 1.8;
+    }
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      gap: 44px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .contact-item:hover { transform: translateY(-2px); }
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      border: 1.5px solid var(--border);
+    }
+    .contact-text-block { text-align: left; }
+    .contact-text-block .c-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .contact-text-block .c-value {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--green);
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .cta-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #112518;
+      color: rgba(255,255,255,0.6);
+      padding: 60px 0 0;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 56px;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px 48px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.02em;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .footer-logo span { color: var(--terra); }
+    .footer-tagline {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.42);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      display: block;
+      margin-bottom: 22px;
+    }
+    .footer-address {
+      font-size: 13.5px;
+      line-height: 2;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+    }
+    .footer-col-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      text-align: center;
+      padding: 20px 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      font-weight: 300;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .practice-grid { grid-template-columns: repeat(2, 1fr); }
+      .approach-inner { grid-template-columns: 1fr; gap: 56px; }
+      .approach-image-wrap::before { top: -16px; right: -16px; bottom: 16px; left: 16px; }
+      .approach-image { aspect-ratio: 16/9; }
+      .approach-badge { bottom: -10px; left: -8px; padding: 16px 20px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.1); }
+      .stat-item:last-child, .stat-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .container { padding: 0 24px; }
+      .section { padding: 72px 0; }
+      .nav-inner { padding: 18px 24px; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg);
+        z-index: 190;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 24px 40px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; text-align: center; }
+      .nav-links a { display: block; padding: 14px 0; font-size: 18px; color: var(--text-muted) !important; }
+      .nav-links a:hover { color: var(--green) !important; }
+      .btn-nav {
+        background: var(--terra) !important;
+        border-radius: 50px !important;
+        padding: 14px 32px !important;
+        font-size: 14px !important;
+        color: #fff !important;
+        margin-top: 12px;
+      }
+      nav { background: transparent; }
+      .nav-toggle { display: flex; z-index: 201; position: relative; }
+      .hero-trust { display: none; }
+      .hero-scroll { display: none; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-details { flex-direction: column; align-items: center; gap: 28px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; padding: 0 24px 40px; }
+      .hero h1 { font-size: clamp(36px, 10vw, 52px); }
+      .hero-sub { font-size: 16px; }
+      .btn-ghost { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Mercer <span>&amp;</span> Rhodes</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#practice-areas">Practice Areas</a></li>
+        <li><a href="#our-approach">Our Approach</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="btn-nav">Schedule a Consultation</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay-bottom"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">Atlanta Family Law</div>
+      <h1 class="reveal reveal-delay-1">
+        Navigating Life's Most<br>
+        Difficult Transitions —<br>
+        <em>With Compassion.</em>
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        Atlanta's trusted family law boutique for divorce, custody, and mediation. We protect what matters most — your family's future.
+      </p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a href="#contact" class="btn-primary">Start With a Confidential Consultation</a>
+        <a href="#practice-areas" class="btn-ghost">Our Services</a>
+      </div>
+    </div>
+
+    <div class="hero-trust">
+      <div class="hero-trust-item">Confidential &amp; Judgment-Free</div>
+      <div class="hero-trust-item">Mediation-First Approach</div>
+      <div class="hero-trust-item">Board Certified Specialists</div>
+      <div class="hero-trust-item">500+ Families Served</div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- PRACTICE AREAS -->
+  <section class="section practice-areas" id="practice-areas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal">What We Handle</span>
+        <h2 class="reveal reveal-delay-1">Areas of Practice</h2>
+        <p class="reveal reveal-delay-2">Compassionate legal counsel for every chapter of family life.</p>
+      </div>
+      <div class="practice-grid">
+        <div class="practice-card reveal reveal-delay-1">
+          <div class="practice-icon">&#9880;</div>
+          <h3>Divorce &amp; Separation</h3>
+          <p>Thoughtful, strategic guidance through one of life's most challenging transitions. We prioritize your dignity and long-term wellbeing at every step.</p>
+          <a href="#contact" class="card-link">Learn More <span class="card-arrow">&#8594;</span></a>
+        </div>
+        <div class="practice-card reveal reveal-delay-2">
+          <div class="practice-icon">&#10084;</div>
+          <h3>Child Custody &amp; Support</h3>
+          <p>We advocate fiercely for arrangements that put your children first — stability, emotional health, and meaningful relationships with both parents.</p>
+          <a href="#contact" class="card-link">Learn More <span class="card-arrow">&#8594;</span></a>
+        </div>
+        <div class="practice-card reveal reveal-delay-3">
+          <div class="practice-icon">&#9878;</div>
+          <h3>Mediation &amp; Collaborative Law</h3>
+          <p>Resolve disputes outside the courtroom with less conflict, lower cost, and greater control over outcomes that affect your family's future.</p>
+          <a href="#contact" class="card-link">Learn More <span class="card-arrow">&#8594;</span></a>
+        </div>
+        <div class="practice-card reveal reveal-delay-2">
+          <div class="practice-icon">&#128196;</div>
+          <h3>Prenuptial Agreements</h3>
+          <p>Start your marriage with clarity and confidence. We draft fair, enforceable agreements that protect both partners from day one forward.</p>
+          <a href="#contact" class="card-link">Learn More <span class="card-arrow">&#8594;</span></a>
+        </div>
+        <div class="practice-card reveal reveal-delay-3">
+          <div class="practice-icon">&#127968;</div>
+          <h3>Adoption</h3>
+          <p>Guiding families through the joy of adoption — domestic, international, and stepparent adoption handled with warmth and precision.</p>
+          <a href="#contact" class="card-link">Learn More <span class="card-arrow">&#8594;</span></a>
+        </div>
+        <div class="practice-card reveal reveal-delay-4">
+          <div class="practice-icon">&#9876;</div>
+          <h3>Domestic Violence Protection</h3>
+          <p>Immediate, discreet legal protection for you and your children. We act quickly and stand firmly by those who need it most.</p>
+          <a href="#contact" class="card-link">Learn More <span class="card-arrow">&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR APPROACH -->
+  <section class="section our-approach" id="our-approach">
+    <div class="container">
+      <div class="approach-inner">
+
+        <div class="approach-text reveal-left">
+          <span class="section-label">Our Philosophy</span>
+          <h2>We believe every family<br>deserves to be <em>heard.</em></h2>
+          <div class="approach-divider"></div>
+          <p>
+            At Mercer &amp; Rhodes, we begin every case by listening. Family law is never just about legal strategy — it is about people navigating grief, change, and uncertainty. Our role is to reduce conflict wherever possible, protect the children involved, and guide you toward a resolution that allows everyone to move forward.
+          </p>
+          <p>
+            Our mediation-first approach has resolved over 90% of our cases without contested courtroom battles. That means less trauma, lower costs, and faster closure for the families we serve.
+          </p>
+          <div class="approach-pillars">
+            <div class="pillar"><div class="pillar-dot"></div><span>Empathy before litigation — we exhaust every peaceful option first</span></div>
+            <div class="pillar"><div class="pillar-dot"></div><span>Children's wellbeing is the lens for every decision we make</span></div>
+            <div class="pillar"><div class="pillar-dot"></div><span>Transparent communication so you always know where you stand</span></div>
+            <div class="pillar"><div class="pillar-dot"></div><span>Experienced advocacy when the courtroom becomes necessary</span></div>
+          </div>
+        </div>
+
+        <div class="approach-image-wrap reveal-right">
+          <img
+            src="images/mercer-family.jpg"
+            alt="Happy family walking in a sunlit park — the kind of outcome Mercer &amp; Rhodes works toward for every client"
+            class="approach-image"
+          />
+          <div class="approach-badge">
+            <span class="badge-num">90%</span>
+            <span class="badge-txt">Mediation Rate</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal">Client Stories</span>
+        <h2 class="reveal reveal-delay-1">Families Who Trusted Us</h2>
+        <p class="reveal reveal-delay-2">Real words from the people we've had the privilege to serve.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <span class="testimonial-quote-mark">&ldquo;</span>
+          <blockquote>During the hardest year of my life, Mercer &amp; Rhodes treated me like family, not a case number. My children's wellbeing was always their priority. I never felt alone in the process — not even for a moment.</blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">A</div>
+            <div>
+              <div class="author-name">Amanda K.</div>
+              <div class="author-detail">Divorce &amp; Custody Client &mdash; Atlanta, GA</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <span class="testimonial-quote-mark">&ldquo;</span>
+          <blockquote>They helped us reach a fair agreement without ever stepping into a courtroom. Professional, kind, and remarkably effective. We're so grateful we found them when we did.</blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">D</div>
+            <div>
+              <div class="author-name">David &amp; Lisa R.</div>
+              <div class="author-detail">Mediation Clients &mdash; Buckhead, GA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <span class="stat-number">500<span class="stat-accent">+</span></span>
+          <div class="stat-label">Families<br>Helped</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <span class="stat-number">15</span>
+          <div class="stat-label">Years of<br>Practice</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <span class="stat-number">90<span class="stat-accent">%</span></span>
+          <div class="stat-label">Resolved Through<br>Mediation</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <span class="stat-check">&#10003;</span>
+          <div class="stat-label">Board Certified<br>Specialists</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="section contact-cta" id="contact">
+    <div class="container">
+      <span class="section-label reveal" style="display:block; text-align:center;">Get In Touch</span>
+      <h2 class="reveal reveal-delay-1">Take the <em>First Step</em></h2>
+      <p class="sub reveal reveal-delay-2">A confidential conversation costs nothing. Reach out today and let us help you find a clear path forward.</p>
+
+      <div class="contact-details reveal reveal-delay-2">
+        <a href="tel:4045550267" class="contact-item">
+          <div class="contact-icon">&#128222;</div>
+          <div class="contact-text-block">
+            <span class="c-label">Call Us</span>
+            <span class="c-value">(404) 555-0267</span>
+          </div>
+        </a>
+        <a href="mailto:hello@mercerrhodes.com" class="contact-item">
+          <div class="contact-icon">&#9993;</div>
+          <div class="contact-text-block">
+            <span class="c-label">Email Us</span>
+            <span class="c-value">hello@mercerrhodes.com</span>
+          </div>
+        </a>
+        <a href="#" class="contact-item">
+          <div class="contact-icon">&#128205;</div>
+          <div class="contact-text-block">
+            <span class="c-label">Office</span>
+            <span class="c-value">3344 Peachtree Rd NE, Suite 1200</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="reveal reveal-delay-3">
+        <a href="#" class="btn-primary" style="font-size: 14px; padding: 18px 48px;">Schedule a Free Consultation</a>
+        <p class="cta-note">All consultations are 100% confidential. No obligation to proceed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <span class="footer-logo">Mercer <span>&amp;</span> Rhodes</span>
+        <span class="footer-tagline">Atlanta Family Law Boutique</span>
+        <div class="footer-address">
+          3344 Peachtree Road NE, Suite 1200<br>
+          Atlanta, GA 30326<br>
+          <br>
+          (404) 555-0267<br>
+          hello@mercerrhodes.com
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-label">Practice Areas</span>
+        <div class="footer-links">
+          <a href="#practice-areas">Divorce &amp; Separation</a>
+          <a href="#practice-areas">Child Custody</a>
+          <a href="#practice-areas">Mediation</a>
+          <a href="#practice-areas">Prenuptial Agreements</a>
+          <a href="#practice-areas">Adoption</a>
+          <a href="#practice-areas">DV Protection</a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-label">Firm</span>
+        <div class="footer-links">
+          <a href="#our-approach">Our Approach</a>
+          <a href="#testimonials">Client Stories</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact">Schedule a Consult</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Mercer &amp; Rhodes Family Law, LLC. All rights reserved. Attorney advertising. Prior results do not guarantee similar outcomes.
+    </div>
+  </footer>
+
+  <script>
+    // Hero background image with subtle ken-burns entrance
+    (function() {
+      var bg = document.getElementById('hero-bg');
+      var img = new Image();
+      img.onload = function() { bg.classList.add('loaded'); };
+      bg.style.backgroundImage = "url('images/mercer-hero.jpg')";
+      img.src = 'images/mercer-hero.jpg';
+    })();
+
+    // Sticky nav — transparent over hero, solid when scrolled
+    var mainNav = document.getElementById('main-nav');
+    function updateNav() {
+      mainNav.classList.toggle('scrolled', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // Mobile nav toggle
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks  = document.getElementById('nav-links');
+    navToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      // Lock body scroll while open
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+    navLinks.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Scroll-triggered reveal (IntersectionObserver)
+    var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+    revealEls.forEach(function(el) { revealObserver.observe(el); });
+
+    // Hero elements fire immediately (they are in the viewport on load)
+    document.querySelectorAll('.hero .reveal, .hero .reveal-left, .hero .reveal-right').forEach(function(el) {
+      setTimeout(function() { el.classList.add('visible'); }, 120);
+    });
+  </script>
+</body>
+</html>
