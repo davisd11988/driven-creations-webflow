@@ -231,11 +231,12 @@
     }
     .law-hero-tag {
     }
-    /* Bigger CTA button for hero */
+    /* Hero CTA — prominent but proportional */
     .dc-btn-xl {
-      padding: 20px 48px;
-      font-size: 1.1rem;
-      border-radius: 14px;
+      padding: 18px 44px;
+      font-size: 1.05rem;
+      border-radius: 12px;
+      letter-spacing: 0.01em;
     }
 
     /* Scroll indicator arrow */
@@ -273,17 +274,23 @@
     }
 
     /* VSL Video (inside hero) */
-    .law-hero-bg-video-wrap {
-      max-width: 800px;
-      margin: 32px auto 36px;
-      border-radius: 16px;
+    .law-hero-video-wrap {
+      max-width: 680px;
+      margin: 28px auto 32px;
+      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(124, 58, 237, 0.25);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(124, 58, 237, 0.1);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      box-shadow:
+        0 24px 48px rgba(0,0,0,0.4),
+        0 0 40px rgba(124, 58, 237, 0.08),
+        inset 0 0 0 1px rgba(255,255,255,0.04);
       position: relative;
+      aspect-ratio: 16/9;
     }
-    .law-hero-bg-video-wrap video {
+    .law-hero-video-wrap video {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
       background: #000;
     }
@@ -306,14 +313,14 @@
       display: none;
     }
     .law-video-play-icon {
-      width: 80px;
-      height: 80px;
+      width: 64px;
+      height: 64px;
       background: rgba(124, 58, 237, 0.9);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4), 0 0 60px rgba(124, 58, 237, 0.15);
+      box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4), 0 0 40px rgba(124, 58, 237, 0.12);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .law-video-overlay:hover .law-video-play-icon {
@@ -909,7 +916,7 @@
       .law-book-content { margin-bottom: 36px; }
       .law-book-embed .dc-calendly-embed { padding: 12px; border-radius: 12px; }
       .law-book-guarantee { font-size: 0.8rem; margin-top: 20px; }
-      .law-hero-bg-video-wrap { border-radius: 12px; margin: 24px 0 28px; }
+      .law-hero-video-wrap { border-radius: 12px; margin: 24px 0 28px; }
       .law-faq { padding: 56px 0; }
       .law-faq-question { padding: 18px 20px; }
       .law-faq-question span { font-size: 0.95rem; }
@@ -959,7 +966,7 @@
       .law-proof-tagline { font-size: 1rem; }
       .law-video-ads-bottom { font-size: 0.9rem; }
       .law-video-ads-preview { border-radius: 12px; }
-      .law-hero-bg-video-wrap { margin: 20px 0 24px; border-radius: 10px; }
+      .law-hero-video-wrap { margin: 20px 0 24px; border-radius: 10px; }
       .law-faq { padding: 48px 0; }
       .law-faq-question { padding: 16px 16px; }
       .law-faq-question span { font-size: 0.9rem; }
