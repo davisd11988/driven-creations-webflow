@@ -477,9 +477,61 @@
     .law-soft-cta {
       background: #0d0920;
       text-align: center;
-      padding: 80px 1.5rem;
+      padding: 100px 1.5rem;
       border-top: 1px solid rgba(255,255,255,0.04);
       border-bottom: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    /* Floating screenshot mosaic behind CTA */
+    .law-soft-cta-bg {
+      position: absolute;
+      inset: -60px;
+      z-index: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 20px;
+      transform: rotate(-6deg) scale(1.15);
+      opacity: 0.07;
+      pointer-events: none;
+      filter: grayscale(0.4) brightness(0.8);
+    }
+    .law-soft-cta-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+    /* Heavy vignette overlay so text stays crisp */
+    .law-soft-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse at center, rgba(13, 9, 32, 0.5) 0%, rgba(13, 9, 32, 0.92) 65%, #0d0920 100%),
+        linear-gradient(180deg, #0d0920 0%, transparent 15%, transparent 85%, #0d0920 100%);
+      pointer-events: none;
+    }
+    /* Purple glow accent */
+    .law-soft-cta::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .law-soft-cta > * {
+      position: relative;
+      z-index: 2;
     }
     .law-soft-cta .law-section-sub {
       margin: 0 auto 32px;
@@ -1204,6 +1256,16 @@
      SOFT CTA
      ========================================== -->
 <section class="law-soft-cta">
+  <div class="law-soft-cta-bg" aria-hidden="true">
+    <img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/blackwell-reid-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/mercer-rhodes-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/caldwell-hart-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/hargrove-associates-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="" loading="lazy" />
+    <img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="" loading="lazy" />
+  </div>
   <div class="dc-section-tag dc-section-tag-purple">Curious?</div>
   <div class="law-section-title">See How This Would Work for <span class="dc-gradient-text">Your Firm</span></div>
   <p class="law-section-sub law-section-sub--centered">We'll hop on a call, walk you through our process, answer any questions, and give you an honest assessment of where your website stands today. No pressure. No obligation.</p>
