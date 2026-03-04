@@ -141,7 +141,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 1.5rem 60px;
+      padding: 120px 1.5rem 100px;
       overflow: hidden;
     }
 
@@ -242,14 +242,18 @@
     /* Scroll indicator arrow */
     .law-scroll-arrow {
       position: absolute;
-      bottom: 40px;
+      bottom: 32px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 1.5rem;
-      color: rgba(255,255,255,0.3);
-      animation: law-bounce 2s ease infinite;
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.25);
+      animation: law-bounce 2.5s cubic-bezier(0.37, 0, 0.63, 1) infinite;
       text-decoration: none;
       z-index: 2;
+      transition: color 0.3s ease;
+    }
+    .law-scroll-arrow:hover {
+      color: rgba(124, 58, 237, 0.6);
     }
 
     /* Section titles (page-specific) */
