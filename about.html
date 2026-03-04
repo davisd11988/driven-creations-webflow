@@ -14,6 +14,7 @@
   <meta property="og:description" content="15+ years of web design, branding, and AI video production experience. Driven Creations serves startups, B2B, and government organizations from Fulton, MD." />
   <meta property="og:url" content="https://www.drivencreations.com/about" />
   <meta property="og:image" content="https://www.drivencreations.com/images/drive_deadline_gradient_poster.jpg" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -25,6 +26,90 @@
   <link rel="canonical" href="https://www.drivencreations.com/about" />
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="about Driven Creations, web design agency Maryland, Derrick Davis, digital design agency, Fulton MD" />
+
+  <!-- Structured Data: AboutPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Driven Creations",
+    "description": "15+ years of web design, branding, and AI video production experience. Driven Creations serves startups, B2B, and government organizations from Fulton, MD.",
+    "url": "https://www.drivencreations.com/about",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Driven Creations",
+      "url": "https://www.drivencreations.com",
+      "logo": "https://www.drivencreations.com/images/dc-logo-full-white.svg",
+      "founder": {
+        "@type": "Person",
+        "name": "Derrick Davis",
+        "jobTitle": "Founder & Creative Director"
+      },
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Fulton",
+          "addressRegion": "MD",
+          "addressCountry": "US"
+        }
+      },
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": "Small team"
+      },
+      "knowsAbout": ["Web Design", "AI Video Production", "Brand Identity", "UX Design", "Webflow Development"]
+    }
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.drivencreations.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://www.drivencreations.com/about"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQ (AEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is behind Driven Creations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Driven Creations was founded by Derrick Davis, a designer and developer with 15+ years of experience in web design, branding, and AI video production. Based in Fulton, Maryland, the agency has delivered over 500 projects for startups, B2B companies, and government organizations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What industries does Driven Creations work with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Driven Creations works across multiple industries including technology, energy, real estate, law, fashion, entertainment, fintech, and government. The agency specializes in serving startups, B2B companies, and government organizations with custom web design, branding, and AI video advertising."
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="preload" href="/css/shared.css?v=26" as="style" />
   <link rel="dns-prefetch" href="https://www.youtube.com" />

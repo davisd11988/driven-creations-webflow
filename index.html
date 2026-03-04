@@ -16,6 +16,7 @@
   <meta property="og:image" content="https://www.drivencreations.com/images/drive_deadline_gradient_poster.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -28,26 +29,122 @@
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="web design agency Maryland, AI video advertising, custom website design, branding agency, Driven Creations, B2B web design, government web design" />
 
-  <!-- Structured Data -->
+  <!-- Structured Data: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Driven Creations",
-    "description": "Maryland-based design agency specializing in custom websites, AI-powered video advertising, and brand identity.",
+    "description": "Maryland-based design agency specializing in custom websites, AI-powered video advertising, and brand identity. 500+ projects delivered for startups, B2B, and government clients.",
     "url": "https://www.drivencreations.com",
     "logo": "https://www.drivencreations.com/images/dc-logo-full-white.svg",
     "image": "https://www.drivencreations.com/images/drive_deadline_gradient_poster.jpg",
+    "telephone": "+1-301-532-9902",
+    "email": "info@drivencreations.com",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "8115 Maple Lawn Blvd Suite 350",
       "addressLocality": "Fulton",
       "addressRegion": "MD",
+      "postalCode": "20759",
       "addressCountry": "US"
     },
-    "areaServed": "US",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.1518,
+      "longitude": -76.9241
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "priceRange": "$$$",
     "serviceType": ["Web Design", "AI Video Advertising", "Brand Identity", "Digital Marketing"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Creative Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Custom Website Design",
+          "description": "Bespoke websites built on Webflow with custom animations, responsive design, and SEO optimization."
+        },
+        {
+          "@type": "Offer",
+          "name": "AI Video Advertising",
+          "description": "AI-powered 30-second video commercials for social media and digital advertising campaigns."
+        },
+        {
+          "@type": "Offer",
+          "name": "Brand Identity",
+          "description": "Complete brand identity systems including logo design, color palettes, typography, and brand guidelines."
+        }
+      ]
+    },
     "sameAs": [
-      "https://www.youtube.com/@DrivenCreations"
+      "https://www.linkedin.com/company/driven-creations-llc/",
+      "https://www.instagram.com/drivencreationsllc/",
+      "https://www.facebook.com/drivencreationsllc/",
+      "https://www.youtube.com/@Drivencreationsllc",
+      "https://www.behance.net/designismydrive/"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.drivencreations.com/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQ (AEO — AI Answer Engine Optimization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does Driven Creations do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Driven Creations is a Maryland-based design agency specializing in custom website design, AI-powered video advertising, and brand identity. Based in Fulton, MD, the agency has delivered 500+ projects for startups, B2B companies, and government organizations nationwide."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What services does Driven Creations offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Driven Creations offers three core services: custom website design and development (built on Webflow with animations and SEO), AI-powered video commercials (30-second ads for social media and TV), and complete brand identity systems (logo, colors, typography, and brand guidelines)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Driven Creations located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Driven Creations is located at 8115 Maple Lawn Blvd Suite 350, Fulton, MD 20759. The agency serves clients nationwide across the United States."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get a quote from Driven Creations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can request a free quote by visiting drivencreations.com/contact-us, calling (301) 532-9902, or emailing info@drivencreations.com. Driven Creations responds within 24 hours."
+        }
+      }
     ]
   }
   </script>
@@ -373,6 +470,7 @@
       <div class="dc-character-card dc-character-video-card dc-character-drive dc-reveal dc-delay-1">
         <div class="dc-character-video-wrap">
           <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" poster="/images/drive-poster.jpg" data-lazy-video>
+            <source data-src="/videos/on-hover-drive.webm" type="video/webm" />
             <source data-src="/videos/on-hover-drive.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-gradient"></div>
@@ -389,6 +487,7 @@
       <div class="dc-character-card dc-character-video-card dc-character-deadline dc-reveal dc-delay-2">
         <div class="dc-character-video-wrap">
           <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" poster="/images/deadline-poster.jpg" data-lazy-video>
+            <source data-src="/videos/on-hover-deadline.webm" type="video/webm" />
             <source data-src="/videos/on-hover-deadline.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-gradient"></div>
@@ -405,6 +504,7 @@
       <div class="dc-character-card dc-character-video-card dc-character-creator dc-reveal dc-delay-3">
         <div class="dc-character-video-wrap">
           <video class="dc-character-video" muted playsinline webkit-playsinline preload="none" poster="/images/derrick-poster.jpg" data-lazy-video>
+            <source data-src="/videos/on-hover-derrick.webm" type="video/webm" />
             <source data-src="/videos/on-hover-derrick.mp4" type="video/mp4" />
           </video>
           <div class="dc-character-video-gradient"></div>
