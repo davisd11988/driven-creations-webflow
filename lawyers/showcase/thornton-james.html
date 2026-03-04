@@ -417,38 +417,19 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(74, 44, 26, 0.5) 0%, transparent 70%),
-        radial-gradient(ellipse 55% 80% at 85% 70%, rgba(107, 29, 42, 0.25) 0%, transparent 65%),
-        radial-gradient(ellipse 70% 50% at 15% 80%, rgba(42, 24, 16, 0.8) 0%, transparent 60%),
-        linear-gradient(160deg, #1a0e08 0%, #2a1810 35%, #1e0c06 65%, #120a05 100%);
+      background-image: url('images/thornton-james/hero-library.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
     }
-    /* Faux wood-panel lines */
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        repeating-linear-gradient(
-          90deg,
-          transparent 0px,
-          transparent 118px,
-          rgba(197, 151, 91, 0.04) 118px,
-          rgba(197, 151, 91, 0.04) 119px
-        ),
-        repeating-linear-gradient(
-          180deg,
-          transparent 0px,
-          transparent 280px,
-          rgba(197, 151, 91, 0.02) 280px,
-          rgba(197, 151, 91, 0.02) 281px
-        );
-    }
-    /* Vignette */
+    .hero-bg.loaded { transform: scale(1); }
+    /* Vignette + warm overlay on hero photo */
     .hero-vignette {
       position: absolute;
       inset: 0;
       background:
+        linear-gradient(160deg, rgba(26, 14, 8, 0.75) 0%, rgba(42, 24, 16, 0.55) 50%, rgba(18, 12, 6, 0.70) 100%),
         radial-gradient(ellipse 100% 100% at 50% 0%, transparent 50%, rgba(18, 10, 5, 0.6) 100%),
         linear-gradient(to top, rgba(18, 10, 5, 0.95) 0%, transparent 45%);
     }
@@ -634,36 +615,15 @@
     .philosophy-portrait {
       width: 100%;
       aspect-ratio: 3 / 4;
-      background:
-        radial-gradient(ellipse 70% 60% at 45% 35%, rgba(74, 44, 26, 0.9) 0%, rgba(42, 24, 16, 0.98) 70%),
-        linear-gradient(160deg, #3a2010 0%, #2a1810 50%, #1e0c06 100%);
       position: relative;
       overflow: hidden;
     }
-    /* Faux portrait  - warm silhouette via CSS */
-    .philosophy-portrait::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 58%;
-      height: 82%;
-      background:
-        radial-gradient(ellipse 100% 30% at 50% 0%, rgba(107, 61, 32, 0.7) 0%, transparent 60%),
-        linear-gradient(180deg, rgba(90, 52, 24, 0.6) 0%, rgba(50, 28, 12, 0.95) 100%);
-      clip-path: polygon(20% 0%, 80% 0%, 95% 100%, 5% 100%);
-    }
-    .philosophy-portrait::after {
-      content: '';
-      position: absolute;
-      top: 18%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 34%;
-      aspect-ratio: 1;
-      background: radial-gradient(ellipse 100% 100% at 50% 40%, rgba(107, 61, 32, 0.7) 0%, rgba(60, 32, 12, 0.9) 100%);
-      border-radius: 50%;
+    .philosophy-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
     }
     .philosophy-portrait-caption {
       position: absolute;
@@ -1000,57 +960,12 @@
       position: relative;
       overflow: hidden;
     }
-    /* CSS-only portrait gradient for each team member */
-    .team-portrait-bg {
-      position: absolute;
-      inset: 0;
-    }
-    .team-card:nth-child(1) .team-portrait-bg {
-      background:
-        radial-gradient(ellipse 60% 40% at 50% 25%, rgba(90, 52, 24, 0.75) 0%, transparent 55%),
-        radial-gradient(ellipse 100% 55% at 50% 95%, rgba(18, 10, 5, 0.9) 0%, transparent 55%),
-        linear-gradient(160deg, #3a2010 0%, #2a1508 60%, #1a0c06 100%);
-    }
-    .team-card:nth-child(2) .team-portrait-bg {
-      background:
-        radial-gradient(ellipse 60% 40% at 50% 25%, rgba(80, 45, 20, 0.75) 0%, transparent 55%),
-        radial-gradient(ellipse 100% 55% at 50% 95%, rgba(18, 10, 5, 0.9) 0%, transparent 55%),
-        linear-gradient(160deg, #321808 0%, #261208 60%, #1a0c06 100%);
-    }
-    .team-card:nth-child(3) .team-portrait-bg {
-      background:
-        radial-gradient(ellipse 60% 40% at 50% 25%, rgba(95, 56, 28, 0.75) 0%, transparent 55%),
-        radial-gradient(ellipse 100% 55% at 50% 95%, rgba(18, 10, 5, 0.9) 0%, transparent 55%),
-        linear-gradient(160deg, #3e2212 0%, #2e1a0a 60%, #1e0e08 100%);
-    }
-    .team-card:nth-child(4) .team-portrait-bg {
-      background:
-        radial-gradient(ellipse 60% 40% at 50% 25%, rgba(85, 48, 22, 0.75) 0%, transparent 55%),
-        radial-gradient(ellipse 100% 55% at 50% 95%, rgba(18, 10, 5, 0.9) 0%, transparent 55%),
-        linear-gradient(160deg, #361a08 0%, #281408 60%, #1c0a04 100%);
-    }
-    /* Faux silhouette */
-    .team-portrait-bg::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 55%;
-      height: 75%;
-      background: linear-gradient(180deg, rgba(70, 40, 18, 0.5) 0%, rgba(30, 16, 8, 0.9) 100%);
-      clip-path: polygon(22% 0%, 78% 0%, 92% 100%, 8% 100%);
-    }
-    .team-portrait-bg::after {
-      content: '';
-      position: absolute;
-      top: 16%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 32%;
-      aspect-ratio: 1;
-      background: radial-gradient(ellipse 100% 100% at 50% 40%, rgba(90, 52, 24, 0.7) 0%, rgba(55, 30, 12, 0.9) 100%);
-      border-radius: 50%;
+    .team-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
     }
     .team-portrait-fade {
       position: absolute;
@@ -1647,7 +1562,7 @@
 
   <!-- ── HERO ── -->
   <section class="hero" id="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg" id="hero-bg"></div>
     <div class="hero-vignette"></div>
 
     <div class="hero-stats" aria-hidden="true">
@@ -1702,6 +1617,7 @@
       <div class="philosophy-grid">
         <div class="philosophy-visual reveal">
           <div class="philosophy-portrait">
+            <img src="images/thornton-james/william-thornton.jpg" alt="William D. Thornton, Senior Partner and Founder of Thornton James LLP" loading="lazy" />
             <div class="philosophy-portrait-caption">
               <span class="name">William D. Thornton</span>
               <span class="role">Senior Partner &nbsp;&middot;&nbsp; Founding Member</span>
@@ -1725,12 +1641,12 @@
           </div>
           <h2 class="t-headline reveal reveal-delay-1">
             Discretion is not a<br>
-            service  - it is our<br>
+            service &mdash; it is our<br>
             <em style="font-style:italic; color:var(--gold-light);">first obligation.</em>
           </h2>
           <div class="philosophy-pull reveal reveal-delay-2">
             <blockquote>
-              "The finest tax counsel is invisible. Our clients sleep soundly because their affairs are in order  - not because they are in the news."
+              "The finest tax counsel is invisible. Our clients sleep soundly because their affairs are in order &mdash; not because they are in the news."
             </blockquote>
             <cite> - William D. Thornton, Founding Partner</cite>
           </div>
@@ -1738,7 +1654,7 @@
             Since 1983, Thornton James LLP has guided Dallas's most distinguished families, private enterprises, and family offices through the full spectrum of tax and financial law. We do not chase headlines. We build enduring relationships grounded in integrity, precision, and an unwavering commitment to our clients' financial futures.
           </p>
           <p class="t-body reveal reveal-delay-4">
-            Our attorneys are not generalists. Each brings deep, concentrated expertise to a specific domain of tax and financial law  - and together, we bring the full weight of that knowledge to bear on every engagement.
+            Our attorneys are not generalists. Each brings deep, concentrated expertise to a specific domain of tax and financial law &mdash; and together, we bring the full weight of that knowledge to bear on every engagement.
           </p>
           <div class="philosophy-pillars reveal reveal-delay-5">
             <div class="philosophy-pillar">
@@ -1818,7 +1734,7 @@
             <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
           </div>
           <h3 class="practice-title">Business Succession</h3>
-          <p class="practice-desc">The transition of a family enterprise is among the most consequential events in a business's history. We structure the transaction  - and the relationships  - to ensure the legacy you have built endures on your terms.</p>
+          <p class="practice-desc">The transition of a family enterprise is among the most consequential events in a business's history. We structure the transaction &mdash; and the relationships &mdash; to ensure the legacy you have built endures on your terms.</p>
           <div class="practice-card-footer">
             Explore this area
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1832,7 +1748,7 @@
             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 class="practice-title">IRS Disputes &amp; Audits</h3>
-          <p class="practice-desc">When the government calls, composure matters as much as competence. Our seasoned litigators bring decades of negotiation experience to every IRS controversy  - protecting your interests at every stage of the administrative and judicial process.</p>
+          <p class="practice-desc">When the government calls, composure matters as much as competence. Our seasoned litigators bring decades of negotiation experience to every IRS controversy &mdash; protecting your interests at every stage of the administrative and judicial process.</p>
           <div class="practice-card-footer">
             Explore this area
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1846,7 +1762,7 @@
             <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
           </div>
           <h3 class="practice-title">Wealth Preservation</h3>
-          <p class="practice-desc">Accumulated wealth requires ongoing stewardship. We design integrated structures  - trusts, family limited partnerships, charitable vehicles  - that protect assets from exposure while maximizing growth and tax efficiency across the family balance sheet.</p>
+          <p class="practice-desc">Accumulated wealth requires ongoing stewardship. We design integrated structures &mdash; trusts, family limited partnerships, charitable vehicles &mdash; that protect assets from exposure while maximizing growth and tax efficiency across the family balance sheet.</p>
           <div class="practice-card-footer">
             Explore this area
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1860,7 +1776,7 @@
             <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </div>
           <h3 class="practice-title">M&amp;A Tax Advisory</h3>
-          <p class="practice-desc">Every transaction has a tax dimension that shapes its ultimate value. Our M&amp;A tax team structures deal economics from letter of intent through closing  - identifying exposures, optimizing consideration, and ensuring the economics reflect the intention.</p>
+          <p class="practice-desc">Every transaction has a tax dimension that shapes its ultimate value. Our M&amp;A tax team structures deal economics from letter of intent through closing &mdash; identifying exposures, optimizing consideration, and ensuring the economics reflect the intention.</p>
           <div class="practice-card-footer">
             Explore this area
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1890,7 +1806,7 @@
         <div class="legacy-right reveal">
           <h3 class="t-subheadline">Trusted by Texas's<br>Most Prominent Families</h3>
           <p class="t-body-sm">
-            From oil and gas dynasties to tech founders, multi-generational ranches to family foundations, our client roster reads like a quiet history of Dallas enterprise. We cannot share their names  - and that is precisely why they trust us.
+            From oil and gas dynasties to tech founders, multi-generational ranches to family foundations, our client roster reads like a quiet history of Dallas enterprise. We cannot share their names &mdash; and that is precisely why they trust us.
           </p>
         </div>
       </div>
@@ -1948,7 +1864,7 @@
         <!-- Member 1 -->
         <div class="team-card reveal reveal-delay-1">
           <div class="team-portrait">
-            <div class="team-portrait-bg"></div>
+            <img src="images/thornton-james/william-thornton.jpg" alt="William D. Thornton, Senior Partner and Founder" loading="lazy" />
             <div class="team-portrait-fade"></div>
           </div>
           <div class="team-info">
@@ -1963,7 +1879,7 @@
         <!-- Member 2 -->
         <div class="team-card reveal reveal-delay-2">
           <div class="team-portrait">
-            <div class="team-portrait-bg"></div>
+            <img src="images/thornton-james/margaret-james.jpg" alt="Margaret L. James, Managing Partner" loading="lazy" />
             <div class="team-portrait-fade"></div>
           </div>
           <div class="team-info">
@@ -1978,7 +1894,7 @@
         <!-- Member 3 -->
         <div class="team-card reveal reveal-delay-3">
           <div class="team-portrait">
-            <div class="team-portrait-bg"></div>
+            <img src="images/thornton-james/robert-calloway.jpg" alt="Robert K. Calloway, Partner, M&amp;A Tax" loading="lazy" />
             <div class="team-portrait-fade"></div>
           </div>
           <div class="team-info">
@@ -1993,7 +1909,7 @@
         <!-- Member 4 -->
         <div class="team-card reveal reveal-delay-4">
           <div class="team-portrait">
-            <div class="team-portrait-bg"></div>
+            <img src="images/thornton-james/katherine-holt.jpg" alt="Katherine A. Holt, Partner, Wealth Preservation" loading="lazy" />
             <div class="team-portrait-fade"></div>
           </div>
           <div class="team-info">
@@ -2015,7 +1931,7 @@
       <div class="testimonial-inner">
         <span class="testimonial-quote-mark reveal" aria-hidden="true">&ldquo;</span>
         <p class="testimonial-text reveal reveal-delay-1" id="testimonial-text">
-          Thornton James has represented our family's financial interests for twenty-seven years. Three generations, two estate transitions, and a business sale that spanned eighteen months. They have never once let us down  - and they have never once made us feel like a file number.
+          Thornton James has represented our family's financial interests for twenty-seven years. Three generations, two estate transitions, and a business sale that spanned eighteen months. They have never once let us down &mdash; and they have never once made us feel like a file number.
         </p>
         <div class="testimonial-divider reveal reveal-delay-2"></div>
         <div class="testimonial-author reveal reveal-delay-3" id="testimonial-author">
@@ -2049,7 +1965,7 @@
             <em style="font-style:italic; color:var(--gold-light);">costs you nothing.</em>
           </h2>
           <p class="t-body reveal reveal-delay-2">
-            Initial consultations are conducted in complete confidence. Our attorneys will listen, evaluate your circumstances, and provide a candid assessment  - with no obligation and no pressure. We earn your trust before we ask for your business.
+            Initial consultations are conducted in complete confidence. Our attorneys will listen, evaluate your circumstances, and provide a candid assessment &mdash; with no obligation and no pressure. We earn your trust before we ask for your business.
           </p>
           <p class="t-body reveal reveal-delay-3">
             Engagements are accepted on a selective basis. We limit our client roster deliberately, so that every client receives the full attention of a senior partner.
@@ -2201,6 +2117,16 @@
 
   <!-- ── JAVASCRIPT ── -->
   <script>
+    /* ── Hero image Ken-Burns load ── */
+    (function () {
+      var bg = document.getElementById('hero-bg');
+      if (bg) {
+        var img = new Image();
+        img.onload = function () { bg.classList.add('loaded'); };
+        img.src = 'images/thornton-james/hero-library.jpg';
+      }
+    }());
+
     /* ── Navigation scroll behavior ── */
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
@@ -2238,12 +2164,12 @@
     /* ── Testimonial carousel ── */
     const testimonials = [
       {
-        text: "Thornton James has represented our family's financial interests for twenty-seven years. Three generations, two estate transitions, and a business sale that spanned eighteen months. They have never once let us down  - and they have never once made us feel like a file number.",
+        text: "Thornton James has represented our family's financial interests for twenty-seven years. Three generations, two estate transitions, and a business sale that spanned eighteen months. They have never once let us down &mdash; and they have never once made us feel like a file number.",
         name: "George &amp; Eleanor Whitfield",
         role: "Third-Generation Dallas Family &nbsp;&middot;&nbsp; Clients Since 1998"
       },
       {
-        text: "When the IRS came for us, I called every firm in Dallas. Only Thornton James told me the truth: it would be hard, it would take time, and they would be with us every step. They were right on all three counts  - and we prevailed. I would not trust my affairs to anyone else.",
+        text: "When the IRS came for us, I called every firm in Dallas. Only Thornton James told me the truth: it would be hard, it would take time, and they would be with us every step. They were right on all three counts &mdash; and we prevailed. I would not trust my affairs to anyone else.",
         name: "Richard M. Caldwell",
         role: "Founder, Caldwell Energy Partners &nbsp;&middot;&nbsp; Client Since 2009"
       },
