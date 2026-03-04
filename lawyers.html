@@ -54,6 +54,33 @@
       "name": "United States"
     },
     "priceRange": "$$$",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Law Firm Website & Branding Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "The Refresh",
+          "description": "Web design and development that transforms your online presence. Includes striking redesign, improved UX, 10-15 page responsive build, and seamless launch.",
+          "price": "11807",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "New Look",
+          "description": "Web design, development, professional SEO copywriting, and two 30-second AI video ads for social media and TV.",
+          "price": "13744",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Everything Brand New",
+          "description": "Complete branding, brand identity guide, web design, copywriting, and four 30-second AI video ads.",
+          "price": "18000",
+          "priceCurrency": "USD"
+        }
+      ]
+    },
     "sameAs": [
       "https://www.linkedin.com/company/driven-creations-llc/",
       "https://www.instagram.com/drivencreationsllc/",
@@ -64,7 +91,7 @@
   }
   </script>
 
-  <!-- Structured Data: FAQ (AEO  - AI Answer Engine Optimization) -->
+  <!-- Structured Data: FAQ (AEO — AI Answer Engine Optimization) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -75,7 +102,7 @@
         "name": "How much does a law firm website cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Driven Creations law firm projects typically range from five figures to the mid-teens, depending on scope. Whether you need a website refresh, full branding, copywriting, or video ads. Every engagement is tailored to the firm's goals. The best way to get an accurate number is to book a free strategy call."
+          "text": "Driven Creations offers three law firm website packages: The Refresh at $11,807 (web design and development), New Look at $13,744 (web design, SEO copywriting, and 2 AI video ads), and Everything Brand New at $18,000 (complete branding, web design, copywriting, and 4 AI video ads). All packages include unlimited revisions and 28-day delivery."
         }
       },
       {
@@ -88,18 +115,10 @@
       },
       {
         "@type": "Question",
-        "name": "Will I own my website when it's done?",
+        "name": "What makes Driven Creations different from other law firm web designers?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. Once built, the website is 100% yours. You get full control and can make updates yourself. You're never locked in or dependent on anyone for simple changes."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I'm not happy with the design?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Every package includes unlimited revisions. Driven Creations works until you're 100% satisfied. No exceptions."
+          "text": "Driven Creations builds fully custom websites (no templates), gives clients full ownership and control of their site, specializes in the legal industry, and offers AI-powered video advertising as part of their packages. They also provide unlimited revisions until the client is 100% satisfied."
         }
       },
       {
@@ -108,14 +127,6 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. Driven Creations uses AI-powered video production to create professional 30-second commercials for law firms at a fraction of traditional production costs. These ads are designed for social media, YouTube, and local search to help firms attract clients beyond their website."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What happens on the strategy call?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You'll discuss your firm, your goals, and what's not working with your current website. Driven Creations gives an honest assessment and shows exactly what a transformed online presence looks like for your practice. No pressure, no obligation."
         }
       }
     ]
@@ -130,23 +141,24 @@
 
   <style>
     /* ==========================================
-       LAWYERS V2  - Page-Specific Overrides
+       LAWYERS V2 — Page-Specific Overrides
        Uses DC design system from shared.css
        ========================================== */
 
     /* Hero */
     .law-hero {
       position: relative;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 1.5rem 100px;
+      padding: 140px 1.5rem 80px;
       overflow: hidden;
     }
 
-    /* Background video  - visible but blended with brand colors */
-    .law-hero-bg-video {
+    /* Background video — visible but blended with brand colors */
+    .law-hero-video {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -183,7 +195,7 @@
 
     .law-hero-content {
       position: relative;
-      max-width: 960px;
+      max-width: 860px;
       margin: 0 auto;
       z-index: 2;
     }
@@ -202,7 +214,7 @@
       font-size: clamp(1rem, 2vw, 1.15rem);
       font-weight: 400;
       color: #a1a1aa;
-      max-width: 740px;
+      max-width: 640px;
       margin: 0 auto 40px;
       line-height: 1.8;
     }
@@ -231,29 +243,18 @@
     }
     .law-hero-tag {
     }
-    /* Hero CTA  - prominent but proportional */
-    .dc-btn-xl {
-      padding: 18px 44px;
-      font-size: 1.05rem;
-      border-radius: 12px;
-      letter-spacing: 0.01em;
-    }
 
     /* Scroll indicator arrow */
     .law-scroll-arrow {
       position: absolute;
-      bottom: 32px;
+      bottom: 40px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 1.25rem;
-      color: rgba(255,255,255,0.25);
-      animation: law-bounce 2.5s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.3);
+      animation: law-bounce 2s ease infinite;
       text-decoration: none;
       z-index: 2;
-      transition: color 0.3s ease;
-    }
-    .law-scroll-arrow:hover {
-      color: rgba(124, 58, 237, 0.6);
     }
 
     /* Section titles (page-specific) */
@@ -277,28 +278,35 @@
       margin: 0 auto;
     }
 
-    /* VSL Video (inside hero) */
-    .law-hero-video-wrap {
-      max-width: 680px;
-      margin: 28px auto 32px;
-      border-radius: 14px;
+    /* Video Section */
+    .law-video {
+      background: #090316;
+      padding: 0 0 80px;
+    }
+    .law-video-intro {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-top: 40px;
+    }
+    .law-video-intro .law-section-title {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+    }
+    .law-video-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 16px;
       overflow: hidden;
       border: 1px solid rgba(124, 58, 237, 0.2);
-      box-shadow:
-        0 24px 48px rgba(0,0,0,0.4),
-        0 0 40px rgba(124, 58, 237, 0.08),
-        inset 0 0 0 1px rgba(255,255,255,0.04);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(124, 58, 237, 0.08);
       position: relative;
-      aspect-ratio: 16/9;
     }
-    .law-hero-video-wrap video {
+    .law-video-wrap video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
       background: #000;
     }
-    /* Play button overlay on VSL video */
+    /* Play button overlay on video */
     .law-video-overlay {
       position: absolute;
       inset: 0;
@@ -317,14 +325,14 @@
       display: none;
     }
     .law-video-play-icon {
-      width: 64px;
-      height: 64px;
+      width: 80px;
+      height: 80px;
       background: rgba(124, 58, 237, 0.9);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4), 0 0 40px rgba(124, 58, 237, 0.12);
+      box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4), 0 0 60px rgba(124, 58, 237, 0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .law-video-overlay:hover .law-video-play-icon {
@@ -398,173 +406,125 @@
       line-height: 1.8;
     }
 
-    /* Client Projects Row */
-    .law-clients {
+    /* Social Proof Section */
+    .law-proof {
       background: #090316;
-      padding: 64px 1.5rem 72px;
+      padding: 80px 0;
     }
-    .law-clients-header {
+    .law-proof-header {
       text-align: center;
-      margin-bottom: 48px;
+      margin-bottom: 64px;
     }
-    .law-clients-grid {
+    .law-proof-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       max-width: 1280px;
       margin: 0 auto;
+      padding: 0 1.5rem;
     }
-    .law-client-card {
+    .law-proof-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 16px;
-      overflow: hidden;
+      padding: 36px 28px;
       position: relative;
-      transition: border-color 0.3s ease, transform 0.3s ease;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
     }
-    .law-client-card:hover {
+    .law-proof-card:hover {
       border-color: rgba(124, 58, 237, 0.25);
-      transform: translateY(-4px);
     }
-    .law-client-card::before {
+    .law-proof-card::before {
       content: '';
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 28px;
       right: 28px;
       height: 2px;
       background: linear-gradient(to right, transparent, #7c3aed, transparent);
       opacity: 0;
       transition: opacity 0.3s ease;
-      z-index: 1;
     }
-    .law-client-card:hover::before { opacity: 0.6; }
-    .law-client-card-img {
-      width: 100%;
-      aspect-ratio: 16/10;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .law-client-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    .law-client-card:hover .law-client-card-img img {
-      transform: scale(1.03);
-    }
-    .law-client-card-body {
-      padding: 28px 28px 32px;
-    }
-    .law-client-card h4 {
+    .law-proof-card:hover::before { opacity: 0.6; }
+    .law-proof-card h4 {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.15rem;
       font-weight: 700;
       color: #ffffff;
       margin-bottom: 6px;
     }
-    .law-client-type {
+    .law-proof-type {
       font-family: 'Inter', system-ui, sans-serif;
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: #a78bfa;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
-    .law-client-result {
+    .law-proof-card p {
+      font-size: 0.9rem;
+      color: #a1a1aa;
+      line-height: 1.8;
+    }
+    .law-proof-result {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
       font-size: 0.88rem;
       color: #22d3ee;
       font-weight: 600;
+    }
+    .law-proof-tagline {
+      text-align: center;
+      margin-top: 48px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #d4d4d8;
+    }
+    .law-proof-grid--two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    a.law-proof-card--linked {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    a.law-proof-card--linked:hover {
+      border-color: rgba(124, 58, 237, 0.35);
+      transform: translateY(-4px);
+    }
+    .law-proof-thumb {
+      margin: -36px -28px 20px;
+      overflow: hidden;
+      border-radius: 16px 16px 0 0;
+    }
+    .law-proof-thumb img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    a.law-proof-card--linked:hover .law-proof-thumb img {
+      transform: scale(1.03);
+    }
+    a.law-proof-card--linked .law-proof-result {
+      cursor: pointer;
     }
 
     /* Soft CTA */
     .law-soft-cta {
       background: #0d0920;
       text-align: center;
-      padding: 100px 1.5rem;
+      padding: 80px 1.5rem;
       border-top: 1px solid rgba(255,255,255,0.04);
       border-bottom: 1px solid rgba(255,255,255,0.04);
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
-    /* Visit Site links for client cards */
-    .law-visit-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 16px;
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #a78bfa;
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: color 0.3s ease, gap 0.3s ease;
-    }
-    .law-visit-link:hover {
-      color: #c4b5fd;
-      gap: 10px;
-    }
-    .law-visit-link svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    /* Floating screenshot mosaic behind CTA */
-    .law-soft-cta-bg {
-      position: absolute;
-      inset: -20px;
-      z-index: 0;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 10px;
-      transform: rotate(-4deg) scale(0.85);
-      opacity: 0.10;
-      pointer-events: none;
-      filter: grayscale(0.4) brightness(0.8);
-    }
-    .law-soft-cta-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      border-radius: 6px;
-      display: block;
-    }
-    /* Heavy vignette overlay so text stays crisp */
-    .law-soft-cta::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        radial-gradient(ellipse at center, rgba(13, 9, 32, 0.25) 0%, rgba(13, 9, 32, 0.7) 70%, #0d0920 100%),
-        linear-gradient(180deg, #0d0920 0%, transparent 12%, transparent 88%, #0d0920 100%);
-      pointer-events: none;
-    }
-    /* Purple glow accent */
-    .law-soft-cta::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 500px;
-      height: 300px;
-      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
-      z-index: 1;
-      pointer-events: none;
-    }
-    .law-soft-cta > *:not(.law-soft-cta-bg) {
-      position: relative;
-      z-index: 3;
     }
     .law-soft-cta .law-section-sub {
       margin: 0 auto 32px;
@@ -706,105 +666,209 @@
     }
     .law-video-ads-bottom strong { color: #a78bfa; }
 
-    /* FAQ Section */
-    .law-faq {
+    /* Pricing Section — ClickFunnel-inspired */
+    .law-pricing {
       background: #0d0920;
       padding: 80px 0;
       position: relative;
       overflow: hidden;
       border-top: 1px solid rgba(255,255,255,0.04);
     }
-    .law-faq-header {
-      text-align: center;
-      margin-bottom: 48px;
+    .law-pricing::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.08) 0%, transparent 60%);
+      pointer-events: none;
     }
-    .law-faq-list {
-      max-width: 800px;
+    .law-pricing-header {
+      text-align: center;
+      margin-bottom: 64px;
+      position: relative;
+    }
+    .law-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 1.5rem;
+      align-items: start;
+      position: relative;
+    }
+    .law-pricing-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 44px 32px 40px;
+      position: relative;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .law-pricing-card:hover {
+      border-color: rgba(124, 58, 237, 0.25);
+    }
+    /* Highlighted/featured card */
+    .law-pricing-card--featured {
+      background: rgba(124, 58, 237, 0.06);
+      border-color: rgba(124, 58, 237, 0.35);
+      transform: scale(1.04);
+      z-index: 2;
+      box-shadow: 0 30px 80px rgba(124, 58, 237, 0.12), 0 0 60px rgba(124, 58, 237, 0.05);
+    }
+    .law-pricing-card--featured:hover {
+      transform: scale(1.04) translateY(-4px);
+      border-color: rgba(124, 58, 237, 0.5);
+    }
+    .law-pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 22px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .law-pricing-tier {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #71717a;
+      margin-bottom: 8px;
+    }
+    .law-pricing-card--featured .law-pricing-tier {
+      color: #a78bfa;
+    }
+    .law-pricing-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .law-pricing-desc {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: #71717a;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      min-height: 44px;
+    }
+    .law-pricing-price {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .law-pricing-price-note {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.78rem;
+      color: #71717a;
+      margin-bottom: 28px;
+    }
+    .law-pricing-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.06);
+      margin-bottom: 28px;
+    }
+    .law-pricing-card--featured .law-pricing-divider {
+      background: rgba(124, 58, 237, 0.2);
+    }
+    .law-pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
     }
-    .law-faq-item {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: border-color 0.3s ease;
-    }
-    .law-faq-item:hover {
-      border-color: rgba(124, 58, 237, 0.2);
-    }
-    .law-faq-item.is-open {
-      border-color: rgba(124, 58, 237, 0.3);
-    }
-    .law-faq-question {
+    .law-pricing-features li {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 28px;
-      cursor: pointer;
-      gap: 16px;
-      -webkit-user-select: none;
-      user-select: none;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.88rem;
+      color: #d4d4d8;
+      line-height: 1.5;
     }
-    .law-faq-question span {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.4;
-    }
-    .law-faq-icon {
+    .law-pricing-features li svg {
       flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(124, 58, 237, 0.15);
+      width: 18px;
+      height: 18px;
+      color: #7c3aed;
+      margin-top: 1px;
+    }
+    .law-pricing-card--featured .law-pricing-features li svg {
+      color: #a78bfa;
+    }
+    .law-pricing-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .law-pricing-cta--outline {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+    }
+    .law-pricing-cta--outline:hover {
+      border-color: #7c3aed;
+      background: rgba(124, 58, 237, 0.08);
+      color: #ffffff;
+    }
+    .law-pricing-cta--primary {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      border: 1px solid rgba(124, 58, 237, 0.5);
+      color: #ffffff;
+      box-shadow: 0 8px 32px rgba(124, 58, 237, 0.25);
+    }
+    .law-pricing-cta--primary:hover {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      box-shadow: 0 12px 40px rgba(124, 58, 237, 0.35);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+    .law-pricing-guarantee {
+      text-align: center;
+      margin-top: 48px;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.88rem;
+      color: #71717a;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease, background 0.3s ease;
+      gap: 10px;
+      position: relative;
     }
-    .law-faq-item.is-open .law-faq-icon {
-      transform: rotate(45deg);
-      background: rgba(124, 58, 237, 0.3);
-    }
-    .law-faq-icon svg {
-      width: 14px;
-      height: 14px;
-      color: #a78bfa;
-    }
-    .law-faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-      padding: 0 28px;
-    }
-    .law-faq-item.is-open .law-faq-answer {
-      max-height: 300px;
-      padding: 0 28px 24px;
-    }
-    .law-faq-answer p {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 0.92rem;
-      color: #a1a1aa;
-      line-height: 1.85;
-    }
-    .law-faq-cta {
-      text-align: center;
-      margin-top: 40px;
-      padding: 0 1.5rem;
-    }
-    .law-faq-cta p {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 0.9rem;
-      color: #71717a;
-      margin-bottom: 20px;
+    .law-pricing-guarantee svg {
+      width: 18px;
+      height: 18px;
+      color: #7c3aed;
+      flex-shrink: 0;
     }
 
-    /* Book a Call  - Calendly Section */
+    /* Book a Call — Calendly Section */
     .law-book {
       position: relative;
       text-align: center;
@@ -951,7 +1015,8 @@
 
     /* ── Responsive: Tablet landscape (max 991px) ── */
     @media (max-width: 991px) {
-      .law-clients-grid {
+      .law-results-grid,
+      .law-proof-grid {
         grid-template-columns: 1fr 1fr;
       }
       .law-sauce-grid {
@@ -962,36 +1027,42 @@
         gap: 40px;
       }
       .law-video-ads-preview { max-width: 600px; margin: 0 auto; }
-      .law-hero { padding: 100px 1.5rem 56px; }
+      .law-hero { min-height: auto; padding: 120px 1.5rem 72px; }
       .law-results { padding: 64px 0; }
-      .law-clients { padding: 48px 1.5rem 56px; }
+      .law-proof { padding: 64px 0; }
       .law-sauce { padding: 64px 0; }
       .law-video-ads { padding: 64px 0; }
       .law-soft-cta { padding: 64px 1.5rem; }
       .law-book { padding: 80px 1.5rem 64px; }
-      .law-faq-question span { font-size: 1rem; }
+      .law-pricing { padding: 64px 0; }
+      .law-pricing-grid { grid-template-columns: 1fr 1fr; }
+      .law-pricing-card--featured { transform: scale(1.02); }
+      .law-pricing-card--featured:hover { transform: scale(1.02) translateY(-4px); }
       .law-book-embed .dc-calendly-embed { padding: 16px; }
       .law-book-embed { max-width: 520px; }
       .law-book-embed .calendly-inline-widget { height: 700px !important; }
-      .law-faq { padding: 64px 0; }
+      .law-video { padding: 0 0 64px; }
     }
 
     /* ── Responsive: Tablet portrait (max 767px) ── */
     @media (max-width: 767px) {
-      .law-clients-grid {
+      .law-results-grid,
+      .law-proof-grid {
         grid-template-columns: 1fr;
       }
-      .law-hero { padding: 96px 1.25rem 48px; }
+      .law-hero { padding: 110px 1.25rem 64px; }
       .law-hero-title { font-size: clamp(1.6rem, 5vw, 2.5rem); }
       .law-hero-sub { font-size: 0.95rem; margin-bottom: 32px; }
       .law-section-title { font-size: clamp(1.25rem, 3vw, 1.8rem); }
       .law-section-sub { font-size: 0.9rem; }
       .law-result-step { font-size: 2.5rem; }
       .law-result-card,
+      .law-proof-card,
       .law-sauce-card { padding: 32px 24px; }
-      .law-client-card-body { padding: 24px 24px 28px; }
+      .law-proof-thumb { margin: -32px -24px 18px; }
+      .law-proof-thumb img { height: 180px; }
       .law-results { padding: 56px 0; }
-      .law-clients { padding: 40px 1.25rem 48px; }
+      .law-proof { padding: 56px 0; }
       .law-sauce { padding: 56px 0; }
       .law-video-ads { padding: 56px 0; }
       .law-soft-cta { padding: 56px 1.25rem; }
@@ -999,23 +1070,26 @@
       .law-book-content { margin-bottom: 36px; }
       .law-book-embed .dc-calendly-embed { padding: 12px; border-radius: 12px; }
       .law-book-guarantee { font-size: 0.8rem; margin-top: 20px; }
-      .law-hero-video-wrap { border-radius: 12px; margin: 24px 0 28px; }
-      .law-faq { padding: 56px 0; }
-      .law-faq-question { padding: 18px 20px; }
-      .law-faq-question span { font-size: 0.95rem; }
-      .law-faq-answer { padding-left: 20px; padding-right: 20px; }
-      .law-faq-item.is-open .law-faq-answer { padding: 0 20px 20px; }
+      .law-video { padding: 0 0 56px; }
+      .law-video-wrap { border-radius: 12px; margin: 0 1rem; }
+      .law-pricing-grid { grid-template-columns: 1fr; max-width: 440px; }
+      .law-pricing-card--featured { transform: none; }
+      .law-pricing-card--featured:hover { transform: translateY(-4px); }
+      .law-pricing-name { font-size: 1.3rem; }
+      .law-pricing-price { font-size: 2rem; }
+      .law-pricing { padding: 56px 0; }
       .law-results-header,
-      .law-clients-header,
+      .law-proof-header,
       .law-sauce-header { margin-bottom: 40px; }
+      .law-proof-tagline { font-size: 1.15rem; margin-top: 36px; }
       .law-video-ads-bottom { font-size: 1rem; margin-top: 36px; padding-top: 36px; }
       .law-scroll-arrow { bottom: 24px; }
     }
 
     /* ── Responsive: Mobile (max 479px) ── */
     @media (max-width: 479px) {
-      .law-hero-bg-video { opacity: 0.3; }
-      .law-hero { padding: 88px 1rem 40px; }
+      .law-hero-video { opacity: 0.3; }
+      .law-hero { padding: 100px 1rem 56px; }
       .law-hero-title { font-size: 1.6rem; }
       .law-hero-sub { font-size: 0.88rem; line-height: 1.7; }
       .law-hero-ctas { flex-direction: column; }
@@ -1023,17 +1097,17 @@
       .law-hero-guarantee { font-size: 0.78rem; }
       .law-section-title { font-size: 1.2rem; }
       .law-result-card,
+      .law-proof-card,
       .law-sauce-card { padding: 28px 20px; }
-      .law-client-card-body { padding: 20px 20px 24px; }
       .law-result-step { font-size: 2rem; margin-bottom: 14px; }
       .law-result-card h3 { font-size: 1.1rem; }
-      .law-client-card h4 { font-size: 1rem; }
+      .law-proof-card h4 { font-size: 1rem; }
       .law-sauce-card h3 { font-size: 1.2rem; }
       .law-video-ads-text h2 { font-size: 1.3rem; }
       .law-video-feature strong { font-size: 0.88rem; }
       .law-video-feature span { font-size: 0.8rem; }
       .law-results { padding: 48px 0; }
-      .law-clients { padding: 36px 1rem 40px; }
+      .law-proof { padding: 48px 0; }
       .law-sauce { padding: 48px 0; }
       .law-video-ads { padding: 48px 0; }
       .law-soft-cta { padding: 48px 1rem; }
@@ -1042,23 +1116,31 @@
       .law-book-urgency { font-size: 0.8rem; }
       .law-book-embed .dc-calendly-embed { padding: 8px; border-radius: 10px; }
       .law-book-guarantee { font-size: 0.78rem; flex-direction: column; gap: 4px; }
+      .law-video { padding: 0 0 48px; }
+      .law-video-wrap { margin: 0 0.5rem; border-radius: 10px; }
+      .law-video-intro { padding-top: 32px; margin-bottom: 28px; }
+      .law-video-intro .law-section-title { font-size: 1.1rem; }
+      .law-video-intro .law-section-sub { font-size: 0.85rem; }
       .law-results-header,
-      .law-clients-header,
+      .law-proof-header,
       .law-sauce-header { margin-bottom: 32px; }
+      .law-proof-tagline { font-size: 1rem; }
       .law-video-ads-bottom { font-size: 0.9rem; }
       .law-video-ads-preview { border-radius: 12px; }
-      .law-hero-video-wrap { margin: 20px 0 24px; border-radius: 10px; }
-      .law-faq { padding: 48px 0; }
-      .law-faq-question { padding: 16px 16px; }
-      .law-faq-question span { font-size: 0.9rem; }
-      .law-faq-item.is-open .law-faq-answer { padding: 0 16px 18px; }
+      .law-pricing { padding: 48px 0; }
+      .law-pricing-grid { max-width: 100%; }
+      .law-pricing-card { padding: 36px 24px 32px; }
+      .law-pricing-name { font-size: 1.2rem; }
+      .law-pricing-price { font-size: 1.8rem; }
+      .law-pricing-desc { font-size: 0.82rem; min-height: auto; }
+      .law-pricing-features li { font-size: 0.84rem; }
     }
   </style>
 </head>
 <body>
 
 <!-- ==========================================
-     NAVBAR  - Standalone one-pager navigation
+     NAVBAR — Standalone one-pager navigation
      ========================================== -->
 <nav class="dc-navbar">
   <div class="dc-navbar-inner">
@@ -1066,10 +1148,11 @@
       <img src="/images/dc-logo-full-white.svg" alt="Driven Creations" width="190" height="52" fetchpriority="high" />
     </a>
     <div class="dc-nav-links">
-      <a href="#work-showcase" class="dc-nav-link">Our Work</a>
+      <a href="#proof" class="dc-nav-link">Our Work</a>
+      <a href="#watch" class="dc-nav-link">Video</a>
       <a href="#results" class="dc-nav-link">Process</a>
       <a href="#video-ads" class="dc-nav-link">Video Ads</a>
-      <a href="#faq" class="dc-nav-link">FAQ</a>
+      <a href="#pricing" class="dc-nav-link">Pricing</a>
     </div>
     <div class="dc-nav-cta">
       <a href="#book" class="dc-btn dc-btn-primary dc-btn-sm">Book a Call</a>
@@ -1084,10 +1167,11 @@
 
 <!-- Mobile Menu Panel -->
 <div class="dc-mobile-menu" id="mobileMenu">
-  <a href="#work-showcase" class="dc-mobile-menu-link">Our Work</a>
+  <a href="#proof" class="dc-mobile-menu-link">Our Work</a>
+  <a href="#watch" class="dc-mobile-menu-link">Video</a>
   <a href="#results" class="dc-mobile-menu-link">Process</a>
   <a href="#video-ads" class="dc-mobile-menu-link">Video Ads</a>
-  <a href="#faq" class="dc-mobile-menu-link">FAQ</a>
+  <a href="#pricing" class="dc-mobile-menu-link">Pricing</a>
   <div class="dc-mobile-menu-cta">
     <a href="#book" class="dc-btn dc-btn-primary">Book a Call</a>
   </div>
@@ -1097,7 +1181,7 @@
      HERO SECTION
      ========================================== -->
 <section class="law-hero">
-  <video class="law-hero-bg-video" autoplay muted loop playsinline preload="auto">
+  <video class="law-hero-video" autoplay muted loop playsinline preload="auto">
     <source src="video/lawyer-hero-bg.mp4" type="video/mp4">
   </video>
   <!-- Decorative: Justice scales -->
@@ -1108,8 +1192,30 @@
     <div class="dc-section-tag dc-section-tag-purple law-hero-tag">Law Firm Web Design <span class="dc-symbol">&</span> Branding</div>
     <h1 class="law-hero-title">Build <span class="dc-gradient-text">Instant Authority</span> With a Brand That Wins Clients</h1>
     <p class="law-hero-sub">If you're a boutique law firm whose website blends in with the competition and fails to build trust with high-value clients, we'll help you attract your ideal clients with a standout brand and website in 28 days or less.</p>
-    <!-- VSL Video  - directly in hero per instructor feedback -->
-    <div class="law-hero-video-wrap">
+    <div class="law-hero-ctas">
+      <a href="#book" class="dc-btn dc-btn-primary dc-btn-lg">Book Your Free Strategy Call</a>
+      <a href="#watch" class="dc-btn dc-btn-outline dc-btn-lg">Watch How It Works</a>
+    </div>
+    <div class="law-hero-guarantee">
+      <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+      Unlimited revisions until you're 100% satisfied
+    </div>
+  </div>
+  <a href="#watch" class="law-scroll-arrow" aria-label="Scroll to video">&#8595;</a>
+</section>
+
+
+<!-- ==========================================
+     VIDEO SECTION (third section — after work showcase)
+     ========================================== -->
+<section class="law-video" id="watch">
+  <div class="dc-section-container">
+    <div class="law-video-intro">
+      <div class="dc-section-tag dc-section-tag-purple">See Our Process</div>
+      <div class="law-section-title">A Personal Message From Our Founder</div>
+      <p class="law-section-sub law-section-sub--centered">How we transform law firm brands</p>
+    </div>
+    <div class="law-video-wrap">
       <div class="law-video-overlay" id="videoOverlay">
         <div class="law-video-play-icon">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -1119,102 +1225,81 @@
         <source src="video/law-firm-offer-web.mp4" type="video/mp4">
       </video>
     </div>
-    <div class="law-hero-ctas">
-      <a href="#book" class="dc-btn dc-btn-primary dc-btn-xl">Book Your Free Strategy Call</a>
-    </div>
-    <div class="law-hero-guarantee">
-      <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-      Unlimited revisions until you're 100% satisfied
-    </div>
   </div>
-  <a href="#work-showcase" class="law-scroll-arrow" aria-label="Scroll down">&#8595;</a>
 </section>
 
 <!-- ==========================================
-     WORK SAMPLES MARQUEE (second section  - right after hero)
+     3 KEY RESULTS
      ========================================== -->
-<section id="work-showcase" class="dc-work-marquee">
-  <div class="dc-work-marquee-row">
-    <div class="dc-work-marquee-track dc-work-marquee-track--left">
-      <a href="lawyers/showcase/ashford-sterling.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="Ashford & Sterling - Personal Injury" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/blackwell-reid.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/blackwell-reid-thumb.png" alt="Blackwell Reid - Criminal Defense" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/mercer-rhodes.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/mercer-rhodes-thumb.png" alt="Mercer & Rhodes - Family Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/caldwell-hart.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/caldwell-hart-thumb.png" alt="Caldwell Hart - Corporate Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/hargrove-associates.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/hargrove-associates-thumb.png" alt="Hargrove & Associates - Estate Planning" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/rivera-law.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="Rivera Law - Immigration" width="280" height="213" loading="lazy" /></a>
-      <!-- Duplicate for seamless loop -->
-      <a href="lawyers/showcase/ashford-sterling.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="Ashford & Sterling - Personal Injury" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/blackwell-reid.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/blackwell-reid-thumb.png" alt="Blackwell Reid - Criminal Defense" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/mercer-rhodes.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/mercer-rhodes-thumb.png" alt="Mercer & Rhodes - Family Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/caldwell-hart.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/caldwell-hart-thumb.png" alt="Caldwell Hart - Corporate Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/hargrove-associates.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/hargrove-associates-thumb.png" alt="Hargrove & Associates - Estate Planning" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/rivera-law.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="Rivera Law - Immigration" width="280" height="213" loading="lazy" /></a>
-    </div>
+<section class="law-results" id="results" style="position:relative;overflow:hidden;">
+  <!-- Decorative: Dot grid -->
+  <svg class="law-deco law-deco--dots" style="top:40px;right:40px;width:140px;height:140px;" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="2"/><circle cx="40" cy="10" r="2"/><circle cx="70" cy="10" r="2"/><circle cx="100" cy="10" r="2"/><circle cx="130" cy="10" r="2"/><circle cx="10" cy="40" r="2"/><circle cx="40" cy="40" r="2"/><circle cx="70" cy="40" r="2"/><circle cx="100" cy="40" r="2"/><circle cx="130" cy="40" r="2"/><circle cx="10" cy="70" r="2"/><circle cx="40" cy="70" r="2"/><circle cx="70" cy="70" r="2"/><circle cx="100" cy="70" r="2"/><circle cx="130" cy="70" r="2"/><circle cx="10" cy="100" r="2"/><circle cx="40" cy="100" r="2"/><circle cx="70" cy="100" r="2"/><circle cx="100" cy="100" r="2"/><circle cx="130" cy="100" r="2"/><circle cx="10" cy="130" r="2"/><circle cx="40" cy="130" r="2"/><circle cx="70" cy="130" r="2"/><circle cx="100" cy="130" r="2"/><circle cx="130" cy="130" r="2"/></svg>
+  <div class="law-results-header">
+    <div class="dc-section-tag dc-section-tag-purple">What You Get</div>
+    <div class="law-section-title">A Complete Transformation in <span class="dc-gradient-text">Three Phases</span></div>
   </div>
-  <div class="dc-work-marquee-row">
-    <div class="dc-work-marquee-track dc-work-marquee-track--right">
-      <a href="lawyers/showcase/whitfield-drake.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="Whitfield & Drake - Intellectual Property" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/thornton-james.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="Thornton James LLP - Tax & Financial Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/nakamura-voss.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/nakamura-voss-thumb.png" alt="Nakamura & Voss - International Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/chambers-whitley.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/chambers-whitley-thumb.png" alt="Chambers Whitley - Environmental Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/prescott-monroe.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/prescott-monroe-thumb.png" alt="Prescott & Monroe - Maritime Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/delgado-morales.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/delgado-morales-thumb.png" alt="Delgado & Morales - Civil Rights" width="280" height="213" loading="lazy" /></a>
-      <!-- Duplicate for seamless loop -->
-      <a href="lawyers/showcase/whitfield-drake.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="Whitfield & Drake - Intellectual Property" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/thornton-james.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="Thornton James LLP - Tax & Financial Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/nakamura-voss.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/nakamura-voss-thumb.png" alt="Nakamura & Voss - International Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/chambers-whitley.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/chambers-whitley-thumb.png" alt="Chambers Whitley - Environmental Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/prescott-monroe.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/prescott-monroe-thumb.png" alt="Prescott & Monroe - Maritime Law" width="280" height="213" loading="lazy" /></a>
-      <a href="lawyers/showcase/delgado-morales.html" class="dc-work-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/delgado-morales-thumb.png" alt="Delgado & Morales - Civil Rights" width="280" height="213" loading="lazy" /></a>
+  <div class="law-results-grid">
+    <div class="law-result-card">
+      <div class="law-result-step">01</div>
+      <h3>Strategic Brand Foundation</h3>
+      <p class="problem">So many law firms jump right into building a website without thinking through their goals, their strategy, or their long-term vision. But your website is the most important thing you have online &mdash; it's the soul of your law firm.</p>
+      <p class="solution">Before we design a single pixel, we dive deep into understanding your firm. Through our brand discovery process, we uncover what makes your practice unique, your values, your ideal clients, and the outcomes you deliver.</p>
+    </div>
+    <div class="law-result-card">
+      <div class="law-result-step">02</div>
+      <h3>Custom Designed Website</h3>
+      <p class="problem">Here's the danger with cheap websites or trying to do it yourself with an AI builder &mdash; it won't come across as premium. When your site looks like everything else out there, potential clients can't tell you apart from the competition.</p>
+      <p class="solution">We bring your brand to life with a fully custom website. High-fidelity wireframes, professional SEO-friendly copy, and a design that positions you as the obvious choice in your market.</p>
+    </div>
+    <div class="law-result-card">
+      <div class="law-result-step">03</div>
+      <h3>Polished Launch &amp; Growth</h3>
+      <p class="problem">Most people just launch their website and think that's it. They have a "build it and they will come" attitude. Without consistent work and a sound strategy for driving traffic, your website will just sit there.</p>
+      <p class="solution">We handle the entire launch process. Rigorous QA testing across every device. The end result? A website that works for you &mdash; one you're confident sending every prospect to.</p>
     </div>
   </div>
 </section>
 
 <!-- ==========================================
-     CLIENT PROJECTS  - Real Results
+     FEATURED WORK
      ========================================== -->
-<section class="law-clients" id="clients">
-  <div class="law-clients-header">
-    <div class="dc-section-tag dc-section-tag-purple">Real Client Work</div>
-    <div class="law-section-title">Projects We've <span class="dc-gradient-text">Delivered</span></div>
+<section class="law-proof" id="proof" style="position:relative;overflow:hidden;">
+  <!-- Decorative: Diagonal lines -->
+  <svg class="law-deco law-deco--line" style="bottom:30px;left:20px;width:200px;height:200px;" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="200" y2="200"/><line x1="40" y1="0" x2="200" y2="160"/><line x1="80" y1="0" x2="200" y2="120"/><line x1="0" y1="40" x2="160" y2="200"/><line x1="0" y1="80" x2="120" y2="200"/></svg>
+  <div class="law-proof-header">
+    <div class="dc-section-tag dc-section-tag-purple">Our Work</div>
+    <div class="law-section-title">Built for Firms <span class="dc-gradient-text">Like Yours</span></div>
   </div>
-  <div class="law-clients-grid">
-    <div class="law-client-card">
-      <div class="law-client-card-img">
-        <img src="images/lawyers/kirkland-screenshot.png" alt="Kirkland Personal Injury website" width="800" height="500" loading="lazy" />
+  <div class="law-proof-grid">
+    <a href="https://kirklandpersonalinjury.com/" class="law-proof-card law-proof-card--linked" target="_blank" rel="noopener noreferrer">
+      <div class="law-proof-thumb">
+        <img src="images/lawyers/kirkland-screenshot.png" alt="Kirkland Personal Injury website" loading="lazy" />
       </div>
-      <div class="law-client-card-body">
-        <h4>Kirkland Personal Injury</h4>
-        <div class="law-client-type">Personal Injury Law</div>
-        <div class="law-client-result">Custom brand identity + high-converting website</div>
-        <a href="https://www.kirklandpersonalinjury.com/" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <h4>Patrick Trudell, Attorney at Law</h4>
+      <div class="law-proof-type">Personal Injury &bull; Kirkland, WA</div>
+      <p>An experienced trial lawyer serving King and Snohomish Counties since 1986. We designed a professional website that builds trust and converts injured clients into consultations.</p>
+      <div class="law-proof-result">Visit Site &rarr;</div>
+    </a>
+    <a href="https://www.drivencreations.com/lawyers/showcase/thornton-james" class="law-proof-card law-proof-card--linked" target="_blank" rel="noopener noreferrer">
+      <div class="law-proof-thumb">
+        <img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="Thornton James LLP website" loading="lazy" />
       </div>
-    </div>
-    <div class="law-client-card">
-      <div class="law-client-card-img">
-        <img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="Thornton James LLP tax and financial law firm website" width="280" height="213" loading="lazy" />
+      <h4>Thornton James LLP</h4>
+      <div class="law-proof-type">Tax &amp; Financial Law &bull; Dallas, TX</div>
+      <p>A prestigious tax and financial law firm trusted by families, founders, and institutions for over four decades. We built a website that matches the gravity and discretion of their practice.</p>
+      <div class="law-proof-result">Visit Site &rarr;</div>
+    </a>
+    <a href="https://www.drivencreations.com/lawyers/showcase/ashford-sterling" class="law-proof-card law-proof-card--linked" target="_blank" rel="noopener noreferrer">
+      <div class="law-proof-thumb">
+        <img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="Ashford &amp; Sterling website" loading="lazy" />
       </div>
-      <div class="law-client-card-body">
-        <h4>Thornton James LLP</h4>
-        <div class="law-client-type">Tax &amp; Financial Law</div>
-        <div class="law-client-result">Distinguished brand for Dallas&rsquo;s preeminent tax law firm</div>
-        <a href="lawyers/showcase/thornton-james.html" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-    </div>
-    <div class="law-client-card">
-      <div class="law-client-card-img">
-        <img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="Ashford & Sterling personal injury law firm website" width="280" height="213" loading="lazy" />
-      </div>
-      <div class="law-client-card-body">
-        <h4>Ashford &amp; Sterling</h4>
-        <div class="law-client-type">Personal Injury</div>
-        <div class="law-client-result">Premium brand for D.C.&rsquo;s top personal injury attorneys</div>
-        <a href="lawyers/showcase/ashford-sterling.html" target="_blank" rel="noopener noreferrer" class="law-visit-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-    </div>
+      <h4>Ashford &amp; Sterling</h4>
+      <div class="law-proof-type">Personal Injury &bull; Washington, D.C.</div>
+      <p>Washington D.C.&rsquo;s premier personal injury firm with over $150 million recovered for clients. We created an authoritative online presence that converts visitors into consultations.</p>
+      <div class="law-proof-result">Visit Site &rarr;</div>
+    </a>
   </div>
 </section>
-
 
 <!-- ==========================================
      VIDEO ADVERTISING
@@ -1227,7 +1312,7 @@
       <div class="dc-section-tag dc-section-tag-purple">Beyond Your Website</div>
       <h2>Attract Clients With <span class="dc-gradient-text">Professional Video Ads</span></h2>
 
-      <p>Most law firms rely on their website alone. But the firms winning right now are showing up in front of ideal clients with <strong>professional video ads</strong> on social media, YouTube, and local search.</p>
+      <p>Most law firms rely on their website alone. But the firms winning right now are showing up in front of ideal clients with <strong>professional video ads</strong> &mdash; on social media, YouTube, and local search.</p>
       <p>Traditional video production is expensive and slow. We use <strong>AI-powered tools</strong> to create polished commercials at a fraction of the cost.</p>
       <div class="law-video-ads-features">
         <div class="law-video-feature">
@@ -1257,27 +1342,13 @@
       <iframe src="https://www.youtube.com/embed/yPOCNrJxEyw" title="AI Video Ad Example - Law Firm" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
-  <p class="law-video-ads-bottom"><strong>Website + Video Ads.</strong> The complete package to dominate your market.</p>
+  <p class="law-video-ads-bottom"><strong>Website + Video Ads</strong> &mdash; the complete package to dominate your market.</p>
 </section>
 
 <!-- ==========================================
      SOFT CTA
      ========================================== -->
 <section class="law-soft-cta">
-  <div class="law-soft-cta-bg" aria-hidden="true">
-    <img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/blackwell-reid-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/mercer-rhodes-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/caldwell-hart-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/hargrove-associates-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/nakamura-voss-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/chambers-whitley-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/prescott-monroe-thumb.png" alt="" loading="lazy" />
-    <img src="lawyers/showcase/screenshots/delgado-morales-thumb.png" alt="" loading="lazy" />
-  </div>
   <div class="dc-section-tag dc-section-tag-purple">Curious?</div>
   <div class="law-section-title">See How This Would Work for <span class="dc-gradient-text">Your Firm</span></div>
   <p class="law-section-sub law-section-sub--centered">We'll hop on a call, walk you through our process, answer any questions, and give you an honest assessment of where your website stands today. No pressure. No obligation.</p>
@@ -1307,83 +1378,81 @@
       <h3>We Understand Law Firms</h3>
       <p>We've worked with law firms across different practice areas, and we understand what makes this industry unique.</p>
       <p>We know that <strong>trust is everything</strong>. Potential clients are often going through stressful situations and need to feel confident in their choice before they ever pick up the phone.</p>
-      <p>That expertise shows up in every decision we make, from the imagery we choose to the way we structure your content to the calls-to-action we place throughout your site.</p>
+      <p>That expertise shows up in every decision we make &mdash; from the imagery we choose to the way we structure your content to the calls-to-action we place throughout your site.</p>
     </div>
   </div>
 </section>
 
 <!-- ==========================================
-     FAQ SECTION (replaces pricing per instructor feedback)
+     PRICING SECTION
      ========================================== -->
-<section class="law-faq" id="faq">
-  <div class="law-faq-header">
-    <div class="dc-section-tag dc-section-tag-purple">Common Questions</div>
-    <div class="law-section-title">Frequently Asked <span class="dc-gradient-text">Questions</span></div>
+<section class="law-pricing" id="pricing">
+  <div class="law-pricing-header">
+    <div class="dc-section-tag dc-section-tag-purple">Investment</div>
+    <div class="law-section-title">Choose the Package That Fits <span class="dc-gradient-text">Your Firm</span></div>
+    <p class="law-section-sub law-section-sub--centered">Every package includes unlimited revisions and is delivered in 28 days or less.</p>
   </div>
-  <div class="law-faq-list">
-    <div class="law-faq-item">
-      <div class="law-faq-question">
-        <span>How much does a law firm website cost?</span>
-        <div class="law-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-      </div>
-      <div class="law-faq-answer">
-        <p>Our projects typically range from five figures to the mid-teens, depending on the scope of work. Whether you need a website refresh, full branding, copywriting, or video ads. Every engagement is tailored to your firm's goals. The best way to get an accurate number is to hop on a quick strategy call so we can understand your situation.</p>
-      </div>
+  <div class="law-pricing-grid">
+
+    <!-- Package 3 — The Refresh (lowest) -->
+    <div class="law-pricing-card">
+      <div class="law-pricing-tier">Package 3</div>
+      <div class="law-pricing-name">The Refresh</div>
+      <div class="law-pricing-desc">Web design &amp; development that transforms your online presence.</div>
+      <div class="law-pricing-price">$11,807</div>
+      <div class="law-pricing-price-note">One-time investment</div>
+      <div class="law-pricing-divider"></div>
+      <ul class="law-pricing-features">
+        <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Striking Website Redesign</li>
+        <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Improved User Experience</li>
+        <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Complete 10-15 Page Responsive Build</li>
+        <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Seamless Launch &amp; Handoff</li>
+      </ul>
+      <a href="#book" class="law-pricing-cta law-pricing-cta--outline">Get Started</a>
     </div>
-    <div class="law-faq-item">
-      <div class="law-faq-question">
-        <span>How long does the process take?</span>
-        <div class="law-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-      </div>
-      <div class="law-faq-answer">
-        <p>We deliver in 28 days or less. That includes brand discovery, custom design, professional copywriting, development, QA testing, and launch. We move fast without cutting corners.</p>
-      </div>
+
+    <!-- Package 2 — New Look (featured / most popular) -->
+    <div class="law-pricing-card law-pricing-card--featured">
+      <div class="law-pricing-badge">Most Popular</div>
+      <div class="law-pricing-tier">Package 2</div>
+      <div class="law-pricing-name">New Look</div>
+      <div class="law-pricing-desc">Web design + dev + professional copywriting + 2 AI video ads.</div>
+      <div class="law-pricing-price">$13,744</div>
+      <div class="law-pricing-price-note">One-time investment</div>
+      <div class="law-pricing-divider"></div>
+      <ul class="law-pricing-features">
+        <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Everything in The Refresh</li>
+        <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Professional SEO Copywriting</li>
+        <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Two 30-Second AI Social/TV Ads</li>
+      </ul>
+      <a href="#book" class="law-pricing-cta law-pricing-cta--primary">Book Your Call</a>
     </div>
-    <div class="law-faq-item">
-      <div class="law-faq-question">
-        <span>Will I own my website when it's done?</span>
-        <div class="law-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-      </div>
-      <div class="law-faq-answer">
-        <p>Absolutely. Once we build it, it's 100% yours. You get full control and can make updates yourself. You're never locked in or dependent on us for simple changes. Your website, your control, your freedom.</p>
-      </div>
+
+    <!-- Package 1 — Everything Brand New (premium) -->
+    <div class="law-pricing-card">
+      <div class="law-pricing-tier">Package 1</div>
+      <div class="law-pricing-name">Everything Brand New</div>
+      <div class="law-pricing-desc">Complete branding + web design + copywriting + 4 AI video ads.</div>
+      <div class="law-pricing-price">$18,000</div>
+      <div class="law-pricing-price-note">One-time investment</div>
+      <div class="law-pricing-divider"></div>
+      <ul class="law-pricing-features">
+        <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Everything in New Look</li>
+        <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Custom Branding &amp; Brand Identity Guide</li>
+        <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Four 30-Second AI Social/TV Ads</li>
+      </ul>
+      <a href="#book" class="law-pricing-cta law-pricing-cta--outline">Get Started</a>
     </div>
-    <div class="law-faq-item">
-      <div class="law-faq-question">
-        <span>What if I'm not happy with the design?</span>
-        <div class="law-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-      </div>
-      <div class="law-faq-answer">
-        <p>Every package includes unlimited revisions. We work until you're 100% satisfied. No exceptions. We don't move forward until you love what you see.</p>
-      </div>
-    </div>
-    <div class="law-faq-item">
-      <div class="law-faq-question">
-        <span>Do you also create video ads for law firms?</span>
-        <div class="law-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-      </div>
-      <div class="law-faq-answer">
-        <p>Yes. We use AI-powered video production to create professional 30-second commercials at a fraction of traditional costs. These ads are designed for social media, YouTube, and local search to help your firm attract clients beyond your website.</p>
-      </div>
-    </div>
-    <div class="law-faq-item">
-      <div class="law-faq-question">
-        <span>What happens on the strategy call?</span>
-        <div class="law-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-      </div>
-      <div class="law-faq-answer">
-        <p>We'll discuss your firm, your goals, and what's not working with your current website. I'll give you an honest assessment and show you exactly what a transformed online presence looks like for your practice. No pressure, no obligation. Just a conversation.</p>
-      </div>
-    </div>
+
   </div>
-  <div class="law-faq-cta">
-    <p>Still have questions? Let's talk it through on a call.</p>
-    <a href="#book" class="dc-btn dc-btn-primary dc-btn-lg">Book Your Free Strategy Call</a>
+  <div class="law-pricing-guarantee">
+    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+    Unlimited design revisions &mdash; we work until you're 100% satisfied
   </div>
 </section>
 
 <!-- ==========================================
-     TESTIMONIALS  - Real Client Reviews
+     TESTIMONIALS — Real Client Reviews
      ========================================== -->
 <section id="testimonials" class="dc-testimonials" style="position:relative;">
   <div class="dc-section-container">
@@ -1469,7 +1538,7 @@
 </section>
 
 <!-- ==========================================
-     BOOK A CALL  - Calendly Embed Section
+     BOOK A CALL — Calendly Embed Section
      ========================================== -->
 <section class="law-book" id="book">
   <div class="law-book-content">
@@ -1507,10 +1576,11 @@
       <div class="dc-footer-col">
         <div class="dc-footer-heading">Navigate</div>
         <nav class="dc-footer-nav">
-          <a href="#work-showcase" class="dc-footer-link">Our Work</a>
+          <a href="#proof" class="dc-footer-link">Our Work</a>
+          <a href="#watch" class="dc-footer-link">Video</a>
           <a href="#results" class="dc-footer-link">Process</a>
           <a href="#video-ads" class="dc-footer-link">Video Ads</a>
-          <a href="#faq" class="dc-footer-link">FAQ</a>
+          <a href="#pricing" class="dc-footer-link">Pricing</a>
           <a href="#book" class="dc-footer-link">Book a Call</a>
         </nav>
       </div>
@@ -1542,7 +1612,6 @@
 <script src="/js/shared.js?v=11" defer></script>
 <script>
   (function() {
-    // VSL video play overlay
     var overlay = document.getElementById('videoOverlay');
     var video = document.getElementById('videoPlayer');
     overlay.addEventListener('click', function() {
@@ -1552,20 +1621,6 @@
       video.controls = true;
       video.currentTime = 0;
       video.play();
-    });
-
-    // FAQ accordion
-    document.querySelectorAll('.law-faq-question').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var item = btn.closest('.law-faq-item');
-        var wasOpen = item.classList.contains('is-open');
-        // Close all
-        document.querySelectorAll('.law-faq-item.is-open').forEach(function(el) {
-          el.classList.remove('is-open');
-        });
-        // Toggle clicked
-        if (!wasOpen) item.classList.add('is-open');
-      });
     });
   })();
 </script>
