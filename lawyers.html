@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Firm Website Design | Driven Creations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #1a1a2e;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5a 50%, #4d65ff 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234d65ff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #4d65ff;
+            color: white;
+            padding: 18px 48px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid #4d65ff;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: white;
+            color: #1a1a2e;
+            border-color: white;
+        }
+
+        .cta-button.secondary:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a2e;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Results Section */
+        .results {
+            background: #f8f9fc;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .result-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .result-number {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #4d65ff, #7c3aed);
+            color: white;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 48px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .result-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a2e;
+        }
+
+        .result-card .problem {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .result-card .solution {
+            color: #444;
+            font-size: 0.95rem;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .social-proof .section-header h2 {
+            color: white;
+        }
+
+        .social-proof .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 32px;
+            border-radius: 16px;
+        }
+
+        .testimonial-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Special Sauce Section */
+        .special-sauce {
+            background: white;
+        }
+
+        .sauce-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .sauce-card {
+            padding: 48px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #fff 100%);
+            border: 1px solid #eee;
+        }
+
+        .sauce-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .sauce-card p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .sauce-card .highlight {
+            color: #4d65ff;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #4d65ff 0%, #7c3aed 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-section .cta-button {
+            background: white;
+            color: #4d65ff;
+            border-color: white;
+        }
+
+        .cta-section .cta-button:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* Guarantee Badge */
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .guarantee svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .results-grid,
+            .testimonials,
+            .sauce-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section (Intro Offer) -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Build a Standout Brand and Website for Your Law Firm</h1>
+                <p class="subtitle">If you're a medium-sized law firm whose website blends in with the competition and fails to build trust with high-value clients, we'll help you attract your ideal clients and build instant authority with a standout brand and website in just 28 days or less.</p>
+                <a href="#book" class="cta-button">Book Your Free Strategy Call</a>
+                <div class="guarantee">
+                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    Unlimited design revisions until you're 100% satisfied
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 Key Results Section -->
+    <section class="results">
+        <div class="container">
+            <div class="section-header">
+                <h2>What You'll Get</h2>
+                <p>A complete brand and website transformation in three phases</p>
+            </div>
+            <div class="results-grid">
+                <!-- Result 1 -->
+                <div class="result-card">
+                    <div class="result-number">1</div>
+                    <h3>A Strategic Brand Foundation</h3>
+                    <p class="problem">So many law firms jump right into building a website without thinking through their goals, their strategy, or their long-term vision. But your website is the most important thing you have online—it's the soul of your law firm.</p>
+                    <p class="solution">Before we design a single pixel, we dive deep into understanding your firm. Through our brand discovery process, we uncover what makes your practice unique, your values, your ideal clients, and the outcomes you deliver. We then develop a complete sitemap and brand system, including your logo, color palette, and typography that authentically represent your expertise.</p>
+                </div>
+
+                <!-- Result 2 -->
+                <div class="result-card">
+                    <div class="result-number">2</div>
+                    <h3>A Custom-Designed Website</h3>
+                    <p class="problem">Here's the danger with cheap websites or trying to do it yourself with an AI builder—it's not going to come across as premium. When your site looks like everything else out there, potential clients can't tell you apart from the competition.</p>
+                    <p class="solution">We bring your brand to life with a fully custom website. We create high-fidelity wireframes so you can see exactly what your site will look like before development begins. Our team writes professional, SEO-friendly copy that resonates with your ideal clients and positions you as the obvious choice in your market.</p>
+                </div>
+
+                <!-- Result 3 -->
+                <div class="result-card">
+                    <div class="result-number">3</div>
+                    <h3>A Polished Launch & Ongoing Growth</h3>
+                    <p class="problem">Most people just launch their website and think that's it. They have a "build it and they will come" attitude—but that's not true. Without consistent work and a sound strategy for driving traffic, your website will just sit there.</p>
+                    <p class="solution">We handle the entire launch process. Your site undergoes rigorous quality assurance testing to ensure everything works perfectly across every device. The end result? A website that works for you. You'll feel confident sending prospects to your site, knowing it reflects the quality of work you actually deliver.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Do We Know This Works?</h2>
+                <p>We've done it for firms just like yours</p>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <h4>Kirkland Personal Injury</h4>
+                    <p>A personal injury attorney who needed a site that builds trust with clients going through tough times.</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Premium Title & Escrow</h4>
+                    <p>A title company serving clients across six states who needed a professional online presence.</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Paramount Development</h4>
+                    <p>A real estate firm with a luxury portfolio in DC who needed a website to match their premium brand.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; font-size: 1.25rem; font-weight: 600;">We deliver results. Every time.</p>
+        </div>
+    </section>
+
+    <!-- Special Sauce Section -->
+    <section class="special-sauce">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Work With Us?</h2>
+                <p>What makes us different from every other agency</p>
+            </div>
+            <div class="sauce-grid">
+                <div class="sauce-card">
+                    <h3>We Put You in Control</h3>
+                    <p>Once we build your website, <span class="highlight">it's yours</span>. You get full control.</p>
+                    <p style="margin-top: 16px;">We're not going to nickel and dime you for every single thing that needs to be changed. It's easy for you to update.</p>
+                    <p style="margin-top: 16px;">And if you want our help, we'll gladly help you. But we build it to give you the <span class="highlight">freedom to do what you want</span> to do with it.</p>
+                </div>
+                <div class="sauce-card">
+                    <h3>We Specialize in Law Firms</h3>
+                    <p>We've worked with law firms across different practice areas, and we understand what makes this industry unique.</p>
+                    <p style="margin-top: 16px;">We know that <span class="highlight">trust is everything</span>. We know that potential clients are often going through stressful situations and need to feel confident in their choice before they ever pick up the phone.</p>
+                    <p style="margin-top: 16px;">That expertise shows up in every decision we make, from the imagery we choose to the way we structure your content to the calls-to-action we place throughout your site.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft CTA Section -->
+    <section style="background: #f8f9fc; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2rem; margin-bottom: 20px;">Ready to See What's Possible?</h2>
+            <p style="font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto 30px;">Book a free strategy call and we'll show you exactly how we can transform your firm's online presence.</p>
+            <a href="#book" class="cta-button">Schedule Your Free Call</a>
+        </div>
+    </section>
+
+    <!-- Hard CTA Section -->
+    <section class="cta-section" id="book">
+        <div class="container">
+            <h2>Let's Build Something Great Together</h2>
+            <p>Get a standout brand and website for your law firm in 28 days or less.<br>Unlimited revisions until you're 100% satisfied.</p>
+            <a href="#" class="cta-button">Book Your Free Strategy Call Now</a>
+            <div class="guarantee">
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                No obligation. No pressure. Just a conversation about your goals.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Driven Creations. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
