@@ -133,7 +133,11 @@
       display: flex;
       align-items: center;
       gap: 40px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
+    .nav-links li { display: flex; align-items: center; }
     .nav-links a {
       font-size: 0.78rem;
       font-weight: 500;
@@ -170,13 +174,18 @@
       height: 1.5px;
       background: var(--gold);
       transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
     }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
     .nav-mobile {
       display: none;
       position: fixed;
       top: 78px; left: 0; right: 0;
       background: rgba(10,10,10,0.97);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       padding: 32px;
       border-bottom: 1px solid var(--gold-border);
       flex-direction: column;
@@ -191,12 +200,20 @@
       text-transform: uppercase;
       color: var(--text);
       transition: color 0.25s;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
     }
+    .nav-mobile a:last-child { border-bottom: none; padding-bottom: 0; }
     .nav-mobile a:hover { color: var(--gold); }
 
     @media (max-width: 900px) {
+      .nav { padding: 0 24px; }
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 0 20px; }
+      .nav-mobile { padding: 24px 20px 32px; }
     }
 
     /* ─────────────────────────────────────────
@@ -1372,10 +1389,13 @@
     const navMobile = document.getElementById('navMobile');
     navToggle.addEventListener('click', () => {
       const open = navMobile.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
       navToggle.setAttribute('aria-expanded', open);
     });
     function closeMobileNav() {
       navMobile.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
     }
 
     /* ── Hero image pan on load ── */
