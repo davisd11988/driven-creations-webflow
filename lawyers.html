@@ -268,6 +268,86 @@
     .law-hero-tag {
     }
 
+    /* Showcase Marquee */
+    .law-marquee {
+      background: #090316;
+      padding: 48px 0;
+      overflow: hidden;
+      position: relative;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .law-marquee-row {
+      position: relative;
+      overflow: hidden;
+      padding: 8px 0;
+    }
+    .law-marquee-row::before,
+    .law-marquee-row::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .law-marquee-row::before {
+      left: 0;
+      background: linear-gradient(to right, #090316, transparent);
+    }
+    .law-marquee-row::after {
+      right: 0;
+      background: linear-gradient(to left, #090316, transparent);
+    }
+    .law-marquee-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+    }
+    .law-marquee-track--left {
+      animation: law-marquee-left 35s linear infinite;
+    }
+    .law-marquee-track--right {
+      animation: law-marquee-right 40s linear infinite;
+    }
+    .law-marquee-item {
+      flex-shrink: 0;
+      width: 300px;
+      aspect-ratio: 16 / 10;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .law-marquee-item:hover {
+      border-color: rgba(124, 58, 237, 0.3);
+      transform: scale(1.03);
+    }
+    .law-marquee-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .law-marquee-row + .law-marquee-row {
+      margin-top: 16px;
+    }
+    @keyframes law-marquee-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes law-marquee-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    @media (max-width: 767px) {
+      .law-marquee { padding: 36px 0; }
+      .law-marquee-item { width: 220px; }
+      .law-marquee-row::before,
+      .law-marquee-row::after { width: 60px; }
+      .law-marquee-track { gap: 14px; }
+      .law-marquee-row + .law-marquee-row { margin-top: 12px; }
+    }
+
     /* Scroll indicator arrow */
     .law-scroll-arrow {
       position: absolute;
@@ -1314,6 +1394,46 @@
     </div>
   </div>
   <a href="#proof" class="law-scroll-arrow" aria-label="Scroll down">&#8595;</a>
+</section>
+
+<!-- ==========================================
+     SHOWCASE MARQUEE
+     ========================================== -->
+<section class="law-marquee">
+  <div class="law-marquee-row">
+    <div class="law-marquee-track law-marquee-track--left">
+      <a href="lawyers/showcase/ashford-sterling" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="Ashford &amp; Sterling - Personal Injury" loading="lazy" /></a>
+      <a href="lawyers/showcase/blackwell-reid" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/blackwell-reid-thumb.png" alt="Blackwell Reid - Criminal Defense" loading="lazy" /></a>
+      <a href="lawyers/showcase/mercer-rhodes" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/mercer-rhodes-thumb.png" alt="Mercer &amp; Rhodes - Family Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/caldwell-hart" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/caldwell-hart-thumb.png" alt="Caldwell Hart - Corporate Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/hargrove-associates" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/hargrove-associates-thumb.png" alt="Hargrove &amp; Associates - Estate Planning" loading="lazy" /></a>
+      <a href="lawyers/showcase/rivera-law" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="Rivera Law - Immigration" loading="lazy" /></a>
+      <!-- Duplicate for seamless loop -->
+      <a href="lawyers/showcase/ashford-sterling" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/ashford-sterling-thumb.png" alt="Ashford &amp; Sterling - Personal Injury" loading="lazy" /></a>
+      <a href="lawyers/showcase/blackwell-reid" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/blackwell-reid-thumb.png" alt="Blackwell Reid - Criminal Defense" loading="lazy" /></a>
+      <a href="lawyers/showcase/mercer-rhodes" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/mercer-rhodes-thumb.png" alt="Mercer &amp; Rhodes - Family Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/caldwell-hart" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/caldwell-hart-thumb.png" alt="Caldwell Hart - Corporate Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/hargrove-associates" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/hargrove-associates-thumb.png" alt="Hargrove &amp; Associates - Estate Planning" loading="lazy" /></a>
+      <a href="lawyers/showcase/rivera-law" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/rivera-law-thumb.png" alt="Rivera Law - Immigration" loading="lazy" /></a>
+    </div>
+  </div>
+  <div class="law-marquee-row">
+    <div class="law-marquee-track law-marquee-track--right">
+      <a href="lawyers/showcase/whitfield-drake" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="Whitfield &amp; Drake - Intellectual Property" loading="lazy" /></a>
+      <a href="lawyers/showcase/thornton-james" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="Thornton James LLP - Tax &amp; Financial Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/nakamura-voss" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/nakamura-voss-thumb.png" alt="Nakamura &amp; Voss - International Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/chambers-whitley" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/chambers-whitley-thumb.png" alt="Chambers Whitley - Environmental Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/prescott-monroe" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/prescott-monroe-thumb.png" alt="Prescott &amp; Monroe - Maritime Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/delgado-morales" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/delgado-morales-thumb.png" alt="Delgado &amp; Morales - Civil Rights" loading="lazy" /></a>
+      <!-- Duplicate for seamless loop -->
+      <a href="lawyers/showcase/whitfield-drake" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/whitfield-drake-thumb.png" alt="Whitfield &amp; Drake - Intellectual Property" loading="lazy" /></a>
+      <a href="lawyers/showcase/thornton-james" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/thornton-james-thumb.png" alt="Thornton James LLP - Tax &amp; Financial Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/nakamura-voss" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/nakamura-voss-thumb.png" alt="Nakamura &amp; Voss - International Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/chambers-whitley" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/chambers-whitley-thumb.png" alt="Chambers Whitley - Environmental Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/prescott-monroe" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/prescott-monroe-thumb.png" alt="Prescott &amp; Monroe - Maritime Law" loading="lazy" /></a>
+      <a href="lawyers/showcase/delgado-morales" class="law-marquee-item" target="_blank"><img src="lawyers/showcase/screenshots/delgado-morales-thumb.png" alt="Delgado &amp; Morales - Civil Rights" loading="lazy" /></a>
+    </div>
+  </div>
 </section>
 
 <!-- ==========================================
