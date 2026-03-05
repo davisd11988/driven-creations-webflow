@@ -126,7 +126,23 @@
         "name": "Do you create video ads for law firms?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Driven Creations uses AI-powered video production to create professional 30-second commercials for law firms at a fraction of traditional production costs. These ads are designed for social media, YouTube, and local search to help firms attract clients beyond their website."
+          "text": "Yes. Driven Creations uses AI-powered video production to create professional 30-60 second commercials for law firms at a fraction of traditional production costs. No crew, no studio, no six-figure budget. These ads are designed for social media, YouTube, and local search to help firms attract clients beyond their website."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will I own my website after the project is complete?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "100% yes. Once Driven Creations builds your law firm website, it is yours. They build on a platform that makes it easy for you to update content, add pages, and make changes on your own. You are never locked in or dependent on anyone for simple updates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I am not happy with the design?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every Driven Creations package includes unlimited revisions until you are 100% satisfied. The process is collaborative, so you are involved at every step and nothing goes live without your approval."
         }
       }
     ]
@@ -1136,6 +1152,82 @@
       flex-shrink: 0;
     }
 
+    /* FAQ Section */
+    .law-faq {
+      background: #0d0920;
+      padding: 80px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .law-faq-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .law-faq-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .law-faq-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+    .law-faq-item:hover { border-color: rgba(124, 58, 237, 0.2); }
+    .law-faq-item.is-open { border-color: rgba(124, 58, 237, 0.25); }
+    .law-faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 24px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .law-faq-q h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+      line-height: 1.4;
+    }
+    .law-faq-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .law-faq-icon::before,
+    .law-faq-icon::after {
+      content: '';
+      position: absolute;
+      background: #7c3aed;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .law-faq-icon::before { width: 14px; height: 2px; top: 9px; left: 3px; }
+    .law-faq-icon::after { width: 2px; height: 14px; top: 3px; left: 9px; }
+    .law-faq-item.is-open .law-faq-icon::after { transform: rotate(90deg); opacity: 0; }
+    .law-faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .law-faq-a-inner {
+      padding: 0 24px 22px;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.9rem;
+      color: #a1a1aa;
+      line-height: 1.75;
+    }
+    .law-faq-a-inner strong { color: #d4d4d8; }
+
     /* Decorative SVG elements */
     .law-deco {
       position: absolute;
@@ -1268,6 +1360,10 @@
       .law-video-feature span { font-size: 0.9rem; line-height: 1.6; }
       .law-video-ads-preview { max-width: 100%; border-radius: 12px; }
       .law-soft-cta { padding: 40px 1.25rem; }
+      .law-faq { padding: 56px 0; }
+      .law-faq-header { margin-bottom: 40px; }
+      .law-faq-q h3 { font-size: 0.95rem; }
+      .law-faq-a-inner { font-size: 0.92rem; }
       .law-book { padding: 64px 1.25rem 56px; }
       .law-book-content { margin-bottom: 36px; }
       .law-book-embed { height: 500px; border-radius: 10px; }
@@ -1315,6 +1411,10 @@
       .law-sauce { padding: 48px 0; }
       .law-video-ads { padding: 48px 0; }
       .law-soft-cta { padding: 36px 1rem; }
+      .law-faq { padding: 48px 0; }
+      .law-faq-q { padding: 18px 20px; }
+      .law-faq-q h3 { font-size: 0.92rem; }
+      .law-faq-a-inner { padding: 0 20px 18px; font-size: 0.9rem; }
       .law-book { padding: 56px 1rem 48px; }
       .law-book-content { margin-bottom: 28px; }
       .law-book-urgency { font-size: 0.8rem; }
@@ -1355,6 +1455,7 @@
       <a href="#proof" class="dc-nav-link">Our Work</a>
       <a href="#results" class="dc-nav-link">Process</a>
       <a href="#video-ads" class="dc-nav-link">Video Ads</a>
+      <a href="#faq" class="dc-nav-link">FAQ</a>
     </div>
     <div class="dc-nav-cta">
       <a href="#book" class="dc-btn dc-btn-primary dc-btn-sm">Book a Call</a>
@@ -1372,6 +1473,7 @@
   <a href="#proof" class="dc-mobile-menu-link">Our Work</a>
   <a href="#results" class="dc-mobile-menu-link">Process</a>
   <a href="#video-ads" class="dc-mobile-menu-link">Video Ads</a>
+  <a href="#faq" class="dc-mobile-menu-link">FAQ</a>
   <div class="dc-mobile-menu-cta">
     <a href="#book" class="dc-btn dc-btn-primary">Book a Call</a>
   </div>
@@ -1701,6 +1803,42 @@
 </section>
 
 <!-- ==========================================
+     FAQ — Frequently Asked Questions
+     ========================================== -->
+<section class="law-faq" id="faq">
+  <div class="law-faq-header">
+    <div class="dc-section-tag dc-section-tag-purple">FAQ</div>
+    <div class="law-section-title">Common <span class="dc-gradient-text">Questions</span></div>
+  </div>
+  <div class="law-faq-grid">
+    <div class="law-faq-item">
+      <div class="law-faq-q"><h3>How much does a law firm website cost?</h3><div class="law-faq-icon"></div></div>
+      <div class="law-faq-a"><div class="law-faq-a-inner">We offer three packages tailored to law firms. <strong>The Refresh</strong> starts at $11,807 for a complete web redesign and build. <strong>New Look</strong> at $13,744 adds professional SEO copywriting and two 30-second AI video ads. <strong>Everything Brand New</strong> at $18,000 includes full branding, web design, copywriting, and four video ads. All packages include unlimited revisions and delivery in 28 days or less.</div></div>
+    </div>
+    <div class="law-faq-item">
+      <div class="law-faq-q"><h3>How long does it take to build a law firm website?</h3><div class="law-faq-icon"></div></div>
+      <div class="law-faq-a"><div class="law-faq-a-inner">We deliver fully custom law firm websites in <strong>28 days or less</strong>. Our process includes brand discovery, custom design, professional copywriting, development, QA testing, and launch. We move fast without cutting corners.</div></div>
+    </div>
+    <div class="law-faq-item">
+      <div class="law-faq-q"><h3>What makes Driven Creations different from other web designers?</h3><div class="law-faq-icon"></div></div>
+      <div class="law-faq-a"><div class="law-faq-a-inner">We build <strong>fully custom websites</strong>, never templates. You get full ownership and control of your site. We specialize in the legal industry, so we understand what builds trust with potential clients. We also offer AI-powered video advertising as part of our packages, something most agencies cannot provide.</div></div>
+    </div>
+    <div class="law-faq-item">
+      <div class="law-faq-q"><h3>Do you create video ads for law firms?</h3><div class="law-faq-icon"></div></div>
+      <div class="law-faq-a"><div class="law-faq-a-inner">Yes. We use <strong>AI-powered video production</strong> to create professional 30-60 second commercials at a fraction of traditional production costs. No crew, no studio, no six-figure budget. These ads are designed for social media, YouTube, and local search to help firms attract clients beyond their website.</div></div>
+    </div>
+    <div class="law-faq-item">
+      <div class="law-faq-q"><h3>Will I own my website after the project is complete?</h3><div class="law-faq-icon"></div></div>
+      <div class="law-faq-a"><div class="law-faq-a-inner"><strong>100% yes.</strong> Once we build it, it is yours. We build on a platform that makes it easy for you to update content, add pages, and make changes on your own. You are never locked in or dependent on us for simple updates.</div></div>
+    </div>
+    <div class="law-faq-item">
+      <div class="law-faq-q"><h3>What if I am not happy with the design?</h3><div class="law-faq-icon"></div></div>
+      <div class="law-faq-a"><div class="law-faq-a-inner">Every package includes <strong>unlimited revisions</strong> until you are 100% satisfied. We do not stop until you love it. Our process is collaborative, so you are involved at every step and nothing goes live without your approval.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
      BOOK A CALL — Typeform Questionnaire Section
      ========================================== -->
 <section class="law-book" id="book">
@@ -1780,6 +1918,23 @@
       video.play();
     });
   })();
+</script>
+<script>
+  document.querySelectorAll('.law-faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = q.parentElement;
+      var a = item.querySelector('.law-faq-a');
+      var isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.law-faq-item.is-open').forEach(function(open) {
+        open.classList.remove('is-open');
+        open.querySelector('.law-faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
 </script>
 
 </body>
