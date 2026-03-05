@@ -107,6 +107,83 @@
   }
   </script>
 
+  <!-- Structured Data: AggregateRating + Reviews (AEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Driven Creations",
+    "url": "https://www.drivencreations.com",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "ratingCount": "6",
+      "reviewCount": "6"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Abdelrahman Idris" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Driven Creations has been excellent to work with. They are reliable, responsive, and incredibly easy to communicate with throughout the entire process. Our new website looks modern and clean - exactly what we were aiming for.",
+        "publisher": { "@type": "Organization", "name": "Google Reviews" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Eugene Osei" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Driven Creations delivers exceptional work that has significantly benefited my business. They are professional, creative, and always go above and beyond to meet our needs. I highly recommend their services to any business seeking top-notch quality.",
+        "publisher": { "@type": "Organization", "name": "Google Reviews" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Pixie Carlisle" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Wonderful team, trust their creativity completely. They exceeded our expectations on every deliverable."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Keshia Waldron" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Very professional, delivered without micromanaging. The team understood our vision from day one."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Organization", "name": "YourD.C. LLC" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Perfect match, passionate and a true visionary. They brought our ideas to life in ways we never imagined."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "DJ Fresh" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Amazing work, and great correspondence.",
+        "publisher": { "@type": "Organization", "name": "Google Reviews" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: WebSite (AEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Driven Creations",
+    "url": "https://www.drivencreations.com",
+    "description": "Maryland-based design agency specializing in custom websites, AI-powered video advertising, and brand identity.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Driven Creations",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.drivencreations.com/images/dc-logo-full-white.svg"
+      }
+    }
+  }
+  </script>
+
   <!-- Structured Data: FAQ (AEO — AI Answer Engine Optimization) -->
   <script type="application/ld+json">
   {
