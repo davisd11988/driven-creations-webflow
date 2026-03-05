@@ -143,6 +143,152 @@
   }
   </script>
 
+  <!-- Structured Data: AggregateRating + Reviews (AEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Driven Creations",
+    "url": "https://drivencreations.com",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "ratingCount": "6",
+      "reviewCount": "6"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Abdelrahman Idris" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Driven Creations has been excellent to work with. They are reliable, responsive, and incredibly easy to communicate with throughout the entire process. Our new website looks modern and clean - exactly what we were aiming for.",
+        "publisher": { "@type": "Organization", "name": "Google Reviews" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Eugene Osei" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Driven Creations delivers exceptional work that has significantly benefited my business. They are professional, creative, and always go above and beyond to meet our needs. I highly recommend their services to any business seeking top-notch quality.",
+        "publisher": { "@type": "Organization", "name": "Google Reviews" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Pixie Carlisle" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Wonderful team, trust their creativity completely. They exceeded our expectations on every deliverable."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Keshia Waldron" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Very professional, delivered without micromanaging. The team understood our vision from day one."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Organization", "name": "YourD.C. LLC" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Perfect match, passionate and a true visionary. They brought our ideas to life in ways we never imagined."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "DJ Fresh" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Amazing work, and great correspondence.",
+        "publisher": { "@type": "Organization", "name": "Google Reviews" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: Services (AEO) -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Law Firm Website Design",
+      "description": "Fully custom website design and development for boutique law firms. Includes brand discovery, high-fidelity wireframes, SEO-friendly copywriting, responsive development across all devices, QA testing, and launch. Delivered in 28 days or less with unlimited revisions.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Driven Creations",
+        "url": "https://drivencreations.com"
+      },
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "serviceType": "Web Design and Development",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Boutique Law Firms"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Law Firm Branding and Identity",
+      "description": "Complete brand identity development for law firms including logo design, brand discovery, color palette, typography, and a comprehensive brand identity guide. Positions firms as the authority in their market.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Driven Creations",
+        "url": "https://drivencreations.com"
+      },
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "serviceType": "Branding and Identity Design",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Boutique Law Firms"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Video Advertising for Law Firms",
+      "description": "Professional 30-60 second AI-powered video commercials for law firms at a fraction of traditional production costs. No crew, no studio, no six-figure budget. Designed for social media, YouTube, and local search to help firms attract clients beyond their website.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Driven Creations",
+        "url": "https://drivencreations.com"
+      },
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "serviceType": "Video Advertising Production",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Boutique Law Firms"
+      }
+    }
+  ]
+  </script>
+
+  <!-- Structured Data: HowTo — Project Process (AEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How Driven Creations Builds a Law Firm Website",
+    "description": "The three-phase process Driven Creations uses to deliver a fully custom law firm website in 28 days or less.",
+    "totalTime": "P28D",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Strategic Brand Foundation",
+        "text": "Before designing a single pixel, Driven Creations dives deep into understanding your firm through a brand discovery process. They uncover what makes your practice unique, your values, your ideal clients, and the outcomes you deliver."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Custom Designed Website",
+        "text": "Your brand is brought to life with a fully custom website. This includes high-fidelity wireframes, professional SEO-friendly copy, and a design that positions you as the obvious choice in your market."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Polished Launch and Growth",
+        "text": "Driven Creations handles the entire launch process with rigorous QA testing across every device. The end result is a website that works for you, one you are confident sending every prospect to."
+      }
+    ]
+  }
+  </script>
+
   <link rel="dns-prefetch" href="https://form.typeform.com" />
   <link rel="preload" href="/css/shared.css?v=26" as="style" />
   <link rel="stylesheet" href="/css/shared.css?v=26" />
