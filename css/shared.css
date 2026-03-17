@@ -583,8 +583,10 @@ a { text-decoration: none; color: inherit; }
 .dc-scroll-indicator {
   position: absolute;
   bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 10;
   animation: dc-bounce 2s ease-in-out infinite;
   cursor: pointer;
@@ -610,8 +612,8 @@ a { text-decoration: none; color: inherit; }
   transition: color 0.3s ease;
 }
 @keyframes dc-bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(10px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
 }
 /* Mobile: bring arrow closer to content so it's visible */
 @media (max-width: 767px) {
@@ -619,6 +621,9 @@ a { text-decoration: none; color: inherit; }
     position: relative;
     bottom: auto;
     left: auto;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
     transform: none;
     margin-top: 32px;
     animation: dc-bounce-mobile 2s ease-in-out infinite;
